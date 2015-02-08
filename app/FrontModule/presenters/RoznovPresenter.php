@@ -11,9 +11,11 @@ namespace App\FrontModule\Presenters;
 use Nette,
     App\Model;
 
-class RoznovPresenter extends BasePresenter {
+class RoznovPresenter extends BasePresenter
+{
 
-    public function renderDefault() {
+    public function renderDefault()
+    {
 
     }
 

@@ -9,6 +9,7 @@ namespace App\FrontModule\Presenters;
 
 use Nette, App\Model;
 
-class ValmezPresenter extends BasePresenter {
+class ValmezPresenter extends BasePresenter
+{
 
 }
