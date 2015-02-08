@@ -39,6 +39,17 @@ class menuControl extends UI\Control
             return $parts[0];
         };
 
+        $percentage = 100 - (100 * disk_free_space('.') / disk_total_space('.'));
+
+        $percentage = rand(0,100);
+        if($percentage <= 25) {
+            $template->usedSpaceColor = "success ";
+        } else if($percentage > 25 AND $percentage < 85) {
+            $template->usedSpaceColor = "warning";
+        } else if($percentage >= 85) {
+            $template->usedSpaceColor = "danger";
+        }
+        $template->usedSpacePercentage = $percentage;
         $template->render();
     }
 }
