@@ -1,0 +1,7 @@
+temp/cache/*
+temp/sessions/*
+.idea
+log/*
+!log/.htaccess
+!log/.web.config
+.git
