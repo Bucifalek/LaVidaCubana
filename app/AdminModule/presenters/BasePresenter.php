@@ -5,11 +5,16 @@
  * @copyright 2015 Jan Kotrba
  */
 
+
 namespace App\AdminModule\Presenters;
 
 use Nette,
     App\AdminModule\Model,
-    Nette\Security;
+    Nette\Security,
+    Tracy\Debugger;
+
+Debugger::$maxDepth = 10; // default: 3
+Debugger::$maxLen = 50; // default: 150
 
 class BasePresenter extends Nette\Application\UI\Presenter
 {
