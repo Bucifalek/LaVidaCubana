@@ -1,0 +1,34 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body{
+  background: url("../img/background.jpg") no-repeat top center;
+  background-size: cover;
+  color: white;
+}
+
+.topLine{
+  width: 100%;
+  height: 5px;
+  background: black;
+}
+
+footer{
+  background: black;
+  width: 100%;
+  height: 35px;
+  position:absolute;
+  bottom:0;
+
+  text-align: center;
+  color: #505050;
+
+  font-family: 'Open Sans', sans-serif;
+
+  p{
+    margin-top: 7px;
+  }
+}
