@@ -101,6 +101,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
                     'Přidat|user_add' => 'Users:add',
                     'Seznam správců|adress_book' => 'Users:list'
                 ],
+            'Webový prostor' => 'Hosting:default'
         ];
         return $menu;
     }
