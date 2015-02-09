@@ -48,29 +48,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
     public function createComponentMenu()
     {
         /**
-         * Only glyphicons
+         * Only glyphicons icons in menu
          */
-        $menu = new menuControl();
-        /*$menu->sections['CMS'] =
-            [
-                'Dashboard|home' => 'Homepage:default',
-                'Obsah|flash' =>
-                    [
-                        'Přidat|warning_sign' => 'Obsah:pridat',
-                        'link 2|warning_sign' => 'presenter5',
-                    ],
-                'simple 4' => 'presenter6',
-                'deeeeepmenu' =>
-                    [
-                        'first level' => 'presenter7',
-                        'drop second' =>
-                            [
-                                'simple 5' => 'presenter8',
-                                'simple 6' => 'presenter9'
-                            ]
-                    ]
-            ];*/
-
+        $menu = new menuControl;
         $menu->sections['Obsah'] = [
             'Menu|list' => [
                 'Přidat menu|circle_plus' => 'Menu:newMenu',
@@ -104,7 +84,15 @@ class BasePresenter extends Nette\Application\UI\Presenter
                     'Přidat|user_add' => 'Users:add',
                     'Seznam správců|adress_book' => 'Users:list'
                 ],
+            'Testy|electricity' =>
+                [
+                    'Emaily' => 'Test:sendEmail'
+                ]
         ];
         return $menu;
+    }
+
+    public function handleChangeProject($changeTo) {
+        die($changeTo);
     }
 }
