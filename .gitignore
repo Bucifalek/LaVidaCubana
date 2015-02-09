@@ -5,3 +5,4 @@ log/*
 !log/.htaccess
 !log/.web.config
 .git
+app/config/config.local.neon
