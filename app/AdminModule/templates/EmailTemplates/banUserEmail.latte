@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Oznámení | HD Group</title>
+    <title>Ban účtu | HD Group</title>
 
     <style type="text/css">
         /* Take care of image borders and formatting, client hacks */
@@ -96,6 +96,12 @@
             padding: 10px 60px 0px;
         }
 
+        .free-text a {
+            color: #4a89dc;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
         .block-rounded {
             border-radius: 5px;
             border: 1px solid #e5e5e5;
@@ -131,6 +137,12 @@
             width: 228px;
         }
 
+        .logo{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
     </style>
 
     <style type="text/css" media="screen">
@@ -139,7 +151,6 @@
 
     <style type="text/css" media="screen">
         @media screen {
-            /* Thanks Outlook 2013! http://goo.gl/XLxpyl */
             * {
                 font-family: 'Oxygen', 'Helvetica Neue', 'Arial', 'sans-serif' !important;
             }
@@ -147,7 +158,6 @@
     </style>
 
     <style type="text/css" media="only screen and (max-width: 480px)">
-        /* Mobile styles */
         @media only screen and (max-width: 480px) {
 
             table[class*="container-for-gmail-android"] {
@@ -251,22 +261,7 @@
                     </tr>
                     <tr>
                         <td class="free-text">
-                            Tímto vám oznamujeme že váš učet {$firstname} {$lastname} ({$user}) byl zablokován. Již nemáte přístup do administrace webu <a href="{$website_url}">{$website}</a>
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" valign="top" width="100%" style="background-color: #f7f7f7; height: 100px;">
-            <center>
-                <table cellspacing="0" cellpadding="0" width="600" class="w320">
-                    <tr>
-                        <td style="padding: 25px 0 25px">
-                            <strong>Awesome Inc</strong><br />
-                            1234 Awesome St <br />
-                            Wonderland <br /><br />
+                            Tímto vám oznamujeme že váš učet {$firstname} {$lastname} <b>({$user})</b> byl zablokován. Již nemáte přístup do administrace webu <a href="{$website_url}">{$website}</a>
                         </td>
                     </tr>
                 </table>
@@ -274,5 +269,6 @@
         </td>
     </tr>
 </table>
+<img src="{$basePath}/Back-end/assets/img/logos/cms.png" alt="" class="logo">
 </body>
 </html>
