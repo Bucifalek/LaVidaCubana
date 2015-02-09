@@ -69,7 +69,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
             ];*/
 
         $menu->sections['Obsah'] = [
-            'Menu' => [
+            'Menu|list' => [
                 'Přidat menu' => 'Menu:newMenu',
                 'Aktuální struktura' => 'Menu:currentStructure',
             ],
@@ -77,18 +77,18 @@ class BasePresenter extends Nette\Application\UI\Presenter
                 'Přidat položku' => 'Articles:add',
                 'Všechny položky' => 'Articles:allContent',
             ],
-            'Soubory' => [
+            'Soubory|file' => [
                 'Nahrávání souborů' => 'Files:upload',
                 'Všechny soubory' => 'Files:allFiles',
             ]
         ];
 
         $menu->sections['Moduly'] = [
-            'Fotogalerie' => [
+            'Fotogalerie|camera' => [
                 'Přidat obrázky' => 'PluginGallery:addImage',
                 'Struktura galerie' => 'PluginGallery:galleryStructure',
             ],
-            'Aktuality' => [
+            'Aktuality|tags' => [
                 'Přidat novou aktualitu' => 'NewsFeed:addPost',
                 'Seznam aktualit' => 'NewsFeed:allPosts',
                 'Nastavení' => 'NewsFeed:config',
