@@ -3,10 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Změna hesla | HD Group</title>
+<title>Nový uživatel | HD Group</title>
 
 <style type="text/css">
-    /* Take care of image borders and formatting, client hacks */
     img { max-width: 600px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;}
     a img { border: none; }
     table { border-collapse: collapse !important;}
@@ -18,8 +17,6 @@
     .ExternalClass * { line-height: 115%; }
     .container-for-gmail-android { min-width: 600px; }
 
-
-    /* General styling */
     * {
         font-family: Helvetica, Arial, sans-serif;
     }
@@ -75,7 +72,7 @@
     }
 
     .content-padding {
-        padding: 20px 0 30px;
+        padding: 20px 0 5px;
     }
 
     .mobile-header-padding-right {
@@ -102,78 +99,71 @@
         list-style-type: none;
     }
 
-    .block-rounded {
-        border-radius: 5px;
-        border: 1px solid #e5e5e5;
-        vertical-align: top;
-    }
-
     .button {
-        padding: 55px 0 0;
-    }
-
-    .info-block {
-        padding: 0 20px;
-        width: 260px;
-    }
-
-    .mini-block-container {
-        padding: 30px 50px;
-        width: 500px;
+        padding: 30px 0;
     }
 
     .mini-block {
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
         background-color: #ffffff;
-        width: 498px;
-        border: 1px solid #e1e1e1;
-        border-radius: 5px;
-        padding: 60px 75px;
-    }
-
-    .block-rounded {
-        width: 260px;
-    }
-
-    .info-img {
-        width: 258px;
-        border-radius: 5px 5px 0 0;
-    }
-
-    .force-width-img {
-        width: 480px;
-        height: 1px !important;
-    }
-
-    .force-width-full {
-        width: 600px;
-        height: 1px !important;
-    }
-
-    .user-img img {
-        width: 82px;
-        border-radius: 5px;
-        border: 1px solid #cccccc;
-    }
-
-    .user-img {
-        width: 92px;
+        padding: 12px 15px 15px;
         text-align: left;
+        width: 253px;
     }
 
-    .user-msg {
-        width: 236px;
-        font-size: 14px;
+    .mini-container-left {
+        width: 278px;
+        padding: 10px 0 10px 15px;
+    }
+
+    .mini-container-right {
+        width: 278px;
+        padding: 10px 14px 10px 15px;
+    }
+
+    .product {
         text-align: left;
-        font-style: italic;
+        vertical-align: top;
+        width: 175px;
     }
 
-    .code-block {
-        padding: 10px 0;
-        border: 1px solid #cccccc;
-        color: #dcdcdc;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: center;
+    .total-space {
+        padding-bottom: 8px;
+        display: inline-block;
+    }
+
+    .item-table {
+        padding: 50px 20px;
+        width: 560px;
+    }
+
+    .item {
+        width: 300px;
+    }
+
+    .mobile-hide-img {
+        text-align: left;
+        width: 125px;
+    }
+
+    .mobile-hide-img img {
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+    }
+
+    .title-dark {
+        text-align: left;
+        border-bottom: 1px solid #cccccc;
+        color: #4d4d4d;
+        font-weight: 700;
+        padding-bottom: 5px;
+    }
+
+    .item-col {
+        padding-top: 20px;
+        text-align: left;
+        vertical-align: top;
     }
 
     .force-width-gmail {
@@ -181,10 +171,6 @@
         height: 0px !important;
         line-height: 1px !important;
         font-size: 1px !important;
-    }
-
-    .button-width {
-        width: 228px;
     }
 
     .logo{
@@ -201,6 +187,7 @@
 
 <style type="text/css" media="screen">
     @media screen {
+        /* Thanks Outlook 2013! http://goo.gl/XLxpyl */
         * {
             font-family: 'Oxygen', 'Helvetica Neue', 'Arial', 'sans-serif' !important;
         }
@@ -216,19 +203,14 @@
             width: 100% !important;
         }
 
-        table[class="w320"] {
-            width: 320px !important;
-        }
-
         img[class="force-width-gmail"] {
             display: none !important;
             width: 0 !important;
             height: 0 !important;
         }
 
-        a[class="button-width"],
-        a[class="button-mobile"] {
-            width: 248px !important;
+        table[class="w320"] {
+            width: 320px !important;
         }
 
         td[class*="mobile-header-padding-left"] {
@@ -246,59 +228,49 @@
             padding-bottom: 5px !important;
         }
 
-        td[class="header-md"] {
-            font-size: 18px !important;
-            padding-bottom: 5px !important;
-        }
-
         td[class="content-padding"] {
-            padding: 5px 0 30px !important;
+            padding: 5px 0 5px !important;
         }
 
         td[class="button"] {
-            padding: 15px 0 5px !important;
+            padding: 5px 5px 30px !important;
         }
 
         td[class*="free-text"] {
             padding: 10px 18px 30px !important;
         }
 
-        img[class="force-width-img"],
-        img[class="force-width-full"] {
+        td[class~="mobile-hide-img"] {
             display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            line-height: 0 !important;
         }
 
-        td[class="info-block"] {
+        td[class~="item"] {
+            width: 140px !important;
+            vertical-align: top !important;
+        }
+
+        td[class~="quantity"] {
+            width: 50px !important;
+        }
+
+        td[class~="price"] {
+            width: 90px !important;
+        }
+
+        td[class="item-table"] {
+            padding: 30px 20px !important;
+        }
+
+        td[class="mini-container-left"],
+        td[class="mini-container-right"] {
+            padding: 0 15px 15px !important;
             display: block !important;
-            width: 280px !important;
-            padding-bottom: 40px !important;
+            width: 290px !important;
         }
 
-        td[class="info-img"],
-        img[class="info-img"] {
-            width: 278px !important;
-        }
-
-        td[class="mini-block-container"] {
-            padding: 8px 20px !important;
-            width: 280px !important;
-        }
-
-        td[class="mini-block"] {
-            padding: 20px !important;
-        }
-
-        td[class="user-img"] {
-            display: block !important;
-            text-align: center !important;
-            width: 100% !important;
-            padding-bottom: 10px;
-        }
-
-        td[class="user-msg"] {
-            display: block !important;
-            padding-bottom: 20px !important;
-        }
     }
 </style>
 </head>
@@ -338,25 +310,58 @@
                 </tr>
                 <tr>
                     <td class="free-text">
-                        Práve na vašem účtu <b>({$user})</b> byla provedena změna hesla.<br>
-                        <a href="{$website_url}">{$website}</a>
+                        Práve vám byla zpřístupněna administrace webové stránky <a href="{$website_url}">{$website}</a>.<br>
                     </td>
                 </tr>
                 <tr>
-                    <td class="mini-block-container">
-                        <table cellspacing="0" cellpadding="0" width="100%"  style="border-collapse:separate !important;">
+                    <td class="button">
+                        <div><!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#4a89dc">
+                                <w:anchorlock/>
+                                <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Vstup do administrace</center>
+                            </v:roundrect>
+                            <![endif]--><a href="http://"
+                                           style="background-color:#4a89dc;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Vstup do administrace</a></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w320">
+                        <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td class="mini-block">
+                                <td class="mini-container-left">
                                     <table cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
-                                            <td style="padding-bottom: 30px;">
-                                                Vaše nově vygenerované heslo.<br>
-                                                Nikomu toto heslo nesvěřujte!
+                                            <td class="mini-block-padding">
+                                                <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse:separate !important;">
+                                                    <tr>
+                                                        <td class="mini-block">
+                                                            <span class="header-sm">Jméno</span><br />
+                                                            {$firstname} <br />
+                                                            <br />
+                                                            <span class="header-sm">Příjmení</span> <br />
+                                                            {$lastname}
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
+                                    </table>
+                                </td>
+                                <td class="mini-container-right">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
-                                            <td class="code-block">
-                                                {$}
+                                            <td class="mini-block-padding">
+                                                <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse:separate !important;">
+                                                    <tr>
+                                                        <td class="mini-block">
+                                                            <span class="header-sm">Login</span><br />
+                                                            {$user} <br />
+                                                            <br />
+                                                            <span class="header-sm">Heslo</span> <br />
+                                                            {$password}
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                     </table>
