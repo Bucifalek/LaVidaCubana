@@ -10,7 +10,7 @@ namespace App\AdminModule\Presenters;
 use App\AdminModule\Model,
     Nette\Application\UI,
     Nette\Database\Context,
-    Utils\passGenerator,
+    Nette\Security\Passwords,
     Utils;
 
 class UsersPresenter extends BasePresenter
@@ -106,8 +106,7 @@ class UsersPresenter extends BasePresenter
      */
     public function handleRegenPass($id)
     {
-        $strongPassword = passGenerator::generateStrongPassword();
-
+        $strongPassword = Utils\passGenerator::generateStrongPassword();
         try {
             $userDetails = $this->userManager->getDetails($id);
             $this->userManager->newPassword($id, $strongPassword, Passwords::hash($strongPassword));
@@ -120,7 +119,7 @@ class UsersPresenter extends BasePresenter
             try {
                 $myMailer = new Model\myMailer;
                 $myMailer->setHtmlBody(
-                    __DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
+                    __DIR__ . '/../templates/EmailTemplates/passwordChangeEmail.latte',
                     [
                         'user' => $userDetails->user,
                         'website' => 'La VIDA Cubana',
@@ -238,7 +237,7 @@ class UsersPresenter extends BasePresenter
     */
     public function addUserFormSucceeded(UI\Form $form, $values)
     {
-        $strongPassword = passGenerator::generateStrongPassword();
+        $strongPassword = Utils\passGenerator::generateStrongPassword();
         try {
             $this->userManager->add(array(
                 'user' => $values->username,
