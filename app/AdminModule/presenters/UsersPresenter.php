@@ -9,11 +9,9 @@ namespace App\AdminModule\Presenters;
 
 use App\AdminModule\Model,
     Nette\Application\UI,
-    Nette\Security\Passwords,
     Nette\Database\Context,
-    Latte,
-    Nette\Mail\Message,
-    Utils\passGenerator;
+    Utils\passGenerator,
+    Utils;
 
 class UsersPresenter extends BasePresenter
 {
@@ -30,6 +28,9 @@ class UsersPresenter extends BasePresenter
         $this->userManager = $userManager;
     }
 
+    /**
+     * Get all users from database and insert them into template variables
+     */
     public function renderList()
     {
         $this->template->currentUsers = $this->database->table('admin_users')->fetchAll();
@@ -44,34 +45,50 @@ class UsersPresenter extends BasePresenter
         $this->template->userData = $this->userManager->getDetails($userID);
     }
 
+
+    /**
+     * Ban user and send email notification
+     */
     public function handleBanUser($id)
     {
         try {
+            $userDetails = $this->userManager->getDetails($id);
             $this->userManager->ban($id);
-
-            $details = $this->userManager->getDetails($id);
-            $latte = new Latte\Engine;
-            $myMailer = new Model\myMailer;
-            $mail = new Message;
-            $mail->addTo($details->email)
-                ->setFrom("cms@jkotrba.net")
-                ->setSubject("Váš účet byl zablokován")
-                ->setHtmlBody($latte->renderToString(__DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
-                    [
-                        'firstname' => $details->real_firstname,
-                        'lastname' => $details->real_lastname,
-                        'user' => $details->user,
-                        'website' => 'La VIDA Cubana',
-                        'website_url' => 'http://cms.jkotrba.net/admin/'
-                    ]));
-            $myMailer->send($mail);
         } catch (\Exception $e) {
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
+            $this->redirect('Users:list');
         }
-        $this->flashMessage("Správce byl zablokován a na email " . $details->email . " bylo odesláno oznámení.", FLASH_WARNING);
+
+        if (isset($userDetails)) {
+            try {
+                $myMailer = new Model\myMailer;
+                $myMailer->setHtmlBody(
+                    __DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
+                    [
+                        'firstname' => $userDetails->real_firstname,
+                        'lastname' => $userDetails->real_lastname,
+                        'user' => $userDetails->user,
+                        'website' => 'La VIDA Cubana',
+                        'website_url' => 'http://cms.jkotrba.net/admin/'
+                    ]
+                )
+                    ->addTo($userDetails->email)
+                    ->setFrom("cms@jkotrba.net")
+                    ->setSubject("Váš účet byl zablokován!");
+                $myMailer->sendEmail();
+            } catch (\Exception $e) {
+                $this->flashMessage($e->getMessage(), FLASH_WARNING);
+                $this->redirect('Users:list');
+            }
+            $this->flashMessage("Uživatel " . $userDetails->user . " byl zablokován a na jeho email " . $userDetails->email . " bylo odesláno oznámení.", FLASH_SUCCESS);
+        }
         $this->redirect('Users:list');
     }
 
+
+    /**
+     * Un ban user, no notification
+     */
     public function handleUnBanUser($id)
     {
         try {
@@ -83,30 +100,89 @@ class UsersPresenter extends BasePresenter
         $this->redirect('Users:list');
     }
 
+
+    /**
+     * Create new password and send it to user via email
+     */
     public function handleRegenPass($id)
     {
-        $password = passGenerator::generateStrongPassword();
+        $strongPassword = passGenerator::generateStrongPassword();
+
         try {
-            $this->userManager->newPassword($id, $password, Passwords::hash($password));
+            $userDetails = $this->userManager->getDetails($id);
+            $this->userManager->newPassword($id, $strongPassword, Passwords::hash($strongPassword));
         } catch (\Exception $e) {
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
+            $this->redirect('Users:list');
         }
-        $this->flashMessage("Nové heslo bylo vygenerováno.", FLASH_SUCCESS);
+
+        if (isset($userDetails)) {
+            try {
+                $myMailer = new Model\myMailer;
+                $myMailer->setHtmlBody(
+                    __DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
+                    [
+                        'user' => $userDetails->user,
+                        'website' => 'La VIDA Cubana',
+                        'website_url' => 'http://cms.jkotrba.net/admin/',
+                        'newPassword' => $strongPassword
+                    ]
+                )
+                    ->addTo($userDetails->email)
+                    ->setFrom("cms@jkotrba.net")
+                    ->setSubject("Vašemu účtu bylo vygenerováno nové heslo");
+                $myMailer->sendEmail();
+            } catch (\Exception $e) {
+                $this->flashMessage($e->getMessage(), FLASH_WARNING);
+                $this->redirect('Users:list');
+            }
+            $this->flashMessage("Nové heslo bylo vygenerováno a na příslušný email bylo odesláno oznámení o změně.", FLASH_SUCCESS);
+        }
         $this->redirect('Users:list');
     }
 
+
+    /**
+     * Delete user and send notification
+    */
     public function handleDeleteUser($id)
     {
         try {
+            $userDetails = $this->userManager->getDetails($id);
             $this->userManager->delete($id);
         } catch (\Exception $e) {
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
+            $this->redirect('Users:list');
         }
-        $this->flashMessage("Správce byl smazán a nadále již nemá přistup do systému.", FLASH_SUCCESS);
+
+        if (isset($userDetails)) {
+            try {
+                $myMailer = new Model\myMailer;
+                $myMailer->setHtmlBody(
+                    __DIR__ . '/../templates/EmailTemplates/deleteUserEmail.latte',
+                    [
+                        'user' => $userDetails->user,
+                        'website' => 'La VIDA Cubana',
+                        'website_url' => 'http://cms.jkotrba.net/admin/'
+                    ]
+                )
+                    ->addTo($userDetails->email)
+                    ->setFrom("cms@jkotrba.net")
+                    ->setSubject("Váš účet byl smazán");
+                $myMailer->sendEmail();
+            } catch (\Exception $e) {
+                $this->flashMessage($e->getMessage(), FLASH_WARNING);
+                $this->redirect('Users:list');
+            }
+            $this->flashMessage("Účet byl úspěšně smazán, správce již nemá přístup do systému.", FLASH_SUCCESS);
+        }
         $this->redirect('Users:list');
     }
 
 
+    /**
+     * Create form to update user data
+    */
     public function createComponentUpdateUserForm()
     {
         $form = new UI\Form;
@@ -120,6 +196,10 @@ class UsersPresenter extends BasePresenter
         return $form;
     }
 
+
+    /**
+     * Saves updated data to database, no notification
+    */
     public function updateUserFormSucceeded(UI\Form $form, $values)
     {
         try {
@@ -132,10 +212,14 @@ class UsersPresenter extends BasePresenter
         } catch (\Exception $e) {
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
         }
-        $this->flashMessage('Uživatelske informace ulozeny');
+        $this->flashMessage('Změny účtu byly uloženy');
         $this->redirect('Users:list');
     }
 
+
+    /**
+     * Create form to add user to database
+    */
     public function createComponentAddUserForm()
     {
         $form = new UI\Form;
@@ -148,14 +232,18 @@ class UsersPresenter extends BasePresenter
         return $form;
     }
 
+    
+    /**
+     * Add user to database and send email notification
+    */
     public function addUserFormSucceeded(UI\Form $form, $values)
     {
-        $password = passGenerator::generateStrongPassword();
+        $strongPassword = passGenerator::generateStrongPassword();
         try {
             $this->userManager->add(array(
                 'user' => $values->username,
-                'password' => Passwords::hash($password),
-                'password_pure' => $password,
+                'password' => Passwords::hash($strongPassword),
+                'password_pure' => $strongPassword,
                 'real_firstname' => $values->firstname,
                 'real_lastname' => $values->lastname,
                 'email' => $values->email,
@@ -165,6 +253,27 @@ class UsersPresenter extends BasePresenter
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
         }
 
+        try {
+            $myMailer = new Model\myMailer;
+            $myMailer->setHtmlBody(
+                __DIR__ . '/../templates/EmailTemplates/deleteUserEmail.latte',
+                [
+                    'username' => $values->username,
+                    'firstname' => $values->firstname,
+                    'lastname' => $values->lastname,
+                    'password' => $strongPassword,
+                    'website' => 'La VIDA Cubana',
+                    'website_url' => 'http://cms.jkotrba.net/admin/'
+                ]
+            )
+                ->addTo($values->email)
+                ->setFrom("cms@jkotrba.net")
+                ->setSubject("Vytvoření účtu");
+            $myMailer->sendEmail();
+        } catch (\Exception $e) {
+            $this->flashMessage($e->getMessage(), FLASH_WARNING);
+            $this->redirect('Users:list');
+        }
         $this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit.", FLASH_SUCCESS);
         $this->redirect('Users:list');
     }

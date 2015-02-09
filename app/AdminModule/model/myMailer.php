@@ -12,13 +12,22 @@ use Nette,
     Nette\Mail\Message,
     Latte;
 
-class myMailer extends Mail\SmtpMailer implements Nette\Mail\IMailer
+class myMailer extends Mail\SmtpMailer
 {
 
     private $mailer;
 
+    private $latteEngine;
+
+    private $message;
+
     function __construct()
     {
+        $this->latteEngine = new Latte\Engine;
+        $this->message = new Message;
+        $this->mailer = new Nette\Mail\SmtpMailer;
+
+
         /*
          In future
          $config = [
@@ -29,12 +38,35 @@ class myMailer extends Mail\SmtpMailer implements Nette\Mail\IMailer
             'timeout' => '30'
         ];
         */
-        $this->mailer = new Nette\Mail\SmtpMailer;
     }
 
-    public function send(Message $mail)
+    public function sendEmail()
     {
-        $this->mailer->send($mail);
+        $this->mailer->send($this->message);
+    }
+
+    public function setHtmlBody($template, $params)
+    {
+        $this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
+        return $this;
+    }
+
+    public function addTo($target)
+    {
+        $this->message->addTo($target);
+        return $this;
+    }
+
+    public function setFrom($email)
+    {
+        $this->message->setFrom($email);
+        return $this;
+    }
+
+    public function setSubject($subject)
+    {
+        $this->message->setSubject($subject);
+        return $this;
     }
 
 }
