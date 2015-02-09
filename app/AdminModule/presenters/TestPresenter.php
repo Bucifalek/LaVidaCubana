@@ -17,8 +17,8 @@ class TestPresenter extends BasePresenter {
 
 		$myMailer = new Model\myMailer;
 		//$myMailer->setHtmlBody(__DIR__ . '/../templates/EmailTemplates/test.latte', [])
-		$myMailer->setHtmlBody(__DIR__ . '/../templates/EmailTemplates/test.latte', [null])
-			->addTo('jan.kotrbaa@gmail.com')
+		$myMailer->setHtmlBody(__DIR__ . '/../templates/EmailTemplates/newUserEmail.latte', [null])
+			->addTo('z3xarus@gmail.com')
 			->setFrom("cms@pizzeriaitaliana.cz")
 			->setSubject("Testovani sablon!");
 		$myMailer->sendEmail();
