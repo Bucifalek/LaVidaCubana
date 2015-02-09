@@ -14,7 +14,7 @@
     {*}
 
     <!-- Font CSS (Via CDN) -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
@@ -87,17 +87,25 @@
                     {* Notifications control *}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="fw600 fa fa-lg fa-laptop"></span>
-                            <span class="fw600 pl6">La VIDA Cubana</span>
+                            <span class="fw600 pl6">Rozcestník : Úvodní stránka</span>
                         </a>
                         <ul class="dropdown-menu animated animated-short flipInX" role="menu">
                             <li>
                                 <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pl5 pr15"></span> Projekt 2 </a>
+                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Rožnov pod Radhoštěm</a>
                             </li>
                             <li>
                                 <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pl5 pr15"></span> Projekt 3 </a>
+                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Valašské Meziříčí</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="fw600">
+                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Bowling</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a n:href="Structure:default" class="fw600">
+                                <span class="fa fa-sitemap pr5"></span> Struktura stránek </a>
                             </li>
                         </ul>
                     </li>
@@ -249,6 +257,7 @@
     <script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
 
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/pages/widgets.js"></script>
+    {ifset #script}{include script}{/ifset}
     <script type="text/javascript">
         jQuery(document).ready(function() {
             "use strict";
@@ -257,6 +266,7 @@
             });
 
             Demo.init();
+
 
             $('.admin-panels').adminpanel({
                 grid: '.admin-grid',
