@@ -19,14 +19,17 @@ class myMailer extends Mail\SmtpMailer implements Nette\Mail\IMailer
 
     function __construct()
     {
-        $config = [
+        /*
+         In future
+         $config = [
             'host' => 'jkotrba.net',
             'port' => '25',
             'username' => 'nugatu',
             'password' => 'cust168255332210',
             'timeout' => '30'
         ];
-        $this->mailer = new Nette\Mail\SmtpMailer($config);
+        */
+        $this->mailer = new Nette\Mail\SmtpMailer;
     }
 
     public function send(Message $mail)
