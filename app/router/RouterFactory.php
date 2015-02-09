@@ -23,12 +23,6 @@ class RouterFactory
 
 		// Admin Route
 
-		$router[] = new Route('admin/test/odeslat-email', array(
-			'module' => 'Admin',
-			'presenter' => 'Test',
-			'action' => 'odeslat-email',
-			'id' => NULL,
-		));
 		$router[] = new Route('admin/zapomenute-heslo', array(
 			'module' => 'Admin',
 			'presenter' => 'Sign',
