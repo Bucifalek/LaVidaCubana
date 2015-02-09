@@ -25542,6 +25542,5 @@ to occupy 100% width at low resolutions */
     }
 }
 .brand-logo{
-    width: 19%;
-    height: 60%;
+    width: 40px;
 }

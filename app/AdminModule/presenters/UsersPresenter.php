@@ -143,45 +143,24 @@ class UsersPresenter extends BasePresenter
 
     /**
      * Delete user and send notification
-    */
+     */
     public function handleDeleteUser($id)
     {
         try {
-            $userDetails = $this->userManager->getDetails($id);
             $this->userManager->delete($id);
         } catch (\Exception $e) {
             $this->flashMessage($e->getMessage(), FLASH_WARNING);
             $this->redirect('Users:list');
         }
 
-        if (isset($userDetails)) {
-            try {
-                $myMailer = new Model\myMailer;
-                $myMailer->setHtmlBody(
-                    __DIR__ . '/../templates/EmailTemplates/deleteUserEmail.latte',
-                    [
-                        'user' => $userDetails->user,
-                        'website' => 'La VIDA Cubana',
-                        'website_url' => 'http://cms.jkotrba.net/admin/'
-                    ]
-                )
-                    ->addTo($userDetails->email)
-                    ->setFrom("cms@jkotrba.net")
-                    ->setSubject("Váš účet byl smazán");
-                $myMailer->sendEmail();
-            } catch (\Exception $e) {
-                $this->flashMessage($e->getMessage(), FLASH_WARNING);
-                $this->redirect('Users:list');
-            }
-            $this->flashMessage("Účet byl úspěšně smazán, správce již nemá přístup do systému.", FLASH_SUCCESS);
-        }
+        $this->flashMessage("Účet byl úspěšně smazán, správce již nemá přístup do systému.", FLASH_SUCCESS);
         $this->redirect('Users:list');
     }
 
 
     /**
      * Create form to update user data
-    */
+     */
     public function createComponentUpdateUserForm()
     {
         $form = new UI\Form;
@@ -198,7 +177,7 @@ class UsersPresenter extends BasePresenter
 
     /**
      * Saves updated data to database, no notification
-    */
+     */
     public function updateUserFormSucceeded(UI\Form $form, $values)
     {
         try {
@@ -218,7 +197,7 @@ class UsersPresenter extends BasePresenter
 
     /**
      * Create form to add user to database
-    */
+     */
     public function createComponentAddUserForm()
     {
         $form = new UI\Form;
@@ -231,10 +210,10 @@ class UsersPresenter extends BasePresenter
         return $form;
     }
 
-    
+
     /**
      * Add user to database and send email notification
-    */
+     */
     public function addUserFormSucceeded(UI\Form $form, $values)
     {
         $strongPassword = Utils\passGenerator::generateStrongPassword();

@@ -25,19 +25,15 @@ class myMailer extends Mail\SmtpMailer
     {
         $this->latteEngine = new Latte\Engine;
         $this->message = new Message;
-        $this->mailer = new Nette\Mail\SmtpMailer;
-
-
-        /*
-         In future
-         $config = [
-            'host' => 'jkotrba.net',
-            'port' => '25',
-            'username' => 'nugatu',
-            'password' => 'cust168255332210',
-            'timeout' => '30'
+        $config = [
+            'smtp' => true,
+            'host' => 'smtp-78628.m28.wedos.net',
+            'port' => '465',
+            'secure' => 'ssl',
+            'username' => 'cms@pizzeriaitaliana.cz',
+            'password' => 'cust168255332210'
         ];
-        */
+        $this->mailer = new Nette\Mail\SmtpMailer($config);
     }
 
     public function sendEmail()
