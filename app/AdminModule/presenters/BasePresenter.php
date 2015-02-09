@@ -47,6 +47,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
     public function createComponentMenu()
     {
+        /**
+         * Only glyphicons
+         */
         $menu = new menuControl();
         /*$menu->sections['CMS'] =
             [
@@ -70,28 +73,28 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
         $menu->sections['Obsah'] = [
             'Menu|list' => [
-                'Přidat menu' => 'Menu:newMenu',
-                'Aktuální struktura' => 'Menu:currentStructure',
+                'Přidat menu|circle_plus' => 'Menu:newMenu',
+                'Aktuální struktura|notes_2' => 'Menu:currentStructure',
             ],
             'Obsah' => [
-                'Přidat položku' => 'Articles:add',
-                'Všechny položky' => 'Articles:allContent',
+                'Přidat položku|circle_plus' => 'Articles:add',
+                'Všechny položky|notes_2' => 'Articles:allContent',
             ],
             'Soubory|file' => [
-                'Nahrávání souborů' => 'Files:upload',
-                'Všechny soubory' => 'Files:allFiles',
+                'Nahrávání souborů|file_import' => 'Files:upload',
+                'Všechny soubory|folder_open' => 'Files:allFiles',
             ]
         ];
 
         $menu->sections['Moduly'] = [
             'Fotogalerie|camera' => [
-                'Přidat obrázky' => 'PluginGallery:addImage',
-                'Struktura galerie' => 'PluginGallery:galleryStructure',
+                'Přidat obrázky|circle_plus' => 'PluginGallery:addImage',
+                'Struktura galerie|align_left' => 'PluginGallery:galleryStructure',
             ],
             'Aktuality|tags' => [
-                'Přidat novou aktualitu' => 'NewsFeed:addPost',
-                'Seznam aktualit' => 'NewsFeed:allPosts',
-                'Nastavení' => 'NewsFeed:config',
+                'Přidat novou aktualitu|circle_plus' => 'NewsFeed:addPost',
+                'Seznam aktualit|notes_2' => 'NewsFeed:allPosts',
+                'Nastavení|settings' => 'NewsFeed:config',
             ]
         ];
 
