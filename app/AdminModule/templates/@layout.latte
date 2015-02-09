@@ -89,7 +89,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <span class="fw600 fa fa-lg fa-laptop"></span>
-                            <span class="fw600 pl6">Projekt 1</span>
+                            <span class="fw600 pl6">La VIDA Cubana</span>
                         </a>
                         <ul class="dropdown-menu animated animated-short flipInX" role="menu">
                             <li>
@@ -121,22 +121,16 @@
                         </ul>
                     </li>
                 </ul>
-
             </header>
-            <!-- End: Header -->
-
-            <!-- Start: Sidebar -->
 
             {control menu}
 
-            <!-- Start: Content -->
             <section id="content_wrapper">
-                <!-- Start: Topbar -->
                 <header id="topbar">
                     <div class="topbar-left">
                         <ol class="breadcrumb">
                             <li class="crumb-active">
-                                <a href="dashboard.html">Projekt 1</a>
+                                <a n:href="Homepage:default">La VIDA Cubana</a>
                             </li>
                             {ifset #nav_presenter}
                             <li class="crumb-link">
@@ -149,10 +143,6 @@
                         </ol>
                     </div>
                 </header>
-
-                <!-- End: Topbar -->
-
-                <!-- Begin: Content -->
                 <section id="content">
                     {* Flashes *}
 
@@ -167,11 +157,7 @@
                     {include content}
 
                 </section>
-                <!-- End: Content -->
             </section>
-            <!-- End: Content-Wrapper -->
-
-            <!-- Start: Right Sidebar -->
             <aside id="sidebar_right" class="nano">
                 <div class="sidebar_right_content nano-content">
                     <div class="tab-block sidebar-block br-n">
@@ -243,45 +229,26 @@
                             <div id="sidebar-right-tab2" class="tab-pane"></div>
                             <div id="sidebar-right-tab3" class="tab-pane"></div>
                         </div>
-                        <!-- end: .tab-content -->
                     </div>
                 </div>
             </aside>
-            <!-- End: Right Sidebar -->
         </div>
-    <!-- End: Main -->
 
-    <!-- BEGIN: PAGE SCRIPTS -->
-    <!-- jQuery -->
     <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-
-    <!-- Bootstrap -->
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/bootstrap/bootstrap.min.js"></script>
-
-    <!-- Sparklines CDN -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
-
-    <!-- Chart Plugins -->
     <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/highcharts/highcharts.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/circles/circles.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/raphael/raphael.js"></script>
-
-    <!-- Holder js  -->
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/bootstrap/holder.min.js"></script>
-
-    <!-- Theme Javascript -->
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/utility/utility.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/main.js"></script>
-
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/demo.js"></script>
-
-    <!-- Admin Panels  -->
     <script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/json2.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
 
-    <!-- Page Javascript -->
     <script type="text/javascript" src="{$basePath}/Back-end/assets/js/pages/widgets.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -290,21 +257,8 @@
                 sbm: "sb-l-c",
             });
 
-            // Init Demo JS
             Demo.init();
 
-            // Init Widget Demo JS
-            // demoHighCharts.init();
-
-            // Because we are using Admin Panels we use the OnFinish
-            // callback to activate the demoWidgets. It's smoother if
-            // we let the panels be moved and organized before
-            // filling them with content from various plugins
-
-            // Init plugins used on this page
-            // HighCharts, JvectorMap, Admin Panels
-
-            // Init Admin Panels on widgets inside the ".admin-panels" container
             $('.admin-panels').adminpanel({
                 grid: '.admin-grid',
                 draggable: true,
@@ -315,15 +269,9 @@
                 onFinish: function() {
                     $('.admin-panels').addClass('animated fadeIn').removeClass('fade-onload');
 
-                    // Init the rest of the plugins now that the panels
-                    // have had a chance to be moved and organized.
-                    // It's less taxing to organize empty panels
                     demoHighCharts.init();
                     runVectorMaps();
 
-                    // We also refresh any "in-view" waypoints to ensure
-                    // the correct position is being calculated after the
-                    // Admin Panels plugin moved everything
                     Waypoint.refreshAll();
 
                 },
@@ -332,17 +280,12 @@
                 }
             });
 
-            // Widget VectorMap
             function runVectorMaps() {
 
-                // Jvector Map Plugin
                 var runJvectorMap = function() {
-                    // Data set
                     var mapData = [900, 700, 350, 500];
-                    // Init Jvector Map
                     $('#WidgetMap').vectorMap({
                         map: 'us_lcc_en',
-                        //regionsSelectable: true,
                         backgroundColor: 'transparent',
                         series: {
                             markers: [{
@@ -391,8 +334,6 @@
                             selectedHover: {}
                         },
                     });
-                    // Manual code to alter the Vector map plugin to
-                    // allow for individual coloring of countries
                     var states = ['US-CA', 'US-TX', 'US-MO',
                         'US-NY'
                     ];
@@ -419,5 +360,4 @@
 
         });
     </script>
-    <!-- END: PAGE SCRIPTS -->
 </body>
