@@ -26,12 +26,12 @@ class MyAuth extends Nette\Object implements NS\IAuthenticator
         list($username, $password) = $credentials;
         $row = $this->database->table('admin_users')->where('user', $username)->fetch();
 
-        if ($row->banned) {
-            throw new NS\AuthenticationException('Tento účet je zablokován.');
-        }
-
         if (!$row || !NS\Passwords::verify($password, $row->password)) {
             throw new NS\AuthenticationException('Nesprávné jméno nebo heslo.');
+        }
+
+        if ($row->banned) {
+            throw new NS\AuthenticationException('Tento účet je zablokován.');
         }
 
         $details = [
