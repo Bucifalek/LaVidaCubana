@@ -7,30 +7,27 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette,
-    App\AdminModule\Model;
+use Nette, 
+	App\AdminModule\Model;
 
-class HostingPresenter extends BasePresenter
-{
+class HostingPresenter extends BasePresenter {
 
-    /** @var Model\UserManager @inject */
-    private $userManager;
+	/** @var Model\UserManager @inject */
+	private $userManager;
 
-    function __construct(Model\UserManager $userManager)
-    {
-        parent::__construct($userManager);
-        $this->userManager = $userManager;
-    }
+	function __construct(Model\UserManager $userManager) {
+		parent::__construct($userManager);
+		$this->userManager = $userManager;
+	}
 
-    public function beforeRender()
-    {
-        parent::beforeRender();
-        $totalSpace = disk_total_space('.');
-        $freeSpace = disk_free_space('.');
-        $percentage = 100 - (100 * $freeSpace / $totalSpace);
+	public function beforeRender() {
+		parent::beforeRender();
+		$totalSpace = disk_total_space('.');
+		$freeSpace = disk_free_space('.');
+		$percentage = 100 - (100 * $freeSpace / $totalSpace);
 
-        $this->template->totalSpace = $totalSpace;
-        $this->template->freeSpace = $freeSpace;
-        $this->template->percentage = $percentage;
-    }
+		$this->template->totalSpace = $totalSpace;
+		$this->template->freeSpace = $freeSpace;
+		$this->template->percentage = $percentage;
+	}
 }
