@@ -4,26 +4,26 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6cfba70340754f9d70db945f5f6090ae",
+    "hash": "8bd1719f88e6e2334ead73716cc45cdf",
     "packages": [
         {
             "name": "dg/adminer-custom",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/adminer-custom.git",
-                "reference": "cf6af080f39069a6bd62a44e9801e6932013c4a1"
+                "reference": "f1b449b7076d49711fdb41382e5bd858f09855d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/adminer-custom/zipball/cf6af080f39069a6bd62a44e9801e6932013c4a1",
-                "reference": "cf6af080f39069a6bd62a44e9801e6932013c4a1",
+                "url": "https://api.github.com/repos/dg/adminer-custom/zipball/f1b449b7076d49711fdb41382e5bd858f09855d0",
+                "reference": "f1b449b7076d49711fdb41382e5bd858f09855d0",
                 "shasum": ""
             },
             "type": "project",
             "notification-url": "https://packagist.org/downloads/",
             "description": "Customization for the best database management tool written in PHP, Adminer",
-            "time": "2015-01-31 00:13:53"
+            "time": "2015-02-07 20:26:30"
         },
         {
             "name": "latte/latte",
@@ -1161,16 +1161,16 @@
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "393499e83bebe506c8cbaada5d9e2e48c10031af"
+                "reference": "2ce1cd9a6d7012ba059efa08613d5cd6e50c6560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/393499e83bebe506c8cbaada5d9e2e48c10031af",
-                "reference": "393499e83bebe506c8cbaada5d9e2e48c10031af",
+                "url": "https://api.github.com/repos/nette/tester/zipball/2ce1cd9a6d7012ba059efa08613d5cd6e50c6560",
+                "reference": "2ce1cd9a6d7012ba059efa08613d5cd6e50c6560",
                 "shasum": ""
             },
             "require": {
@@ -1213,7 +1213,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2015-01-27 20:11:43"
+            "time": "2015-02-08 04:13:28"
         }
     ],
     "aliases": [],

@@ -1,10 +1,12 @@
+{dump $currentBranch}
+{dump $branchList}
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta name="theme-color" content="#30363e">
-    <title>{ifset #title}{include title|striptags} | {/ifset}Admin</title>
+    <title>{ifset #title}{include title|striptags} | {/ifset}HD Group</title>
 
     {*}
     <meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />
@@ -87,21 +89,17 @@
                     {* Notifications control *}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="fw600 pl6">Rozcestník : Úvodní stránka</span>
+                            <span class="fw600 pl6">Upravujete : {$currentBranch['title']}</span>
                         </a>
                         <ul class="dropdown-menu animated animated-short flipInX" role="menu">
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Rožnov pod Radhoštěm</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Valašské Meziříčí</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Bowling</a>
-                            </li>
+                            {foreach $branchList as $id => $name}
+                                {if $currentBranch['id'] != $id}
+                                    <li>
+                                        <a href="{link ChangeBranch!, $id}" class="fw600">
+                                            <span class="glyphicon glyphicon-share-alt pr5"></span> {$name}</a>
+                                    </li>
+                                {/if}
+                            {/foreach}
                             <li class="divider"></li>
                             <li>
                                 <a n:href="Structure:default" class="fw600">

@@ -83,7 +83,8 @@ class UserManager extends Nette\Object
         }
     }
 
-    public function newAvatar($user, $id) {
+    public function newAvatar($user, $id)
+    {
         $this->database->table('admin_users')->where('id', $user)->update(['avatar' => $id]);
     }
 }
