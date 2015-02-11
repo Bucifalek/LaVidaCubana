@@ -15,9 +15,9 @@ class StructurePresenter extends BasePresenter {
 
 	private $webStructure;
 
-	function __construct(Nette\Database\Context $database, Model\UserManager $userManager)
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
 	{
-		parent::__construct($userManager);
+		parent::__construct($userManager, $database);
 		$this->webStructure = new Model\webStructure($database);
 	}
 
@@ -25,4 +25,5 @@ class StructurePresenter extends BasePresenter {
 		parent::beforeRender();
 		$this->template->webStructure = $this->webStructure->get();
 	}
+
 }

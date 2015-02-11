@@ -12,7 +12,11 @@ use Nette\Application\UI;
 class menuControl extends UI\Control
 {
 
-    public $sections;
+    private $sections;
+
+    public function addSection($name, $data) {
+        $this->sections[$name] = $data;
+    }
 
     public function render()
     {

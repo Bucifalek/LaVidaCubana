@@ -20,7 +20,7 @@ nette:
 		expiration: 14 days
 
 services:
-	- App\AdminModule\Model\myMailer
-	- App\AdminModule\Model\userManager
-	authenticator: App\AdminModule\Model\MyAuth
+	- App\AdminModule\Model\MyMailer
+	- App\AdminModule\Model\UserManager
+	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter

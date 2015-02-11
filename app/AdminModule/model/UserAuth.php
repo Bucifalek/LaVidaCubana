@@ -7,11 +7,10 @@
 
 namespace App\AdminModule\Model;
 
-use Nette,
-    Nette\Security\Passwords;
+use Nette;
 use Nette\Security as NS;
 
-class MyAuth extends Nette\Object implements NS\IAuthenticator
+class userAuth extends Nette\Object implements NS\IAuthenticator
 {
 
     public $database;
@@ -34,12 +33,12 @@ class MyAuth extends Nette\Object implements NS\IAuthenticator
             throw new NS\AuthenticationException('Tento účet je zablokován.');
         }
 
-        $details = [
-            'id' => $row->id,
-            'user' => $row->user,
-            'firstname' => $row->real_firstname,
-            'lastname' => $row->real_lastname,
-        ];
-        return new NS\Identity($row->id, $row->role, $details);
+        return new NS\Identity($row->id, $row->role, [
+                'user' => $row->user,
+                'firstname' => $row->real_firstname,
+                'lastname' => $row->real_lastname,
+                'avatar' => $row->avatar,
+                'email' => $row->email
+            ]);
     }
 }

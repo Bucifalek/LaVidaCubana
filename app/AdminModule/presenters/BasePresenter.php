@@ -5,7 +5,6 @@
  * @copyright 2015 Jan Kotrba
  */
 
-
 namespace App\AdminModule\Presenters;
 
 use Nette,
@@ -21,9 +20,18 @@ class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Model\userManager @inject */
     private $userManager;
 
-    function __construct(Model\userManager $userManager)
+    /** @var Nette\Database\Context @inject */
+    private $database;
+
+    private $modulesManager;
+    private $branchManager;
+
+
+    function __construct(Model\userManager $userManager, Nette\Database\Context $database)
     {
         $this->userManager = $userManager;
+        $this->database = $database;
+        $this->modulesManager = new Model\ModulesManager($this->database);
     }
 
     public function beforeRender()
@@ -32,6 +40,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
             $userData = $this->user->getIdentity()->getData();
             $this->template->firstName = $userData['firstname'];
             $this->template->lastName = $userData['lastname'];
+            $this->template->avatar = $userData['avatar'];
+            $this->template->email = $userData['email'];
             try {
                 $this->userManager->isUserBanned($this->getUser());
             } catch (Security\AuthenticationException $e) {
@@ -48,6 +58,21 @@ class BasePresenter extends Nette\Application\UI\Presenter
             $e = explode("|", $arg);
             return @$e[1];
         };
+
+        $this->branchManager = new Model\BranchManager($this->database, $this);
+
+        /*if($this->branchManager->getCurrent() == null) { // dela to neco?
+            $this->branchManager->selectDefault();
+        }*/
+
+        $this->template->branchList = $this->branchManager->getAll();
+        $this->template->currentBranch = $this->branchManager->getCurrent();
+    }
+
+    public function handleChangeBranch($newBranchID)
+    {
+        $this->beforeRender();
+        $this->branchManager->setNew($newBranchID);
     }
 
     public function createComponentMenu()
@@ -56,34 +81,31 @@ class BasePresenter extends Nette\Application\UI\Presenter
          * Only glyphicons icons in menu
          */
         $menu = new menuControl;
-        $menu->sections['Obsah'] = [
-            'Menu|list' => [
-                'Přidat menu|circle_plus' => 'Menu:newMenu',
-                'Aktuální struktura|notes_2' => 'Menu:currentStructure',
-            ],
-            'Obsah' => [
-                'Přidat položku|circle_plus' => 'Articles:add',
-                'Všechny položky|notes_2' => 'Articles:allContent',
-            ],
-            'Soubory|file' => [
-                'Nahrávání souborů|file_import' => 'Files:upload',
-                'Všechny soubory|folder_open' => 'Files:allFiles',
-            ]
-        ];
+        // Struktura CMS
+        $menu->addSection('Hlavní menu',
+            [
+                'Menu|list' => [
+                    'Přidat menu|circle_plus' => 'Menu:newMenu',
+                    'Aktuální struktura|notes_2' => 'Menu:currentStructure',
+                ],
+                'Obsah' => [
+                    'Přidat položku|circle_plus' => 'Content:addContent',
+                    'Všechny položky|notes_2' => 'Articles:allContent',
+                ],
+                'Úložiště|hdd' => [
+                    'Nahrávání souborů|file_import' => 'Files:upload',
+                    'Všechny soubory|folder_open' => 'Files:allFiles',
+                ]
+            ]);
 
-        $menu->sections['Moduly'] = [
-            'Fotogalerie|camera' => [
-                'Přidat obrázky|circle_plus' => 'PluginGallery:addImage',
-                'Struktura galerie|align_left' => 'PluginGallery:galleryStructure',
-            ],
-            'Aktuality|tags' => [
-                'Přidat novou aktualitu|circle_plus' => 'NewsFeed:addPost',
-                'Seznam aktualit|notes_2' => 'NewsFeed:allPosts',
-                'Nastavení|settings' => 'NewsFeed:config',
-            ]
-        ];
+        $allModules = [];
+        foreach ($this->modulesManager->getAll() as $moduleName => $moduleActions) {
+            $allModules[$moduleName] = $moduleActions;
+        }
+        $menu->addSection('Použité moduly', $allModules);
 
-        $menu->sections['Systém'] = [
+        // Struktura CMS
+        $menu->addSection('Systém', [
             'Správci|group' =>
                 [
                     'Přidat|user_add' => 'Users:add',
@@ -92,12 +114,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
             'Testy|electricity' =>
                 [
                     'Emaily' => 'Test:sendEmail'
-                ]
-        ];
+                ],
+            'Nahlásit chybu|bug' => 'Report:error'
+        ]);
         return $menu;
-    }
-
-    public function handleChangeProject($changeTo) {
-        die($changeTo);
     }
 }

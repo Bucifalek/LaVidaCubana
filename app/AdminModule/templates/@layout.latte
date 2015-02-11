@@ -1,10 +1,12 @@
+{dump $currentBranch}
+{dump $branchList}
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta name="theme-color" content="#30363e">
-    <title>{ifset #title}{include title|striptags} | {/ifset}Admin</title>
+    <title>{ifset #title}{include title|striptags} | {/ifset}HD Group</title>
 
     {*}
     <meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />
@@ -36,7 +38,7 @@
     <![endif]-->
     {block head}{/block}
 </head>
-<body {ifset #pageClass}class='{include pageClass}'{/ifset}>
+<body{ifset #pageClass} class='{include pageClass}'{/ifset}>
     <div id="main">
             <!-- Start: Header -->
             <header class="navbar navbar-fixed-top bg-light">
@@ -87,21 +89,17 @@
                     {* Notifications control *}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="fw600 pl6">Rozcestník : Úvodní stránka</span>
+                            <span class="fw600 pl6">Upravujete : {$currentBranch['title']}</span>
                         </a>
                         <ul class="dropdown-menu animated animated-short flipInX" role="menu">
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Rožnov pod Radhoštěm</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Kavárna Valašské Meziříčí</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="fw600">
-                                    <span class="glyphicon glyphicon-share-alt pr5"></span> Bowling</a>
-                            </li>
+                            {foreach $branchList as $id => $name}
+                                {if $currentBranch['id'] != $id}
+                                    <li>
+                                        <a href="{link ChangeBranch!, $id}" class="fw600">
+                                            <span class="glyphicon glyphicon-share-alt pr5"></span> {$name}</a>
+                                    </li>
+                                {/if}
+                            {/foreach}
                             <li class="divider"></li>
                             <li>
                                 <a n:href="Structure:default" class="fw600">
@@ -112,13 +110,13 @@
                     <li class="ph10 pv20"> <i class="fa fa-circle text-tp fs8"></i>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="{$basePath}/Back-end/assets/img/avatars/designerAvatar.jpg" alt="avatar" class="mw30 br64 mr15">
+                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" alt="avatar" class="mw30 br64 mr15">
                             <span>{$firstName}.{$lastName}</span>
                             <span class="caret caret-tp"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
                             <li class="br-t of-h">
-                                <a href="#" class="fw600 p12 animated animated-short fadeInDown">
+                                <a n:href="MyProfile:default" class="fw600 p12 animated animated-short fadeInDown">
                                     <span class="fa fa-gear pr5"></span> Nastavení účtu </a>
                             </li>
                             <li class="br-t of-h">
@@ -150,7 +148,7 @@
                         </ol>
                     </div>
                 </header>
-                <section id="content">
+                <section id="content" {ifset #sectionClass} class='{include sectionClass}'{/ifset}>
                     {* Flashes *}
 
                     <div class="special-alerts" n:inner-foreach="$flashes as $flash">
