@@ -7,10 +7,9 @@
 
 namespace App\AdminModule\Model;
 
-use Nette,
-    App\AdminModule\Model;
+use Nette;
 
-class webStructure extends Nette\Object
+class WebStructure extends Nette\Object
 {
 
     /** @var Nette\Database\Context @inject */

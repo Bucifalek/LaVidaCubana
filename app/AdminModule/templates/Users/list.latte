@@ -44,6 +44,9 @@
                                     <a href="{link Users:edit, $user->id}">Upravit údaje</a>
                                 </li>
                                 <li>
+                                    <a href="{link Users:details, $user->id}">Informace o účtu</a>
+                                </li>
+                                <li>
                                     <a href="{link RegenPass!, $user->id}">Vygenerovat nové heslo</a>
                                 </li>
                                 <li n:if="!$user->banned">

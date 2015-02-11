@@ -13,17 +13,17 @@ use Nette,
 
 class StructurePresenter extends BasePresenter {
 
-	private $webStructure;
+	private $WebStructure;
 
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
 	{
 		parent::__construct($userManager, $database);
-		$this->webStructure = new Model\webStructure($database);
+		//$this->webStructure = new Model\webStructure($database);
 	}
 
 	public function renderDefault() {
 		parent::beforeRender();
-		$this->template->webStructure = $this->webStructure->get();
+		//$this->template->webStructure = $this->webStructure->get();
 	}
 
 }
