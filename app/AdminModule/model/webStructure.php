@@ -10,7 +10,8 @@ namespace App\AdminModule\Model;
 use Nette,
     App\AdminModule\Model;
 
-class webStructure extends Nette\Object {
+class webStructure extends Nette\Object
+{
 
     /** @var Nette\Database\Context @inject */
     private $database;
@@ -20,19 +21,19 @@ class webStructure extends Nette\Object {
         $this->database = $database;
     }
 
-    public function get() {
+    /**
+     * Return structure of Front module website
+     */
+    public function get()
+    {
         $result = [];
         $allBranches = $this->database->table('web_structure')->fetchAll();
-        foreach($allBranches as $branch) {
-            /*$result[$branch->name][] = ['title' => 'ex1',
-                'presenter' => 'ex2',
-                'action' => 'ex3',
-                'theme' =>'ex4'];*/
+        foreach ($allBranches as $branch) {
             $subBranches = $this->database->table('web_content')->where(['parent_branch' => $branch->branch_id])->fetchAll();
-            if(!$subBranches) {
+            if (!$subBranches) {
                 $result[$branch->name] = [];
             } else {
-                foreach($subBranches as $contentRow) {
+                foreach ($subBranches as $contentRow) {
                     $result[$branch->name][] = [
                         'title' => $contentRow->title,
                         'manager_presenter' => $contentRow->manager_presenter,
@@ -42,9 +43,7 @@ class webStructure extends Nette\Object {
                     ];
                 }
             }
-
         }
         return $result;
     }
-
 }

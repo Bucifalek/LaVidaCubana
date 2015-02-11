@@ -5,7 +5,6 @@
  * @copyright 2015 Jan Kotrba
  */
 
-
 namespace App\AdminModule\Presenters;
 
 use Nette,
@@ -25,6 +24,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
     private $database;
 
     private $modulesManager;
+    private $branchManager;
+
 
     function __construct(Model\userManager $userManager, Nette\Database\Context $database)
     {
@@ -57,6 +58,21 @@ class BasePresenter extends Nette\Application\UI\Presenter
             $e = explode("|", $arg);
             return @$e[1];
         };
+
+        $this->branchManager = new Model\BranchManager($this->database, $this);
+
+        /*if($this->branchManager->getCurrent() == null) { // dela to neco?
+            $this->branchManager->selectDefault();
+        }*/
+
+        $this->template->branchList = $this->branchManager->getAll();
+        $this->template->currentBranch = $this->branchManager->getCurrent();
+    }
+
+    public function handleChangeBranch($newBranchID)
+    {
+        $this->beforeRender();
+        $this->branchManager->setNew($newBranchID);
     }
 
     public function createComponentMenu()
@@ -66,7 +82,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
          */
         $menu = new menuControl;
         // Struktura CMS
-        $menu->addSection('Obsah',
+        $menu->addSection('Hlavní menu',
             [
                 'Menu|list' => [
                     'Přidat menu|circle_plus' => 'Menu:newMenu',
@@ -76,34 +92,17 @@ class BasePresenter extends Nette\Application\UI\Presenter
                     'Přidat položku|circle_plus' => 'Content:addContent',
                     'Všechny položky|notes_2' => 'Articles:allContent',
                 ],
+                'Úložiště|hdd' => [
+                    'Nahrávání souborů|file_import' => 'Files:upload',
+                    'Všechny soubory|folder_open' => 'Files:allFiles',
+                ]
             ]);
 
-        // Pouzite moduly, dynamic
+        $allModules = [];
         foreach ($this->modulesManager->getAll() as $moduleName => $moduleActions) {
-            $menu->addSection('Použité moduly',
-                [$moduleName => $moduleActions]
-            );
+            $allModules[$moduleName] = $moduleActions;
         }
-
-/*
-        $menu->sections['Použité moduly'] = [
-            'Článek' => [
-                'Přidat článek' => 'add'
-            ],
-            'Fotogalerie|camera' => [
-                'Přidat obrázky|circle_plus' => 'PluginGallery:addImage',
-                'Struktura galerie|align_left' => 'PluginGallery:galleryStructure',
-            ],
-            'Aktuality|tags' => [
-                'Přidat novou aktualitu|circle_plus' => 'NewsFeed:addPost',
-                'Seznam aktualit|notes_2' => 'NewsFeed:allPosts',
-                'Nastavení|settings' => 'NewsFeed:config',
-            ],
-            'Soubory|file' => [
-                'Nahrávání souborů|file_import' => 'Files:upload',
-                'Všechny soubory|folder_open' => 'Files:allFiles',
-            ]
-        ];*/
+        $menu->addSection('Použité moduly', $allModules);
 
         // Struktura CMS
         $menu->addSection('Systém', [
@@ -115,13 +114,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
             'Testy|electricity' =>
                 [
                     'Emaily' => 'Test:sendEmail'
-                ]
+                ],
+            'Nahlásit chybu|bug' => 'Report:error'
         ]);
         return $menu;
-    }
-
-    public function handleChangeProject($changeTo)
-    {
-        die($changeTo);
     }
 }

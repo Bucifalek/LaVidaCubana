@@ -62,7 +62,7 @@ class RouterFactory
         $router[] = new Route('roznov-pod-radhostem/<action>[/<id>]', 'Front:Roznov:default');
         $router[] = new Route('valasske-mezirici/<action>[/<id>]', 'Front:Valmez:default');
         $router[] = new Route('bowling/<action>[/<id>]', 'Front:Bowling:default');
-        $router[] = new Route('/', 'Front:Homepage:default');
+        $router[] = new Route('', 'Front:Homepage:default');
         return $router;
     }
 
