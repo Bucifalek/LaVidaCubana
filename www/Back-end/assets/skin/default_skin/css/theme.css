@@ -25545,3 +25545,12 @@ to occupy 100% width at low resolutions */
 .brand-logo{
     width: 40px;
 }
+.img-avatar {
+  border: 3px solid transparent;
+  border-radius: 180px;
+  transition:  all 0.3s;
+}
+.img-avatar-current, .img-avatar:hover {
+  border-color: #ffa32b;
+  transition:  all 0.3s;
+}

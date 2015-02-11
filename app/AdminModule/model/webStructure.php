@@ -35,7 +35,8 @@ class webStructure extends Nette\Object {
                 foreach($subBranches as $contentRow) {
                     $result[$branch->name][] = [
                         'title' => $contentRow->title,
-                        'presenter' => $contentRow->presenter,
+                        'manager_presenter' => $contentRow->manager_presenter,
+                        'view_presenter' => $contentRow->view_presenter,
                         'action' => $contentRow->action,
                         'theme' => $contentRow->theme
                     ];

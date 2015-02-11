@@ -14,6 +14,10 @@ class menuControl extends UI\Control
 
     public $sections;
 
+    public function addSection($name, $data) {
+        $this->sections[$name] = $data;
+    }
+
     public function render()
     {
         $template = $this->template;

@@ -1,11 +1,16 @@
 <?php
+/**
+ * @author Jan Kotrba <jan.kotrbaa@gmail.com>
+ * @date 22:39, 3. 2. 2015
+ * @copyright 2015 Jan Kotrba
+ */
+
 
 namespace App;
 
 use Nette,
-	Nette\Application\Routers\RouteList,
-	Nette\Application\Routers\Route,
-	Nette\Application\Routers\SimpleRouter;
+    Nette\Application\Routers\RouteList,
+    Nette\Application\Routers\Route;
 
 
 /**
@@ -14,93 +19,51 @@ use Nette,
 class RouterFactory
 {
 
-	/**
-	 * @return \Nette\Application\IRouter
-	 */
-	public static function createRouter()
-	{
-		$router = new RouteList();
+    /**
+     * @return \Nette\Application\IRouter
+     */
+    public static function createRouter()
+    {
+        $router = new RouteList();
 
-		// Admin Route
+        // Admin Router
+        // Test
+        $router[] = new Route('admin/test/odeslat-email', 'Admin:Test:odeslat-email');
 
-		$router[] = new Route('admin/struktura/', array(
-			'module' => 'Admin',
-			'presenter' => 'Structure',
-			'action' => 'default',
-			'id' => NULL,
-		));
-		$router[] = new Route('admin/test/odeslat-email', array(
-			'module' => 'Admin',
-			'presenter' => 'Test',
-			'action' => 'odeslat-email',
-			'id' => NULL,
-		));
-		$router[] = new Route('admin/zapomenute-heslo', array(
-			'module' => 'Admin',
-			'presenter' => 'Sign',
-			'action' => 'Forgot',
-			'id' => NULL,
-		));
+        // nastaveni uctu
+        $router[] = new Route('admin/muj-ucet/', 'Admin:MyProfile:default');
 
-		$router[] = new Route('admin/prihlasit-se', array(
-			'module' => 'Admin',
-			'presenter' => 'Sign',
-			'action' => 'in',
-			'id' => NULL,
-		));
+        // Plugin 'Článek'
+        $router[] = new Route('admin/clanek/pridat/[<id>]', 'Admin:ManageArticle:add');
 
-		$router[] = new Route('admin/spravci/upravit/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Users',
-			'action' => 'edit',
-			'id' => NULL,
-		));
-		$router[] = new Route('admin/spravci/seznam/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Users',
-			'action' => 'list',
-			'id' => NULL,
-		));
-		$router[] = new Route('admin/spravci/pridat/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Users',
-			'action' => 'add',
-			'id' => NULL,
-		));
+        // Obsah
+        $router[] = new Route('admin/obsah/pridat-polozku/', 'Admin:Content:addContent');
 
-		$router[] = new Route('admin/spravci/<action>/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Users',
-			'action' => 'default',
-			'id' => NULL,
-		));
+        // Struktura
+        $router[] = new Route('admin/struktura-stranek/', 'Admin:Structure:default');
 
-		$router[] = new Route('admin/napoveda/<action>/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Faq',
-			'action' => 'default',
-			'id' => NULL,
-		));
+        // Login
+        $router[] = new Route('admin/zapomenute-heslo', 'Admin:Sign:forgot');
+        $router[] = new Route('admin/prihlasit-se', 'Admin:Sign:in');
+        // Logout
+        $router[] = new Route('admin/odhlasit-se', 'Admin:Sign:out');
 
-		$router[] = new Route('admin/<presenter>/<action>/<id>', array(
-			'module' => 'Admin',
-			'presenter' => 'Homepage',
-			'action' => 'default',
-			'id' => NULL,
-		));
+        // Spravci
+        $router[] = new Route('admin/spravci/', 'Admin:Users:list');
+        $router[] = new Route('admin/spravci/pridat/', 'Admin:Users:add');
+        $router[] = new Route('admin/spravci/upravit/[<userID>]', 'Admin:Users:edit');
+        $router[] = new Route('admin/spravci/seznam/', 'Admin:Users:list');
 
-		// Front Route
-		$router[] = new Route('roznov-pod-radhostem/<action>[/<id>]', 'Front:Roznov:default');
-		$router[] = new Route('valasske-mezirici/<action>[/<id>]', 'Front:Valmez:default');
-		$router[] = new Route('bowling/<action>[/<id>]', 'Front:Bowling:default');
-		$router[] = new Route('<presenter>/<action>/<id>', array(
-			'module' => 'Front',
-			'presenter' => 'Homepage',
-			'action' => 'default',
-			'id' => NULL,
-		));
+        // Dashboard
+        $router[] = new Route('admin/', 'Admin:Homepage:default');
 
-		return $router;
-	}
+
+        // Front Router
+        $router[] = new Route('roznov-pod-radhostem/<action>[/<id>]', 'Front:Roznov:default');
+        $router[] = new Route('valasske-mezirici/<action>[/<id>]', 'Front:Valmez:default');
+        $router[] = new Route('bowling/<action>[/<id>]', 'Front:Bowling:default');
+        $router[] = new Route('/', 'Front:Homepage:default');
+        return $router;
+    }
 
 }

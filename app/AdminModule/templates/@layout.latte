@@ -36,7 +36,7 @@
     <![endif]-->
     {block head}{/block}
 </head>
-<body {ifset #pageClass}class='{include pageClass}'{/ifset}>
+<body{ifset #pageClass} class='{include pageClass}'{/ifset}>
     <div id="main">
             <!-- Start: Header -->
             <header class="navbar navbar-fixed-top bg-light">
@@ -112,13 +112,13 @@
                     <li class="ph10 pv20"> <i class="fa fa-circle text-tp fs8"></i>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="{$basePath}/Back-end/assets/img/avatars/designerAvatar.jpg" alt="avatar" class="mw30 br64 mr15">
+                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" alt="avatar" class="mw30 br64 mr15">
                             <span>{$firstName}.{$lastName}</span>
                             <span class="caret caret-tp"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
                             <li class="br-t of-h">
-                                <a href="#" class="fw600 p12 animated animated-short fadeInDown">
+                                <a n:href="MyProfile:default" class="fw600 p12 animated animated-short fadeInDown">
                                     <span class="fa fa-gear pr5"></span> Nastavení účtu </a>
                             </li>
                             <li class="br-t of-h">
@@ -150,7 +150,7 @@
                         </ol>
                     </div>
                 </header>
-                <section id="content">
+                <section id="content" {ifset #sectionClass} class='{include sectionClass}'{/ifset}>
                     {* Flashes *}
 
                     <div class="special-alerts" n:inner-foreach="$flashes as $flash">
