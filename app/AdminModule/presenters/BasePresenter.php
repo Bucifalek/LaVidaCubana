@@ -73,6 +73,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
     {
         $this->beforeRender();
         $this->branchManager->setNew($newBranchID);
+        $this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
+        $this->redirect($this->getPresenter()->presenter->action); // refresh current
     }
 
     public function createComponentMenu()

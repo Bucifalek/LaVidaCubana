@@ -47,6 +47,11 @@ class BranchManager extends Nette\Object
         return $this->currentBranch->data;
     }
 
+    public function getCurrentName()
+    {
+        return $this->currentBranch->data['title'];
+    }
+
     public function getAll()
     {
         return $this->branches;
