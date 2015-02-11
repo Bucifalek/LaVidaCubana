@@ -12,7 +12,7 @@ use Nette,
     Nette\Mail\Message,
     Latte;
 
-class MyMailer extends Mail\SmtpMailer
+class MyMailer
 {
 
     private $mailer;

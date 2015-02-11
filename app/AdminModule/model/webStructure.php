@@ -4,11 +4,11 @@
  * @date 23:47, 9. 2. 2015
  * @copyright 2015 Jan Kotrba
  */
-/*
+
 namespace App\AdminModule\Model;
 
 use Nette;
-*/
+
 class WebStructure extends Nette\Object
 {
 

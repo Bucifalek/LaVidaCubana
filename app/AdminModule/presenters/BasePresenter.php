@@ -61,9 +61,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
         $this->branchManager = new Model\BranchManager($this->database, $this);
 
-        /*if($this->branchManager->getCurrent() == null) { // dela to neco?
+        // Set default branch
+        if($this->branchManager->getCurrent() == null) {
             $this->branchManager->selectDefault();
-        }*/
+        }
 
         $this->template->branchList = $this->branchManager->getAll();
         $this->template->currentBranch = $this->branchManager->getCurrent();
@@ -74,7 +75,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
         $this->beforeRender();
         $this->branchManager->setNew($newBranchID);
         $this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
-        $this->redirect($this->getPresenter()->presenter->action); // refresh current
+        $this->redirect("Homepage:default");
     }
 
     public function createComponentMenu()
