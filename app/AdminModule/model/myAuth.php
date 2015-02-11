@@ -35,10 +35,11 @@ class MyAuth extends Nette\Object implements NS\IAuthenticator
         }
 
         $details = [
-            'id' => $row->id,
             'user' => $row->user,
             'firstname' => $row->real_firstname,
             'lastname' => $row->real_lastname,
+            'avatar' => $row->avatar,
+            'email' => $row->email
         ];
         return new NS\Identity($row->id, $row->role, $details);
     }

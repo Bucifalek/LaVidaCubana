@@ -23,7 +23,7 @@ class UsersPresenter extends BasePresenter
 
     function __construct(Context $database, Model\UserManager $userManager)
     {
-        parent::__construct($userManager);
+        parent::__construct($userManager, $database);
         $this->database = $database;
         $this->userManager = $userManager;
     }
