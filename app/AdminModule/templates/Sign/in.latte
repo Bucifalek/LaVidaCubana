@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="panel panel-info mt10 br-n">
-					<form n:name="loginForm" autocomplete="off">
+					<form n:name="loginForm">
 						<div class="panel-body bg-light p30">
 
 							<div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
@@ -43,7 +43,7 @@
 									<div class="section">
 										<label for="username" class="field-label text-muted fs18 mb10">Jméno</label>
 										<label for="username" class="field prepend-icon">
-											<input type="text" n:name="username" autocomplete="false" id="username"
+											<input type="text" n:name="username" id="username"
 												   class="gui-input"
 												   placeholder="Zadejte jméno">
 											<label for="username" class="field-icon"><i class="fa fa-user"></i>
@@ -55,7 +55,7 @@
 									<div class="section">
 										<label for="username" class="field-label text-muted fs18 mb10">Heslo</label>
 										<label for="password" class="field prepend-icon">
-											<input type="password" n:name="password" id="password" autocomplete="off"
+											<input type="password" n:name="password" id="password"
 												   class="gui-input"
 												   placeholder="Zadejte heslo">
 											<label for="password" class="field-icon"><i class="fa fa-lock"></i>

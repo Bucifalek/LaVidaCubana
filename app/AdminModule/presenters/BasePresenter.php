@@ -13,25 +13,57 @@ use Nette,
 	Tracy\Debugger;
 
 Debugger::$maxDepth = 10; // default: 3
-Debugger::$maxLen = 50; // default: 150
+Debugger::$maxLen = 500; // default: 150
 
+/**
+ * Class BasePresenter
+ * @package App\AdminModule\Presenters
+ */
 class BasePresenter extends Nette\Application\UI\Presenter
 {
+	/**
+	 * @var Nette\Database\Context
+	 */
 	private $database;
 
+	/**
+	 * @var Model\UserManager
+	 */
 	private $userManager;
 
+	/**
+	 * @var Model\ModulesManager
+	 */
 	private $modulesManager;
 
+	/**
+	 * @var Model\BranchManager @inject
+	 */
 	private $branchManager;
 
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
+	/**
+	 * @return mixed
+	 */
+	public function getBranchManager()
+	{
+		return $this->branchManager;
+	}
+
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 */
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		$this->userManager = $userManager;
 		$this->database = $database;
 		$this->modulesManager = new Model\ModulesManager($this->database);
+		$this->branchManager = $branchManager;
 	}
 
+	/**
+	 *
+	 */
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
@@ -43,21 +75,21 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			try {
 				$this->userManager->isUserBanned($this->getUser());
 			} catch (Security\AuthenticationException $e) {
-				$this->user->logout(TRUE);
+				$this->user->logout(true);
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
 		}
 		$this->template->getFlashType = function ($arg) {
 			$e = explode("|", $arg);
+
 			return @$e[0];
 		};
 		$this->template->getFlashIcon = function ($arg) {
 			$e = explode("|", $arg);
+
 			return @$e[1];
 		};
-
-		$this->branchManager = new Model\BranchManager($this->database, $this);
 
 		// Set default branch
 		if ($this->branchManager->getCurrent() == null) {
@@ -68,14 +100,20 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 	}
 
+	/**
+	 * @param $newBranchID
+	 */
 	public function handleChangeBranch($newBranchID)
 	{
 		$this->beforeRender();
 		$this->branchManager->setNew($newBranchID);
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
-		$this->redirect("Homepage:default");
+		$this->redirect($this->getAction());
 	}
 
+	/**
+	 * @return menuControl
+	 */
 	public function createComponentMenu()
 	{
 		/**
@@ -83,6 +121,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		 */
 		$menu = new menuControl;
 		// Struktura CMS
+
 		$menu->addSection('Hlavní menu',
 			[
 				'Menu|list' => [
@@ -100,7 +139,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			]);
 
 		$allModules = [];
-		foreach ($this->modulesManager->getAll() as $moduleName => $moduleActions) {
+		foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
 			$allModules[$moduleName] = $moduleActions;
 		}
 		$menu->addSection('Použité moduly', $allModules);
@@ -118,6 +157,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				],
 			'Nahlásit chybu|bug' => 'Report:error'
 		]);
+
 		return $menu;
 	}
 }

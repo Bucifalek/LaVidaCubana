@@ -10,9 +10,16 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
+/**
+ * Class TestPresenter
+ * @package App\AdminModule\Presenters
+ */
 class TestPresenter extends BasePresenter
 {
 
+	/**
+	 *
+	 */
 	public function handleSendEmail()
 	{
 		// send test email to jan.kotrbaa@gmail.com

@@ -9,9 +9,16 @@ namespace App\AdminModule\Presenters;
 
 use Nette;
 
+/**
+ * Class ErrorPresenter
+ * @package App\AdminModule\Presenters
+ */
 class ErrorPresenter extends BasePresenter
 {
 
+	/**
+	 * @param $exception
+	 */
 	public function renderDefault($exception)
 	{
 		if ($exception instanceof BadRequestException) {

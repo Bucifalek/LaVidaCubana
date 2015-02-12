@@ -11,17 +11,31 @@ use Nette,
 	App\AdminModule\Model,
 	Nette\Database;
 
+/**
+ * Class StructurePresenter
+ * @package App\AdminModule\Presenters
+ */
 class StructurePresenter extends BasePresenter
 {
 
-	private $WebStructure;
+	/**
+	 * @var
+	 */
+	private $webStructure;
 
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Database\Context $database
+	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
 	{
 		parent::__construct($userManager, $database);
 		//$this->webStructure = new Model\webStructure($database);
 	}
 
+	/**
+	 *
+	 */
 	public function renderDefault()
 	{
 		parent::beforeRender();

@@ -8,28 +8,47 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-	App\Model,
+	App\AdminModule\Model,
 	Nette\Application\UI;
 
+/**
+ * Class SignPresenter
+ * @package App\AdminModule\Presenters
+ */
 class SignPresenter extends BasePresenter
 {
 
+
+	/**
+	 *
+	 */
 	public function beforeRender()
 	{
 		parent::beforeRender();
 	}
 
+	/**
+	 * @return UI\Form
+	 */
 	protected function createComponentLoginForm()
 	{
 		$form = new UI\Form;
-		$form->addText('username', 'Name:')->setRequired('Nezadali jste jméno.');
-		$form->addPassword('password', 'Password:')->setRequired('Nezadali jste heslo.');
+		$form->addProtection();
+		$form->addText('username', 'Name:')
+			->setRequired('Nezadali jste jméno.');
+
+		$form->addPassword('password', 'Password:')
+			->setRequired('Nezadali jste heslo.');
 		$form->addSubmit('login');
-		$form->onSuccess[] = array($this, 'loginFormSucceeded');
+		$form->onSuccess[] = [$this, 'loginFormSucceeded'];
+
 		return $form;
 	}
 
-	public function loginFormSucceeded(UI\Form $form, $values)
+	/**
+	 * @param UI\Form $form
+	 */
+	public function loginFormSucceeded(UI\Form $form)
 	{
 		$values = $form->values;
 		try {
@@ -42,9 +61,12 @@ class SignPresenter extends BasePresenter
 		}
 	}
 
+	/**
+	 *
+	 */
 	public function actionOut()
 	{
-		$this->user->logout(TRUE);
+		$this->user->logout(true);
 		$this->flashMessage('Odhlášení proběhlo v pořádku.', FLASH_SUCCESS);
 		$this->redirect('Sign:in');
 	}

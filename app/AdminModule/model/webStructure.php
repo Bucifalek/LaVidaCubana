@@ -9,19 +9,28 @@ namespace App\AdminModule\Model;
 
 use Nette;
 
+/**
+ * Class WebStructure
+ * @package App\AdminModule\Model
+ */
 class WebStructure extends Nette\Object
 {
-
-	/** @var Nette\Database\Context @inject */
+	/**
+	 * @var Nette\Database\Context
+	 */
 	private $database;
 
+	/**
+	 * @param Nette\Database\Context $database
+	 */
 	function __construct(Nette\Database\Context $database)
 	{
 		$this->database = $database;
 	}
 
+
 	/**
-	 * Return structure of Front module website
+	 * @return array
 	 */
 	public function get()
 	{

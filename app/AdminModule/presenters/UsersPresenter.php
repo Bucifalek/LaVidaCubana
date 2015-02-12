@@ -13,12 +13,26 @@ use App\AdminModule\Model,
 	Nette\Security\Passwords,
 	Utils;
 
+/**
+ * Class UsersPresenter
+ * @package App\AdminModule\Presenters
+ */
 class UsersPresenter extends BasePresenter
 {
+	/**
+	 * @var Context
+	 */
 	private $database;
 
+	/**
+	 * @var Model\UserManager
+	 */
 	private $userManager;
 
+	/**
+	 * @param Context $database
+	 * @param Model\UserManager $userManager
+	 */
 	function __construct(Context $database, Model\UserManager $userManager)
 	{
 		parent::__construct($userManager, $database);
@@ -27,13 +41,17 @@ class UsersPresenter extends BasePresenter
 	}
 
 	/**
-	 * Get all users from database and insert them into template variables
+	 *
 	 */
 	public function renderList()
 	{
-		$this->template->currentUsers = $this->database->table('admin_users')->fetchAll();
+		$this->template->currentUsers = $this->userManager->allUsers();
 	}
 
+	/**
+	 * @param $userID
+	 * @throws \Exception
+	 */
 	public function renderEdit($userID)
 	{
 		if (!isset($userID)) {
@@ -45,7 +63,7 @@ class UsersPresenter extends BasePresenter
 
 
 	/**
-	 * Ban user and send email notification
+	 * @param $id
 	 */
 	public function handleBanUser($id)
 	{
@@ -83,9 +101,8 @@ class UsersPresenter extends BasePresenter
 		$this->redirect('Users:list');
 	}
 
-
 	/**
-	 * Un ban user, no notification
+	 * @param $id
 	 */
 	public function handleUnBanUser($id)
 	{
@@ -100,7 +117,7 @@ class UsersPresenter extends BasePresenter
 
 
 	/**
-	 * Create new password and send it to user via email
+	 * @param $id
 	 */
 	public function handleRegenPass($id)
 	{
@@ -140,7 +157,7 @@ class UsersPresenter extends BasePresenter
 
 
 	/**
-	 * Delete user and send notification
+	 * @param $id
 	 */
 	public function handleDeleteUser($id)
 	{
@@ -157,7 +174,7 @@ class UsersPresenter extends BasePresenter
 
 
 	/**
-	 * Create form to update user data
+	 * @return UI\Form
 	 */
 	public function createComponentUpdateUserForm()
 	{
@@ -168,13 +185,14 @@ class UsersPresenter extends BasePresenter
 		$form->addText('email')->setRequired('nezadali jste email');
 		$form->addtext('username')->setRequired('nezadlai jste jmeno pro prihlaseni');
 		$form->addSubmit('updateUser', 'Uložit změny');
-		$form->onSuccess[] = array($this, 'updateUserFormSucceeded');
+		$form->onSuccess[] = [$this, 'updateUserFormSucceeded'];
 		return $form;
 	}
 
 
 	/**
-	 * Saves updated data to database, no notification
+	 * @param UI\Form $form
+	 * @param $values
 	 */
 	public function updateUserFormSucceeded(UI\Form $form, $values)
 	{
@@ -187,14 +205,15 @@ class UsersPresenter extends BasePresenter
 			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Users:list');
 		}
-		$this->flashMessage('Změny účtu byly uloženy');
+		$this->flashMessage('Změny účtu uloženy.', FLASH_INFO);
 		$this->redirect('Users:list');
 	}
 
 
 	/**
-	 * Create form to add user to database
+	 * @return UI\Form
 	 */
 	public function createComponentAddUserForm()
 	{
@@ -204,19 +223,20 @@ class UsersPresenter extends BasePresenter
 		$form->addText('email')->setRequired('nezadali jste email');
 		$form->addtext('username')->setRequired('nezadlai jste jmeno pro prihlaseni');
 		$form->addSubmit('addUser', 'Přidat');
-		$form->onSuccess[] = array($this, 'addUserFormSucceeded');
+		$form->onSuccess[] = [$this, 'addUserFormSucceeded'];
 		return $form;
 	}
 
 
 	/**
-	 * Add user to database and send email notification
+	 * @param UI\Form $form
+	 * @param $values
 	 */
 	public function addUserFormSucceeded(UI\Form $form, $values)
 	{
 		$strongPassword = Utils\passGenerator::generateStrongPassword();
 		try {
-			$this->userManager->add(array(
+			$this->userManager->add([
 				'user' => $values->username,
 				'password' => Passwords::hash($strongPassword),
 				'password_pure' => $strongPassword,
@@ -224,7 +244,7 @@ class UsersPresenter extends BasePresenter
 				'real_lastname' => $values->lastname,
 				'email' => $values->email,
 				'banned' => '0'
-			));
+			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 		}
@@ -232,7 +252,7 @@ class UsersPresenter extends BasePresenter
 		try {
 			$myMailer = new Model\myMailer;
 			$myMailer->setHtmlBody(
-				__DIR__ . '/../templates/EmailTemplates/deleteUserEmail.latte',
+				__DIR__ . '/../templates/EmailTemplates/userAddedEmail.latte',
 				[
 					'username' => $values->username,
 					'firstname' => $values->firstname,

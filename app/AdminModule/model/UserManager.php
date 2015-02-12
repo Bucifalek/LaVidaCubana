@@ -10,28 +10,50 @@ namespace App\AdminModule\Model;
 use Nette;
 use Nette\Security as NS;
 
+/**
+ * Class UserManager
+ * @package App\AdminModule\Model
+ */
 class UserManager extends Nette\Object
 {
 
-	/** @var Nette\Database\Context @inject */
+	const TABLE_USERS = "users";
+
+	/**
+	 * @var Nette\Database\Context
+	 */
 	private $database;
 
+	/**
+	 * @param Nette\Database\Context $database
+	 */
 	function __construct(Nette\Database\Context $database)
 	{
 		$this->database = $database;
 	}
 
+
+	/**
+	 * @param NS\User $user
+	 * @throws NS\AuthenticationException
+	 */
 	public function isUserBanned(NS\User $user)
 	{
-		$row = $this->database->table('users')->where('id', $user->getId())->fetch();
+		$row = $this->database->table(self::TABLE_USERS)->where('id', $user->getId())->fetch();
 		if ($row->banned) {
 			throw new NS\AuthenticationException('Váš účet byl právě zablokován!');
 		}
 	}
 
+	/**
+	 * @param $userID
+	 * @param $plain
+	 * @param $pass
+	 * @throws \Exception
+	 */
 	public function newPassword($userID, $plain, $pass)
 	{
-		if (!$this->database->table('users')->where('id', $userID)->update(
+		if (!$this->database->table(self::TABLE_USERS)->where('id', $userID)->update(
 			['password' => $pass, 'password_pure' => $plain])
 		) {
 			throw new \Exception('Nepodařilo se změnit heslo.');
@@ -39,9 +61,14 @@ class UserManager extends Nette\Object
 	}
 
 
+	/**
+	 * @param $id
+	 * @return bool|mixed|Nette\Database\Table\IRow
+	 * @throws \Exception
+	 */
 	public function getDetails($id)
 	{
-		$data = $this->database->table('users')->where('id', $id)->fetch();
+		$data = $this->database->table(self::TABLE_USERS)->where('id', $id)->fetch();
 		if (!$data) {
 			throw new \Exception('Nelze ziskat informace z databaze');
 		} else {
@@ -49,45 +76,81 @@ class UserManager extends Nette\Object
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @param $data
+	 * @throws \Exception
+	 */
 	public function update($id, $data)
 	{
-		if (!$this->database->table('users')->where('id', $id)->update($data)) {
-			throw new \Exception('Nepodarilo se ulozit zmeny');
+		try {
+			$this->database->table(self::TABLE_USERS)->where('id', $id)->update($data);
+		} catch(\Exception $e) {
+			throw new \Exception($e->getMessage());
 		}
 	}
 
-	/** Handlers */
+
+	/**
+	 * @param $details
+	 * @throws \Exception
+	 */
 	public function add($details)
 	{
-		if (!$this->database->table('users')->insert($details)) {
+		// TODO: Check if user details not in database(email, nickname)
+		if (!$this->database->table(self::TABLE_USERS)->insert($details)) {
 			throw new \Exception('Nepodařilo se uložit do databáze');
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @throws \Exception
+	 */
 	public function ban($id)
 	{
-		if (!$this->database->table('users')->where('id', $id)->update(['banned' => 1])) {
+		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 1])) {
 			throw new \Exception('Nepodařilo se zablokovat správce');
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @throws \Exception
+	 */
 	public function unBan($id)
 	{
-		if (!$this->database->table('users')->where('id', $id)->update(['banned' => 0])) {
+		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 0])) {
 			throw new \Exception('Nepodařilo se odblokovat správce');
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @throws \Exception
+	 */
 	public function delete($id)
 	{
-		if (!$this->database->table('users')->where('id', $id)->delete()) {
+		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->delete()) {
 			throw new \Exception('Nepodařilo se smazat uživatele.');
 		}
 	}
 
+	/**
+	 * @param $user
+	 * @param $id
+	 */
 	public function newAvatar($user, $id)
 	{
-		$this->database->table('users')->where('id', $user)->update(['avatar' => $id]);
+		$this->database->table(self::TABLE_USERS)->where('id', $user)->update(['avatar' => $id]);
 	}
-	/** /Handlers  */
+
+	/**
+	 * @return array|Nette\Database\Table\IRow[]
+	 */
+	public function allUsers()
+	{
+		return $this->database->table(self::TABLE_USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
+	}
+
 }

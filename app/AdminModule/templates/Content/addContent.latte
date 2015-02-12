@@ -20,26 +20,22 @@
 
 {block content}
 
-<form class="form-horizontal" role="form">
+<form n:name="addContentForm" class="form-horizontal" role="form">
 	<div class="panel mw600">
 		<div class="panel-heading">
-			<span class="panel-title" n:block="title">Přidat nový obsah</span>
+			<span class="panel-title" n:block="title">Přidat novou položku</span>
 		</div>
 		<div class="panel-body">
 				<div class="form-group">
-					<label for="inputStandard" class="col-lg-3 control-label">Název položky</label>
+					<label for="inputStandard" class="col-lg-3 control-label">Pojmenování</label>
 					<div class="col-lg-8">
-						<input id="inputStandard" class="form-control" placeholder="Type Here..." type="text">
+						<input id="inputStandard" n:name="name" class="form-control" placeholder="" autocomplete="off" type="text">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="multiselect1" class="col-lg-3 control-label">Typ obsahu</label>
 					<div class="col-lg-8">
-						<select style="display: none;" id="multiselect1">
-							<option value="SimpleLink">Odkaz</option>
-							<option value="Article" selected="true">Textový obsah</option>
-							<option value="Gallery">Fotogalerie</option>
-						</select>
+						<select n:name="module" style="display: none;" id="multiselect1"></select>
 					</div>
 				</div>
 		</div>
