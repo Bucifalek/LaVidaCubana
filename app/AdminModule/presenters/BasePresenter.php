@@ -8,115 +8,156 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-    App\AdminModule\Model,
-    Nette\Security,
-    Tracy\Debugger;
+	App\AdminModule\Model,
+	Nette\Security,
+	Tracy\Debugger;
 
 Debugger::$maxDepth = 10; // default: 3
-Debugger::$maxLen = 50; // default: 150
+Debugger::$maxLen = 500; // default: 150
 
+/**
+ * Class BasePresenter
+ * @package App\AdminModule\Presenters
+ */
 class BasePresenter extends Nette\Application\UI\Presenter
 {
-    /** @var Model\userManager @inject */
-    private $userManager;
+	/**
+	 * @var Nette\Database\Context
+	 */
+	private $database;
 
-    /** @var Nette\Database\Context @inject */
-    private $database;
+	/**
+	 * @var Model\UserManager
+	 */
+	private $userManager;
 
-    private $modulesManager;
-    private $branchManager;
+	/**
+	 * @var Model\ModulesManager
+	 */
+	private $modulesManager;
 
+	/**
+	 * @var Model\BranchManager @inject
+	 */
+	private $branchManager;
 
-    function __construct(Model\userManager $userManager, Nette\Database\Context $database)
-    {
-        $this->userManager = $userManager;
-        $this->database = $database;
-        $this->modulesManager = new Model\ModulesManager($this->database);
-    }
+	/**
+	 * @return mixed
+	 */
+	public function getBranchManager()
+	{
+		return $this->branchManager;
+	}
 
-    public function beforeRender()
-    {
-        if ($this->getUser()->isLoggedIn()) {
-            $userData = $this->user->getIdentity()->getData();
-            $this->template->firstName = $userData['firstname'];
-            $this->template->lastName = $userData['lastname'];
-            $this->template->avatar = $userData['avatar'];
-            $this->template->email = $userData['email'];
-            try {
-                $this->userManager->isUserBanned($this->getUser());
-            } catch (Security\AuthenticationException $e) {
-                $this->user->logout(TRUE);
-                $this->flashMessage($e->getMessage(), FLASH_WARNING);
-                $this->redirect('Sign:in');
-            }
-        }
-        $this->template->getFlashType = function ($arg) {
-            $e = explode("|", $arg);
-            return @$e[0];
-        };
-        $this->template->getFlashIcon = function ($arg) {
-            $e = explode("|", $arg);
-            return @$e[1];
-        };
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 */
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
+	{
+		$this->userManager = $userManager;
+		$this->database = $database;
+		$this->modulesManager = new Model\ModulesManager($this->database);
+		$this->branchManager = $branchManager;
+	}
 
-        $this->branchManager = new Model\BranchManager($this->database, $this);
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+		if ($this->getUser()->isLoggedIn()) {
+			$userData = $this->user->getIdentity()->getData();
+			$this->template->firstName = $userData['firstname'];
+			$this->template->lastName = $userData['lastname'];
+			$this->template->avatar = $userData['avatar'];
+			$this->template->email = $userData['email'];
+			try {
+				$this->userManager->isUserBanned($this->getUser());
+			} catch (Security\AuthenticationException $e) {
+				$this->user->logout(true);
+				$this->flashMessage($e->getMessage(), FLASH_WARNING);
+				$this->redirect('Sign:in');
+			}
+		}
+		$this->template->getFlashType = function ($arg) {
+			$e = explode("|", $arg);
 
-        /*if($this->branchManager->getCurrent() == null) { // dela to neco?
-            $this->branchManager->selectDefault();
-        }*/
+			return @$e[0];
+		};
+		$this->template->getFlashIcon = function ($arg) {
+			$e = explode("|", $arg);
 
-        $this->template->branchList = $this->branchManager->getAll();
-        $this->template->currentBranch = $this->branchManager->getCurrent();
-    }
+			return @$e[1];
+		};
 
-    public function handleChangeBranch($newBranchID)
-    {
-        $this->beforeRender();
-        $this->branchManager->setNew($newBranchID);
-    }
+		// Set default branch
+		if ($this->branchManager->getCurrent() == null) {
+			$this->branchManager->selectDefault();
+		}
 
-    public function createComponentMenu()
-    {
-        /**
-         * Only glyphicons icons in menu
-         */
-        $menu = new menuControl;
-        // Struktura CMS
-        $menu->addSection('Hlavní menu',
-            [
-                'Menu|list' => [
-                    'Přidat menu|circle_plus' => 'Menu:newMenu',
-                    'Aktuální struktura|notes_2' => 'Menu:currentStructure',
-                ],
-                'Obsah' => [
-                    'Přidat položku|circle_plus' => 'Content:addContent',
-                    'Všechny položky|notes_2' => 'Articles:allContent',
-                ],
-                'Úložiště|hdd' => [
-                    'Nahrávání souborů|file_import' => 'Files:upload',
-                    'Všechny soubory|folder_open' => 'Files:allFiles',
-                ]
-            ]);
+		$this->template->branchList = $this->branchManager->getAll();
+		$this->template->currentBranch = $this->branchManager->getCurrent();
+	}
 
-        $allModules = [];
-        foreach ($this->modulesManager->getAll() as $moduleName => $moduleActions) {
-            $allModules[$moduleName] = $moduleActions;
-        }
-        $menu->addSection('Použité moduly', $allModules);
+	/**
+	 * @param $newBranchID
+	 */
+	public function handleChangeBranch($newBranchID)
+	{
+		$this->beforeRender();
+		$this->branchManager->setNew($newBranchID);
+		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
+		$this->redirect($this->getAction());
+	}
 
-        // Struktura CMS
-        $menu->addSection('Systém', [
-            'Správci|group' =>
-                [
-                    'Přidat|user_add' => 'Users:add',
-                    'Seznam správců|adress_book' => 'Users:list'
-                ],
-            'Testy|electricity' =>
-                [
-                    'Emaily' => 'Test:sendEmail'
-                ],
-            'Nahlásit chybu|bug' => 'Report:error'
-        ]);
-        return $menu;
-    }
+	/**
+	 * @return menuControl
+	 */
+	public function createComponentMenu()
+	{
+		/**
+		 * Only glyphicons icons in menu
+		 */
+		$menu = new menuControl;
+		// Struktura CMS
+
+		$menu->addSection('Hlavní menu',
+			[
+				'Menu|list' => [
+					'Přidat menu|circle_plus' => 'Menu:newMenu',
+					'Aktuální struktura|notes_2' => 'Menu:currentStructure',
+				],
+				'Obsah' => [
+					'Přidat položku|circle_plus' => 'Content:addContent',
+					'Všechny položky|notes_2' => 'Content:allContent',
+				],
+				'Úložiště|hdd' => [
+					'Nahrávání souborů|file_import' => 'Files:upload',
+					'Všechny soubory|folder_open' => 'Files:allFiles',
+				]
+			]);
+
+		$allModules = [];
+		foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
+			$allModules[$moduleName] = $moduleActions;
+		}
+		$menu->addSection('Použité moduly', $allModules);
+
+		// Struktura CMS
+		$menu->addSection('Systém', [
+			'Správci|group' =>
+				[
+					'Přidat|user_add' => 'Users:add',
+					'Seznam správců|adress_book' => 'Users:list'
+				],
+			'Testy|electricity' =>
+				[
+					'Emaily' => 'Test:sendEmail'
+				],
+			'Nahlásit chybu|bug' => 'Report:error'
+		]);
+
+		return $menu;
+	}
 }

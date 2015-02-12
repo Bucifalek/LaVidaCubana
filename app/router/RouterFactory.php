@@ -28,7 +28,7 @@ class RouterFactory
 
         // Admin Router
         // Test
-        $router[] = new Route('admin/test/odeslat-email', 'Admin:Test:odeslat-email');
+        $router[] = new Route('admin/test/odeslat-email', 'Admin:Test:sendEmail');
 
         // nastaveni uctu
         $router[] = new Route('admin/muj-ucet/', 'Admin:MyProfile:default');
@@ -38,6 +38,7 @@ class RouterFactory
 
         // Obsah
         $router[] = new Route('admin/obsah/pridat-polozku/', 'Admin:Content:addContent');
+        $router[] = new Route('admin/obsah/vsechny-polozky/', 'Admin:Content:allContent');
 
         // Struktura
         $router[] = new Route('admin/struktura-stranek/', 'Admin:Structure:default');

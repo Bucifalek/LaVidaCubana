@@ -7,23 +7,39 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model,
 	Nette\Database;
 
-class StructurePresenter extends BasePresenter {
+/**
+ * Class StructurePresenter
+ * @package App\AdminModule\Presenters
+ */
+class StructurePresenter extends BasePresenter
+{
 
+	/**
+	 * @var
+	 */
 	private $webStructure;
 
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Database\Context $database
+	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
 	{
 		parent::__construct($userManager, $database);
-		$this->webStructure = new Model\webStructure($database);
+		//$this->webStructure = new Model\webStructure($database);
 	}
 
-	public function renderDefault() {
+	/**
+	 *
+	 */
+	public function renderDefault()
+	{
 		parent::beforeRender();
-		$this->template->webStructure = $this->webStructure->get();
+		//$this->template->webStructure = $this->webStructure->get();
 	}
 
 }

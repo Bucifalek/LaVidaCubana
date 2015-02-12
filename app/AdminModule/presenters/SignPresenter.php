@@ -8,44 +8,66 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-    App\Model,
-    Nette\Application\UI;
+	App\AdminModule\Model,
+	Nette\Application\UI;
 
+/**
+ * Class SignPresenter
+ * @package App\AdminModule\Presenters
+ */
 class SignPresenter extends BasePresenter
 {
 
-    public function beforeRender()
-    {
-        parent::beforeRender();
-    }
 
-    protected function createComponentLoginForm()
-    {
-        $form = new UI\Form;
-        $form->addText('username', 'Name:')->setRequired('Nezadali jste jméno.');
-        $form->addPassword('password', 'Password:')->setRequired('Nezadali jste heslo.');
-        $form->addSubmit('login');
-        $form->onSuccess[] = array($this, 'loginFormSucceeded');
-        return $form;
-    }
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+		parent::beforeRender();
+	}
 
-    public function loginFormSucceeded(UI\Form $form, $values)
-    {
-        $values = $form->values;
-        try {
-            $this->getUser()->login($values->username, $values->password);
-            $this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
-            $this->redirect('Homepage:');
-        } catch (Nette\Security\AuthenticationException $e) {
-            $this->flashMessage($e->getMessage(), FLASH_WARNING);
-            $this->redirect('Sign:in');
-        }
-    }
+	/**
+	 * @return UI\Form
+	 */
+	protected function createComponentLoginForm()
+	{
+		$form = new UI\Form;
+		$form->addProtection();
+		$form->addText('username', 'Name:')
+			->setRequired('Nezadali jste jméno.');
 
-    public function actionOut()
-    {
-        $this->user->logout(TRUE);
-        $this->flashMessage('Odhlášení proběhlo v pořádku.', FLASH_SUCCESS);
-        $this->redirect('Sign:in');
-    }
+		$form->addPassword('password', 'Password:')
+			->setRequired('Nezadali jste heslo.');
+		$form->addSubmit('login');
+		$form->onSuccess[] = [$this, 'loginFormSucceeded'];
+
+		return $form;
+	}
+
+	/**
+	 * @param UI\Form $form
+	 */
+	public function loginFormSucceeded(UI\Form $form)
+	{
+		$values = $form->values;
+		try {
+			$this->getUser()->login($values->username, $values->password);
+			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
+			$this->redirect('Homepage:');
+		} catch (Nette\Security\AuthenticationException $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Sign:in');
+		}
+	}
+
+	/**
+	 *
+	 */
+	public function actionOut()
+	{
+		$this->user->logout(true);
+		$this->flashMessage('Odhlášení proběhlo v pořádku.', FLASH_SUCCESS);
+		$this->redirect('Sign:in');
+	}
 }

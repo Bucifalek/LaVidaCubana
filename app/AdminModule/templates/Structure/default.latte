@@ -1,12 +1,14 @@
 {*
- - @author Jan Kotrba <jan.kotrbaa@gmail.com>
- - @date 23:05, 9. 2. 2015
- - @copyright 2015 Jan Kotrba
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
+- @date 23:05, 9. 2. 2015
+- @copyright 2015 Jan Kotrba
 *}
 {block nav_presenter}Struktura webu{/block}
 {block pageClass}form-treeview-page sb-l-o sb-r-c onload-check{/block}
 {block head}
-<link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/vendor/plugins/fancytree/skin-win8/ui.fancytree.min.css">
+<link rel="stylesheet" type="text/css"
+	  href="{$basePath}/Back-end/vendor/plugins/fancytree/skin-win8/ui.fancytree.min.css">
 <link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/assets/skin/default_skin/css/ie_split1.css">
 <link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/assets/skin/default_skin/css/ie_split2.css">
 <link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/assets/skin/default_skin/css/ie_split3.css">
@@ -14,45 +16,67 @@
 
 
 {block content}
-{dump $webStructure}
+{dump $WebStructure}
 <div class="panel panel-primary panel-border top mb30 mw600" id="p1">
-    <div class="panel-heading">
-        <span class="panel-title" n:block="title"> Struktura webových stránek</span>
-    </div>
-    <div class="panel-body bg-light dark">
-        <div id="tree">
-            <ul class="ui-fancytree-source ui-helper" id="treeData" n:inner-foreach="$webStructure as $name => $branch">
-                <li class="folder{first} expanded active{/first}">{$name}
-                    <ul n:inner-foreach="$branch as $data">
-                        <li>
-                            <h3>{$data['title']}</h3>
-                            <b>Manager Presenter:</b> {$data['manager_presenter']}<br/>
-                            <b>View Presenter:</b> {$data['view_presenter']}<br/>
-                            <b>Action:</b> {$data['action']}<br/>
-                            <b>Theme:</b> {$data['theme']}<br/>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        <ul tabindex="0" class="ui-fancytree fancytree-container"><li class=""><span class="fancytree-node fancytree-exp-n fancytree-ico-c"><span class="fancytree-expander"></span><span class="fancytree-title">Node 1</span></span></li><li class="fancytree-lastsib"><span class="fancytree-node fancytree-active fancytree-expanded fancytree-folder fancytree-has-children fancytree-lastsib fancytree-exp-el fancytree-ico-ef"><span class="fancytree-expander"></span><span class="fancytree-title">Folder 1</span></span><ul style="display: block;"><li class=""><span class="fancytree-node fancytree-exp-n fancytree-ico-c"><span class="fancytree-expander"></span><span class="fancytree-title">Node 2.1</span></span></li><li class="fancytree-lastsib"><span class="fancytree-node fancytree-lastsib fancytree-exp-nl fancytree-ico-c"><span class="fancytree-expander"></span><span class="fancytree-title">Node 2.2</span></span></li></ul></li></ul></div>
-    </div>
+	<div class="panel-heading">
+		<span class="panel-title" n:block="title"> Struktura webových stránek</span>
+	</div>
+	<div class="panel-body bg-light dark">
+		<div id="tree">
+			<ul class="ui-fancytree-source ui-helper" id="treeData" n:inner-foreach="$webStructure as $name => $branch">
+				<li class="folder{first} expanded active{/first}">{$name}
+					<ul n:inner-foreach="$branch as $data">
+						<li>
+							<h3>{$data['title']}</h3>
+							<b>Manager Presenter:</b> {$data['manager_presenter']}<br/>
+							<b>View Presenter:</b> {$data['view_presenter']}<br/>
+							<b>Action:</b> {$data['action']}<br/>
+							<b>Theme:</b> {$data['theme']}<br/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul tabindex="0" class="ui-fancytree fancytree-container">
+				<li class=""><span class="fancytree-node fancytree-exp-n fancytree-ico-c"><span
+							class="fancytree-expander"></span><span class="fancytree-title">Node 1</span></span></li>
+				<li class="fancytree-lastsib"><span
+						class="fancytree-node fancytree-active fancytree-expanded fancytree-folder fancytree-has-children fancytree-lastsib fancytree-exp-el fancytree-ico-ef"><span
+							class="fancytree-expander"></span><span class="fancytree-title">Folder 1</span></span>
+					<ul style="display: block;">
+						<li class=""><span class="fancytree-node fancytree-exp-n fancytree-ico-c"><span
+									class="fancytree-expander"></span><span
+									class="fancytree-title">Node 2.1</span></span></li>
+						<li class="fancytree-lastsib"><span
+								class="fancytree-node fancytree-lastsib fancytree-exp-nl fancytree-ico-c"><span
+									class="fancytree-expander"></span><span
+									class="fancytree-title">Node 2.2</span></span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>
 {/block}
 
 
 {block script}
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/jquery.fancytree-all.min.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.childcounter.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.columnview.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.dnd.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.edit.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.filter.js"></script>
+<script type="text/javascript"
+		src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.childcounter.js"></script>
+<script type="text/javascript"
+		src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.columnview.js"></script>
+<script type="text/javascript"
+		src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.dnd.js"></script>
+<script type="text/javascript"
+		src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.edit.js"></script>
+<script type="text/javascript"
+		src="{$basePath}/Back-end/vendor/plugins/fancytree/extensions/jquery.fancytree.filter.js"></script>
 <script>
-jQuery(document).ready(function() {
-    $("#tree").fancytree({
-        icons: false, // Display node icons.
-        clickFolderMode: 2, // 1:activate, 2:expand, 3:activate and expand, 4:activate (dblclick expands)
-    });
-});
+	jQuery(document).ready(function () {
+		$("#tree").fancytree({
+			icons: false, // Display node icons.
+			clickFolderMode: 2, // 1:activate, 2:expand, 3:activate and expand, 4:activate (dblclick expands)
+		});
+	});
 </script>
 {/block}

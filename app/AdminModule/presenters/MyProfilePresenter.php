@@ -9,21 +9,36 @@ namespace App\AdminModule\Presenters;
 
 use Nette, App\AdminModule\Model;
 
+/**
+ * Class MyProfilePresenter
+ * @package App\AdminModule\Presenters
+ */
 class MyProfilePresenter extends BasePresenter
 {
 
-    private $userManager;
+	/**
+	 * @var Model\UserManager
+	 */
+	private $userManager;
 
-    function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
-    {
-        parent::__construct($userManager, $database);
-        $this->userManager = $userManager;
-    }
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 */
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
+	{
+		parent::__construct($userManager, $database);
+		$this->userManager = $userManager;
+	}
 
-    public function handleChangeUserPhoto($user, $avatarID)
-    {
-        $this->userManager->newAvatar($user, $avatarID);
-        $this->user->getIdentity()->avatar = $avatarID;
-        $this->redirect('MyProfile:default');
-    }
+	/**
+	 * @param $user
+	 * @param $avatarID
+	 */
+	public function handleChangeUserPhoto($user, $avatarID)
+	{
+		$this->userManager->newAvatar($user, $avatarID);
+		$this->user->getIdentity()->avatar = $avatarID;
+		$this->redirect('MyProfile:default');
+	}
 }

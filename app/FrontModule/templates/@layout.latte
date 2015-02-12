@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/Front-End/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/Front-End/css/print.css">
-    <link rel="stylesheet" media='' href="{$basePath}/Front-End/css/style.css">
+    <link rel="stylesheet" media="" href="{$basePath}/Front-End/css/style.css">
 	<link rel="shortcut icon" href="{$basePath}/Front-End/img/favicon.ico">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -20,7 +20,7 @@
 	<script> document.documentElement.className+=' js' </script>
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-	<!--todo-->
+
 	{include content}
 
 	{block scripts}

@@ -9,15 +9,22 @@ namespace App\AdminModule\Presenters;
 
 use Nette;
 
+/**
+ * Class ErrorPresenter
+ * @package App\AdminModule\Presenters
+ */
 class ErrorPresenter extends BasePresenter
 {
 
-    public function renderDefault($exception)
-    {
-        if ($exception instanceof BadRequestException) {
-            $this->setView('404'); // load template 404.phtml
-        } else {
-            $this->setView('500'); // load template 500.phtml
-        }
-    }
+	/**
+	 * @param $exception
+	 */
+	public function renderDefault($exception)
+	{
+		if ($exception instanceof BadRequestException) {
+			$this->setView('404'); // load template 404.phtml
+		} else {
+			$this->setView('500'); // load template 500.phtml
+		}
+	}
 }
