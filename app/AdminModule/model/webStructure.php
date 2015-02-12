@@ -9,40 +9,49 @@ namespace App\AdminModule\Model;
 
 use Nette;
 
+/**
+ * Class WebStructure
+ * @package App\AdminModule\Model
+ */
 class WebStructure extends Nette\Object
 {
+	/**
+	 * @var Nette\Database\Context
+	 */
+	private $database;
 
-    /** @var Nette\Database\Context @inject */
-    private $database;
+	/**
+	 * @param Nette\Database\Context $database
+	 */
+	function __construct(Nette\Database\Context $database)
+	{
+		$this->database = $database;
+	}
 
-    function __construct(Nette\Database\Context $database)
-    {
-        $this->database = $database;
-    }
 
-    /**
-     * Return structure of Front module website
-     */
-    public function get()
-    {
-        $result = [];
-        $allBranches = $this->database->table('web_structure')->fetchAll();
-        foreach ($allBranches as $branch) {
-            $subBranches = $this->database->table('web_content')->where(['parent_branch' => $branch->branch_id])->fetchAll();
-            if (!$subBranches) {
-                $result[$branch->name] = [];
-            } else {
-                foreach ($subBranches as $contentRow) {
-                    $result[$branch->name][] = [
-                        'title' => $contentRow->title,
-                        'manager_presenter' => $contentRow->manager_presenter,
-                        'view_presenter' => $contentRow->view_presenter,
-                        'action' => $contentRow->action,
-                        'theme' => $contentRow->theme
-                    ];
-                }
-            }
-        }
-        return $result;
-    }
+	/**
+	 * @return array
+	 */
+	public function get()
+	{
+		$result = [];
+		$allBranches = $this->database->table('structure')->fetchAll();
+		foreach ($allBranches as $branch) {
+			$subBranches = $this->database->table('content')->where(['parent_branch' => $branch->branch_id])->fetchAll();
+			if (!$subBranches) {
+				$result[$branch->name] = [];
+			} else {
+				foreach ($subBranches as $contentRow) {
+					$result[$branch->name][] = [
+						'title' => $contentRow->title,
+						'manager_presenter' => $contentRow->manager_presenter,
+						'view_presenter' => $contentRow->view_presenter,
+						'action' => $contentRow->action,
+						'theme' => $contentRow->theme
+					];
+				}
+			}
+		}
+		return $result;
+	}
 }

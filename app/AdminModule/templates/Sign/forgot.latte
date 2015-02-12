@@ -1,81 +1,86 @@
 {block content}
 <div id="main" class="animated fadeIn">
 
-        <!-- Start: Content -->
-        <section id="content_wrapper">
+	<!-- Start: Content -->
+	<section id="content_wrapper">
 
-            <!-- begin canvas animation bg -->
-            <div id="canvas-wrapper">
-                <canvas id="demo-canvas"></canvas>
-            </div>
+		<!-- begin canvas animation bg -->
+		<div id="canvas-wrapper">
+			<canvas id="demo-canvas"></canvas>
+		</div>
 
-            <!-- Begin: Content -->
-            <section id="content">
+		<!-- Begin: Content -->
+		<section id="content">
 
-                <div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login1">
-                    <div class="row mb15 table-layout">
-                        <div class="col-xs-12 text-right va-b pr5">
-                            <div class="login-links">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <a n:href="Sign:in" class="" title="False Credentials">Zpět na přihlášení</a>
-                            </div>
-                        </div>
-                    </div>
+			<div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login1">
+				<div class="row mb15 table-layout">
+					<div class="col-xs-12 text-right va-b pr5">
+						<div class="login-links">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							<a n:href="Sign:in" class="" title="False Credentials">Zpět na přihlášení</a>
+						</div>
+					</div>
+				</div>
 
-                    <div class="panel panel-info mv10 heading-border br-n">
+				<div class="panel panel-info mv10 heading-border br-n">
 
-                        <!-- end .form-header section -->
-                        <form method="post" action="/" id="contact">
-                            <div class="panel-body bg-white p15 pt25">
-                                <div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
-                                     <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
-                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                         <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
-                                         {$flash->message}
-                                      </div>
-                                  </div>
+					<!-- end .form-header section -->
+					<form method="post" action="/" id="contact">
+						<div class="panel-body bg-white p15 pt25">
+							<div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
+								<div class="alert alert-{$getFlashType($flash->type)} alert-dismissable"
+									 id="alert-demo-1">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+									</button>
+									<i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
+									{$flash->message}
+								</div>
+							</div>
 
-                                <div class="alert alert-micro alert-border-left alert-info pastel alert-dismissable mn">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <i class="fa fa-info pr10"></i>Zadejte <b>Email</b> se kterým máte spojen účet.<br/>
-                                    <span class="pl14"></span>Nevíte o který učet jde? Kontaktujte <a href="#">správce</a>.
-                                </div>
+							<div class="alert alert-micro alert-border-left alert-info pastel alert-dismissable mn">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+								<i class="fa fa-info pr10"></i>Zadejte <b>Email</b> se kterým máte spojen účet.<br/>
+								<span class="pl14"></span>Nevíte o který učet jde? Kontaktujte <a href="#">správce</a>.
+							</div>
 
-                            </div>
-                            <!-- end .form-body section -->
-                            <div class="panel-footer p25 pv15">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="section mn">
-                                            <label for="email" class="field-label text-muted fs18 mb10 hidden">Password Reset</label>
-                                            <div class="smart-widget sm-right smr-150">
-                                                <label for="email" class="field prepend-icon">
-                                                    <input type="text" name="email" id="email" class="gui-input" placeholder="Zadejte váš email">
-                                                    <label for="email" class="field-icon"><i class="fa fa-envelope-o"></i>
-                                                    </label>
-                                                </label>
-                                                <label for="email" class="button">Resetovat heslo</label>
-                                            </div>
-                                            <!-- end .smart-widget section -->
-                                        </div>
-                                        <!-- end section -->
-                                    </div>
+						</div>
+						<!-- end .form-body section -->
+						<div class="panel-footer p25 pv15">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="section mn">
+										<label for="email" class="field-label text-muted fs18 mb10 hidden">Password
+											Reset</label>
 
-                                </div>
+										<div class="smart-widget sm-right smr-150">
+											<label for="email" class="field prepend-icon">
+												<input type="text" name="email" id="email" class="gui-input"
+													   placeholder="Zadejte váš email">
+												<label for="email" class="field-icon"><i class="fa fa-envelope-o"></i>
+												</label>
+											</label>
+											<label for="email" class="button">Resetovat heslo</label>
+										</div>
+										<!-- end .smart-widget section -->
+									</div>
+									<!-- end section -->
+								</div>
 
-                            </div>
-                            <!-- end .form-footer section -->
-                        </form>
+							</div>
 
-                    </div>
+						</div>
+						<!-- end .form-footer section -->
+					</form>
 
-                </div>
+				</div>
 
-            </section>
-            <!-- End: Content -->
+			</div>
 
-        </section>
-        <!-- End: Content-Wrapper -->
+		</section>
+		<!-- End: Content -->
 
-    </div>
+	</section>
+	<!-- End: Content-Wrapper -->
+
+</div>
 {/block}

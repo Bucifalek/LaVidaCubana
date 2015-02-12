@@ -8,60 +8,118 @@
 namespace App\AdminModule\Model;
 
 use Nette;
+use Tracy\Debugger;
 
+/**
+ * Class BranchManager
+ * @package App\AdminModule\Model
+ */
 class BranchManager extends Nette\Object
 {
+	/**
+	 *
+	 */
+	const TABLE_BRANCHES = "branches";
+	/**
+	 * @var Nette\Database\Context
+	 */
+	private $database;
 
-    /** @var Nette\Database\Context @inject */
-    private $database;
+	/**
+	 * @var
+	 */
+	private $branches;
 
-    private $branches;
+	/**
+	 * @var Nette\Http\Session|Nette\Http\SessionSection
+	 */
+	private $currentBranch;
 
-    private $currentBranch;
+	/**
+	 * @var Nette\Http\SessionSection
+	 */
+	private $session;
 
-    function __construct(Nette\Database\Context $database, Nette\Application\UI\Presenter $session)
-    {
-        $this->database = $database;
-        $this->currentBranch = $session->getSession('selectedBranch'); // data = null
-        $session->getSession('selectedBranch')->setExpiration(0, 'selectedBranch');
-        foreach ($this->database->table('web_branches')->fetchAll() as $branch) {
-            $this->branches[$branch->id] = $branch->name;
-        }
-    }
+	/**
+	 * @param Nette\Database\Context $database
+	 * @param Nette\Application\UI\Presenter $session
+	 */
+	function __construct(Nette\Database\Context $database, Nette\Http\Session $session)
+	{
 
-    public function selectDefault()
-    {
-        $this->currentBranch->data = $this->getDefault();
-    }
+		$this->database = $database;
+		$this->session = $session->getSection('currentBranch');
+		$this->currentBranch = $this->session->data;
 
-    public function getDefault()
-    {
-        return [
-            'id' => key($this->branches),
-            'title' => $this->branches[key($this->branches)]
-        ];
-    }
+		foreach ($this->database->table(self::TABLE_BRANCHES)->fetchAll() as $branch) {
+			$this->branches[$branch->id] = $branch->name;
+		}
+		if(!$this->currentBranch['id']) {
+			Debugger::barDump("Zadne predchozi nastaveni, inicializovat");
+			$this->selectDefault();
+		}
+	}
 
-    public function getCurrent()
-    {
-        return $this->currentBranch->data;
-    }
+	/**
+	 * @return array
+	 */
+	public function selectDefault()
+	{
+		return $this->session->data = $this->getDefault();
+	}
 
-    public function getCurrentName()
-    {
-        return $this->currentBranch->data['title'];
-    }
+	/**
+	 * @return array
+	 */
+	public function getDefault()
+	{
+		return [
+			'id' => key($this->branches),
+			'title' => $this->branches[key($this->branches)]
+		];
+	}
 
-    public function getAll()
-    {
-        return $this->branches;
-    }
+	/**
+	 * @return array|mixed
+	 */
+	public function getCurrent()
+	{
+		return $this->currentBranch;
+	}
 
-    public function setNew($id)
-    {
-        $this->currentBranch->data = [
-            'id' => $id,
-            'title' => $this->branches[$id]
-        ];
-    }
+	/**
+	 * @return mixed
+	 */
+	public function getCurrentName()
+	{
+		return $this->currentBranch['title'];
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCurrentId() {
+		return $this->currentBranch['id'];
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAll()
+	{
+		return $this->branches;
+	}
+
+	/**
+	 * @param $id
+	 */
+	public function setNew($id)
+	{
+		$this->session->data = $this->currentBranch = [
+			'id' => $id,
+			'title' => $this->branches[$id]
+		];
+	}
+
+
 }

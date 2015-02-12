@@ -8,8 +8,8 @@
 
 namespace App\FrontModule\Presenters;
 
-use Nette,
-    App\Model;
+use Nette;
+use Nette\Application\UI\Form;
 
 class RoznovPresenter extends BasePresenter {
 

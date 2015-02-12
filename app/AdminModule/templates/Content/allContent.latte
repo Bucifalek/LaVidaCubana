@@ -1,0 +1,18 @@
+{*
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
+- @date 15:35, 11. 2. 2015
+- @copyright 2015 Jan Kotrba
+*}
+
+{block content}
+
+{foreach $webContent as $title => $params}
+{$title|noescape}<br/>
+{/foreach}
+
+{if count($webContent) == 0}
+Zadny obsah
+{/if}
+
+{/block}
