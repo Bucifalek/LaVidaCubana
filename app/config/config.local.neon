@@ -1,16 +1,16 @@
 parameters:
 
-#database:
-#	dsn: 'mysql:host=jkotrba.net;dbname=lavidacubana'
-#	user: remoteDatabase
-#	password: cust168255332210
-#	options:
-#		lazy: yes
-
-
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=lavidacubana'
-	user: root
-	password:
+	dsn: 'mysql:host=jkotrba.net;dbname=lavidacubana'
+	user: remoteDatabase
+	password: cust168255332210
 	options:
 		lazy: yes
+
+
+#database:
+#	dsn: 'mysql:host=127.0.0.1;dbname=lavidacubana'
+#	user: root
+#	password:
+#	options:
+#		lazy: yes
