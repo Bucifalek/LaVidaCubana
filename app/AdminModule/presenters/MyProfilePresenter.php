@@ -25,9 +25,9 @@ class MyProfilePresenter extends BasePresenter
 	 * @param Model\UserManager $userManager
 	 * @param Nette\Database\Context $database
 	 */
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
-		parent::__construct($userManager, $database);
+		parent::__construct($userManager, $database, $branchManager);
 		$this->userManager = $userManager;
 	}
 
