@@ -2,19 +2,52 @@
 
 <div class="topLine"></div>
 
-<h1 n:block="title">Vítejte</h1>
+<!--<h1 n:block="title">Vítejte</h1>
+        
+{control welcome}-->
 
-<nav>
-	<li><a n:href="Roznov:default">Kavárna v Rožnově</a></li>
-	<li><a n:href="Valmez:default">Kavárna ve Valmezu</a></li>
-	<li><a n:href="Bowling:default">Bowling</a></li>
-</nav>
+<div class="section group">
+    <div class="col span_1_of_3 empty"></div>
+    <div class="col span_1_of_3 logo-block">
+        <img src="{$basePath}/Front-End/img/logo/head.png" class="fidel-head" alt="">
+        <h1>La VIDA Cubana</h1>
+        <h2>Cafe Bar $ Coctails</h2>
+    </div>
+    <div class="col span_1_of_3 empty"></div>
+</div>
+<div class="section-2 group-2">
+    <div class="col-2 span_1_of_3-2 roznov-block">
+        <div class="section-4 group-4">
+            <div class="col-4 span_1_of_3-4 roznov-transparent">
+                <h2>Cafe bar & Coctails</h2>
+                <p>Rožnov pod Radhoštěm <a n:href="Roznov:default"><img src="{$basePath}/Front-End/img/arrow/arrow3.png" alt="" class="arrow"></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 span_1_of_3-2 valmez-block">
+        <div class="section-5 group-5">
+            <div class="col-5 span_1_of_3-5 valmez-transparent">
+                <h2>Cafe bar & Coctails</h2>
+                <p>Valašské Meziříčí <a n:href="Valmez:default"><img src="{$basePath}/Front-End/img/arrow/arrow2.png" alt="" class="arrow"></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 span_1_of_3-2 bowling-block">
+        <div class="section-6 group-6">
+            <div class="col-6 span_1_of_3-6 bowling-transparent">
+                <h2>Bowling</h2>
+                <p>Valašské Meziříčí <a n:href="Bowling:default"><img src="{$basePath}/Front-End/img/arrow/arrow.png" alt="" class="arrow"></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-3 group-3">
+    <div class="col-3 span_1_of_3-3 footer">
+        <p>@ LA VIDA CUBANA | LA.VIDA.CUBANA@GMAIL.COM | MADE BY HDGROUP</p>
+        <a href="https://www.facebook.com/pages/La-VIDA-Cubana/177571498994324"><img src="{$basePath}/Front-End/img/social/facebook.png" class="social-facebook" alt=""></a>
+        <a href="http://instagram.com/kubisak13"><img src="{$basePath}/Front-End/img/social/instagram.png" class="social-instagram" alt=""></a>
+    </div>
+</div>
 
-{control welcome}
-
-
-<footer>
-    <p>@ LA VIDA CUBANA | LA.VIDA.CUBANA@GMAIL.COM<br/><a n:href=":Admin:Homepage:default">Vstup do adminu</a></p>
-</footer>
 
 {/block}
