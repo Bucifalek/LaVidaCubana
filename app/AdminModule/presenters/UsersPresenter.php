@@ -33,9 +33,9 @@ class UsersPresenter extends BasePresenter
 	 * @param Context $database
 	 * @param Model\UserManager $userManager
 	 */
-	function __construct(Context $database, Model\UserManager $userManager)
+	function __construct(Context $database, Model\UserManager $userManager, Model\BranchManager $branchManager)
 	{
-		parent::__construct($userManager, $database);
+		parent::__construct($userManager, $database, $branchManager);
 		$this->database = $database;
 		$this->userManager = $userManager;
 	}
