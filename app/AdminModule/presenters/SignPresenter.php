@@ -8,44 +8,44 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-    App\Model,
-    Nette\Application\UI;
+	App\Model,
+	Nette\Application\UI;
 
 class SignPresenter extends BasePresenter
 {
 
-    public function beforeRender()
-    {
-        parent::beforeRender();
-    }
+	public function beforeRender()
+	{
+		parent::beforeRender();
+	}
 
-    protected function createComponentLoginForm()
-    {
-        $form = new UI\Form;
-        $form->addText('username', 'Name:')->setRequired('Nezadali jste jméno.');
-        $form->addPassword('password', 'Password:')->setRequired('Nezadali jste heslo.');
-        $form->addSubmit('login');
-        $form->onSuccess[] = array($this, 'loginFormSucceeded');
-        return $form;
-    }
+	protected function createComponentLoginForm()
+	{
+		$form = new UI\Form;
+		$form->addText('username', 'Name:')->setRequired('Nezadali jste jméno.');
+		$form->addPassword('password', 'Password:')->setRequired('Nezadali jste heslo.');
+		$form->addSubmit('login');
+		$form->onSuccess[] = array($this, 'loginFormSucceeded');
+		return $form;
+	}
 
-    public function loginFormSucceeded(UI\Form $form, $values)
-    {
-        $values = $form->values;
-        try {
-            $this->getUser()->login($values->username, $values->password);
-            $this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
-            $this->redirect('Homepage:');
-        } catch (Nette\Security\AuthenticationException $e) {
-            $this->flashMessage($e->getMessage(), FLASH_WARNING);
-            $this->redirect('Sign:in');
-        }
-    }
+	public function loginFormSucceeded(UI\Form $form, $values)
+	{
+		$values = $form->values;
+		try {
+			$this->getUser()->login($values->username, $values->password);
+			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
+			$this->redirect('Homepage:');
+		} catch (Nette\Security\AuthenticationException $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Sign:in');
+		}
+	}
 
-    public function actionOut()
-    {
-        $this->user->logout(TRUE);
-        $this->flashMessage('Odhlášení proběhlo v pořádku.', FLASH_SUCCESS);
-        $this->redirect('Sign:in');
-    }
+	public function actionOut()
+	{
+		$this->user->logout(TRUE);
+		$this->flashMessage('Odhlášení proběhlo v pořádku.', FLASH_SUCCESS);
+		$this->redirect('Sign:in');
+	}
 }

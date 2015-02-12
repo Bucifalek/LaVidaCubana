@@ -12,12 +12,12 @@ use Nette;
 class ErrorPresenter extends BasePresenter
 {
 
-    public function renderDefault($exception)
-    {
-        if ($exception instanceof BadRequestException) {
-            $this->setView('404'); // load template 404.phtml
-        } else {
-            $this->setView('500'); // load template 500.phtml
-        }
-    }
+	public function renderDefault($exception)
+	{
+		if ($exception instanceof BadRequestException) {
+			$this->setView('404'); // load template 404.phtml
+		} else {
+			$this->setView('500'); // load template 500.phtml
+		}
+	}
 }

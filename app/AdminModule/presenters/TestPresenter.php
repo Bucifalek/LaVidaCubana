@@ -10,15 +10,17 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
-class TestPresenter extends BasePresenter {
+class TestPresenter extends BasePresenter
+{
 
-	public function handleSendEmail() {
+	public function handleSendEmail()
+	{
 		// send test email to jan.kotrbaa@gmail.com
 
 		$myMailer = new Model\myMailer;
 		//$myMailer->setHtmlBody(__DIR__ . '/../templates/EmailTemplates/test.latte', [])
 		$myMailer->setHtmlBody(__DIR__ . '/../templates/EmailTemplates/newUserEmail.latte', [null])
-			->addTo('z3xarus@gmail.com')
+			->addTo('jan.kotrbaa@gmail.com')
 			->setFrom("cms@pizzeriaitaliana.cz")
 			->setSubject("Testovani sablon!");
 		$myMailer->sendEmail();

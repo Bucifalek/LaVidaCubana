@@ -8,61 +8,61 @@
 namespace App\AdminModule\Model;
 
 use Nette,
-    Nette\Mail,
-    Nette\Mail\Message,
-    Latte;
+	Nette\Mail,
+	Nette\Mail\Message,
+	Latte;
 
-class MyMailer
+class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 {
 
-    private $mailer;
+	private $mailer;
 
-    private $latteEngine;
+	private $latteEngine;
 
-    private $message;
+	private $message;
 
-    function __construct()
-    {
-        $this->latteEngine = new Latte\Engine;
-        $this->message = new Message;
-        $config = [
-            'smtp' => true,
-            'host' => 'smtp-78628.m28.wedos.net',
-            'port' => '465',
-            'secure' => 'ssl',
-            'username' => 'cms@pizzeriaitaliana.cz',
-            'password' => 'cust168255332210'
-        ];
-        $this->mailer = new Nette\Mail\SmtpMailer($config);
-    }
+	function __construct()
+	{
+		$this->latteEngine = new Latte\Engine;
+		$this->message = new Message;
+		$config = [
+			'smtp' => true,
+			'host' => 'smtp-78628.m28.wedos.net',
+			'port' => '465',
+			'secure' => 'ssl',
+			'username' => 'cms@pizzeriaitaliana.cz',
+			'password' => 'cust168255332210'
+		];
+		$this->mailer = new Nette\Mail\SmtpMailer($config);
+	}
 
-    public function sendEmail()
-    {
-        $this->mailer->send($this->message);
-    }
+	public function sendEmail()
+	{
+		$this->mailer->send($this->message);
+	}
 
-    public function setHtmlBody($template, $params)
-    {
-        $this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
-        return $this;
-    }
+	public function setHtmlBody($template, $params)
+	{
+		$this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
+		return $this;
+	}
 
-    public function addTo($target)
-    {
-        $this->message->addTo($target);
-        return $this;
-    }
+	public function addTo($target)
+	{
+		$this->message->addTo($target);
+		return $this;
+	}
 
-    public function setFrom($email)
-    {
-        $this->message->setFrom($email);
-        return $this;
-    }
+	public function setFrom($email)
+	{
+		$this->message->setFrom($email);
+		return $this;
+	}
 
-    public function setSubject($subject)
-    {
-        $this->message->setSubject($subject);
-        return $this;
-    }
+	public function setSubject($subject)
+	{
+		$this->message->setSubject($subject);
+		return $this;
+	}
 
 }

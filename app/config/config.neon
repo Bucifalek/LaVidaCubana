@@ -20,7 +20,6 @@ nette:
 		expiration: 14 days
 
 services:
-	- App\AdminModule\Model\UserManager
-	- App\AdminModule\Model\WebStructure
+	- App\AdminModule\Model\UserManager()
 	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter

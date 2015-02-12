@@ -7,11 +7,12 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model,
 	Nette\Database;
 
-class StructurePresenter extends BasePresenter {
+class StructurePresenter extends BasePresenter
+{
 
 	private $WebStructure;
 
@@ -21,7 +22,8 @@ class StructurePresenter extends BasePresenter {
 		//$this->webStructure = new Model\webStructure($database);
 	}
 
-	public function renderDefault() {
+	public function renderDefault()
+	{
 		parent::beforeRender();
 		//$this->template->webStructure = $this->webStructure->get();
 	}

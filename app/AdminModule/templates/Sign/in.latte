@@ -1,79 +1,84 @@
 {*
- - @author Jan Kotrba <jan.kotrbaa@gmail.com>
- - @date 18:12, 4. 2. 2015
- - @copyright 2015 Jan Kotrba
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
+- @date 18:12, 4. 2. 2015
+- @copyright 2015 Jan Kotrba
 *}
 
 {block content}
 <!-- Start: Main -->
 <div id="main" class="animated fadeIn">
-    <!-- Start: Content -->
-    <section id="content_wrapper">
-        <!-- Begin: Content -->
-        <section id="content">
-            <div class="admin-form theme-info" id="login1">
+	<!-- Start: Content -->
+	<section id="content_wrapper">
+		<!-- Begin: Content -->
+		<section id="content">
+			<div class="admin-form theme-info" id="login1">
 
 
-            <div class="row mb15 table-layout">
+				<div class="row mb15 table-layout">
 
-                <div class="col-xs-12 text-right va-b pr5">
-                     <div class="login-links">
-                           <a n:href="Sign:forgot" class="" title="False Credentials">Zapomenuté heslo</a>
-                     </div>
-               </div>
-           </div>
+					<div class="col-xs-12 text-right va-b pr5">
+						<div class="login-links">
+							<a n:href="Sign:forgot" class="" title="False Credentials">Zapomenuté heslo</a>
+						</div>
+					</div>
+				</div>
 
-                <div class="panel panel-info mt10 br-n">
-                    <form n:name="loginForm" autocomplete="off">
-                        <div class="panel-body bg-light p30">
+				<div class="panel panel-info mt10 br-n">
+					<form n:name="loginForm" autocomplete="off">
+						<div class="panel-body bg-light p30">
 
-                            <div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
-                                <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
-                                    {$flash->message}
-                                </div>
-                            </div>
+							<div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
+								<div class="alert alert-{$getFlashType($flash->type)} alert-dismissable"
+									 id="alert-demo-1">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+									</button>
+									<i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
+									{$flash->message}
+								</div>
+							</div>
 
-                            <div class="row">
-                                <div class="col-sm-12 pr30">
-                                    <div class="section">
-                                        <label for="username" class="field-label text-muted fs18 mb10">Jméno</label>
-                                        <label for="username" class="field prepend-icon">
-                                            <input type="text" n:name="username" autocomplete="false" id="username" class="gui-input"
-                                                   placeholder="Zadejte jméno">
-                                            <label for="username" class="field-icon"><i class="fa fa-user"></i>
-                                            </label>
-                                        </label>
-                                    </div>
-                                    <!-- end section -->
+							<div class="row">
+								<div class="col-sm-12 pr30">
+									<div class="section">
+										<label for="username" class="field-label text-muted fs18 mb10">Jméno</label>
+										<label for="username" class="field prepend-icon">
+											<input type="text" n:name="username" autocomplete="false" id="username"
+												   class="gui-input"
+												   placeholder="Zadejte jméno">
+											<label for="username" class="field-icon"><i class="fa fa-user"></i>
+											</label>
+										</label>
+									</div>
+									<!-- end section -->
 
-                                    <div class="section">
-                                        <label for="username" class="field-label text-muted fs18 mb10">Heslo</label>
-                                        <label for="password" class="field prepend-icon">
-                                            <input type="password" n:name="password" id="password" autocomplete="off" class="gui-input"
-                                                   placeholder="Zadejte heslo">
-                                            <label for="password" class="field-icon"><i class="fa fa-lock"></i>
-                                            </label>
-                                        </label>
-                                    </div>
-                                    <!-- end section -->
+									<div class="section">
+										<label for="username" class="field-label text-muted fs18 mb10">Heslo</label>
+										<label for="password" class="field prepend-icon">
+											<input type="password" n:name="password" id="password" autocomplete="off"
+												   class="gui-input"
+												   placeholder="Zadejte heslo">
+											<label for="password" class="field-icon"><i class="fa fa-lock"></i>
+											</label>
+										</label>
+									</div>
+									<!-- end section -->
 
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end .form-body section -->
-                        <div class="panel-footer clearfix p10 ph15">
-                            <button n:name="login" class="button btn-primary mr10 pull-right">Přihlásit se</button>
-                        </div>
-                        <!-- end .form-footer section -->
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!-- End: Content -->
-    </section>
-    <!-- End: Content-Wrapper -->
+								</div>
+							</div>
+						</div>
+						<!-- end .form-body section -->
+						<div class="panel-footer clearfix p10 ph15">
+							<button n:name="login" class="button btn-primary mr10 pull-right">Přihlásit se</button>
+						</div>
+						<!-- end .form-footer section -->
+					</form>
+				</div>
+			</div>
+		</section>
+		<!-- End: Content -->
+	</section>
+	<!-- End: Content-Wrapper -->
 </div>
 <!-- End: Main -->
 {/block}

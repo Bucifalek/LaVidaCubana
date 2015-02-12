@@ -12,18 +12,18 @@ use Nette, App\AdminModule\Model;
 class MyProfilePresenter extends BasePresenter
 {
 
-    private $userManager;
+	private $userManager;
 
-    function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
-    {
-        parent::__construct($userManager, $database);
-        $this->userManager = $userManager;
-    }
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
+	{
+		parent::__construct($userManager, $database);
+		$this->userManager = $userManager;
+	}
 
-    public function handleChangeUserPhoto($user, $avatarID)
-    {
-        $this->userManager->newAvatar($user, $avatarID);
-        $this->user->getIdentity()->avatar = $avatarID;
-        $this->redirect('MyProfile:default');
-    }
+	public function handleChangeUserPhoto($user, $avatarID)
+	{
+		$this->userManager->newAvatar($user, $avatarID);
+		$this->user->getIdentity()->avatar = $avatarID;
+		$this->redirect('MyProfile:default');
+	}
 }
