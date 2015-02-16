@@ -20,9 +20,9 @@ nette:
 		expiration: 14 days
 
 services:
-	- App\AdminModule\Model\BranchManager
-	- App\AdminModule\Model\UserManager
-	- App\AdminModule\Model\ModulesManager
+	- App\AdminModule\Model\branchManager
+	- App\AdminModule\Model\userManager
+	- App\AdminModule\Model\modulesManager
 
-	authenticator: App\AdminModule\Model\UserAuth
+	authenticator: App\AdminModule\Model\userAuth
 	router: App\RouterFactory::createRouter

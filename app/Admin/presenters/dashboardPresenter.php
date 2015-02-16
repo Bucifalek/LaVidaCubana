@@ -10,14 +10,11 @@ use Nette,
  * Class HomepagePresenter
  * @package App\AdminModule\Presenters
  */
-class HomepagePresenter extends BasePresenter
+class dashboardPresenter extends BasePresenter
 {
 
 	protected function startup()
 	{
 		parent::startup();
-		if (!$this->getUser()->isLoggedIn()) {
-			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
-		}
 	}
 }

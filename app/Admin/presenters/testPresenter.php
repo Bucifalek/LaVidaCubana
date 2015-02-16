@@ -14,7 +14,7 @@ use Nette,
  * Class TestPresenter
  * @package App\AdminModule\Presenters
  */
-class TestPresenter extends BasePresenter
+class testPresenter extends BasePresenter
 {
 
 	/**

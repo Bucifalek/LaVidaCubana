@@ -17,7 +17,7 @@ use App\AdminModule\Model,
  * Class UsersPresenter
  * @package App\AdminModule\Presenters
  */
-class UsersPresenter extends BasePresenter
+class usersPresenter extends BasePresenter
 {
 	/**
 	 * @var Context
@@ -38,19 +38,6 @@ class UsersPresenter extends BasePresenter
 		parent::__construct($userManager, $database, $branchManager);
 		$this->database = $database;
 		$this->userManager = $userManager;
-	}
-
-	protected function startup()
-	{
-		parent::startup();
-		if (!$this->getUser()->isLoggedIn()) {
-			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
-		}
-	}
-
-	public function beforeRender()
-	{
-		parent::beforeRender();
 	}
 
 	/**
