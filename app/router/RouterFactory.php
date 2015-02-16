@@ -73,9 +73,9 @@ class RouterFactory
         $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:');
 
         // Front Router
-        $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Front:Roznov:');
-        $router[] = new Route($prefix . 'valasske-mezirici/<action>[/<id>]', 'Front:Valmez:');
-        $router[] = new Route($prefix . 'bowling/<action>[/<id>]', 'Front:Bowling:');
+        $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Web:Roznov:');
+        $router[] = new Route($prefix . 'valasske-mezirici/<action>[/<id>]', 'Web:Valmez:');
+        $router[] = new Route($prefix . 'bowling/<action>[/<id>]', 'Web:Bowling:');
         $router[] = new Route($prefix . '', 'Front:Homepage:');
         return $router;
     }
