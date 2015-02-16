@@ -44,6 +44,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	/**
 	 * @return mixed
 	 */
+
+	/** @persistent */
+	public $redirectedToLogin = false;
+
 	public function getBranchManager()
 	{
 		return $this->branchManager;
@@ -58,13 +62,15 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->branchManager = $branchManager;
 	}
 
-	protected function startup() {
+	protected function startup()
+	{
 		parent::startup();
 	}
 
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
+			$this->redirectedToLogin = false;
 			$userData = $this->user->getIdentity()->getData();
 			$this->template->firstName = $userData['firstname'];
 			$this->template->lastName = $userData['lastname'];
@@ -77,6 +83,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
+		} else if ($this->redirectedToLogin === false) {
+			$this->redirectedToLogin = true;
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 		$this->template->getFlashType = function ($arg) {
 			$e = explode("|", $arg);

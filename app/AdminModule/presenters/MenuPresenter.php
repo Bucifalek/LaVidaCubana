@@ -41,9 +41,6 @@ class MenuPresenter extends BasePresenter
 	public function startup()
 	{
 		parent::startup();
-		if (!$this->getUser()->isLoggedIn()) {
-			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
-		}
 	}
 
 	public function renderAll()
