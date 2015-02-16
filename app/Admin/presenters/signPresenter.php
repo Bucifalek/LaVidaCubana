@@ -15,7 +15,7 @@ use Nette,
  * Class SignPresenter
  * @package App\AdminModule\Presenters
  */
-class SignPresenter extends BasePresenter
+class signPresenter extends BasePresenter
 {
 
 	/** @persistent */

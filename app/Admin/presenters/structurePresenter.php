@@ -15,7 +15,7 @@ use Nette,
  * Class StructurePresenter
  * @package App\AdminModule\Presenters
  */
-class StructurePresenter extends BasePresenter
+class structurePresenter extends BasePresenter
 {
 
 	/**
@@ -36,9 +36,6 @@ class StructurePresenter extends BasePresenter
 	protected function startup()
 	{
 		parent::startup();
-		if (!$this->getUser()->isLoggedIn()) {
-			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
-		}
 	}
 
 	/**

@@ -19,7 +19,7 @@ Debugger::$maxLen = 500; // default: 150
  * Class BasePresenter
  * @package App\AdminModule\Presenters
  */
-class BasePresenter extends Nette\Application\UI\Presenter
+class basePresenter extends Nette\Application\UI\Presenter
 {
 	/**
 	 * @var Nette\Database\Context
@@ -44,6 +44,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	/**
 	 * @return mixed
 	 */
+
+	/** @persistent */
+	public $redirectedToLogin = false;
+
 	public function getBranchManager()
 	{
 		return $this->branchManager;
@@ -58,13 +62,15 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->branchManager = $branchManager;
 	}
 
-	protected function startup() {
+	protected function startup()
+	{
 		parent::startup();
 	}
 
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
+			$this->redirectedToLogin = false;
 			$userData = $this->user->getIdentity()->getData();
 			$this->template->firstName = $userData['firstname'];
 			$this->template->lastName = $userData['lastname'];
@@ -77,6 +83,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
+		} else if ($this->redirectedToLogin === false) {
+			$this->redirectedToLogin = true;
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 		$this->template->getFlashType = function ($arg) {
 			$e = explode("|", $arg);
@@ -123,17 +132,17 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Hlavní menu',
 			[
 				'Menu|list' => [
-					'Přidat menu|circle_plus' => 'Menu:add',
-					'Všechny nabídky|notes_2' => 'Menu:all',
-					'Aktuální struktura' => 'Menu:structure', //TODO add icon
+					'Přidat menu|circle_plus' => 'menu:add',
+					'Všechny nabídky|notes_2' => 'menu:all',
+					'Aktuální struktura' => 'menu:structure', //TODO add icon
 				],
 				'Obsah' => [
-					'Přidat položku|circle_plus' => 'Content:addContent',
-					'Všechny položky|notes_2' => 'Content:allContent',
+					'Přidat položku|circle_plus' => 'content:addContent',
+					'Všechny položky|notes_2' => 'content:allContent',
 				],
 				'Úložiště|hdd' => [
-					'Nahrávání souborů|file_import' => 'Files:upload',
-					'Všechny soubory|folder_open' => 'Files:allFiles',
+					'Nahrávání souborů|file_import' => 'files:upload',
+					'Všechny soubory|folder_open' => 'files:allFiles',
 				]
 			]);
 
@@ -147,14 +156,14 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[
-					'Přidat|user_add' => 'Users:add',
-					'Seznam správců|adress_book' => 'Users:list'
+					'Přidat|user_add' => 'users:add',
+					'Seznam správců|adress_book' => 'users:list'
 				],
 			'Testy|electricity' =>
 				[
-					'Emaily' => 'Test:sendEmail'
+					'Emaily' => 'test:sendEmail'
 				],
-			'Nahlásit chybu|bug' => 'Report:error'
+			'Nahlásit chybu|bug' => 'support:contact'
 		]);
 
 		return $menu;
