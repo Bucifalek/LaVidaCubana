@@ -102,7 +102,7 @@ class contentPresenter extends BasePresenter
 		$form = new UI\Form;
 		$form->addProtection();
 		$form->addText('name');
-		$form->addSelect('module', null, $this->modulesManager->getAllModules())->setPrompt('Vyberte...');
+		$form->addSelect('module', null, $this->modulesManager->getAllModules())->setPrompt('Typ obsahu...');
 		$form->onSuccess[] = [$this, 'addContentFormSuccess'];
 
 		return $form;
