@@ -33,6 +33,14 @@ class StructurePresenter extends BasePresenter
 		//$this->webStructure = new Model\webStructure($database);
 	}
 
+	protected function startup()
+	{
+		parent::startup();
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+		}
+	}
+
 	/**
 	 *
 	 */

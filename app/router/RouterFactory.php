@@ -29,10 +29,11 @@ class RouterFactory
         // Admin Router
 
 		// Menu
-		$router[] = new Route($prefix . 'admin/menu', 'Admin:Menu:allMenus');
-		$router[] = new Route($prefix . 'admin/menu/seznam', 'Admin:Menu:allMenus');
-		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:Menu:addMenu');
-		$router[] = new Route($prefix . 'admin/menu/upravit[/<id>]', 'Admin:Menu:editMenu');
+		$router[] = new Route($prefix . 'admin/menu', 'Admin:Menu:all');
+		$router[] = new Route($prefix . 'admin/menu/seznam', 'Admin:Menu:all');
+		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:Menu:add');
+		$router[] = new Route($prefix . 'admin/menu/struktura', 'Admin:Menu:structure');
+		$router[] = new Route($prefix . 'admin/menu/upravit[/<id>]', 'Admin:Menu:edit');
 
 
 

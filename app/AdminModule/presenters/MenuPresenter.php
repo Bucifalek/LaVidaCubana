@@ -38,7 +38,15 @@ class MenuPresenter extends BasePresenter
 		$this->database = $database;
 	}
 
-	public function renderAllMenus()
+	public function startup()
+	{
+		parent::startup();
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+		}
+	}
+
+	public function renderAll()
 	{
 		$this->template->allMenus = [];
 	}
