@@ -140,7 +140,7 @@
 			<div class="topbar-left">
 				<ol class="breadcrumb">
 					<li class="crumb-active">
-						<a n:href="Homepage:default">{$branchName}</a>
+						<a n:href="Homepage:default">{ifset #nav_module} {include #nav_module} {else} {$branchName}{/ifset}</a>
 					</li>
 					{ifset #nav_presenter}
 					<li class="crumb-link">

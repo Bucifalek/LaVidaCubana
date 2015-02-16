@@ -130,8 +130,13 @@ class contentPresenter extends BasePresenter
 
 	}
 
-	public function handleDeleteContent()
+	public function handleDeleteContent($id)
 	{
-		// signal handle
+		try {
+			$this->contentManager->delete($id, $this->branchManager->getCurrentId());
+		} catch (\Exception $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+		}
+		$this->flashMessage("Položka smazána.", FLASH_SUCCESS);
 	}
 }

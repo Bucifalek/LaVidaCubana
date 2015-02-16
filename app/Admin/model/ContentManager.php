@@ -14,7 +14,7 @@ use Tracy\Debugger;
  * Class ContentManager
  * @package App\AdminModule\Model
  */
-class ContentManager extends Nette\Object
+class contentManager extends Nette\Object
 {
 
 	/**
@@ -48,6 +48,7 @@ class ContentManager extends Nette\Object
 		if ($this->database->table(self::TABLE_CONTENT)->where('title', $title)->where('branch_id', $this->branchManager->getCurrentId())->count('*') == 0) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -85,5 +86,15 @@ class ContentManager extends Nette\Object
 	public function getContent($branch)
 	{
 		return $this->database->table('content')->where('branch_id', $branch)->fetchAll();
+	}
+
+	/**
+	 * @param $id
+	 * @param $branch
+	 * @return int
+	 */
+	public function delete($id, $branch)
+	{
+		return $this->database->table('content')->where('branch_id', $branch)->where('id', $id)->delete();
 	}
 }

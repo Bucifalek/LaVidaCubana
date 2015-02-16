@@ -13,7 +13,7 @@ use Nette;
  * Class WebStructure
  * @package App\AdminModule\Model
  */
-class WebStructure extends Nette\Object
+class webStructure extends Nette\Object
 {
 	/**
 	 * @var Nette\Database\Context

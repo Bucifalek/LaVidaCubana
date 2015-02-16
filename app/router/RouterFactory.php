@@ -70,7 +70,7 @@ class RouterFactory
         $router[] = new Route($prefix . 'admin/spravci/seznam/', 'Admin:users:list');
 
         // Dashboard
-        $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:');
+        $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:default');
 
         // Front Router
         $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Web:Roznov:');
