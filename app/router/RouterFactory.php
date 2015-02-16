@@ -27,7 +27,16 @@ class RouterFactory
         $router = new RouteList();
         $prefix = "";
         // Admin Router
-        // Test
+
+		// Menu
+		$router[] = new Route($prefix . 'admin/menu', 'Admin:Menu:allMenus');
+		$router[] = new Route($prefix . 'admin/menu/seznam', 'Admin:Menu:allMenus');
+		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:Menu:addMenu');
+		$router[] = new Route($prefix . 'admin/menu/upravit[/<id>]', 'Admin:Menu:editMenu');
+
+
+
+		// Test
         $router[] = new Route($prefix . 'admin/test/odeslat-email', 'Admin:Test:sendEmail');
 
         // nastaveni uctu
