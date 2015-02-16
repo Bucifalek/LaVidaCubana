@@ -19,7 +19,7 @@ Debugger::$maxLen = 500; // default: 150
  * Class BasePresenter
  * @package App\AdminModule\Presenters
  */
-class BasePresenter extends Nette\Application\UI\Presenter
+class basePresenter extends Nette\Application\UI\Presenter
 {
 	/**
 	 * @var Nette\Database\Context

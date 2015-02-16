@@ -14,7 +14,7 @@ use Nette,
  * Class MenuPresenter
  * @package App\AdminModule\Presenters
  */
-class MenuPresenter extends BasePresenter
+class menuPresenter extends BasePresenter
 {
 
 	/**

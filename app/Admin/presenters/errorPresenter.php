@@ -13,7 +13,7 @@ use Nette;
  * Class ErrorPresenter
  * @package App\AdminModule\Presenters
  */
-class ErrorPresenter extends BasePresenter
+class errorPresenter extends BasePresenter
 {
 
 	/**

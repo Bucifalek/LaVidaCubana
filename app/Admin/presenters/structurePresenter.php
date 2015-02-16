@@ -1,34 +1,36 @@
 <?php
 /**
  * @author Jan Kotrba <jan.kotrbaa@gmail.com>
- * @date 0:08, 11. 2. 2015
+ * @date 23:04, 9. 2. 2015
  * @copyright 2015 Jan Kotrba
  */
 
 namespace App\AdminModule\Presenters;
 
-use Nette, App\AdminModule\Model;
+use Nette,
+	App\AdminModule\Model,
+	Nette\Database;
 
 /**
- * Class MyProfilePresenter
+ * Class StructurePresenter
  * @package App\AdminModule\Presenters
  */
-class MyProfilePresenter extends BasePresenter
+class structurePresenter extends BasePresenter
 {
 
 	/**
-	 * @var Model\UserManager
+	 * @var
 	 */
-	private $userManager;
+	private $webStructure;
 
 	/**
 	 * @param Model\UserManager $userManager
-	 * @param Nette\Database\Context $database
+	 * @param Database\Context $database
 	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
-		$this->userManager = $userManager;
+		//$this->webStructure = new Model\webStructure($database);
 	}
 
 	protected function startup()
@@ -37,13 +39,12 @@ class MyProfilePresenter extends BasePresenter
 	}
 
 	/**
-	 * @param $user
-	 * @param $avatarID
+	 *
 	 */
-	public function handleChangeUserPhoto($user, $avatarID)
+	public function renderDefault()
 	{
-		$this->userManager->newAvatar($user, $avatarID);
-		$this->user->getIdentity()->avatar = $avatarID;
-		$this->redirect('MyProfile:default');
+		parent::beforeRender();
+		//$this->template->webStructure = $this->webStructure->get();
 	}
+
 }
