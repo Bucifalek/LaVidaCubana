@@ -40,10 +40,12 @@ class ContentPresenter extends BasePresenter
 	public $branchManager;
 
 
+
 	/**
 	 * @param Nette\Database\Context $database
 	 * @param Model\UserManager $userManager
 	 * @param Model\ModulesManager $modulesManager
+	 * @param Model\BranchManager $branchManager
 	 */
 	function __construct(Nette\Database\Context $database,
 						 Model\UserManager $userManager,
@@ -67,19 +69,22 @@ class ContentPresenter extends BasePresenter
 		$content = $this->contentManager->getContent($this->branchManager->getCurrentID());
 		$modules = $this->webModules;
 		foreach ($content as $row) {
-			$title = $modules[$row->module]['name'] . " : " . $row->title;
-			$webModules[$title] = 'params';
+			$webModules[] = [
+				'id' => $row->id,
+				'title' => $row->title,
+				'module' => $modules[$row->module]['name']];
 		}
 
 		return $webModules;
 	}
 
+
 	/**
-	 *
+	 * @return array
 	 */
 	public function renderAllContent()
 	{
-		$this->template->webContent = $this->prepareWebContent();
+		return $this->template->webContent = $this->prepareWebContent();
 	}
 
 	/**
@@ -110,5 +115,9 @@ class ContentPresenter extends BasePresenter
 			$this->flashMessage('Položka s tímto jménem již existuje, zvolte prosím jiné.', FLASH_FAILED);
 		}
 
+	}
+
+	public function handleDeleteContent() {
+		// signal handle
 	}
 }

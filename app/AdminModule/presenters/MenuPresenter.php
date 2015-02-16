@@ -7,15 +7,15 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model;
-use Tracy\Debugger;
 
 /**
  * Class MenuPresenter
  * @package App\AdminModule\Presenters
  */
-class MenuPresenter extends BasePresenter {
+class MenuPresenter extends BasePresenter
+{
 
 	/**
 	 * @var
@@ -38,7 +38,8 @@ class MenuPresenter extends BasePresenter {
 		$this->database = $database;
 	}
 
-	public function renderAllMenus() {
-
+	public function renderAllMenus()
+	{
+		$this->template->allMenus = [];
 	}
 }
