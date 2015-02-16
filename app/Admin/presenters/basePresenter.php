@@ -135,6 +135,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 					'Přidat menu|circle_plus' => 'menu:add',
 					'Všechny nabídky|notes_2' => 'menu:all',
 					'Aktuální struktura' => 'menu:structure', //TODO add icon
+					'Upravit strukturu' => 'menu:edit',
 				],
 				'Obsah' => [
 					'Přidat položku|circle_plus' => 'content:addContent',
