@@ -98,6 +98,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
+		$this->template->branchName = $this->branchManager->getCurrentName();
 	}
 
 	/**
