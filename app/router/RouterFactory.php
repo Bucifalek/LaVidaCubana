@@ -38,7 +38,8 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/menu/struktura', 'Admin:menu:structure');
 		$router[] = new Route($prefix . 'admin/menu/upravit[/<id>]', 'Admin:menu:edit');
 
-
+        // Support
+        $router[] = new Route($prefix . 'admin/podpora', 'Admin:support:contact');
 
 		// Test
         $router[] = new Route($prefix . 'admin/test/odeslat-email', 'Admin:test:sendEmail');

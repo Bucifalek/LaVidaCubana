@@ -163,7 +163,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 				[
 					'Emaily' => 'test:sendEmail'
 				],
-			'Nahlásit chybu|bug' => 'support:contact'
+			'Kontaktovat podporu|bug' => 'support:contact'
 		]);
 
 		return $menu;
