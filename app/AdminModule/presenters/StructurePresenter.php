@@ -27,10 +27,18 @@ class StructurePresenter extends BasePresenter
 	 * @param Model\UserManager $userManager
 	 * @param Database\Context $database
 	 */
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database)
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
-		parent::__construct($userManager, $database);
+		parent::__construct($userManager, $database, $branchManager);
 		//$this->webStructure = new Model\webStructure($database);
+	}
+
+	protected function startup()
+	{
+		parent::startup();
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+		}
 	}
 
 	/**

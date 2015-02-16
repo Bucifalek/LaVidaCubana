@@ -40,9 +40,10 @@ class BranchManager extends Nette\Object
 	 */
 	private $session;
 
+
 	/**
 	 * @param Nette\Database\Context $database
-	 * @param Nette\Application\UI\Presenter $session
+	 * @param Nette\Http\Session $session
 	 */
 	function __construct(Nette\Database\Context $database, Nette\Http\Session $session)
 	{

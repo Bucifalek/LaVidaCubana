@@ -1,18 +1,49 @@
-{*
-- @author Jan Kotrba
-<jan.kotrbaa@gmail.com>
-- @date 15:35, 11. 2. 2015
-- @copyright 2015 Jan Kotrba
-*}
-
+{block nav_presenter}Obsah{/block}
+{block nav_action}Všechny položky{/block}
 {block content}
+<div class="tab-content mw600 center-block">
+	<div class="panel">
+		<div class="panel-heading">
+            <span class="panel-title">
+            <span class="glyphicons glyphicons-adress_book"></span><span n:block="title">Všechny položky</span>
+		</div>
+		<div class="panel-body pn">
+			<table class="table table-hover">
+				<thead>
+				<tr>
+					<th>Název</th>
+					<th>Modul</th>
+					<th class="text-right">Akce</th>
+				</tr>
+				</thead>
+				<tbody n:inner-foreach="$webContent as $item">
+				<tr>
+					<td>{$item['title']}</td>
+					<td>{$item['module']}</td>
+					<td class="text-right">
+						<div class="btn-group">
+							<button aria-expanded="true" type="button" class="btn btn-danger btn-sm  dropdown-toggle"
+									data-toggle="dropdown">
+								Akce
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu">
+								<li>
+									<a href="{link Users:edit, $user->id}">Upravit údaje</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="{link DeleteContent!, $user->id}">Smazat položku</a>
+								</li>
+							</ul>
+						</div>
 
-{foreach $webContent as $title => $params}
-{$title|noescape}<br/>
-{/foreach}
 
-{if count($webContent) == 0}
-Zadny obsah
-{/if}
-
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
 {/block}

@@ -1,37 +1,44 @@
 <?php
 /**
  * @author Jan Kotrba <jan.kotrbaa@gmail.com>
- * @date 0:08, 11. 2. 2015
+ * @date 10:05, 16. 2. 2015
  * @copyright 2015 Jan Kotrba
  */
 
 namespace App\AdminModule\Presenters;
 
-use Nette, App\AdminModule\Model;
+use Nette,
+	App\AdminModule\Model;
 
 /**
- * Class MyProfilePresenter
+ * Class MenuPresenter
  * @package App\AdminModule\Presenters
  */
-class MyProfilePresenter extends BasePresenter
+class MenuPresenter extends BasePresenter
 {
 
 	/**
-	 * @var Model\UserManager
+	 * @var
+	 */
+	private $database;
+	/**
+	 * @var
 	 */
 	private $userManager;
 
 	/**
 	 * @param Model\UserManager $userManager
 	 * @param Nette\Database\Context $database
+	 * @param Model\BranchManager $branchManager
 	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
 		$this->userManager = $userManager;
+		$this->database = $database;
 	}
 
-	protected function startup()
+	public function startup()
 	{
 		parent::startup();
 		if (!$this->getUser()->isLoggedIn()) {
@@ -39,14 +46,8 @@ class MyProfilePresenter extends BasePresenter
 		}
 	}
 
-	/**
-	 * @param $user
-	 * @param $avatarID
-	 */
-	public function handleChangeUserPhoto($user, $avatarID)
+	public function renderAll()
 	{
-		$this->userManager->newAvatar($user, $avatarID);
-		$this->user->getIdentity()->avatar = $avatarID;
-		$this->redirect('MyProfile:default');
+		$this->template->allMenus = [];
 	}
 }

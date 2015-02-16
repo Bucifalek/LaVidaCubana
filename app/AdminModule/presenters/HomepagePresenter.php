@@ -13,15 +13,11 @@ use Nette,
 class HomepagePresenter extends BasePresenter
 {
 
-	/**
-	 *
-	 */
-	public function beforeRender()
+	protected function startup()
 	{
-		parent::beforeRender();
+		parent::startup();
 		if (!$this->getUser()->isLoggedIn()) {
-			$this->redirect('Sign:in');
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 	}
-
 }

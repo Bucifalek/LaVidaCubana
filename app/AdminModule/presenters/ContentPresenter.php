@@ -44,6 +44,7 @@ class ContentPresenter extends BasePresenter
 	 * @param Nette\Database\Context $database
 	 * @param Model\UserManager $userManager
 	 * @param Model\ModulesManager $modulesManager
+	 * @param Model\BranchManager $branchManager
 	 */
 	function __construct(Nette\Database\Context $database,
 						 Model\UserManager $userManager,
@@ -58,6 +59,14 @@ class ContentPresenter extends BasePresenter
 		$this->branchManager = $branchManager;
 	}
 
+	protected function startup()
+	{
+		parent::startup();
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+		}
+	}
+
 	/**
 	 * @return array
 	 */
@@ -67,19 +76,22 @@ class ContentPresenter extends BasePresenter
 		$content = $this->contentManager->getContent($this->branchManager->getCurrentID());
 		$modules = $this->webModules;
 		foreach ($content as $row) {
-			$title = $modules[$row->module]['name'] . " : " . $row->title;
-			$webModules[$title] = 'params';
+			$webModules[] = [
+				'id' => $row->id,
+				'title' => $row->title,
+				'module' => $modules[$row->module]['name']];
 		}
 
 		return $webModules;
 	}
 
+
 	/**
-	 *
+	 * @return array
 	 */
 	public function renderAllContent()
 	{
-		$this->template->webContent = $this->prepareWebContent();
+		return $this->template->webContent = $this->prepareWebContent();
 	}
 
 	/**
@@ -89,8 +101,8 @@ class ContentPresenter extends BasePresenter
 	{
 		$form = new UI\Form;
 		$form->addProtection();
-		$form->addText('name')->setRequired('Musíte zadat název');
-		$form->addSelect('module', null, $this->modulesManager->getAllModules())->setPrompt('Vyberte...')->setRequired();
+		$form->addText('name');
+		$form->addSelect('module', null, $this->modulesManager->getAllModules())->setPrompt('Vyberte...');
 		$form->onSuccess[] = [$this, 'addContentFormSuccess'];
 
 		return $form;
@@ -99,16 +111,27 @@ class ContentPresenter extends BasePresenter
 
 	/**
 	 * @param UI\Form $form
+	 * @param $values
 	 */
 	public function addContentFormSuccess(UI\Form $form, $values)
 	{
-		if ($this->contentManager->isUnique($values->name)) {
-			$this->contentManager->addNew($form->getValues());
-			$this->flashMessage('Položka úspěšně přidána', FLASH_SUCCESS);
-			$this->redirect("Content:addContent");
-		} else {
-			$this->flashMessage('Položka s tímto jménem již existuje, zvolte prosím jiné.', FLASH_FAILED);
+		if (empty($values->name)) {
+			$this->flashMessage('Musíte zvolit název položku', FLASH_FAILED);
+			$this->redirectUrl('Content:addContent', ['backlink' => $this->storeRequest()]);
 		}
 
+		if ($this->contentManager->isUnique($values->name)) {
+			$this->contentManager->addNew($form->getValues());
+			$this->flashMessage('Položka úspěšně přidána, nyní ji můžete upravovat.', FLASH_SUCCESS);
+			$this->redirect("Content:addContent");
+		} else {
+			$this->flashMessage('Položka s tímto názvem již existuje, zvolte prosím jiný název.', FLASH_FAILED);
+		}
+
+	}
+
+	public function handleDeleteContent()
+	{
+		// signal handle
 	}
 }

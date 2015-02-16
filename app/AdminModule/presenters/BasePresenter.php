@@ -49,21 +49,19 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		return $this->branchManager;
 	}
 
-	/**
-	 * @param Model\UserManager $userManager
-	 * @param Nette\Database\Context $database
-	 */
+
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		$this->userManager = $userManager;
 		$this->database = $database;
-		$this->modulesManager = new Model\ModulesManager($this->database);
+		$this->modulesManager = new Model\ModulesManager($database, $branchManager);
 		$this->branchManager = $branchManager;
 	}
 
-	/**
-	 *
-	 */
+	protected function startup() {
+		parent::startup();
+	}
+
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
@@ -91,13 +89,13 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			return @$e[1];
 		};
 
-		// Set default branch
 		if ($this->branchManager->getCurrent() == null) {
 			$this->branchManager->selectDefault();
 		}
 
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
+		$this->template->branchName = $this->branchManager->getCurrentName();
 	}
 
 	/**
@@ -125,8 +123,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Hlavní menu',
 			[
 				'Menu|list' => [
-					'Přidat menu|circle_plus' => 'Menu:newMenu',
-					'Aktuální struktura|notes_2' => 'Menu:currentStructure',
+					'Přidat menu|circle_plus' => 'Menu:add',
+					'Všechny nabídky|notes_2' => 'Menu:all',
+					'Aktuální struktura' => 'Menu:structure', //TODO add icon
 				],
 				'Obsah' => [
 					'Přidat položku|circle_plus' => 'Content:addContent',
