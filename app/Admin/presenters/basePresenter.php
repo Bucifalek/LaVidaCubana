@@ -132,17 +132,17 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Hlavní menu',
 			[
 				'Menu|list' => [
-					'Přidat menu|circle_plus' => 'Menu:add',
-					'Všechny nabídky|notes_2' => 'Menu:all',
-					'Aktuální struktura' => 'Menu:structure', //TODO add icon
+					'Přidat menu|circle_plus' => 'menu:add',
+					'Všechny nabídky|notes_2' => 'menu:all',
+					'Aktuální struktura' => 'menu:structure', //TODO add icon
 				],
 				'Obsah' => [
-					'Přidat položku|circle_plus' => 'Content:addContent',
-					'Všechny položky|notes_2' => 'Content:allContent',
+					'Přidat položku|circle_plus' => 'content:addContent',
+					'Všechny položky|notes_2' => 'content:allContent',
 				],
 				'Úložiště|hdd' => [
-					'Nahrávání souborů|file_import' => 'Files:upload',
-					'Všechny soubory|folder_open' => 'Files:allFiles',
+					'Nahrávání souborů|file_import' => 'files:upload',
+					'Všechny soubory|folder_open' => 'files:allFiles',
 				]
 			]);
 
@@ -156,14 +156,14 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[
-					'Přidat|user_add' => 'Users:add',
-					'Seznam správců|adress_book' => 'Users:list'
+					'Přidat|user_add' => 'users:add',
+					'Seznam správců|adress_book' => 'users:list'
 				],
 			'Testy|electricity' =>
 				[
-					'Emaily' => 'Test:sendEmail'
+					'Emaily' => 'test:sendEmail'
 				],
-			'Nahlásit chybu|bug' => 'Report:error'
+			'Nahlásit chybu|bug' => 'support:contact'
 		]);
 
 		return $menu;
