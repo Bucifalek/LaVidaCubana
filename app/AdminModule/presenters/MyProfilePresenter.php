@@ -31,6 +31,14 @@ class MyProfilePresenter extends BasePresenter
 		$this->userManager = $userManager;
 	}
 
+	protected function startup()
+	{
+		parent::startup();
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+		}
+	}
+
 	/**
 	 * @param $user
 	 * @param $avatarID

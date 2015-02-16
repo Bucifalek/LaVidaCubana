@@ -8,6 +8,7 @@
 namespace App\AdminModule\Model;
 
 use Nette;
+use Tracy\Debugger;
 
 /**
  * Class ModulesManager
@@ -27,11 +28,18 @@ class ModulesManager extends Nette\Object
 	private $moduleRow;
 
 	/**
-	 * @param Nette\Database\Context $database
+	 * @var BranchManager
 	 */
-	function __construct(Nette\Database\Context $database)
+	private $branchManager;
+
+	/**
+	 * @param Nette\Database\Context $database
+	 * @param BranchManager $branchManager
+	 */
+	function __construct(Nette\Database\Context $database, BranchManager $branchManager)
 	{
 		$this->database = $database;
+		$this->branchManager = $branchManager;
 	}
 
 
@@ -42,7 +50,7 @@ class ModulesManager extends Nette\Object
 	 */
 	private function getModuleOptions($id)
 	{
-		$this->moduleRow = $this->database->table('modules')->where(['id' => $id])->fetch();
+		$this->moduleRow = $this->database->table('modules')->where('id', $id)->fetch();
 		if ($this->moduleRow) {
 			return json_decode($this->moduleRow->options);
 		} else {
@@ -57,8 +65,8 @@ class ModulesManager extends Nette\Object
 	public function getAllUsed()
 	{
 		$result = [];
-		$webContent = $this->database->table('content')->fetchAll();
-		foreach ($webContent as $row) { // Foreach used modules
+		$allModules = $this->database->table('content')->where('branch_id', $this->branchManager->getCurrentId())->fetchAll();
+		foreach ($allModules as $row) {
 			$moduleOptions = $this->getModuleOptions($row->module);
 			$moduleActions = [];
 			foreach ($moduleOptions->actions as $name => $action) {

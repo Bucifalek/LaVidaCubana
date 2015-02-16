@@ -18,14 +18,8 @@ use Nette,
 class SignPresenter extends BasePresenter
 {
 
-
-	/**
-	 *
-	 */
-	public function beforeRender()
-	{
-		parent::beforeRender();
-	}
+	/** @persistent */
+	public $backlink;
 
 	/**
 	 * @return UI\Form
@@ -54,6 +48,7 @@ class SignPresenter extends BasePresenter
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
+			$this->restoreRequest($this->backlink);
 			$this->redirect('Homepage:');
 		} catch (Nette\Security\AuthenticationException $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
