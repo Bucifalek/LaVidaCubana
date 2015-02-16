@@ -21,6 +21,13 @@ class signPresenter extends BasePresenter
 	/** @persistent */
 	public $backlink;
 
+
+	public function renderIn() {
+		if($this->getUser()->isLoggedIn()) {
+			$this->redirect('dashboard:default');
+		}
+	}
+
 	/**
 	 * @return UI\Form
 	 */
@@ -48,11 +55,11 @@ class signPresenter extends BasePresenter
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
-			$this->restoreRequest($this->backlink);
-			$this->redirect('Homepage:');
+			//$this->restoreRequest($this->backlink);
+			$this->redirect('dashboard:default');
 		} catch (Nette\Security\AuthenticationException $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Sign:in');
+			$this->redirect('sign:in');
 		}
 	}
 

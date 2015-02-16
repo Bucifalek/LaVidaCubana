@@ -14,7 +14,7 @@ use Tracy\Debugger;
  * Class ModulesManager
  * @package App\AdminModule\Model
  */
-class ModulesManager extends Nette\Object
+class modulesManager extends Nette\Object
 {
 
 	/**
