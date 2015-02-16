@@ -7,7 +7,7 @@
 {block nav_presenter}Správci{/block}
 {block nav_action}Seznam správců{/block}
 {block content}
-<div class="tab-content mw1000 center-block">
+<div class="tab-content mw700 center-block">
 	<div class="panel">
 		<div class="panel-heading">
             <span class="panel-title">
@@ -19,24 +19,23 @@
 				<tr>
 					<th>Jméno</th>
 					<th>Příjmení</th>
+					<th>Login</th>
 					<th>Status</th>
 					<th>Email</th>
-					<th>Login</th>
-					<th>Heslo</th>
-					<th>Akce</th>
+					<th class="text-right">Akce</th>
 				</tr>
 				</thead>
 				<tbody n:inner-foreach="$currentUsers as $user">
 				<tr>
+
 					<td>{$user->real_firstname}</td>
 					<td>{$user->real_lastname}</td>
+					<td>{$user->user}</td>
 					<td>{if $user->banned}<span class="label label-danger">Blokovaný</span>{else}<span
 							class="label label-success">Aktivní</span>{/if}
 					</td>
 					<td>{$user->email}</td>
-					<td>{$user->user}</td>
-					<td>{$user->password_pure}</td>
-					<td>
+					<td class="text-right">
 						<div class="btn-group">
 							<button aria-expanded="true" type="button" class="btn btn-danger btn-sm  dropdown-toggle"
 									data-toggle="dropdown">

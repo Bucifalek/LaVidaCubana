@@ -98,6 +98,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
+		$this->template->branchName = $this->branchManager->getCurrentName();
 	}
 
 	/**
@@ -126,7 +127,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			[
 				'Menu|list' => [
 					'Přidat menu|circle_plus' => 'Menu:newMenu',
-					'Aktuální struktura|notes_2' => 'Menu:currentStructure',
+					'Všechny nabídky|notes_2' => 'Menu:allMenus',
+					'Aktuální struktura' => 'Menu:currentStructure', //TODO add icon
 				],
 				'Obsah' => [
 					'Přidat položku|circle_plus' => 'Content:addContent',
