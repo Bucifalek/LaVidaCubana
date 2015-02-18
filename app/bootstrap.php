@@ -14,8 +14,8 @@ $configurator->createRobotLoader()
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
-
 $container = $configurator->createContainer();
+
 
 define("FLASH_SUCCESS", "success|check");
 define("FLASH_WARNING", "warning|warning");

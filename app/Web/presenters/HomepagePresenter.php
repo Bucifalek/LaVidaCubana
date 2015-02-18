@@ -5,10 +5,9 @@
  * @copyright 2015 Jan Kotrba
  */
 
-namespace App\FrontModule\Presenters;
+namespace App\WebModule\Presenters;
 
 use Nette,
-    App\Model,
     Nette\Application\UI;
 
 class HomepagePresenter extends BasePresenter

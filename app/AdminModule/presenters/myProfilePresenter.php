@@ -31,11 +31,6 @@ class myProfilePresenter extends BasePresenter
 		$this->userManager = $userManager;
 	}
 
-	protected function startup()
-	{
-		parent::startup();
-	}
-
 	/**
 	 * @param $user
 	 * @param $avatarID

@@ -20,6 +20,7 @@ class testPresenter extends BasePresenter
 	/**
 	 *
 	 */
+
 	public function handleSendEmail()
 	{
 		// send test email to jan.kotrbaa@gmail.com

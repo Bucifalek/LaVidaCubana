@@ -6,9 +6,9 @@
  * Time: 19:45
  */
 
-namespace App\FrontModule\Presenters;
+namespace App\WebModule\Presenters;
 
-use Nette, App\Model;
+use Nette;
 
 class BowlingPresenter extends BasePresenter {
 

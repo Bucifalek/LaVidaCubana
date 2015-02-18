@@ -1,50 +1,45 @@
 <?php
 /**
  * @author Jan Kotrba <jan.kotrbaa@gmail.com>
- * @date 10:05, 16. 2. 2015
+ * @date 23:04, 9. 2. 2015
  * @copyright 2015 Jan Kotrba
  */
 
 namespace App\AdminModule\Presenters;
 
 use Nette,
-	App\AdminModule\Model;
+	App\AdminModule\Model,
+	Nette\Database;
 
 /**
- * Class MenuPresenter
+ * Class StructurePresenter
  * @package App\AdminModule\Presenters
  */
-class menuPresenter extends BasePresenter
+class structurePresenter extends BasePresenter
 {
 
 	/**
 	 * @var
 	 */
-	private $database;
-	/**
-	 * @var
-	 */
-	private $userManager;
+	private $webStructure;
 
 	/**
 	 * @param Model\UserManager $userManager
-	 * @param Nette\Database\Context $database
-	 * @param Model\BranchManager $branchManager
+	 * @param Database\Context $database
 	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
-		$this->userManager = $userManager;
-		$this->database = $database;
+		//$this->webStructure = new Model\webStructure($database);
 	}
 
-	public function startup()
+	/**
+	 *
+	 */
+	public function renderDefault()
 	{
-		parent::startup();
+		parent::beforeRender();
+		//$this->template->webStructure = $this->webStructure->get();
 	}
 
-	public function renderAll()
-	{
-		$this->template->allMenus = [];
-	}
 }
