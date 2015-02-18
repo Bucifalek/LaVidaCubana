@@ -1,9 +1,8 @@
 <?php
 
-namespace App\FrontModule\Presenters;
+namespace App\WebModule\Presenters;
 
-use Nette,
-	App\Model;
+use Nette;
 
 
 /**

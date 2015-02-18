@@ -45,7 +45,7 @@
 	<!-- Start: Header -->
 	<header class="navbar navbar-fixed-top bg-light">
 		<div class="navbar-branding">
-			<a class="navbar-brand" n:href="Homepage:default"><img src="{$basePath}/Back-end/assets/img/logos/cms.png"
+			<a class="navbar-brand" n:href="Dashboard:default"><img src="{$basePath}/Back-end/assets/img/logos/cms.png"
 																   alt="" class="brand-logo mr5"><b>HD</b> Group</a>
 			<span id="toggle_sidemenu_l" class="glyphicons glyphicons-show_lines"></span>
 			<ul class="nav navbar-nav pull-right hidden">
@@ -84,16 +84,19 @@
 				</ul>
 			</li>
 		</ul>
+		{*}
 		<form class="navbar-form navbar-left navbar-search ml5" role="search">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Hledat..." value="Hledat...">
 			</div>
 		</form>
+		{*}
 		<ul class="nav navbar-nav navbar-right">
 			{* Notifications control *}
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<span class="fw600 pl6">Upravujete : {$currentBranch['title']}</span>
+					<span class="glyphicons fa-xl glyphicons-pencil"></span>
+					<span class="fw600 pl10">Upravujete : {$currentBranch['title']}</span>
 				</a>
 				<ul class="dropdown-menu animated animated-short flipInX" role="menu">
 					{foreach $branchList as $id => $name}

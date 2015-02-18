@@ -1,8 +1,8 @@
 parameters:
 
 database:
-	dsn: 'mysql:host=jkotrba.net;dbname=lavidacubana'
-	user: remoteDatabase
-	password: cust168255332210
+	dsn: 'mysql:host=localhost;dbname=lavidacubana'
+	user: root
+	password:
 	options:
 		lazy: yes

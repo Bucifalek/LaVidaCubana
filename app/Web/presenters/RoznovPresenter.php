@@ -6,7 +6,7 @@
  * Time: 19:43
  */
 
-namespace App\FrontModule\Presenters;
+namespace App\WebModule\Presenters;
 
 use Nette;
 use Nette\Application\UI\Form;

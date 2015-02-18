@@ -34,9 +34,11 @@ class RouterFactory
 		// Menu
 		$router[] = new Route($prefix . 'admin/menu', 'Admin:menu:all');
 		$router[] = new Route($prefix . 'admin/menu/seznam', 'Admin:menu:all');
-		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:menu:add');
+		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:menu:addMenu');
 		$router[] = new Route($prefix . 'admin/menu/struktura', 'Admin:menu:structure');
-		$router[] = new Route($prefix . 'admin/menu/upravit[/<id>]', 'Admin:menu:edit');
+		$router[] = new Route($prefix . 'admin/menu/upravit/[<id>]', 'Admin:menu:edit');
+		$router[] = new Route($prefix . 'admin/menu/pridat-sekci/[<id>]', 'Admin:menu:addSection');
+		$router[] = new Route($prefix . 'admin/menu/pridat-položku/[<id>]', 'Admin:menu:addItem');
 
         // Support
         $router[] = new Route($prefix . 'admin/podpora', 'Admin:support:contact');
@@ -74,10 +76,10 @@ class RouterFactory
         $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:default');
 
         // Front Router
-        $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Web:Roznov:');
-        $router[] = new Route($prefix . 'valasske-mezirici/<action>[/<id>]', 'Web:Valmez:');
-        $router[] = new Route($prefix . 'bowling/<action>[/<id>]', 'Web:Bowling:');
-        $router[] = new Route($prefix . '', 'Front:Homepage:');
+        $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Web:Roznov:default');
+        $router[] = new Route($prefix . 'valasske-mezirici/<action>[/<id>]', 'Web:Valmez:default');
+        $router[] = new Route($prefix . 'bowling/<action>[/<id>]', 'Web:Bowling:default');
+        $router[] = new Route($prefix . '', 'Web:Homepage:default');
         return $router;
     }
 

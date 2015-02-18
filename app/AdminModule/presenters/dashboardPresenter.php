@@ -13,8 +13,4 @@ use Nette,
 class dashboardPresenter extends BasePresenter
 {
 
-	protected function startup()
-	{
-		parent::startup();
-	}
 }

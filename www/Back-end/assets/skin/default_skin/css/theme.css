@@ -8628,6 +8628,7 @@ hr.dotted {
   margin: 25px 0;
   background: #e2e2e2;
 }
+
 /*==================================================
   Code(inline and block)
 ==================================================== */
@@ -11484,7 +11485,7 @@ tbody.collapse.in {
 .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
-  margin-bottom: 1px;
+  margin-bottom: 1px !important;
 }
 @media (min-width: 480px) {
   .navbar-right .dropdown-menu {
