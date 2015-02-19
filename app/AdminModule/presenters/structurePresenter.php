@@ -23,20 +23,19 @@ class structurePresenter extends BasePresenter
 	 */
 	private $webStructure;
 
+
 	/**
 	 * @param Model\UserManager $userManager
 	 * @param Database\Context $database
+	 * @param Model\BranchManager $branchManager
+	 * @param Model\webStructure $webStructure
 	 */
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\webStructure $webStructure)
 	{
 		parent::__construct($userManager, $database, $branchManager);
-		//$this->webStructure = new Model\webStructure($database);
+		$this->webStructure = $webStructure;
 	}
 
-	protected function startup()
-	{
-		parent::startup();
-	}
 
 	/**
 	 *
@@ -44,7 +43,7 @@ class structurePresenter extends BasePresenter
 	public function renderDefault()
 	{
 		parent::beforeRender();
-		//$this->template->webStructure = $this->webStructure->get();
+		$this->template->webStructure = $this->webStructure->get();
 	}
 
 }

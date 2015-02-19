@@ -12,25 +12,25 @@
              <span class="panel-title" n:block="title"><i class="fa fa-comments-o"></i>Kontaktujte podporu
              </span>
 			</div>
-			<form name="" id="form-register2" autocomplete="off">
+			<form n:name="contactSupportForm" id="form-register2" autocomplete="off">
 				<div class="panel-body p25">
 					<div class="section">
 						<label for="email" class="field prepend-icon">
-							<input name="email" id="email" class="gui-input" placeholder="Email..." type="email">
+							<input n:name="email" id="email" class="gui-input" placeholder="Váš email..." type="email">
 							<label for="email" class="field-icon"><i class="fa fa-envelope"></i>
 							</label>
 						</label>
 					</div>
 					<div class="section mb30">
                         <label class="field prepend-icon">
-                            <textarea class="event-desc gui-textarea" id="desc1" name="desc1" placeholder="Dotaz na podporu..."></textarea>
+                            <textarea n:name="text" class="event-desc gui-textarea" id="desc1" name="desc1" placeholder="Dotaz na podporu..."></textarea>
                             <label for="desc1" class="field-icon"><i class="fa fa-comments"></i>
                             </label>
                         </label>
                     </div>
 				</div>
 				<div class="panel-footer text-right">
-					<input name="" class="button btn-primary" type="submit">
+					<input n:name="send" class="button btn-primary" value="Odeslat dotaz" type="submit">
 				</div>
 			</form>
 		</div>

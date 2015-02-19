@@ -40,6 +40,7 @@ class usersPresenter extends BasePresenter
 		$this->userManager = $userManager;
 	}
 
+
 	/**
 	 *
 	 */
@@ -186,6 +187,7 @@ class usersPresenter extends BasePresenter
 		$form->addtext('username')->setRequired('nezadlai jste jmeno pro prihlaseni');
 		$form->addSubmit('updateUser', 'Uložit změny');
 		$form->onSuccess[] = [$this, 'updateUserFormSucceeded'];
+
 		return $form;
 	}
 
@@ -224,6 +226,7 @@ class usersPresenter extends BasePresenter
 		$form->addtext('username')->setRequired('nezadlai jste jmeno pro prihlaseni');
 		$form->addSubmit('addUser', 'Přidat');
 		$form->onSuccess[] = [$this, 'addUserFormSucceeded'];
+
 		return $form;
 	}
 

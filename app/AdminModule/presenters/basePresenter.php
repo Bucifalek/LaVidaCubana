@@ -83,6 +83,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
+			Debugger::barDump($this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]));
 		} else if ($this->redirectedToLogin === false) {
 			$this->redirectedToLogin = true;
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
@@ -105,6 +106,11 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
+
+		// This is way, how can neon params can be get
+		$config = new \SystemContainer();
+		$config = $config->parameters;
+		//Debugger::barDump($config);
 	}
 
 	/**
@@ -134,8 +140,6 @@ class basePresenter extends Nette\Application\UI\Presenter
 				'Menu|list' => [
 					'Přidat menu|circle_plus' => 'menu:add',
 					'Všechny nabídky|notes_2' => 'menu:all',
-					'Aktuální struktura' => 'menu:structure', //TODO add icon
-					'Upravit strukturu' => 'menu:edit',
 				],
 				'Obsah' => [
 					'Přidat položku|circle_plus' => 'content:addContent',

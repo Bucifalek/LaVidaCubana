@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Presenters;
+namespace App\WebModule\Presenters;
 
 use Nette,
-	App\Model,
 	Tracy\Debugger;
 
 

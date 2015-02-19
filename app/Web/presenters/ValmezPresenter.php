@@ -5,9 +5,10 @@
  * Date: 3. 2. 2015
  * Time: 19:51
  */
-namespace App\FrontModule\Presenters;
+namespace App\WebModule\Presenters;
 
-use Nette, App\Model;
+use Nette;
+
 
 class ValmezPresenter extends BasePresenter {
 
