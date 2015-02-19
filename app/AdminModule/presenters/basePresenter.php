@@ -83,6 +83,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
+			Debugger::barDump($this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]));
 		} else if ($this->redirectedToLogin === false) {
 			$this->redirectedToLogin = true;
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
