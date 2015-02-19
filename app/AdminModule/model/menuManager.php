@@ -7,9 +7,7 @@
 
 namespace App\AdminModule\Model;
 
-use Latte\Helpers;
 use Nette;
-use Tracy\Debugger;
 
 /**
  * Class menuManager
@@ -54,11 +52,17 @@ class menuManager extends Nette\Object
 	/**
 	 * @param $id
 	 * @return array
+	 * @throws \Exception
 	 */
 	public function getMenu($id)
 	{
 		$structured = [];
-		foreach ($this->getMenuDetails($id) as $menu) { // Foreach all menu for current branch
+		$result = $this->getMenuDetails($id);
+		if(!$result) {
+			throw new \Exception('neexistujici menu');
+		}
+
+		foreach ($result as $menu) { // Foreach all menu for current branch
 			foreach ($this->getMenuDetails($menu->id) as $item) {
 				if ($item->level == 0 AND $item->parent_menu_id == '') { // Simple link
 					$structured[$item->id] = [
@@ -82,8 +86,6 @@ class menuManager extends Nette\Object
 				}
 			}
 		}
-
-		//Debugger::barDump($structured);
 
 		return $structured;
 	}

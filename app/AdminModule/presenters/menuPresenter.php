@@ -73,8 +73,14 @@ class menuPresenter extends BasePresenter
 	 */
 	public function actionEdit($id)
 	{
-		$this->template->structuredMenu = $this->menuManager->getMenu($id);
-		$this->template->modulesList = $this->moduleManager->getAllModules();
+		try {
+			$this->template->structuredMenu = $this->menuManager->getMenu($id);
+			$this->template->modulesList = $this->moduleManager->getAllModules();
+		} catch (\Exception $e){
+			$this->flashMessage($e->getMessage(), FLASH_FAILED);
+			$this->redirect('Menu:all');
+		}
+
 	}
 
 

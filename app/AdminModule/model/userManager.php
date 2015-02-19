@@ -77,21 +77,6 @@ class userManager extends Nette\Object
 	}
 
 	/**
-	 * @param $id
-	 * @param $data
-	 * @throws \Exception
-	 */
-	public function update($id, $data)
-	{
-		try {
-			$this->database->table(self::TABLE_USERS)->where('id', $id)->update($data);
-		} catch(\Exception $e) {
-			throw new \Exception($e->getMessage());
-		}
-	}
-
-
-	/**
 	 * @param $details
 	 * @throws \Exception
 	 */
@@ -109,7 +94,7 @@ class userManager extends Nette\Object
 	 */
 	public function ban($id)
 	{
-		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 1])) {
+		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 1, 'bantime' => time()])) {
 			throw new \Exception('Nepodařilo se zablokovat správce');
 		}
 	}
