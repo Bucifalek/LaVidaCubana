@@ -15,7 +15,7 @@ use Tracy\Debugger;
  * Class MenuPresenter
  * @package App\AdminModule\Presenters
  */
-class menuPresenter extends BasePresenter
+final class menuPresenter extends BasePresenter
 {
 
 	/**

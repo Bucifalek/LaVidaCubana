@@ -15,7 +15,7 @@ use Nette,
  * Class StructurePresenter
  * @package App\AdminModule\Presenters
  */
-class structurePresenter extends BasePresenter
+final class structurePresenter extends BasePresenter
 {
 
 	/**
