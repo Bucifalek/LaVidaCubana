@@ -1,0 +1,96 @@
+#page {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+.mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created {
+  font-family: "Open Sans"; }
+
+nav {
+  width: 100%;
+  height: 100px;
+  background-color: #d14334; }
+
+.flexible_content {
+  width: 960px;
+  height: auto;
+  margin: 0px auto; }
+
+.greybox {
+  background: url("../img/bowling/texturka.jpg");
+  width: 100%;
+  height: 600px; }
+
+.logo {
+  float: left;
+  width: 351px;
+  height: 43px;
+  line-height: 100px;
+  padding-top: 25px; }
+
+.mainmenu {
+  float: right;
+  height: auto; }
+
+.mainmenu li {
+  display: inline;
+  list-style: none; }
+
+.mainmenu a {
+  color: #fff;
+  text-decoration: none;
+  line-height: 100px;
+  font-size: 14px;
+  padding: 15px; }
+
+.category_title {
+  font-family: bittersweet;
+  letter-spacing: 3px;
+  padding-top: 50px;
+  color: #d14334;
+  font-size: 34px; }
+
+#mapa {
+  margin-top: 50px;
+  float: left; }
+
+.seznam {
+  float: right;
+  margin-top: 53px; }
+
+.seznam h3 {
+  font-family: bittersweet;
+  letter-spacing: 3px;
+  font-size: 34px;
+  padding-bottom: 20px;
+  color: #d14334; }
+
+.seznam li {
+  list-style: none;
+  padding-bottom: 15px;
+  font-size: 14px; }
+
+#bowling_info {
+  float: left;
+  padding-top: 50px;
+  word-spacing: 5px; }
+
+#instagram_box {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; }
+
+#footer {
+  width: 100%;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  bottom: 0; }
+
+p.created {
+  color: #fff;
+  font-size: 12px;
+  line-height: 50px; }
+
+/*# sourceMappingURL=style-bowling.css.map */
