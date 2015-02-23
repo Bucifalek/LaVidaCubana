@@ -8,30 +8,98 @@
 namespace App\AdminModule\Model;
 
 use Nette,
-    Nette\Mail,
-    Nette\Mail\Message,
-    Latte;
+	Nette\Mail,
+	Nette\Mail\Message,
+	Latte;
 
-class myMailer extends Mail\SmtpMailer implements Nette\Mail\IMailer
+/**
+ * Class MyMailer
+ * @package App\AdminModule\Model
+ */
+class myMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 {
 
-    private $mailer;
+	/**
+	 * @var Mail\SmtpMailer
+	 */
+	private $mailer;
 
-    function __construct()
-    {
-        $config = [
-            'host' => 'jkotrba.net',
-            'port' => '25',
-            'username' => 'nugatu',
-            'password' => 'cust168255332210',
-            'timeout' => '30'
-        ];
-        $this->mailer = new Nette\Mail\SmtpMailer($config);
-    }
+	/**
+	 * @var Latte\Engine
+	 */
+	private $latteEngine;
 
-    public function send(Message $mail)
-    {
-        $this->mailer->send($mail);
-    }
+	/**
+	 * @var Message
+	 */
+	private $message;
 
+	/**
+	 *
+	 */
+	function __construct()
+	{
+		$this->latteEngine = new Latte\Engine;
+		$this->message = new Message;
+		$config = [
+			'smtp' => true,
+			'host' => 'smtp-78628.m28.wedos.net',
+			'port' => '465',
+			'secure' => 'ssl',
+			'username' => 'cms@pizzeriaitaliana.cz',
+			'password' => 'cust168255332210'
+		];
+		$this->mailer = new Nette\Mail\SmtpMailer($config);
+	}
+
+	/**
+	 * @throws Mail\SmtpException
+	 * @throws \Exception
+	 */
+	public function sendEmail()
+	{
+		$this->mailer->send($this->message);
+	}
+
+	/**
+	 * @param $template
+	 * @param $params
+	 * @return $this
+	 * @throws \Exception
+	 */
+	public function setHtmlBody($template, $params)
+	{
+		$this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
+		return $this;
+	}
+
+	/**
+	 * @param $target
+	 * @return $this
+	 */
+	public function addTo($target)
+	{
+		$this->message->addTo($target);
+		return $this;
+	}
+
+	/**
+	 * @param $email
+	 * @return $this
+	 */
+	public function setFrom($email)
+	{
+		$this->message->setFrom($email);
+		return $this;
+	}
+
+	/**
+	 * @param $subject
+	 * @return $this
+	 */
+	public function setSubject($subject)
+	{
+		$this->message->setSubject($subject);
+		return $this;
+	}
 }

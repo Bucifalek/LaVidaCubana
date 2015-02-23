@@ -6,3 +6,5 @@ log/*
 !log/.web.config
 .git
 app/config/config.local.neon
+temp/btfj.dat
+temp/btfj.dat

@@ -8628,6 +8628,7 @@ hr.dotted {
   margin: 25px 0;
   background: #e2e2e2;
 }
+
 /*==================================================
   Code(inline and block)
 ==================================================== */
@@ -11484,7 +11485,7 @@ tbody.collapse.in {
 .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
-  margin-bottom: 1px;
+  margin-bottom: 1px !important;
 }
 @media (min-width: 480px) {
   .navbar-right .dropdown-menu {
@@ -11495,6 +11496,9 @@ tbody.collapse.in {
     left: 0;
     right: auto;
   }
+}
+.cursor {
+    pointer: cursor;
 }
 /*==================================================
   Button Groups
@@ -22026,6 +22030,7 @@ body.external-page {
 body.external-page #main {
   overflow: hidden;
   background: url("../../../img/patterns/backgrounds/3.jpg") no-repeat top center #2d494d;
+    background-size: cover;
 }
 body.external-page #main:before {
   display: none;
@@ -25542,6 +25547,14 @@ to occupy 100% width at low resolutions */
     }
 }
 .brand-logo{
-    width: 19%;
-    height: 60%;
+    width: 40px;
+}
+.img-avatar {
+  border: 3px solid transparent;
+  border-radius: 180px;
+  transition:  all 0.3s;
+}
+.img-avatar-current, .img-avatar:hover {
+  border-color: #ffa32b;
+  transition:  all 0.3s;
 }

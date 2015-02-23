@@ -3,11 +3,21 @@ namespace Utils;
 
 use Nette;
 
+/**
+ * Class passGenerator
+ * @package Utils
+ */
 class passGenerator extends Nette\Object
 {
+	/**
+     * @param int $length
+     * @param bool $add_dashes
+     * @param string $available_sets
+     * @return string
+     */
     public static function generateStrongPassword($length = 20, $add_dashes = false, $available_sets = 'luds')
     {
-        $sets = array();
+        $sets = [];
         if (strpos($available_sets, 'l') !== false)
             $sets[] = 'abcdefghjkmnpqrstuvwxyz';
         if (strpos($available_sets, 'u') !== false)
@@ -35,6 +45,7 @@ class passGenerator extends Nette\Object
             $password = substr($password, $dash_len);
         }
         $dash_str .= $password;
+
         return $dash_str;
     }
 }

@@ -1,11 +1,6 @@
-#
-# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
-#
-# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
-# http://nette.org/security-warning
-#
 parameters:
-
+	cms:
+		testovaciHodnota: true
 
 php:
 	date.timezone: Europe/Prague
@@ -20,7 +15,10 @@ nette:
 		expiration: 14 days
 
 services:
-	- App\AdminModule\Model\myMailer
+	- App\AdminModule\Model\branchManager
 	- App\AdminModule\Model\userManager
-	authenticator: App\AdminModule\Model\MyAuth
+	- App\AdminModule\Model\modulesManager
+	- App\AdminModule\Model\menuManager
+
+	authenticator: App\AdminModule\Model\userAuth
 	router: App\RouterFactory::createRouter

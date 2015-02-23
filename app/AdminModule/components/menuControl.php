@@ -12,33 +12,43 @@ use Nette\Application\UI;
 class menuControl extends UI\Control
 {
 
-    public $sections;
+	private $sections;
 
-    public function render()
-    {
-        $template = $this->template;
-        $template->setFile(__DIR__ . '/menuControl.latte');
-        $template->sections = $this->sections;
+	/**
+	 * @param $name
+	 * @param $data
+	 * @return mixed
+	 */
+	public function addSection($name, $data)
+	{
+		return $this->sections[$name] = $data;
+	}
 
-        $template->wrapRoute = function ($arg) {
-            $route = explode(":", reset($arg));
-            unset($route[count($route) - 1]);
-            return implode(":", $route) . ":*";
-        };
+	public function render()
+	{
+		$template = $this->template;
+		$template->setFile(__DIR__ . '/menuControl.latte');
+		$template->sections = $this->sections;
 
-        $template->glyph = function ($arg) {
-            $parts = explode("|", $arg);
-            if (count($parts) > 1) {
-                return "glyphicons-" . $parts[count($parts) - 1];
-            }
-            return "glyphicons-book_open";
-        };
+		$template->wrapRoute = function ($arg) {
+			$route = explode(":", reset($arg));
+			unset($route[count($route) - 1]);
+			return implode(":", $route) . ":*";
+		};
 
-        $template->name = function ($arg) {
-            $parts = explode("|", $arg);
-            return $parts[0];
-        };
+		$template->glyph = function ($arg) {
+			$parts = explode("|", $arg);
+			if (count($parts) > 1) {
+				return "glyphicons-" . $parts[count($parts) - 1];
+			}
+			return "glyphicons-book_open";
+		};
 
-        $template->render();
-    }
+		$template->name = function ($arg) {
+			$parts = explode("|", $arg);
+			return $parts[0];
+		};
+
+		$template->render();
+	}
 }

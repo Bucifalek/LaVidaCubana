@@ -3,7 +3,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 
-$configurator->setDebugMode('79.127.207.199'); // enable for your remote IP
+$configurator->setDebugMode(['79.127.207.199', '79.127.207.200']); // enable for your remote IP
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 $configurator->setTempDirectory(__DIR__ . '/../temp');
@@ -14,9 +14,7 @@ $configurator->createRobotLoader()
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $configurator->addConfig(__DIR__ . '/config/config.local.neon');
-
 $container = $configurator->createContainer();
-
 
 
 define("FLASH_SUCCESS", "success|check");
