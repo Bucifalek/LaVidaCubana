@@ -1,8 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import 'stylebowling';
 
 $red: #d14334;
 $darkGrey: #343333;
 $grey: #dddddd;
+$font-color:#fff;
 
 @font-face{
   font-family: 'bittersweet';
@@ -31,7 +33,12 @@ html,body{
   height: 100%;
   margin: 0;
   padding: 0;
-  outline: none !important
+  outline: none !important;
+}
+
+*{
+  margin: 0;
+  padding: 0;
 }
 
 body{
@@ -136,7 +143,7 @@ body{
 /*  SEKCE 2 - ROZNOV */
 
 .roznov-block{
-  background: rgba(52, 51, 51, 0.87);
+  background: rgba(52, 51, 51, 0.91);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -165,7 +172,7 @@ body{
 /*  SEKCE 3 - VALMEZ */
 
 .valmez-block{
-  background: rgba(209, 67, 52, 0.87);
+  background: rgba(209, 67, 52, 0.91);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -193,7 +200,7 @@ body{
 /*  SEKCE 4 - BOWLING */
 
 .bowling-block{
-  background: rgba(221, 221, 221, 0.87);
+  background: rgba(221, 221, 221, 0.91);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
