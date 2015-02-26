@@ -32,11 +32,6 @@ class basePresenter extends Nette\Application\UI\Presenter
 	private $userManager;
 
 	/**
-	 * @var Model\ModulesManager
-	 */
-	private $modulesManager;
-
-	/**
 	 * @var Model\BranchManager @inject
 	 */
 	private $branchManager;
@@ -58,24 +53,20 @@ class basePresenter extends Nette\Application\UI\Presenter
 	{
 		$this->userManager = $userManager;
 		$this->database = $database;
-		$this->modulesManager = new Model\ModulesManager($database, $branchManager);
 		$this->branchManager = $branchManager;
-	}
-
-	protected function startup()
-	{
-		parent::startup();
 	}
 
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
+
 			$this->redirectedToLogin = false;
 			$userData = $this->user->getIdentity()->getData();
 			$this->template->firstName = $userData['firstname'];
 			$this->template->lastName = $userData['lastname'];
 			$this->template->avatar = $userData['avatar'];
 			$this->template->email = $userData['email'];
+
 			try {
 				$this->userManager->isUserBanned($this->getUser());
 			} catch (Security\AuthenticationException $e) {
@@ -83,7 +74,9 @@ class basePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
-			Debugger::barDump($this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]));
+
+			$this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]);
+
 		} else if ($this->redirectedToLogin === false) {
 			$this->redirectedToLogin = true;
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
@@ -135,7 +128,36 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu = new menuControl;
 		// Struktura CMS
 
-		$menu->addSection('Hlavní menu',
+		$menu->addSection('Stránky',
+			[
+				'Uvodní stránka' => [
+					'Texty' => 'test',
+					'Obrázky' => 'content:allContent',
+					'Parametry' => 'params'
+				],
+			]);
+
+		$menu->addSection('Navigace',
+			[
+				'Hlavni rozcestnik' => 'test'
+
+			]);
+
+
+		/*$menu->addSection('Obsah stránek',
+			[
+				'Obsah|list' => [
+					'uvodni stranka|more_items' => 'content:',
+					'Všechny položky|notes_2' => 'content:allContent',
+				],
+				'Úložiště|hdd' => [
+					'Nahrávání souborů|file_import' => 'files:upload',
+					'Všechny soubory|folder_open' => 'files:allFiles',
+				],
+				''
+			]);
+*/
+		/*$menu->addSection('Hlavní menu',
 			[
 				'Menu|list' => [
 					'Přidat menu|circle_plus' => 'menu:add',
@@ -149,13 +171,19 @@ class basePresenter extends Nette\Application\UI\Presenter
 					'Nahrávání souborů|file_import' => 'files:upload',
 					'Všechny soubory|folder_open' => 'files:allFiles',
 				]
-			]);
+			]);*/
 
-		$allModules = [];
-		foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
-			$allModules[$moduleName] = $moduleActions;
-		}
-		$menu->addSection('Použité moduly', $allModules);
+
+
+		/*
+			$allModules = [];
+			foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
+				$allModules[$moduleName] = $moduleActions;
+			}
+			$menu->addSection('Použité moduly', $allModules);
+		*/
+
+
 
 		// Struktura CMS
 		$menu->addSection('Systém', [
@@ -163,10 +191,6 @@ class basePresenter extends Nette\Application\UI\Presenter
 				[
 					'Přidat|user_add' => 'users:add',
 					'Seznam správců|adress_book' => 'users:list'
-				],
-			'Testy|electricity' =>
-				[
-					'Emaily' => 'test:sendEmail'
 				],
 			'Kontaktovat podporu|bug' => 'support:contact'
 		]);
