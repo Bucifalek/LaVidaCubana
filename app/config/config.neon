@@ -17,7 +17,6 @@ nette:
 services:
 	- App\AdminModule\Model\branchManager
 	- App\AdminModule\Model\userManager
-	- App\AdminModule\Model\modulesManager
 	- App\AdminModule\Model\menuManager
 
 	authenticator: App\AdminModule\Model\userAuth
