@@ -82,14 +82,11 @@ nav{
 .greybox{
   background:url('../img/bowling/texturka.jpg');
   width: 100%;
-  height: 600px;
-
-  #map-canvas {
-    margin-top: 80px;
-    float: right;
-    width: 500px;
-    height: 260px;
-  }
+  height: 540px;
+}
+#map-canvas {
+  width: 100%;
+  height: 260px;
 }
 .logo{
   font-family: bittersweet;
@@ -113,52 +110,77 @@ nav{
   line-height: 100px;
   font-size: 14px;
   padding: 15px;
-  background: #cf3c2b;
-  border-bottom: 2px solid #c03a2b;
-
-  :hover{
-
-  }
+}
+.mainmenu a:hover{
+  color: $darkGrey;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
 }
 .category_title{
-  font-family: "Open Sans";
-  font-size: 32px;
+  font-size: 2em;
   padding-top: 40px;
   color: $red;
 }
-.seznam{
-  float: left;
-  margin-top: 80px;
-  width: 500px;
+.adress{
+  background: rgba(52, 51, 51, 0.61);
+  width: 100%;
   height: 260px;
-  color: $darkGrey;
+  position: absolute;
+  z-index: +111;
 
-  h3 {
-    font-family: "Open Sans";
-    font-size: 24px;
-    padding-bottom: 20px;
-    color: $red;
-  }
+  .seznam{
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 260px;
+    color: #ffffff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.37);
 
-  li{
-    list-style: none;
-    padding-bottom: 15px;
-    font-size: 15px;
+    ul{
+      margin-top: 70px;
+    }
+    li{
+      list-style: none;
+      padding-bottom: 15px;
+      font-size: 15px;
+    }
   }
 }
 #bowling_info{
-  color: $darkGrey;
-  float: left;
-  text-align: justify;
-  padding-top: 50px;
-  word-spacing: 3px;
+   color: $darkGrey;
+   float: left;
+   text-align: center;
+   padding-top: 120px;
+   word-spacing: 3px;
+   font-size: 19px;
+}
+.bowling_wifi{
+  width: 100%;
+  height: 50px;
+
+  p{
+    color: $darkGrey;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+  }
+  img{
+    width: 250px;
+    height: 85px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 #instagram_box{
   width: 100%;
   height: auto;
   min-height: 50%;
   background-color: #ffffff;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 
   .four_sections{
     background: #dcdcdc;
@@ -234,6 +256,12 @@ footer {
 }
 p.created {
   color: $font-color;
+  font-size: 15px;
+  line-height: 50px;
+}
+b.created_lvc {
+  color: $font-color;
+  float: right;
   font-size: 15px;
   line-height: 50px;
 }
