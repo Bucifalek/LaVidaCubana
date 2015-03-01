@@ -62,7 +62,7 @@ nav {
   margin: 0px auto; }
 
 .greybox {
-  background: url("../img/bowling/texturka.jpg");
+  background: url("../img/bowling/texturka2.png");
   width: 100%;
   height: 540px; }
 
@@ -161,46 +161,46 @@ nav {
     height: 260px;
     margin-top: 40px;
     display: inline-table; }
-    #instagram_box .four_sections article {
-      width: 256px;
-      height: 100%;
-      display: inline-table; }
-    #instagram_box .four_sections .insta_img_1 {
-      background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center; }
-    #instagram_box .four_sections .insta_img_2 {
-      background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
-      float: left; }
-    #instagram_box .four_sections .insta_img_3 {
-      background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
-      float: left; }
-    #instagram_box .four_sections .insta_img_4 {
-      background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
-      float: left; }
-    #instagram_box .four_sections .insta_img_1 .insta_hover, #instagram_box .four_sections .insta_img_2 .insta_hover, #instagram_box .four_sections .insta_img_3 .insta_hover, #instagram_box .four_sections .insta_img_4 .insta_hover {
-      width: 228px;
-      height: 90%;
-      margin-left: 14px;
-      margin-top: 11px;
-      color: white; }
-      #instagram_box .four_sections .insta_img_1 .insta_hover .on_hover, #instagram_box .four_sections .insta_img_2 .insta_hover .on_hover, #instagram_box .four_sections .insta_img_3 .insta_hover .on_hover, #instagram_box .four_sections .insta_img_4 .insta_hover .on_hover {
-        visibility: hidden;
-        text-align: center;
-        padding-top: 100px;
-        font-size: 30px; }
-    #instagram_box .four_sections .insta_img_1 .insta_hover:hover, #instagram_box .four_sections .insta_img_2 .insta_hover:hover, #instagram_box .four_sections .insta_img_3 .insta_hover:hover, #instagram_box .four_sections .insta_img_4 .insta_hover:hover {
-      background: rgba(209, 67, 52, 0.6);
-      -webkit-transition: 1s;
-      -moz-transition: 1s;
-      -o-transition: 1s;
-      transition: 1s;
-      cursor: pointer;
-      content: View; }
-    #instagram_box .four_sections .insta_img_1 .insta_hover:hover .on_hover, #instagram_box .four_sections .insta_img_2 .insta_hover:hover .on_hover, #instagram_box .four_sections .insta_img_3 .insta_hover:hover .on_hover, #instagram_box .four_sections .insta_img_4 .insta_hover:hover .on_hover {
-      visibility: visible;
-      -webkit-transition: 1s;
-      -moz-transition: 1s;
-      -o-transition: 1s;
-      transition: 1s; }
+  #instagram_box article {
+    width: 256px;
+    height: 100%;
+    display: inline-table; }
+  #instagram_box .insta_img_1 {
+    background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center; }
+  #instagram_box .insta_img_2 {
+    background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
+    float: left; }
+  #instagram_box .insta_img_3 {
+    background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
+    float: left; }
+  #instagram_box .insta_img_4 {
+    background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
+    float: left; }
+  #instagram_box .insta_img_1 .insta_hover, #instagram_box .insta_img_2 .insta_hover, #instagram_box .insta_img_3 .insta_hover, #instagram_box .insta_img_4 .insta_hover {
+    width: 228px;
+    height: 90%;
+    margin-left: 14px;
+    margin-top: 11px;
+    color: white; }
+    #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover, #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
+      visibility: hidden;
+      text-align: center;
+      padding-top: 100px;
+      font-size: 30px; }
+  #instagram_box .insta_img_1 .insta_hover:hover, #instagram_box .insta_img_2 .insta_hover:hover, #instagram_box .insta_img_3 .insta_hover:hover, #instagram_box .insta_img_4 .insta_hover:hover {
+    background: rgba(209, 67, 52, 0.6);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    cursor: pointer;
+    content: View; }
+  #instagram_box .insta_img_1 .insta_hover:hover .on_hover, #instagram_box .insta_img_2 .insta_hover:hover .on_hover, #instagram_box .insta_img_3 .insta_hover:hover .on_hover, #instagram_box .insta_img_4 .insta_hover:hover .on_hover {
+    visibility: visible;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s; }
 
 footer {
   width: 100%;
