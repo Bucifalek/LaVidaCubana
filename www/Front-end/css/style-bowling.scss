@@ -29,6 +29,7 @@ $font-color:#fff;
 }
 
 html,body{
+  font-family: 'Open Sans', sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -38,6 +39,19 @@ html,body{
 *{
   margin: 0;
   padding: 0;
+}
+
+.page_title{
+  width: 100%;
+  background: $darkGrey;
+  border-bottom: 1px solid #303030;
+
+  .page_title_h{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: $red;
+    font-size: 19px;
+  }
 }
 
 #page{
@@ -56,21 +70,31 @@ nav{
 }
 
 .flexible_content {
-  width: 960px;
+  width: 1024px;
+  height: 100%;
+  margin: 0px auto;
+}
+.flexible_content-2 {
+  width: 1024px;
   height: 100%;
   margin: 0px auto;
 }
 .greybox{
   background:url('../img/bowling/texturka.jpg');
   width: 100%;
-  height: 600px;
+  height: 540px;
+}
+#map-canvas {
+  width: 100%;
+  height: 260px;
 }
 .logo{
+  font-family: bittersweet;
+  font-size: 75px;
+  padding-top: 10px;
+  letter-spacing: 3px;
   float: left;
-  width: 351px;
-  height: 43px;
-  line-height: 100px;
-  padding-top: 25px;
+  color: white;
 }
 .mainmenu{
   float: right;
@@ -86,55 +110,158 @@ nav{
   line-height: 100px;
   font-size: 14px;
   padding: 15px;
-  :hover{
-
-  }
+}
+.mainmenu a:hover{
+  color: #f57b63;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
 }
 .category_title{
-  font-family: "Open Sans";
-  font-size: 24px;
-  padding-top: 50px;
+  font-size: 2em;
+  padding-top: 40px;
   color: $red;
 }
-#mapa{
-  margin-top: 50px;
-  float: left;
-}
-.seznam{
-  float: right;
-  margin-top: 53px;
-}
-.seznam h3 {
-  font-family: "Open Sans";
-  font-size: 24px;
-  padding-bottom: 20px;
-  color: $red;
-}
-.seznam li{
-  list-style: none;
-  padding-bottom: 15px;
-  font-size: 14px;
+.adress{
+  background: rgba(52, 51, 51, 0.61);
+  width: 100%;
+  height: 260px;
+  position: absolute;
+  z-index: +111;
+
+  .seznam{
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 260px;
+    color: #ffffff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.37);
+
+    ul{
+      margin-top: 70px;
+    }
+    li{
+      list-style: none;
+      padding-bottom: 15px;
+      font-size: 15px;
+    }
+  }
 }
 #bowling_info{
-  float: left;
-  text-align: justify;
-  padding-top: 50px;
-  word-spacing: 3px;
+   color: $darkGrey;
+   float: left;
+   text-align: center;
+   padding-top: 120px;
+   word-spacing: 3px;
+   font-size: 19px;
+}
+.bowling_wifi{
+  width: 100%;
+  height: 50px;
+
+  p{
+    color: $darkGrey;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+  }
+  img{
+    width: 250px;
+    height: 85px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
 #instagram_box{
   width: 100%;
-  height: 50%;
+  height: auto;
   min-height: 50%;
   background-color: #ffffff;
+  padding-bottom: 50px;
+
+  .four_sections{
+    background: #dcdcdc;
+    width: 100%;
+    height: 260px;
+    margin-top: 40px;
+    display: inline-table;
+
+    article{
+      width: 256px;
+      height: 100%;
+      display: inline-table;
+    }
+
+    .insta_img_1{
+      background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center;
+    }
+    .insta_img_2{
+      background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
+      float: left;
+    }
+    .insta_img_3{
+      background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
+      float: left;
+    }
+    .insta_img_4{
+      background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
+      float: left;
+    }
+
+    .insta_img_1, .insta_img_2, .insta_img_3, .insta_img_4{
+
+      .insta_hover{
+        width: 228px;
+        height: 90%;
+        margin-left: 14px;
+        margin-top: 11px;
+        color: white;
+
+        .on_hover{
+          visibility: hidden;
+          text-align: center;
+          padding-top: 100px;
+          font-size: 30px;
+        }
+      }
+
+      .insta_hover:hover{
+        background: rgba(209, 67, 52, 0.60);
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+        cursor: pointer;
+        content: View;
+      }
+
+      .insta_hover:hover .on_hover{
+        visibility: visible;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -o-transition: 1s;
+        transition: 1s;
+      }
+    }
+  }
 }
 footer {
   width: 100%;
+  float: left;
   height: 50px;
   background: $darkGrey;
-  position: absolute;
 }
 p.created {
   color: $font-color;
-  font-size: 12px;
+  font-size: 15px;
+  line-height: 50px;
+}
+b.created_lvc {
+  color: $font-color;
+  float: right;
+  font-size: 15px;
   line-height: 50px;
 }

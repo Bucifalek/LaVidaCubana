@@ -1,49 +1,52 @@
+{block title}Přijďte se k nám podívat!{/block}
 {block content}
 
-<div id="page">
-       <nav>
-           <div class="flexible_content">
-               <img class="logo" src="{$basePath}/Front-End/img/bowling/logo.png" alt=""/>
-               <ul class="mainmenu">
-                   <li><a n:href="Bowling:default">Kde nás najdete</a></li>
-                   <li><a n:href="Bowling:play">Chci si zahrát</a></li>
-                   <li><a n:href="Bowling:league">Bowlingová liga</a></li>
-               </ul>
-           </div>
-       </nav>
        <div class="greybox">
            <div class="flexible_content">
-               <h2 class="category_title">Lorem Ipsum</h2>
-               <img id="mapa" src="{$basePath}/Front-End/img/bowling/mapa.jpg" alt=""/>
-               <aside class="seznam">
-                   <h3>Nadpis seznamu</h3>
-                   <ul>
-                       <li>Toto je věta použitelná pro seznam, čístý sample</li>
-                       <li>Toto je věta použitelná pro seznam, čístý sample</li>
-                       <li>Toto je věta použitelná pro seznam, čístý sample</li>
-                       <li>Toto je věta použitelná pro seznam, čístý sample</li>
-                   </ul>
-               </aside>
                <p id="bowling_info">
-                   Lorem Ipsum je demonstrativní výplňový text používaný v tiskařském a knihařském průmyslu. Lorem Ipsum
-                   je považováno za standard v této oblasti už od začátku 16. století, kdy dnes neznámý tiskař vzal kusy
-                   textu a na jejich základě vytvořil speciální vzorovou knihu. Jeho odkaz nevydržel pouze pět století,
-                   on přežil i nástup elektronické sazby v podstatě beze změny. Nejvíce popularizováno bylo Lorem Ipsum v
-                   šedesátých letech 20. století, kdy byly vydávány speciální vzorníky s jeho pasážemi a později pak díky
-                   počítačovým DTP programům jako Aldus PageMaker.
+                    <b>Bowling</b> byl znovu otevřen v srpnu 2014 v nově zrekonstruovaných prostorech.
+                    Disponuje <b>čtyřmi dráhami</b> v novém, nekuřáckém prostředí. Přilehlý <b>cafebar</b> nabízí
+                    velké množství kávových specialit, jako například ojedinělou <b>kubánskou kávu</b>,
+                    alkoholické i nealkoholické koktejly a velký výběr <b>karibských rumů</b>.
                </p>
+               <div class="bowling_wifi">
+                    <img src="{$basePath}/Front-End/img/bowling/wifi-2.png" alt="">
+                    <p>U nás máte možnost <b>Wi-Fi připojení</b> a pořádání <b>soukromých i firemních večírků</b> s bohatým rautovým občerstvením.</p>
+               </div>
            </div>
        </div>
-       <div id="instagram_box">
-           <div class="flexible_content">
-               <h2 class="category_title">Instagram</h2>
-           </div>
-       </div>
-       <footer>
+       <div class="adress">
             <div class="flexible_content">
-                <p class="created">Created by: Kotyslab</p>
+                <aside class="seznam">
+                    <ul>
+                        <li>Nacházíme se ve Valašském meziříčí vedle letního koupaliště.</li>
+                        <li>Adresa: Kouty 37, 757 01 Valašské Meziříčí</li>
+                        <li>Kontakt:  +420 736 444 232</li>
+                        <li>E-mail:la.vida.cubana@gmail.com</li>
+                    </ul>
+                </aside>
             </div>
-       </footer>
-   </div>
+       </div>
+       <div id="map-canvas"></div>
+       <div id="instagram_box">
+           <div class="flexible_content-2">
+                <h2 class="category_title">Instagram</h2>
+                <section class="four_sections">
+                    <article class="insta_img_1">
+                        <div class="insta_hover"><p class="on_hover">Zobrazit</p></div>
+                    </article>
+                    <article class="insta_img_2">
+                        <div class="insta_hover"><p class="on_hover">Zobrazit</p></div>
+                    </article>
+                    <article class="insta_img_3">
+                        <div class="insta_hover"><p class="on_hover">Zobrazit</p></div>
+                    </article>
+                    <article class="insta_img_4">
+                        <div class="insta_hover"><p class="on_hover">Zobrazit</p></div>
+                    </article>
+                </section>
+           </div>
+       </div>
+
 
 {/block}

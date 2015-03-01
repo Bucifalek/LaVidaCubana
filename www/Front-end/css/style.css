@@ -27,7 +27,7 @@ html, body {
   padding: 0; }
 
 body {
-  background: url("../img/background/background2.jpg") no-repeat top;
+  background: url("../img/background/background5.jpg") no-repeat top;
   background-size: cover;
   font-family: 'Open Sans', sans-serif; }
 
@@ -235,5 +235,17 @@ body {
     float: left; }
     .bowling-block h2 {
       font-size: 10vw; } }
+@media screen and (max-height: 768px) {
+  .logo-block h1 {
+    padding-top: 80px; }
+
+  .roznov-block h2 {
+    padding-top: 70px; }
+
+  .valmez-block h2 {
+    padding-top: 70px; }
+
+  .bowling-block h2 {
+    padding-top: 70px; } }
 
 /*# sourceMappingURL=style.css.map */
