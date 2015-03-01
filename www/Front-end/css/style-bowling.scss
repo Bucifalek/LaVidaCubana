@@ -71,12 +71,7 @@ nav{
 
 .flexible_content {
   width: 1024px;
-  height: 100%;
-  margin: 0px auto;
-}
-.flexible_content-2 {
-  width: 1024px;
-  height: 100%;
+  height: auto;
   margin: 0px auto;
 }
 .greybox{
@@ -109,6 +104,7 @@ nav{
   text-decoration: none;
   line-height: 100px;
   font-size: 14px;
+  background: #cf3c2b;
   padding: 15px;
 }
 .mainmenu a:hover{
@@ -180,7 +176,7 @@ nav{
   height: auto;
   min-height: 50%;
   background-color: #ffffff;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 
   .four_sections{
     background: #dcdcdc;
