@@ -8,6 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette\Application\UI;
+use Tracy\Debugger;
 
 class menuControl extends UI\Control
 {
@@ -31,9 +32,18 @@ class menuControl extends UI\Control
 		$template->sections = $this->sections;
 
 		$template->wrapRoute = function ($arg) {
-			$route = explode(":", reset($arg));
-			unset($route[count($route) - 1]);
-			return implode(":", $route) . ":*";
+			$value = reset($arg);
+			if(!is_array($arg)) {
+				$route = explode(":", $value);
+				unset($route[count($route) - 1]);
+				return implode(":", $route) . ":*";
+			} else {
+				Debugger::barDump($value);
+				$route = explode(":", $value);
+				unset($route[count($route) - 1]);
+				return implode(":", $route) . ":*";
+
+			}
 		};
 
 		$template->glyph = function ($arg) {
