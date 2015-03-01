@@ -1,3 +1,4 @@
+{dump $sections}
 <aside id="sidebar_left" class="nano nano-primary">
 	<div class="nano-content">
 		<ul class="nav sidebar-menu" n:inner-foreach="$sections as $mainText => $mainTarget">
@@ -24,20 +25,21 @@
 					<li n:if="!is_array($subTarget)" {ifCurrent $subTarget} class="active" {/ifCurrent}>
 					<a href="{plink $subTarget}">
 						<span class="glyphicons {$glyph($subText)}"></span> {$name($subText)}</a>
-			</li>
+
 
 			<li n:if="is_array($subTarget)">
-				<a class="accordion-toggle{ifCurrent $wrapRoute($innerTarget)} menu-open{/ifCurrent}" href="#">
+				<a class="accordion-toggle{ifCurrent $wrapRoute($subTarget)} menu-open{/ifCurrent}" href="#">
 					<span class="glyphicons {$glyph($subText)}"></span> {$name($subText)}
 					<span class="caret"></span>
 				</a>
-				<ul class="nav sub-nav" n:inner-foreach="$subTarget as $superSubText => $superSubTarget">
+				<ul class="nav sub-nav sub-two" n:inner-foreach="$subTarget as $superSubText => $superSubTarget">
 					<li
 						{ifCurrent $superSubTarget} class="active" {/ifCurrent}>
 					<a href="{plink $superSubTarget}"><span class="glyphicons {$glyph($superSubText)}"></span>
 						{$name($superSubText)} </a>
-			</li>
-		</ul>
+					</li>
+				</ul>
+				</li>
 		</li>
 		</ul>
 		</li>

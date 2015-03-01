@@ -19606,6 +19606,10 @@ body.buttons-page .zocial.icon.facebook:before {
 ul.sidebar-nav ul#sideEight.sub-nav > li > a:hover {
   background-color: transparent;
 }
+.sub-two .glyphicons {
+    margin-right: 12px;
+    margin-left:-12px
+}
 .panel-tabs > li > a:hover {
   background-color: #f2f2f2;
 }

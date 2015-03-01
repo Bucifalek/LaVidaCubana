@@ -128,21 +128,35 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu = new menuControl;
 		// Struktura CMS
 
-		$menu->addSection('Stránky',
+		$menu->addSection('Bowlingová liga',
 			[
-				'Uvodní stránka' => [
-					'Texty' => 'test',
-					'Obrázky' => 'content:allContent',
-					'Parametry' => 'params'
+				'Týmy' => [
+					'Přidat tým' => 'bowling:test',
+					'Tabulka týmů' => 'bowling:test',
 				],
+
+				'Jednotlivci' => [
+					'Přidat jednotlivce' => 'bowling:test',
+					'Tabulka  jednotlivců' => 'bowling:test',
+				],
+
+				'Rozpis ligy' => [
+					'Jarní část' => [
+						'Rozpis' => 'test:test',
+						'Jednotlivá kola' => 'test:Test',
+						'Přidat kolo' => 'test:Test',
+					],
+					'Podzimní část' => [
+						'Rozpis' => 'test:Test',
+						'Jednotlivá kola' => 'test:Test',
+						'Přidat kolo' => 'test:Test',
+					],
+				],
+
+				'Výsledky' => [
+					'test' => 'test:Test',
+				]
 			]);
-
-		$menu->addSection('Navigace',
-			[
-				'Hlavni rozcestnik' => 'test'
-
-			]);
-
 
 		/*$menu->addSection('Obsah stránek',
 			[
