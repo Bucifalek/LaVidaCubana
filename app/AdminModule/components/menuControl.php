@@ -32,18 +32,25 @@ class menuControl extends UI\Control
 		$template->sections = $this->sections;
 
 		$template->wrapRoute = function ($arg) {
-			$value = reset($arg);
-			if(!is_array($arg)) {
-				$route = explode(":", $value);
-				unset($route[count($route) - 1]);
-				return implode(":", $route) . ":*";
-			} else {
-				Debugger::barDump($value);
-				$route = explode(":", $value);
-				unset($route[count($route) - 1]);
-				return implode(":", $route) . ":*";
+			if (is_array($arg)) {
+				$value = reset($arg);
+				if (is_array($value)) {
+					$route = explode(":", reset($value));
+				} else {
+					$route = explode(":", $value);
+				}
 
+				unset($route[count($route) - 1]);
+				$result = implode(":", $route) . ":*";
+				Debugger::barDump($result);
+
+				return $result;
 			}
+			$route = explode(":", $arg);
+			unset($route[count($route) - 1]);
+			$result = implode(":", $route) . ":*";
+
+			return $result;
 		};
 
 		$template->glyph = function ($arg) {
@@ -51,11 +58,13 @@ class menuControl extends UI\Control
 			if (count($parts) > 1) {
 				return "glyphicons-" . $parts[count($parts) - 1];
 			}
+
 			return "glyphicons-book_open";
 		};
 
 		$template->name = function ($arg) {
 			$parts = explode("|", $arg);
+
 			return $parts[0];
 		};
 
