@@ -11,13 +11,19 @@ use Tracy\Dumper;
 final class supportPresenter extends BasePresenter
 {
 
+	private $userEmail;
+
+	public function renderContact() {
+		$this->userEmail = $this->getUser()->getIdentity()->data['email'];
+		$this->template->userEmail = $this->userEmail;
+	}
+
 	public function createComponentContactSupportForm()
 	{
 		$form = new Nette\Application\UI\myForm;
 		$form->addProtection();
-		$form->addText('email')
-			->setDefaultValue($this->getUser()->getIdentity()->data['email']);
-		$form->addTextArea('text')->setRequired('Musíte vyplnit')->setDefaultValue($this->value);
+		$form->addText('email')->setDefaultValue($this->userEmail);
+		$form->addTextArea('text')->setRequired('Musíte vyplnit');
 		$form->addSubmit('send');
 		$form->onSuccess[] = [$this, 'contactSupportFormSuccess'];
 
