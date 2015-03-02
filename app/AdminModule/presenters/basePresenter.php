@@ -129,30 +129,49 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Bowlingová liga',
 			[
 				'Týmy|star' => [
-					'Přidat tým' => 'bowling:test',
-					'Tabulka týmů' => 'bowling:test',
+					'Přidat tým|pushpin' => 'Team:add',
+					'Tabulka týmů|log_book' => 'Team:list',
 				],
 
-				'Jednotlivci|user' => [
-					'Přidat jednotlivce' => 'bowling:test',
-					'Tabulka  jednotlivců' => 'bowling:test',
+				'Jednotlivci|nameplate' => [
+					'Přidat jednotlivce|user_add' => 'Individual:add',
+					'Tabulka jednotlivců|log_book' => 'Individual:list',
 				],
 
 				'Rozpis ligy' => [
-					'Jarní část' => [
-						'Rozpis ligy' => 'test:test',
-						'Jednotlivá kola' => 'test:Test',
-						'Přidat kolo' => 'test:Test',
+					'Jarní část|flower' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
 					],
 
-					'Podzimní část' => [
-						'Rozpis' => 'test:Test',
-						'Jednotlivá kola' => 'test:Test',
-						'Přidat kolo' => 'test:Test',
+					'Letní část|sun' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+
+					'Podzimní část|leaf' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+					'Zimní část|snowflake' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
 					],
 				],
 
-				'Výsledky|stopwatch' => 'test:test'
+				'Výsledky|charts' => [
+					'Přidat výsledek|new_window' => 'Result:add',
+					'Výsledky zápasů|charts' => [
+						'Jarní část|flower' => 'Result:spring',
+						'Letní část|sun' => 'Result:summer',
+						'Podzimní část|leaf' => 'Result:fall',
+						'Zimní část|snowflake' => 'Result:winter',
+					],
+				]
 			]);
 
 		/*
@@ -162,7 +181,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 			}
 			$menu->addSection('Použité moduly', $allModules);
 		*/
-		
+
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[
