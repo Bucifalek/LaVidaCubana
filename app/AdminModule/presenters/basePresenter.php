@@ -126,26 +126,25 @@ class basePresenter extends Nette\Application\UI\Presenter
 		 * Only glyphicons icons in menu
 		 */
 		$menu = new menuControl;
-		// Struktura CMS
-
 		$menu->addSection('Bowlingová liga',
 			[
-				'Týmy' => [
+				'Týmy|star' => [
 					'Přidat tým' => 'bowling:test',
 					'Tabulka týmů' => 'bowling:test',
 				],
 
-				'Jednotlivci' => [
+				'Jednotlivci|user' => [
 					'Přidat jednotlivce' => 'bowling:test',
 					'Tabulka  jednotlivců' => 'bowling:test',
 				],
 
 				'Rozpis ligy' => [
 					'Jarní část' => [
-						'Rozpis' => 'test:test',
+						'Rozpis ligy' => 'test:test',
 						'Jednotlivá kola' => 'test:Test',
 						'Přidat kolo' => 'test:Test',
 					],
+
 					'Podzimní část' => [
 						'Rozpis' => 'test:Test',
 						'Jednotlivá kola' => 'test:Test',
@@ -153,41 +152,8 @@ class basePresenter extends Nette\Application\UI\Presenter
 					],
 				],
 
-				'Výsledky' => [
-					'test' => 'test:Test',
-				]
+				'Výsledky|stopwatch' => 'test:test'
 			]);
-
-		/*$menu->addSection('Obsah stránek',
-			[
-				'Obsah|list' => [
-					'uvodni stranka|more_items' => 'content:',
-					'Všechny položky|notes_2' => 'content:allContent',
-				],
-				'Úložiště|hdd' => [
-					'Nahrávání souborů|file_import' => 'files:upload',
-					'Všechny soubory|folder_open' => 'files:allFiles',
-				],
-				''
-			]);
-*/
-		/*$menu->addSection('Hlavní menu',
-			[
-				'Menu|list' => [
-					'Přidat menu|circle_plus' => 'menu:add',
-					'Všechny nabídky|notes_2' => 'menu:all',
-				],
-				'Obsah' => [
-					'Přidat položku|circle_plus' => 'content:addContent',
-					'Všechny položky|notes_2' => 'content:allContent',
-				],
-				'Úložiště|hdd' => [
-					'Nahrávání souborů|file_import' => 'files:upload',
-					'Všechny soubory|folder_open' => 'files:allFiles',
-				]
-			]);*/
-
-
 
 		/*
 			$allModules = [];
@@ -196,10 +162,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 			}
 			$menu->addSection('Použité moduly', $allModules);
 		*/
-
-
-
-		// Struktura CMS
+		
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[

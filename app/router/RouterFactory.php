@@ -76,9 +76,9 @@ class RouterFactory
         $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:default');
 
         // Front Router
-        $router[] = new Route($prefix . 'roznov-pod-radhostem/<action>[/<id>]', 'Web:Roznov:default');
-        $router[] = new Route($prefix . 'valasske-mezirici/<action>[/<id>]', 'Web:Valmez:default');
-        $router[] = new Route($prefix . 'bowling/<action>[/<id>]', 'Web:Bowling:default');
+        $router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');
+        $router[] = new Route($prefix . 'valasske-mezirici/', 'Web:Valmez:default');
+        $router[] = new Route($prefix . 'bowling/', 'Web:Bowling:default');
         $router[] = new Route($prefix . 'bowling/chci-si-zahrat', 'Web:Bowling:play');
         $router[] = new Route($prefix . 'bowling/bowlingova-liga', 'Web:Bowling:league');
         $router[] = new Route($prefix . '', 'Web:Homepage:default');
