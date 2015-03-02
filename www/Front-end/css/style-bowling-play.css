@@ -23,10 +23,6 @@ html, body {
   padding: 0;
   outline: none !important; }
 
-* {
-  margin: 0;
-  padding: 0; }
-
 .time_info, .cenik_info {
   width: 48%;
   height: auto;
