@@ -12,30 +12,6 @@ $font-color:#fff;
   font-style: normal;
 }
 
-::-webkit-scrollbar{
-  width: 12px;
-}
-
-::-webkit-scrollbar-track{
-  background: rgba(0, 0, 0, 0.29);
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: $darkGrey;
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background-color: #151414;
-}
-
-html,body{
-  font-family: 'Open Sans', sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  outline: none !important;
-}
-
 .time_info, .cenik_info{
    width: 48%;
    height: auto;

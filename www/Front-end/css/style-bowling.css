@@ -207,6 +207,7 @@ footer {
   width: 100%;
   float: left;
   height: 50px;
+  bottom: 0;
   background: #343333; }
 
 p.created {
