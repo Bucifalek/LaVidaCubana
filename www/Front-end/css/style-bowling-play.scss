@@ -11,7 +11,15 @@ $font-color:#fff;
   font-weight: normal;
   font-style: normal;
 }
-
+.play_info{
+  color: $darkGrey;
+  float: left;
+  text-align: center;
+  padding-top: 120px;
+  word-spacing: 3px;
+  font-size: 19px;
+  padding-bottom: 0px;
+}
 .time_info, .cenik_info{
    width: 48%;
    height: auto;
@@ -48,4 +56,8 @@ h3 {
 .mazaci-parametr{
   text-align: justify;
   padding-top: 20px;
+}
+.posun{
+  position: relative;
+  top: 50px;
 }
