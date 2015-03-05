@@ -59,7 +59,7 @@ class menuManager extends Nette\Object
 		$structured = [];
 		$result = $this->getMenuDetails($id);
 		if(!$result) {
-			throw new \Exception('neexistujici menu');
+			throw new \Exception('Neexistujici menu');
 		}
 
 		foreach ($result as $menu) { // Foreach all menu for current branch

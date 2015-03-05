@@ -42,7 +42,6 @@ class menuControl extends UI\Control
 
 				unset($route[count($route) - 1]);
 				$result = implode(":", $route) . ":*";
-				Debugger::barDump($result);
 
 				return $result;
 			}
@@ -57,9 +56,11 @@ class menuControl extends UI\Control
 			$parts = explode("|", $arg);
 			if (count($parts) > 1) {
 				return "glyphicons-" . $parts[count($parts) - 1];
+			} else {
+				$report = "For action '".$arg."' there's no icon!";
+				Debugger::barDump($report);
+				return "glyphicons-book_open";
 			}
-
-			return "glyphicons-book_open";
 		};
 
 		$template->name = function ($arg) {
