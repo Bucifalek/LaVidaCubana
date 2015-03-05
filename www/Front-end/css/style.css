@@ -27,7 +27,7 @@ html, body {
   padding: 0; }
 
 body {
-  background: url("../img/background/5.jpg") no-repeat top;
+  background: url("../img/background/6.jpg") no-repeat top;
   background-size: cover;
   font-family: 'Open Sans', sans-serif; }
 
@@ -121,7 +121,7 @@ body {
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     text-shadow: 1px 2px black; }
   .roznov-block p {
     font-family: 'Open Sans', sans-serif;
@@ -129,6 +129,22 @@ body {
     text-align: center;
     color: #d14334;
     margin: 0; }
+  .roznov-block .roznov-transparent {
+    height: auto; }
+    .roznov-block .roznov-transparent #current-action-roznov {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+      background: #282828; }
+      .roznov-block .roznov-transparent #current-action-roznov h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: #d14334;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center; }
 
 /*  SEKCE 3 - VALMEZ */
 .valmez-block {
@@ -143,7 +159,7 @@ body {
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     text-shadow: 1px 2px black; }
   .valmez-block p {
     font-family: 'Open Sans', sans-serif;
@@ -151,10 +167,26 @@ body {
     text-align: center;
     color: white;
     margin: 0; }
+  .valmez-block .valmez-transparent {
+    height: auto; }
+    .valmez-block .valmez-transparent #current-action-valmez {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+      background: #b0382d; }
+      .valmez-block .valmez-transparent #current-action-valmez h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: white;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center; }
 
 /*  SEKCE 4 - BOWLING */
 .bowling-block {
-  background: rgba(221, 221, 221, 0.88);
+  background: rgba(191, 191, 191, 0.88);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -165,7 +197,7 @@ body {
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     letter-spacing: 3px;
     text-shadow: 1px 2px black; }
   .bowling-block p {
@@ -174,6 +206,22 @@ body {
     text-align: center;
     color: #343333;
     margin: 0; }
+  .bowling-block .bowling-transparent {
+    height: auto; }
+    .bowling-block .bowling-transparent #current-action-bowling {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+      background: #cdcdcd; }
+      .bowling-block .bowling-transparent #current-action-bowling h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: #343333;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center; }
 
 /*  MEDIA QUERIES - TY RESPONSIVY  */
 @media screen and (max-width: 980px) {
@@ -240,12 +288,24 @@ body {
     padding-top: 80px; }
 
   .roznov-block h2 {
-    padding-top: 70px; }
+    padding-top: 20px;
+    font-size: 2.7vw;
+    letter-spacing: 5px; }
+  .roznov-block p {
+    font-size: 1.3vw; }
 
   .valmez-block h2 {
-    padding-top: 70px; }
+    padding-top: 20px;
+    font-size: 2.7vw;
+    letter-spacing: 5px; }
+  .valmez-block p {
+    font-size: 1.3vw; }
 
   .bowling-block h2 {
-    padding-top: 70px; } }
+    padding-top: 20px;
+    font-size: 2.7vw;
+    letter-spacing: 5px; }
+  .bowling-block p {
+    font-size: 1.3vw; } }
 
 /*# sourceMappingURL=style.css.map */
