@@ -1,3 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+  font-family: 'bittersweet';
+  src: url("../fonts/Bittersweet%20NF.ttf");
+  font-weight: normal;
+  font-style: normal; }
+.time_info, .cenik_info {
+  width: 48%;
+  height: auto;
+  table-layout: fixed;
+  position: relative;
+  top: 30px;
+  border-collapse: collapse; }
 
+.time_info {
+  float: left; }
+
+.time_info td {
+  width: 50%;
+  height: 30px;
+  font-weight: bold; }
+
+.cenik_info td {
+  width: 33%;
+  height: 30px;
+  font-weight: bold; }
+
+.tab_title {
+  font-size: 1.3em;
+  color: #d14334; }
+
+h3 {
+  font-family: "Open Sans";
+  font-size: 1.3;
+  position: relative;
+  color: #d14334; }
+
+.mazaci-parametr {
+  text-align: justify;
+  padding-top: 20px; }
 
 /*# sourceMappingURL=style-bowling-play.css.map */

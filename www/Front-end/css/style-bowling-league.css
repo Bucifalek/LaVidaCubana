@@ -4,75 +4,128 @@
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
   font-style: normal; }
-::-webkit-scrollbar {
-  width: 12px; }
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.29); }
-
-::-webkit-scrollbar-thumb {
-  background-color: #343333; }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #151414; }
-
-html, body {
-  font-family: 'Open Sans', sans-serif;
+.greybox_table {
+  background: url("../img/bowling/texturka2.png");
+  width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  outline: none !important; }
+  min-height: 200%; }
 
-* {
-  margin: 0;
-  padding: 0; }
-
-.league_title {
-  font-size: 20px;
+.table_title {
   padding-top: 20px;
+  text-align: center;
+  color: #d14334; }
+
+.table_title_time {
+  text-align: center;
   padding-bottom: 20px; }
 
-.greybox_table {
-  background: url("../img/bowling/texturka.jpg");
-  width: 100%;
-  height: 1000px; }
-
-.row_tables {
-  width: 100%;
-  height: 770px; }
-  .row_tables .table_section {
-    background: white;
-    width: 50%;
-    height: 100%;
-    float: left; }
-    .row_tables .table_section h3 {
-      color: white;
-      background: #4b4a4a;
+#tabs {
+  background: white;
+  width: 100%; }
+  #tabs ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: block;
+    outline: none;
+    text-align: center;
+    background: #343333; }
+    #tabs ul li {
+      display: inline-table;
+      padding: 10px;
+      outline: none; }
+      #tabs ul li a {
+        text-decoration: none;
+        color: white;
+        outline: none; }
+      #tabs ul li a:hover {
+        color: #d14334; }
+  #tabs #tabs-1 .rozpis_podzim, #tabs #tabs-2 .rozpis_podzim, #tabs #tabs-3 .rozpis_podzim, #tabs #tabs-4 .rozpis_podzim, #tabs #tabs-5 .rozpis_podzim, #tabs #tabs-6 .rozpis_podzim, #tabs #tabs-7 .rozpis_podzim, #tabs #tabs-8 .rozpis_podzim, #tabs #tabs-9 .rozpis_podzim {
+    width: 100%;
+    color: #696969; }
+    #tabs #tabs-1 .rozpis_podzim tr, #tabs #tabs-2 .rozpis_podzim tr, #tabs #tabs-3 .rozpis_podzim tr, #tabs #tabs-4 .rozpis_podzim tr, #tabs #tabs-5 .rozpis_podzim tr, #tabs #tabs-6 .rozpis_podzim tr, #tabs #tabs-7 .rozpis_podzim tr, #tabs #tabs-8 .rozpis_podzim tr, #tabs #tabs-9 .rozpis_podzim tr {
+      text-align: center; }
+    #tabs #tabs-1 .rozpis_podzim .table_last td, #tabs #tabs-2 .rozpis_podzim .table_last td, #tabs #tabs-3 .rozpis_podzim .table_last td, #tabs #tabs-4 .rozpis_podzim .table_last td, #tabs #tabs-5 .rozpis_podzim .table_last td, #tabs #tabs-6 .rozpis_podzim .table_last td, #tabs #tabs-7 .rozpis_podzim .table_last td, #tabs #tabs-8 .rozpis_podzim .table_last td, #tabs #tabs-9 .rozpis_podzim .table_last td {
+      border-bottom: 0px dotted #dcdcdc; }
+    #tabs #tabs-1 .rozpis_podzim td, #tabs #tabs-2 .rozpis_podzim td, #tabs #tabs-3 .rozpis_podzim td, #tabs #tabs-4 .rozpis_podzim td, #tabs #tabs-5 .rozpis_podzim td, #tabs #tabs-6 .rozpis_podzim td, #tabs #tabs-7 .rozpis_podzim td, #tabs #tabs-8 .rozpis_podzim td, #tabs #tabs-9 .rozpis_podzim td {
+      border-bottom: 1px dotted #dcdcdc;
       padding: 10px; }
-    .row_tables .table_section .divider {
-      border-top: 1px dotted #d7d5d5; }
-    .row_tables .table_section .results {
-      width: 50%;
-      float: left;
-      border-right: 1px dotted #d7d5d5;
-      border-left: 1px dotted #d7d5d5; }
-      .row_tables .table_section .results td {
-        padding: 5px;
-        border-top: 1px solid #f4f4f4; }
-      .row_tables .table_section .results tr {
-        font-size: 12px; }
-      .row_tables .table_section .results .on_center {
-        text-align: center; }
-    .row_tables .table_section .results_2 {
-      width: 50%;
-      float: left;
-      border-right: 1px dotted #d7d5d5; }
-      .row_tables .table_section .results_2 td {
-        padding: 5px;
-        border-top: 1px solid #f4f4f4; }
-      .row_tables .table_section .results_2 tr {
-        font-size: 12px; }
-      .row_tables .table_section .results_2 .on_center {
-        text-align: center; }
+
+#tabs_2 {
+  background: white;
+  width: 100%; }
+  #tabs_2 ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: block;
+    outline: none;
+    text-align: center;
+    background: #343333; }
+    #tabs_2 ul li {
+      display: inline-table;
+      padding: 10px;
+      outline: none; }
+      #tabs_2 ul li a {
+        text-decoration: none;
+        color: white;
+        outline: none; }
+      #tabs_2 ul li a:hover {
+        color: #d14334; }
+  #tabs_2 #tabs-1 .rozpis_zima, #tabs_2 #tabs-2 .rozpis_zima, #tabs_2 #tabs-3 .rozpis_zima, #tabs_2 #tabs-4 .rozpis_zima, #tabs_2 #tabs-5 .rozpis_zima, #tabs_2 #tabs-6 .rozpis_zima, #tabs_2 #tabs-7 .rozpis_zima, #tabs_2 #tabs-8 .rozpis_zima, #tabs_2 #tabs-9 .rozpis_zima {
+    width: 100%;
+    color: #696969; }
+    #tabs_2 #tabs-1 .rozpis_zima tr, #tabs_2 #tabs-2 .rozpis_zima tr, #tabs_2 #tabs-3 .rozpis_zima tr, #tabs_2 #tabs-4 .rozpis_zima tr, #tabs_2 #tabs-5 .rozpis_zima tr, #tabs_2 #tabs-6 .rozpis_zima tr, #tabs_2 #tabs-7 .rozpis_zima tr, #tabs_2 #tabs-8 .rozpis_zima tr, #tabs_2 #tabs-9 .rozpis_zima tr {
+      text-align: center; }
+    #tabs_2 #tabs-1 .rozpis_zima .table_last td, #tabs_2 #tabs-2 .rozpis_zima .table_last td, #tabs_2 #tabs-3 .rozpis_zima .table_last td, #tabs_2 #tabs-4 .rozpis_zima .table_last td, #tabs_2 #tabs-5 .rozpis_zima .table_last td, #tabs_2 #tabs-6 .rozpis_zima .table_last td, #tabs_2 #tabs-7 .rozpis_zima .table_last td, #tabs_2 #tabs-8 .rozpis_zima .table_last td, #tabs_2 #tabs-9 .rozpis_zima .table_last td {
+      border-bottom: 0px dotted #dcdcdc; }
+    #tabs_2 #tabs-1 .rozpis_zima td, #tabs_2 #tabs-2 .rozpis_zima td, #tabs_2 #tabs-3 .rozpis_zima td, #tabs_2 #tabs-4 .rozpis_zima td, #tabs_2 #tabs-5 .rozpis_zima td, #tabs_2 #tabs-6 .rozpis_zima td, #tabs_2 #tabs-7 .rozpis_zima td, #tabs_2 #tabs-8 .rozpis_zima td, #tabs_2 #tabs-9 .rozpis_zima td {
+      border-bottom: 1px dotted #dcdcdc;
+      padding: 10px; }
+
+#tabs_3 {
+  background: white;
+  width: 100%; }
+  #tabs_3 ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: block;
+    outline: none;
+    text-align: center;
+    background: #343333; }
+    #tabs_3 ul li {
+      display: inline-table;
+      padding: 10px;
+      outline: none; }
+      #tabs_3 ul li a {
+        text-decoration: none;
+        color: white;
+        outline: none; }
+      #tabs_3 ul li a:hover {
+        color: #d14334; }
+  #tabs_3 #tabs-1 .rozpis_jednotlivci, #tabs_3 #tabs-2 .rozpis_jednotlivci, #tabs_3 #tabs-3 .rozpis_jednotlivci, #tabs_3 #tabs-4 .rozpis_jednotlivci, #tabs_3 #tabs-5 .rozpis_jednotlivci, #tabs_3 #tabs-6 .rozpis_jednotlivci, #tabs_3 #tabs-7 .rozpis_jednotlivci, #tabs_3 #tabs-8 .rozpis_jednotlivci, #tabs_3 #tabs-9 .rozpis_jednotlivci {
+    width: 100%;
+    color: #696969; }
+    #tabs_3 #tabs-1 .rozpis_jednotlivci tr, #tabs_3 #tabs-2 .rozpis_jednotlivci tr, #tabs_3 #tabs-3 .rozpis_jednotlivci tr, #tabs_3 #tabs-4 .rozpis_jednotlivci tr, #tabs_3 #tabs-5 .rozpis_jednotlivci tr, #tabs_3 #tabs-6 .rozpis_jednotlivci tr, #tabs_3 #tabs-7 .rozpis_jednotlivci tr, #tabs_3 #tabs-8 .rozpis_jednotlivci tr, #tabs_3 #tabs-9 .rozpis_jednotlivci tr {
+      text-align: center; }
+    #tabs_3 #tabs-1 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-2 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-3 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-4 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-5 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-6 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-7 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-8 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-9 .rozpis_jednotlivci .table_last td {
+      border-bottom: 0px dotted #dcdcdc; }
+    #tabs_3 #tabs-1 .rozpis_jednotlivci td, #tabs_3 #tabs-2 .rozpis_jednotlivci td, #tabs_3 #tabs-3 .rozpis_jednotlivci td, #tabs_3 #tabs-4 .rozpis_jednotlivci td, #tabs_3 #tabs-5 .rozpis_jednotlivci td, #tabs_3 #tabs-6 .rozpis_jednotlivci td, #tabs_3 #tabs-7 .rozpis_jednotlivci td, #tabs_3 #tabs-8 .rozpis_jednotlivci td, #tabs_3 #tabs-9 .rozpis_jednotlivci td {
+      border-bottom: 1px dotted #dcdcdc;
+      padding: 10px; }
+
+.groups {
+  width: 100%;
+  height: auto; }
+  .groups .groups_table {
+    width: 100%;
+    height: auto; }
+    .groups .groups_table .grey_first td {
+      padding: 10px;
+      background: #343333;
+      color: white; }
+    .groups .groups_table td {
+      background: white;
+      text-align: center;
+      color: #696969;
+      padding: 10px; }
 
 /*# sourceMappingURL=style-bowling-league.css.map */
