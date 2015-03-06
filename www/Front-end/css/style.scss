@@ -2,7 +2,7 @@
 
 $red: #d14334;
 $darkGrey: #343333;
-$grey: #dddddd;
+$grey: #c9c9c9;
 
 @font-face{
   font-family: 'bittersweet';
@@ -40,7 +40,7 @@ html,body{
 }
 
 body{
-  background: url("../img/background/5.jpg") no-repeat top;
+  background: url("../img/background/6.jpg") no-repeat top;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
 }
@@ -154,7 +154,7 @@ body{
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     text-shadow: 1px 2px rgba(0, 0, 0, 1);
   }
 
@@ -164,6 +164,29 @@ body{
     text-align: center;
     color: $red;
     margin: 0;
+  }
+
+  .roznov-transparent{
+    height: auto;
+
+    #current-action-roznov{
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+
+      background: #282828;
+
+      h3{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: $red;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -182,7 +205,7 @@ body{
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     text-shadow: 1px 2px rgba(0, 0, 0, 1);
   }
 
@@ -193,12 +216,35 @@ body{
     color: white;
     margin: 0;
   }
+
+  .valmez-transparent{
+    height: auto;
+
+    #current-action-valmez{
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+
+      background: #b0382d;
+
+      h3{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: white;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center;
+      }
+    }
+  }
 }
 
 /*  SEKCE 4 - BOWLING */
 
 .bowling-block{
-  background: rgba(221, 221, 221, 0.88);
+  background: rgba(191, 191, 191, 0.88);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -210,7 +256,7 @@ body{
     text-align: center;
     color: white;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 60px;
     letter-spacing: 3px;
     text-shadow: 1px 2px rgba(0, 0, 0, 1);
   }
@@ -221,6 +267,29 @@ body{
     text-align: center;
     color: $darkGrey;
     margin: 0;
+  }
+
+  .bowling-transparent{
+    height: auto;
+
+    #current-action-bowling{
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      margin-top: 60px;
+
+      background: #cdcdcd;
+
+      h3{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1vw;
+        padding: 15px;
+        color: $darkGrey;
+        text-shadow: none;
+        letter-spacing: inherit;
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -244,25 +313,43 @@ body{
   }
   .roznov-block{
     width: 50%;
+    .roznov-transparent{
+      #current-action-roznov{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .valmez-block{
     width: 50%;
+    .valmez-transparent{
+      #current-action-valmez{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .bowling-block{
     width: 100%;
     float: left;
+    .bowling-transparent{
+      #current-action-bowling{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .roznov-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
   .valmez-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
   .bowling-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
 }
 
@@ -284,12 +371,28 @@ body{
     h2{
       font-size: 10vw;
     }
+
+    .roznov-transparent{
+      #current-action-roznov{
+        h3{
+          font-size: 3vw;
+        }
+      }
+    }
   }
   .valmez-block{
     width: 100%;
 
     h2{
       font-size: 10vw;
+    }
+
+    .valmez-transparent{
+      #current-action-valmez{
+        h3{
+          font-size: 3vw;
+        }
+      }
     }
   }
   .bowling-block{
@@ -298,6 +401,14 @@ body{
 
     h2{
       font-size: 10vw;
+    }
+
+    .bowling-transparent{
+      #current-action-bowling{
+        h3{
+          font-size: 3vw;
+        }
+      }
     }
   }
 }
@@ -312,19 +423,34 @@ body{
   .roznov-block{
 
     h2{
-      padding-top: 70px;
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+       font-size: 1.3vw;
     }
   }
   .valmez-block{
 
     h2{
-      padding-top: 70px;
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+      font-size: 1.3vw;
     }
   }
   .bowling-block{
 
     h2{
-      padding-top: 70px;
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+      font-size: 1.3vw;
     }
   }
 }

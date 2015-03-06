@@ -4,6 +4,17 @@
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
   font-style: normal; }
+.play_info {
+  color: #343333;
+  float: left;
+  text-align: center;
+  padding-top: 120px;
+  word-spacing: 3px;
+  font-size: 19px;
+  padding-bottom: 0px; }
+  .play_info li {
+    list-style: none; }
+
 .time_info, .cenik_info {
   width: 48%;
   height: auto;
@@ -35,8 +46,12 @@ h3 {
   position: relative;
   color: #d14334; }
 
-.mazaci-parametr {
-  text-align: justify;
-  padding-top: 20px; }
+.posun {
+  position: relative;
+  top: 50px; }
+
+.posun2 {
+  padding-top: 20px;
+  text-align: justify; }
 
 /*# sourceMappingURL=style-bowling-play.css.map */

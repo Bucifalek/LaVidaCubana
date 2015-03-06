@@ -64,7 +64,8 @@ nav {
 .greybox_2 {
   background: url("../img/bowling/texturka2.png");
   width: 100%;
-  height: 100%; }
+  min-height: 500px;
+  height: auto; }
 
 #map-canvas {
   width: 100%;
@@ -143,12 +144,11 @@ nav {
     text-align: center;
     padding-top: 20px; }
   .bowling_wifi img {
-    width: 250px;
-    height: 85px;
+    width: 240px;
+    height: 80px;
     padding-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block; }
+    display: block;
+    margin: 0 auto; }
 
 #instagram_box {
   width: 100%;
