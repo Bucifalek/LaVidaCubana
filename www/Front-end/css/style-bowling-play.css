@@ -12,6 +12,8 @@
   word-spacing: 3px;
   font-size: 19px;
   padding-bottom: 0px; }
+  .play_info li {
+    list-style: none; }
 
 .time_info, .cenik_info {
   width: 48%;
@@ -44,12 +46,12 @@ h3 {
   position: relative;
   color: #d14334; }
 
-.mazaci-parametr {
-  text-align: justify;
-  padding-top: 20px; }
-
 .posun {
   position: relative;
   top: 50px; }
+
+.posun2 {
+  padding-top: 20px;
+  text-align: justify; }
 
 /*# sourceMappingURL=style-bowling-play.css.map */
