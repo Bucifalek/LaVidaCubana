@@ -313,25 +313,43 @@ body{
   }
   .roznov-block{
     width: 50%;
+    .roznov-transparent{
+      #current-action-roznov{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .valmez-block{
     width: 50%;
+    .valmez-transparent{
+      #current-action-valmez{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .bowling-block{
     width: 100%;
     float: left;
+    .bowling-transparent{
+      #current-action-bowling{
+        h3{
+          font-size: 2vw;
+        }
+      }
+    }
   }
   .roznov-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
   .valmez-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
   .bowling-transparent{
     h2{font-size: 3em;}
-    h3{font-size: 3em;}
   }
 }
 
@@ -353,12 +371,28 @@ body{
     h2{
       font-size: 10vw;
     }
+
+    .roznov-transparent{
+      #current-action-roznov{
+        h3{
+          font-size: 3vw;
+        }
+      }
+    }
   }
   .valmez-block{
     width: 100%;
 
     h2{
       font-size: 10vw;
+    }
+
+    .valmez-transparent{
+      #current-action-valmez{
+        h3{
+          font-size: 3vw;
+        }
+      }
     }
   }
   .bowling-block{
@@ -367,6 +401,14 @@ body{
 
     h2{
       font-size: 10vw;
+    }
+
+    .bowling-transparent{
+      #current-action-bowling{
+        h3{
+          font-size: 3vw;
+        }
+      }
     }
   }
 }
