@@ -19,7 +19,11 @@ $font-color:#fff;
   word-spacing: 3px;
   font-size: 19px;
   padding-bottom: 0px;
+  li{
+    list-style: none;
+  }
 }
+
 .time_info, .cenik_info{
    width: 48%;
    height: auto;
@@ -53,11 +57,11 @@ h3 {
   position: relative;
   color: $red;
 }
-.mazaci-parametr{
-  text-align: justify;
-  padding-top: 20px;
-}
 .posun{
   position: relative;
   top: 50px;
+}
+.posun2{
+  padding-top:20px;
+  text-align: justify;
 }
