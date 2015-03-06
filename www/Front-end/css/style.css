@@ -238,27 +238,27 @@ body {
 
   .roznov-block {
     width: 50%; }
+    .roznov-block .roznov-transparent #current-action-roznov h3 {
+      font-size: 2vw; }
 
   .valmez-block {
     width: 50%; }
+    .valmez-block .valmez-transparent #current-action-valmez h3 {
+      font-size: 2vw; }
 
   .bowling-block {
     width: 100%;
     float: left; }
+    .bowling-block .bowling-transparent #current-action-bowling h3 {
+      font-size: 2vw; }
 
   .roznov-transparent h2 {
-    font-size: 3em; }
-  .roznov-transparent h3 {
     font-size: 3em; }
 
   .valmez-transparent h2 {
     font-size: 3em; }
-  .valmez-transparent h3 {
-    font-size: 3em; }
 
   .bowling-transparent h2 {
-    font-size: 3em; }
-  .bowling-transparent h3 {
     font-size: 3em; } }
 @media screen and (max-width: 600px) {
   .logo-block {
@@ -272,17 +272,23 @@ body {
     width: 100%; }
     .roznov-block h2 {
       font-size: 10vw; }
+    .roznov-block .roznov-transparent #current-action-roznov h3 {
+      font-size: 3vw; }
 
   .valmez-block {
     width: 100%; }
     .valmez-block h2 {
       font-size: 10vw; }
+    .valmez-block .valmez-transparent #current-action-valmez h3 {
+      font-size: 3vw; }
 
   .bowling-block {
     width: 100%;
     float: left; }
     .bowling-block h2 {
-      font-size: 10vw; } }
+      font-size: 10vw; }
+    .bowling-block .bowling-transparent #current-action-bowling h3 {
+      font-size: 3vw; } }
 @media screen and (max-height: 768px) {
   .logo-block h1 {
     padding-top: 80px; }
