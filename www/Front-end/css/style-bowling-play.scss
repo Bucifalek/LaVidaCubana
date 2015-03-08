@@ -13,25 +13,41 @@ $font-color:#fff;
 }
 .play_info{
   color: $darkGrey;
-  float: left;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 30px;
+  padding-bottom: 80px;
   word-spacing: 3px;
   font-size: 19px;
-  padding-bottom: 0px;
+
+  li{
+    list-style: none;
+  }
+}
+
+.play_info_2{
+  color: $darkGrey;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 20px;
+  word-spacing: 3px;
+  font-size: 19px;
+
   li{
     list-style: none;
   }
 }
 
 .time_info, .cenik_info{
-   width: 48%;
-   height: auto;
-   table-layout: fixed;
-   position: relative;
-   top: 30px;
-   border-collapse: collapse;
- }
+  width: 48%;
+  height: auto;
+  table-layout: fixed;
+  position: relative;
+  top: 30px;
+  border-collapse: collapse;
+}
+
 .time_info{
   float: left;
 }
@@ -53,7 +69,7 @@ $font-color:#fff;
 }
 h3 {
   font-family: "Open Sans";
-  font-size: 1.3;
+  font-size: 2em;
   position: relative;
   color: $red;
 }
