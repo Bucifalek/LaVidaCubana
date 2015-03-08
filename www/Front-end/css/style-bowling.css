@@ -46,11 +46,6 @@ html, body {
 .mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created {
   font-family: "Open Sans"; }
 
-nav {
-  width: 100%;
-  height: 100px;
-  background-color: #d14334; }
-
 .flexible_content {
   width: 1024px;
   height: auto;
@@ -66,9 +61,11 @@ nav {
   width: 100%;
   height: 640px; }
 
-#map-canvas {
+/*  MENU  */
+nav {
   width: 100%;
-  height: 260px; }
+  height: 100px;
+  background-color: #d14334; }
 
 .logo {
   font-family: bittersweet;
@@ -100,39 +97,7 @@ nav {
 .mainmenu a:hover {
   border-color: #dddddd; }
 
-.category_title {
-  font-size: 2em;
-  padding-top: 40px;
-  color: #d14334; }
-
-.adress {
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 260px;
-  position: absolute;
-  z-index: +111; }
-  .adress .seznam {
-    background: rgba(52, 51, 51, 0.45);
-    float: left;
-    text-align: left;
-    width: 50%;
-    height: 260px;
-    color: #ffffff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.37); }
-    .adress .seznam ul {
-      margin-top: 50px;
-      margin-left: 40px; }
-    .adress .seznam li {
-      list-style: none;
-      padding-bottom: 15px;
-      font-size: 15px; }
-    .adress .seznam .facebook {
-      margin-left: 40px;
-      margin-top: 10px;
-      width: 7%; }
-    .adress .seznam .instagram {
-      width: 7%; }
-
+/*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
 .bowling_text_default {
   background: white;
   width: 100%;
@@ -153,12 +118,20 @@ nav {
     margin: 0 auto;
     padding-bottom: 80px; }
 
+/*  INSTAGRAM GALERIE  */
+.category_title {
+  font-size: 1.6em;
+  text-align: center;
+  line-height: 60px;
+  color: #d14334; }
+
 #instagram_box {
   width: 100%;
   height: auto;
   min-height: 30%;
-  background-color: #ffffff;
-  padding-bottom: 50px; }
+  background: url("../img/bowling/texturka.jpg");
+  padding-bottom: 70px;
+  padding-top: 30px; }
   #instagram_box .four_sections {
     background: #dcdcdc;
     width: 100%;
@@ -170,58 +143,87 @@ nav {
     height: 100%;
     display: inline-table; }
   #instagram_box .insta_img_1 {
-    background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center; }
+    background: url("../img/bowling/bowling_insta_2.jpg") no-repeat top center;
+    background-size: cover; }
   #instagram_box .insta_img_2 {
-    background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta.jpg") no-repeat top center;
+    background-size: cover;
     float: left; }
   #instagram_box .insta_img_3 {
-    background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
-    float: left; }
+    background: url("../img/bowling/bowling_insta_4.jpg") no-repeat top center;
+    float: left;
+    background-size: cover; }
   #instagram_box .insta_img_4 {
-    background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
-    float: left; }
+    background: url("../img/bowling/bowling_insta_3.jpg") no-repeat top center;
+    float: left;
+    background-size: cover; }
   #instagram_box .insta_img_1 .insta_hover, #instagram_box .insta_img_2 .insta_hover, #instagram_box .insta_img_3 .insta_hover, #instagram_box .insta_img_4 .insta_hover {
     width: 228px;
     height: 90%;
     margin-left: 14px;
     margin-top: 11px;
-    color: white; }
+    color: white;
+    background: transparent;
+    opacity: 1;
+    transition-property: background;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s; }
     #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover, #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
       visibility: hidden;
       text-align: center;
       padding-top: 100px;
       font-size: 30px; }
   #instagram_box .insta_img_1 .insta_hover:hover, #instagram_box .insta_img_2 .insta_hover:hover, #instagram_box .insta_img_3 .insta_hover:hover, #instagram_box .insta_img_4 .insta_hover:hover {
-    background: rgba(209, 67, 52, 0.6);
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s;
+    background: #D14334;
     cursor: pointer;
     content: View; }
   #instagram_box .insta_img_1 .insta_hover:hover .on_hover, #instagram_box .insta_img_2 .insta_hover:hover .on_hover, #instagram_box .insta_img_3 .insta_hover:hover .on_hover, #instagram_box .insta_img_4 .insta_hover:hover .on_hover {
-    visibility: visible;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s; }
+    visibility: visible; }
 
+/*  MAPA + ADRESA  */
+.adress {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 260px;
+  position: absolute;
+  z-index: +111; }
+  .adress .seznam {
+    background: rgba(255, 255, 255, 0.8);
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 260px;
+    color: #343333; }
+    .adress .seznam ul {
+      margin-top: 50px;
+      margin-left: 40px; }
+    .adress .seznam li {
+      list-style: none;
+      padding-bottom: 15px;
+      font-size: 14px; }
+    .adress .seznam .facebook {
+      margin-left: 40px;
+      margin-top: 10px;
+      width: 7%; }
+    .adress .seznam .instagram {
+      width: 7%; }
+
+#map-canvas {
+  width: 100%;
+  height: 260px; }
+
+/*  FOOTER  */
 footer {
   width: 100%;
   float: left;
-  height: 50px;
+  height: 40px;
   bottom: 0;
-  background: #343333; }
+  background: #000000; }
 
 p.created {
-  color: #fff;
-  font-size: 15px;
-  line-height: 50px; }
-
-b.created_lvc {
-  color: #fff;
-  float: right;
-  font-size: 15px;
-  line-height: 50px; }
+  color: #DCDCDC;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center; }
 
 /*# sourceMappingURL=style-bowling.css.map */
