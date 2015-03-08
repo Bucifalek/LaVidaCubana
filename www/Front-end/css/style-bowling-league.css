@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal; }
 .greybox_table {
-  background: url("../img/bowling/texturka2.png");
+  background: url("../img/bowling/texturka3.png");
   width: 100%;
   height: auto; }
 
@@ -85,57 +85,6 @@
       border-bottom: 0px dotted #dcdcdc; }
     #tabs_2 #tabs-1 .rozpis_zima td, #tabs_2 #tabs-2 .rozpis_zima td, #tabs_2 #tabs-3 .rozpis_zima td, #tabs_2 #tabs-4 .rozpis_zima td, #tabs_2 #tabs-5 .rozpis_zima td, #tabs_2 #tabs-6 .rozpis_zima td, #tabs_2 #tabs-7 .rozpis_zima td, #tabs_2 #tabs-8 .rozpis_zima td, #tabs_2 #tabs-9 .rozpis_zima td {
       border-bottom: 1px dotted #dcdcdc;
-      padding: 10px; }
-
-#tabs_3 {
-  background: white;
-  width: 100%;
-  height: auto; }
-  #tabs_3 ul {
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
-    background: #343333; }
-    #tabs_3 ul li {
-      display: inline-table;
-      padding: 10px;
-      outline: none; }
-      #tabs_3 ul li a {
-        text-decoration: none;
-        color: white;
-        outline: none; }
-      #tabs_3 ul li a:hover {
-        color: #d14334; }
-  #tabs_3 #tabs-1 .rozpis_jednotlivci, #tabs_3 #tabs-2 .rozpis_jednotlivci, #tabs_3 #tabs-3 .rozpis_jednotlivci, #tabs_3 #tabs-4 .rozpis_jednotlivci, #tabs_3 #tabs-5 .rozpis_jednotlivci, #tabs_3 #tabs-6 .rozpis_jednotlivci, #tabs_3 #tabs-7 .rozpis_jednotlivci, #tabs_3 #tabs-8 .rozpis_jednotlivci, #tabs_3 #tabs-9 .rozpis_jednotlivci {
-    width: 100%;
-    color: #696969; }
-    #tabs_3 #tabs-1 .rozpis_jednotlivci tr, #tabs_3 #tabs-2 .rozpis_jednotlivci tr, #tabs_3 #tabs-3 .rozpis_jednotlivci tr, #tabs_3 #tabs-4 .rozpis_jednotlivci tr, #tabs_3 #tabs-5 .rozpis_jednotlivci tr, #tabs_3 #tabs-6 .rozpis_jednotlivci tr, #tabs_3 #tabs-7 .rozpis_jednotlivci tr, #tabs_3 #tabs-8 .rozpis_jednotlivci tr, #tabs_3 #tabs-9 .rozpis_jednotlivci tr {
-      text-align: center; }
-    #tabs_3 #tabs-1 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-2 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-3 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-4 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-5 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-6 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-7 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-8 .rozpis_jednotlivci .table_last, #tabs_3 #tabs-9 .rozpis_jednotlivci .table_last {
-      height: auto; }
-      #tabs_3 #tabs-1 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-2 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-3 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-4 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-5 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-6 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-7 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-8 .rozpis_jednotlivci .table_last td, #tabs_3 #tabs-9 .rozpis_jednotlivci .table_last td {
-        border-bottom: 0px dotted #dcdcdc;
-        height: auto; }
-    #tabs_3 #tabs-1 .rozpis_jednotlivci td, #tabs_3 #tabs-2 .rozpis_jednotlivci td, #tabs_3 #tabs-3 .rozpis_jednotlivci td, #tabs_3 #tabs-4 .rozpis_jednotlivci td, #tabs_3 #tabs-5 .rozpis_jednotlivci td, #tabs_3 #tabs-6 .rozpis_jednotlivci td, #tabs_3 #tabs-7 .rozpis_jednotlivci td, #tabs_3 #tabs-8 .rozpis_jednotlivci td, #tabs_3 #tabs-9 .rozpis_jednotlivci td {
-      border-bottom: 1px dotted #dcdcdc;
-      padding: 10px; }
-
-.groups {
-  width: 100%;
-  height: auto; }
-  .groups .groups_table {
-    width: 100%;
-    height: auto; }
-    .groups .groups_table .grey_first td {
-      padding: 10px;
-      background: #343333;
-      color: white; }
-    .groups .groups_table td {
-      background: white;
-      text-align: center;
-      color: #696969;
       padding: 10px; }
 
 /*# sourceMappingURL=style-bowling-league.css.map */

@@ -50,7 +50,7 @@ html,body{
     padding-top: 15px;
     padding-bottom: 15px;
     color: $red;
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 
@@ -75,15 +75,14 @@ nav{
   margin: 0px auto;
 }
 .greybox{
-  background:url('../img/bowling/texturka2.png');
+  background:url('../img/bowling/texturka3.png');
   width: 100%;
   height: 540px;
 }
 .greybox_2{
-  background:url('../img/bowling/texturka2.png');
+  background:url('../img/bowling/texturka3.png');
   width: 100%;
-  min-height: 500px;
-  height: auto;
+  height: 640px;
 }
 #map-canvas {
   width: 100%;
@@ -110,15 +109,16 @@ nav{
   text-decoration: none;
   line-height: 100px;
   font-size: 14px;
-  border: 1px dotted #c4392c;
   padding: 15px;
+
+  border-bottom: 2px solid #d14335;
+
+  transition-property: border-bottom-color;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s;
 }
 .mainmenu a:hover{
-  border: 1px solid white;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
+  border-color: $grey;
 }
 .category_title{
   font-size: 2em;
@@ -126,13 +126,14 @@ nav{
   color: $red;
 }
 .adress{
-  background: rgba(52, 51, 51, 0.61);
+  background: rgba(0, 0, 0, 0.50);
   width: 100%;
   height: 260px;
   position: absolute;
   z-index: +111;
 
   .seznam{
+    background: rgba(52, 51, 51, 0.45);
     float: left;
     text-align: left;
     width: 50%;
@@ -141,47 +142,56 @@ nav{
     text-shadow: 1px 1px rgba(0, 0, 0, 0.37);
 
     ul{
-      margin-top: 70px;
+      margin-top: 50px;
+      margin-left: 40px;
     }
     li{
       list-style: none;
       padding-bottom: 15px;
       font-size: 15px;
     }
+    .facebook{
+      margin-left: 40px;
+      margin-top: 10px;
+      width: 7%;
+    }
+    .instagram{
+      width: 7%;
+    }
   }
 }
-#bowling_info{
-   color: $darkGrey;
-   float: left;
-   text-align: center;
-   padding-top: 120px;
-   word-spacing: 3px;
-   font-size: 19px;
-}
-.bowling_wifi{
-  width: 100%;
-  height: 50px;
 
-  p{
-    color: $darkGrey;
-    font-size: 24px;
-    text-align: center;
-    padding-top: 20px;
+.bowling_text_default {
+  background: white;
+  width: 100%;
+  height: auto;
+
+  color: $darkGrey;
+  font-size: 20px;
+  text-align: center;
+
+  .bowling_icon{
+    margin-top: 50px;
+    height: 100px;
   }
-  img{
-    width: 240px;
-    height: 80px;
-    padding-top: 50px;
-    display: block;
+  .bowling_info {
+    width: 80%;
     margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  .bowling_wifi {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 80px;
   }
 }
 #instagram_box{
   width: 100%;
   height: auto;
-  min-height: 50%;
+  min-height: 30%;
   background-color: #ffffff;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 
   .four_sections{
     background: #dcdcdc;

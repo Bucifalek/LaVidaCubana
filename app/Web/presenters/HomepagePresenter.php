@@ -17,7 +17,7 @@ class HomepagePresenter extends BasePresenter
     {
         $this->template->anyVariable = 'any value';
         $this->template->akceRoznov = 'Máme pro vás ruskou kávu.';
-        $this->template->akceValmez = 'Máme pro vás kubanskou kávu.';
+        $this->template->akceValmez = 'Dnes kafíčko vaří kamča.';
         $this->template->akceBowling = 'Tady je inventůra.';
     }
 
