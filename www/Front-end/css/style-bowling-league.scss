@@ -18,124 +18,216 @@ $font-color:#fff;
   height: auto;
 }
 
-.table_title{
-  padding-top: 20px;
-  text-align: center;
-  color: $red;
+.posun{
+  margin-top: 60px;
 }
 
-.table_teams{
-  padding-top: 150px;
-  text-align: center;
-  color: $red;
-}
-
-.table_title_time{
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-#tabs{
+.row_tables{
   background: white;
   width: 100%;
   height: auto;
+  padding-bottom: 40px;
 
-  ul{
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
+  .heading_1{
+    width: 100%;
 
-    background: $darkGrey;
+    .table_title{
+      padding-top: 20px;
+      text-align: center;
+      color: $red;
+    }
 
-    li{
-      display: inline-table;
-      padding: 10px;
-      outline: none;
-
-      a{
-        text-decoration: none;
-        color: white;
-        outline: none;
-      }
-
-      a:hover{
-        color: $red;
-      }
+    .table_title_time{
+      text-align: center;
+      padding-bottom: 20px;
     }
   }
 
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
+  .heading_2{
+    width: 100%;
 
-    .rozpis_podzim{
-      width: 100%;
-      color: #696969;
+    .table_title_2{
+      padding-top: 20px;
+      text-align: center;
+      color: $red;
+    }
 
-      tr{
-        text-align: center;
-      }
-      .table_last{
+    .table_title_time_2{
+      text-align: center;
+      padding-bottom: 20px;
+    }
+  }
+
+  #tabs, #tabs_2, #tabs_3, #tabs_4{
+    #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
+
+      .rozpis_podzim{
+        width: 100%;
+        color: #696969;
+
+        tr{
+          text-align: center;
+        }
         td{
-          border-bottom: 0px dotted #dcdcdc;
+          border: 1px dotted #dcdcdc;
+          padding: 10px;
         }
       }
-      td{
-        border-bottom: 1px dotted #dcdcdc;
-        padding: 10px;
-      }
-    }
-  }
-}
+      .rozpis_zima{
+        width: 100%;
+        color: #696969;
 
-#tabs_2{
-  background: white;
-  width: 100%;
-  height: auto;
-
-  ul{
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
-
-    background: $darkGrey;
-
-    li{
-      display: inline-table;
-      padding: 10px;
-      outline: none;
-
-      a{
-        text-decoration: none;
-        color: white;
-        outline: none;
-      }
-
-      a:hover{
-        color: $red;
-      }
-    }
-  }
-
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
-
-    .rozpis_zima{
-      width: 100%;
-      color: #696969;
-
-      tr{
-        text-align: center;
-      }
-      .table_last{
+        tr{
+          text-align: center;
+        }
         td{
-          border-bottom: 0px dotted #dcdcdc;
+          border: 1px dotted #dcdcdc;
+          padding: 10px;
         }
       }
-      td{
-        border-bottom: 1px dotted #dcdcdc;
+    }
+  }
+
+  #tabs{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
         padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_2{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_3{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_4{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
       }
     }
   }

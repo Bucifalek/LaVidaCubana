@@ -23,7 +23,7 @@ function initialize() {
         mapTypeControlOptions: {
             mapTypeIds: ['Styled']
         },
-        center: new google.maps.LatLng(49.4720545,17.9883256,18),
+        center: new google.maps.LatLng(49.471489, 17.967118,18),
         zoom: 15,
         disableDefaultUI: true,
         mapTypeId: 'Styled'
