@@ -5,16 +5,12 @@
   font-weight: normal;
   font-style: normal; }
 ::-webkit-scrollbar {
-  width: 12px; }
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.29); }
+  background: #fff;
+  width: 6px;
+  height: 6px; }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #343333; }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #151414; }
+  background: #343333; }
 
 html, body {
   height: 100%;
@@ -53,25 +49,13 @@ body {
   border: none; }
 
 .roznov-block:hover {
-  background: #343333;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s; }
+  background: #343333; }
 
 .valmez-block:hover {
-  background: #d14334;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s; }
+  background: #d14334; }
 
 .bowling-block:hover {
-  background: #dddddd;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s; }
+  background: #dddddd; }
 
 /*  CONTAINER  */
 .container {
@@ -114,7 +98,10 @@ body {
   width: 33.333%;
   height: 100%;
   min-height: 100%;
-  float: left; }
+  float: left;
+  transition-property: background;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s; }
   .roznov-block h2 {
     font-family: bittersweet;
     font-size: 3.4vw;
@@ -152,7 +139,10 @@ body {
   width: 33.333%;
   height: 100%;
   min-height: 100%;
-  float: left; }
+  float: left;
+  transition-property: background;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s; }
   .valmez-block h2 {
     font-family: bittersweet;
     font-size: 3.4vw;
@@ -190,7 +180,10 @@ body {
   width: 33.333%;
   height: 100%;
   min-height: 100%;
-  float: left; }
+  float: left;
+  transition-property: background;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s; }
   .bowling-block h2 {
     font-family: bittersweet;
     font-size: 3.4vw;
