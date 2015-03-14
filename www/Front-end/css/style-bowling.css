@@ -65,7 +65,7 @@ nav {
 
 .logo {
   font-family: bittersweet;
-  font-size: 75px;
+  font-size: 4.688em;
   padding-top: 10px;
   letter-spacing: 3px;
   float: left;
@@ -220,5 +220,24 @@ p.created {
   font-size: 12px;
   line-height: 40px;
   text-align: center; }
+
+@media screen and (max-width: 1050px) {
+  .flexible_content {
+    width: 95%; }
+
+  #instagram_box {
+    width: 100%; } }
+@media screen and (max-width: 950px) {
+  .adress .seznam {
+    width: 70%; } }
+@media screen and (max-width: 850px) {
+  .logo {
+    font-family: bittersweet;
+    font-size: 2.5em;
+    padding-top: 25px;
+    letter-spacing: 1.5px; } }
+@media screen and (max-width: 670px) {
+  .adress .seznam {
+    width: 100%; } }
 
 /*# sourceMappingURL=style-bowling.css.map */
