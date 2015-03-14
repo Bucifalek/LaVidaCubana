@@ -16,9 +16,9 @@ class HomepagePresenter extends BasePresenter
     public function renderDefault()
     {
         $this->template->anyVariable = 'any value';
-        $this->template->akceRoznov = 'Máme pro vás ruskou kávu.';
-        $this->template->akceValmez = 'Dnes kafíčko vaří kamča.';
-        $this->template->akceBowling = 'Tady je inventůra.';
+        $this->template->akceRoznov = 'AKCE: Máme pro vás ruskou kávu.';
+        $this->template->akceValmez = 'AKCE: Máme pro vás kubánskou kávu.';
+        $this->template->akceBowling = 'AKCE: Tady je inventůra.';
     }
 
     public function createComponentWelcome()
