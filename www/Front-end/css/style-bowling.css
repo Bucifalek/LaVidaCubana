@@ -5,16 +5,12 @@
   font-weight: normal;
   font-style: normal; }
 ::-webkit-scrollbar {
-  width: 12px; }
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.29); }
+  background: #fff;
+  width: 6px;
+  height: 6px; }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #343333; }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #151414; }
+  background: #343333; }
 
 html, body {
   font-family: 'Open Sans', sans-serif;
@@ -35,7 +31,7 @@ html, body {
     padding-top: 15px;
     padding-bottom: 15px;
     color: #d14334;
-    font-size: 19px; }
+    font-size: 18px; }
 
 #page {
   width: 100%;
@@ -46,34 +42,30 @@ html, body {
 .mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created {
   font-family: "Open Sans"; }
 
-nav {
-  width: 100%;
-  height: 100px;
-  background-color: #d14334; }
-
 .flexible_content {
   width: 1024px;
   height: auto;
   margin: 0px auto; }
 
 .greybox {
-  background: url("../img/bowling/texturka2.png");
+  background: url("../img/bowling/texturka3.png");
   width: 100%;
   height: 540px; }
 
 .greybox_2 {
-  background: url("../img/bowling/texturka2.png");
+  background: url("../img/bowling/texturka3.png");
   width: 100%;
-  min-height: 500px;
-  height: auto; }
+  height: 640px; }
 
-#map-canvas {
+/*  MENU  */
+nav {
   width: 100%;
-  height: 260px; }
+  height: 100px;
+  background-color: #d14334; }
 
 .logo {
   font-family: bittersweet;
-  font-size: 75px;
+  font-size: 4.688em;
   padding-top: 10px;
   letter-spacing: 3px;
   float: left;
@@ -92,70 +84,50 @@ nav {
   text-decoration: none;
   line-height: 100px;
   font-size: 14px;
-  border: 1px dotted #c4392c;
-  padding: 15px; }
+  padding: 15px;
+  border-bottom: 2px solid #d14335;
+  transition-property: border-bottom-color;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s; }
 
 .mainmenu a:hover {
-  border: 1px solid white;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s; }
+  border-color: #dddddd; }
 
-.category_title {
-  font-size: 2em;
-  padding-top: 40px;
-  color: #d14334; }
-
-.adress {
-  background: rgba(52, 51, 51, 0.61);
+/*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
+.bowling_text_default {
+  background: white;
   width: 100%;
-  height: 260px;
-  position: absolute;
-  z-index: +111; }
-  .adress .seznam {
-    float: left;
-    text-align: left;
-    width: 50%;
-    height: 260px;
-    color: #ffffff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.37); }
-    .adress .seznam ul {
-      margin-top: 70px; }
-    .adress .seznam li {
-      list-style: none;
-      padding-bottom: 15px;
-      font-size: 15px; }
-
-#bowling_info {
+  height: auto;
   color: #343333;
-  float: left;
-  text-align: center;
-  padding-top: 120px;
-  word-spacing: 3px;
-  font-size: 19px; }
+  font-size: 20px;
+  text-align: center; }
+  .bowling_text_default .bowling_icon {
+    margin-top: 50px;
+    height: 100px; }
+  .bowling_text_default .bowling_info {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px; }
+  .bowling_text_default .bowling_wifi {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 80px; }
 
-.bowling_wifi {
-  width: 100%;
-  height: 50px; }
-  .bowling_wifi p {
-    color: #343333;
-    font-size: 24px;
-    text-align: center;
-    padding-top: 20px; }
-  .bowling_wifi img {
-    width: 240px;
-    height: 80px;
-    padding-top: 50px;
-    display: block;
-    margin: 0 auto; }
+/*  INSTAGRAM GALERIE  */
+.category_title {
+  font-size: 1.6em;
+  text-align: center;
+  line-height: 60px;
+  color: #d14334; }
 
 #instagram_box {
   width: 100%;
   height: auto;
-  min-height: 50%;
-  background-color: #ffffff;
-  padding-bottom: 30px; }
+  min-height: 30%;
+  background: url("../img/bowling/texturka.jpg");
+  padding-bottom: 70px;
+  padding-top: 30px; }
   #instagram_box .four_sections {
     background: #dcdcdc;
     width: 100%;
@@ -167,58 +139,105 @@ nav {
     height: 100%;
     display: inline-table; }
   #instagram_box .insta_img_1 {
-    background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center; }
+    background: url("../img/bowling/bowling_insta_2.jpg") no-repeat top center;
+    background-size: cover;
+    float: left; }
   #instagram_box .insta_img_2 {
-    background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta.jpg") no-repeat top center;
+    background-size: cover;
     float: left; }
   #instagram_box .insta_img_3 {
-    background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
-    float: left; }
+    background: url("../img/bowling/bowling_insta_4.jpg") no-repeat top center;
+    float: left;
+    background-size: cover; }
   #instagram_box .insta_img_4 {
-    background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
-    float: left; }
+    background: url("../img/bowling/bowling_insta_3.jpg") no-repeat top center;
+    float: left;
+    background-size: cover; }
   #instagram_box .insta_img_1 .insta_hover, #instagram_box .insta_img_2 .insta_hover, #instagram_box .insta_img_3 .insta_hover, #instagram_box .insta_img_4 .insta_hover {
-    width: 228px;
-    height: 90%;
-    margin-left: 14px;
-    margin-top: 11px;
-    color: white; }
+    color: white;
+    background: transparent;
+    transition-property: background;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s;
+    -moz-transition-property: background;
+    -moz-transition-duration: 0.6s;
+    -moz-transition-delay: 0s,0.25s,0.45s,0.7s; }
     #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover, #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
       visibility: hidden;
       text-align: center;
-      padding-top: 100px;
+      line-height: 260px;
       font-size: 30px; }
   #instagram_box .insta_img_1 .insta_hover:hover, #instagram_box .insta_img_2 .insta_hover:hover, #instagram_box .insta_img_3 .insta_hover:hover, #instagram_box .insta_img_4 .insta_hover:hover {
-    background: rgba(209, 67, 52, 0.6);
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s;
+    background: rgba(209, 67, 52, 0.9);
     cursor: pointer;
     content: View; }
   #instagram_box .insta_img_1 .insta_hover:hover .on_hover, #instagram_box .insta_img_2 .insta_hover:hover .on_hover, #instagram_box .insta_img_3 .insta_hover:hover .on_hover, #instagram_box .insta_img_4 .insta_hover:hover .on_hover {
-    visibility: visible;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s; }
+    visibility: visible; }
 
+/*  MAPA + ADRESA  */
+.adress {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 460px;
+  position: absolute;
+  z-index: +111; }
+  .adress .seznam {
+    background: white;
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 260px;
+    color: #343333; }
+    .adress .seznam ul {
+      margin-top: 50px;
+      margin-left: 40px; }
+    .adress .seznam li {
+      list-style: none;
+      padding-bottom: 15px;
+      font-size: 14px; }
+    .adress .seznam .facebook {
+      margin-left: 40px;
+      margin-top: 10px;
+      width: 7%; }
+    .adress .seznam .instagram {
+      width: 7%; }
+
+#map-canvas {
+  width: 100%;
+  height: 460px; }
+
+/*  FOOTER  */
 footer {
   width: 100%;
   float: left;
-  height: 50px;
+  height: 40px;
   bottom: 0;
-  background: #343333; }
+  background: #000000; }
 
 p.created {
-  color: #fff;
-  font-size: 15px;
-  line-height: 50px; }
+  color: #DCDCDC;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center; }
 
-b.created_lvc {
-  color: #fff;
-  float: right;
-  font-size: 15px;
-  line-height: 50px; }
+@media screen and (max-width: 1050px) {
+  .flexible_content {
+    width: 95%; }
+
+  #instagram_box {
+    width: 100%; } }
+@media screen and (max-width: 950px) {
+  .adress .seznam {
+    width: 70%; } }
+@media screen and (max-width: 850px) {
+  .logo {
+    font-family: bittersweet;
+    font-size: 2.5em;
+    padding-top: 25px;
+    letter-spacing: 1.5px; } }
+@media screen and (max-width: 670px) {
+  .adress .seznam {
+    width: 100%; } }
 
 /*# sourceMappingURL=style-bowling.css.map */

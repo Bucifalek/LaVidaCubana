@@ -11,27 +11,35 @@ $font-color:#fff;
   font-weight: normal;
   font-style: normal;
 }
+
+/*  BLOK S TEXTEM A IKONOU TELEFONU  */
+
 .play_info{
   color: $darkGrey;
-  float: left;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 30px;
+  padding-bottom: 80px;
   word-spacing: 3px;
   font-size: 19px;
-  padding-bottom: 0px;
+
   li{
     list-style: none;
   }
 }
 
+/*  CENIK + PROVOZNI DOBA  */
+
 .time_info, .cenik_info{
-   width: 48%;
-   height: auto;
-   table-layout: fixed;
-   position: relative;
-   top: 30px;
-   border-collapse: collapse;
- }
+  width: 50%;
+  height: auto;
+  table-layout: fixed;
+  position: relative;
+  top: 30px;
+  border-collapse: collapse;
+}
+
 .time_info{
   float: left;
 }
@@ -51,17 +59,62 @@ $font-color:#fff;
   font-size: 1.3em;
   color: $red;
 }
-h3 {
-  font-family: "Open Sans";
-  font-size: 1.3;
-  position: relative;
-  color: $red;
+
+/*  HALF BLOKY  */
+
+.half_blok{
+  width: 100%;
+  height: 340px;
+  min-height: 100%;
+
+  .half_one{
+    background: white;
+    width: 50%;
+    height: 340px;
+    float: left;
+
+    .variant_1{
+      padding-top: 15px;
+      padding-left: 25px;
+      text-align: left;
+      line-height: 35px;
+    }
+  }
+  .half_two{
+    background: rgba(255, 255, 255, 0.51);
+    width: 50%;
+    height: 340px;
+    float: left;
+
+    .variant_2{
+      padding: 25px;
+      padding-top: 75px;
+      text-align: justify;
+      line-height: 24px;
+    }
+  }
+
+  h3 {
+    font-family: "Open Sans";
+    font-size: 1.6em;
+    padding-left: 25px;
+    padding-top: 25px;
+    color: $red;
+  }
+
+  .play_info_2{
+    color: $darkGrey;
+    word-spacing: 0px;
+    font-size: 17px;
+
+    li{
+      list-style: none;
+    }
+  }
 }
-.posun{
-  position: relative;
-  top: 50px;
-}
-.posun2{
-  padding-top:20px;
-  text-align: justify;
+
+#instagram_box_2{
+  width: 100%;
+  height: auto;
+  background: url("../img/bowling/texturka.jpg");
 }

@@ -12,20 +12,14 @@ $font-color:#fff;
   font-style: normal;
 }
 
-::-webkit-scrollbar{
-  width: 12px;
+::-webkit-scrollbar {
+  background: #fff;
+  width: 6px;
+  height: 6px;
 }
 
-::-webkit-scrollbar-track{
-  background: rgba(0, 0, 0, 0.29);
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: $darkGrey;
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background-color: #151414;
+::-webkit-scrollbar-thumb {
+  background: $darkGrey;
 }
 
 html,body{
@@ -50,7 +44,7 @@ html,body{
     padding-top: 15px;
     padding-bottom: 15px;
     color: $red;
-    font-size: 19px;
+    font-size: 18px;
   }
 }
 
@@ -63,11 +57,6 @@ html,body{
 .mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created{
   font-family: "Open Sans";
 }
-nav{
-  width: 100%;
-  height: 100px;
-  background-color: $red;
-}
 
 .flexible_content {
   width: 1024px;
@@ -75,113 +64,105 @@ nav{
   margin: 0px auto;
 }
 .greybox{
-  background:url('../img/bowling/texturka2.png');
+  background:url('../img/bowling/texturka3.png');
   width: 100%;
   height: 540px;
 }
 .greybox_2{
-  background:url('../img/bowling/texturka2.png');
+  background:url('../img/bowling/texturka3.png');
   width: 100%;
-  min-height: 500px;
-  height: auto;
+  height: 640px;
 }
-#map-canvas {
+
+/*  MENU  */
+
+nav{
   width: 100%;
-  height: 260px;
+  height: 100px;
+  background-color: $red;
 }
+
 .logo{
   font-family: bittersweet;
-  font-size: 75px;
+  font-size: 4.688em;
   padding-top: 10px;
   letter-spacing: 3px;
   float: left;
   color: white;
 }
+
 .mainmenu{
   float: right;
   height: auto;
 }
+
 .mainmenu li{
   display: inline;
   list-style: none;
 }
+
 .mainmenu a{
   color: $font-color;
   text-decoration: none;
   line-height: 100px;
   font-size: 14px;
-  border: 1px dotted #c4392c;
   padding: 15px;
+
+  border-bottom: 2px solid #d14335;
+
+  transition-property: border-bottom-color;
+  transition-duration: 0.6s;
+  transition-delay: 0s,0.25s,0.45s,0.7s;
 }
+
 .mainmenu a:hover{
-  border: 1px solid white;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
+  border-color: $grey;
 }
+
+/*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
+
+.bowling_text_default {
+  background: white;
+  width: 100%;
+  height: auto;
+
+  color: $darkGrey;
+  font-size: 20px;
+  text-align: center;
+
+  .bowling_icon{
+    margin-top: 50px;
+    height: 100px;
+  }
+  .bowling_info {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  .bowling_wifi {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 80px;
+  }
+}
+
+/*  INSTAGRAM GALERIE  */
+
 .category_title{
-  font-size: 2em;
-  padding-top: 40px;
+  font-size: 1.6em;
+  text-align: center;
+  line-height: 60px;
   color: $red;
 }
-.adress{
-  background: rgba(52, 51, 51, 0.61);
-  width: 100%;
-  height: 260px;
-  position: absolute;
-  z-index: +111;
 
-  .seznam{
-    float: left;
-    text-align: left;
-    width: 50%;
-    height: 260px;
-    color: #ffffff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.37);
-
-    ul{
-      margin-top: 70px;
-    }
-    li{
-      list-style: none;
-      padding-bottom: 15px;
-      font-size: 15px;
-    }
-  }
-}
-#bowling_info{
-   color: $darkGrey;
-   float: left;
-   text-align: center;
-   padding-top: 120px;
-   word-spacing: 3px;
-   font-size: 19px;
-}
-.bowling_wifi{
-  width: 100%;
-  height: 50px;
-
-  p{
-    color: $darkGrey;
-    font-size: 24px;
-    text-align: center;
-    padding-top: 20px;
-  }
-  img{
-    width: 240px;
-    height: 80px;
-    padding-top: 50px;
-    display: block;
-    margin: 0 auto;
-  }
-}
 #instagram_box{
   width: 100%;
   height: auto;
-  min-height: 50%;
-  background-color: #ffffff;
-  padding-bottom: 30px;
+  min-height: 30%;
+  background:url('../img/bowling/texturka.jpg');
+  padding-bottom: 70px;
+  padding-top: 30px;
 
   .four_sections{
     background: #dcdcdc;
@@ -198,72 +179,148 @@ nav{
   }
 
   .insta_img_1{
-    background: url("../img/bowling/bowling-instagram-1.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta_2.jpg") no-repeat top center;
+    background-size: cover;
+    float: left;
   }
   .insta_img_2{
-    background: url("../img/bowling/bowling-instagram-2.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta.jpg") no-repeat top center;
+    background-size: cover;
     float: left;
   }
   .insta_img_3{
-    background: url("../img/bowling/bowling-instagram-3.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta_4.jpg") no-repeat top center;
     float: left;
+    background-size: cover;
   }
   .insta_img_4{
-    background: url("../img/bowling/bowling-instagram-4.jpg") no-repeat top center;
+    background: url("../img/bowling/bowling_insta_3.jpg") no-repeat top center;
     float: left;
+    background-size: cover;
   }
 
   .insta_img_1, .insta_img_2, .insta_img_3, .insta_img_4{
 
     .insta_hover{
-      width: 228px;
-      height: 90%;
-      margin-left: 14px;
-      margin-top: 11px;
       color: white;
+      background: rgba(0,0,0,0);
+
+      transition-property: background;
+      transition-duration: 0.6s;
+      transition-delay: 0s,0.25s,0.45s,0.7s;
+
+      -moz-transition-property: background;
+      -moz-transition-duration: 0.6s;
+      -moz-transition-delay: 0s,0.25s,0.45s,0.7s;
 
       .on_hover{
         visibility: hidden;
         text-align: center;
-        padding-top: 100px;
+        line-height: 260px;
         font-size: 30px;
       }
     }
 
     .insta_hover:hover{
-      background: rgba(209, 67, 52, 0.60);
-      -webkit-transition: 1s;
-      -moz-transition: 1s;
-      -o-transition: 1s;
-      transition: 1s;
+      background: rgba(209, 67, 52, 0.90);
       cursor: pointer;
       content: View;
     }
 
     .insta_hover:hover .on_hover{
       visibility: visible;
-      -webkit-transition: 1s;
-      -moz-transition: 1s;
-      -o-transition: 1s;
-      transition: 1s;
     }
   }
 }
+
+/*  MAPA + ADRESA  */
+
+.adress{
+  background: rgba(0, 0, 0, 0.30);
+  width: 100%;
+  height: 460px;
+  position: absolute;
+  z-index: +111;
+
+  .seznam{
+    background: rgba(255, 255, 255, 1);
+    float: left;
+    text-align: left;
+    width: 50%;
+    height: 260px;
+    color: $darkGrey;
+
+    ul{
+      margin-top: 50px;
+      margin-left: 40px;
+    }
+    li{
+      list-style: none;
+      padding-bottom: 15px;
+      font-size: 14px;
+    }
+    .facebook{
+      margin-left: 40px;
+      margin-top: 10px;
+      width: 7%;
+    }
+    .instagram{
+      width: 7%;
+    }
+  }
+}
+
+#map-canvas {
+  width: 100%;
+  height: 460px;
+}
+
+/*  FOOTER  */
+
 footer {
   width: 100%;
   float: left;
-  height: 50px;
+  height: 40px;
   bottom: 0;
-  background: $darkGrey;
+  background: #000000;
 }
 p.created {
-  color: $font-color;
-  font-size: 15px;
-  line-height: 50px;
+  color: #DCDCDC;
+  font-size: 12px;
+  line-height: 40px;
+  text-align: center;
 }
-b.created_lvc {
-  color: $font-color;
-  float: right;
-  font-size: 15px;
-  line-height: 50px;
+@media screen and (max-width: 1050px) {
+
+    .flexible_content{
+      width: 95%;
+    }
+    #instagram_box{
+      width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 950px){
+  .adress{
+    .seznam {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .logo{
+    font-family: bittersweet;
+    font-size: 2.5em;
+    padding-top: 25px;
+    letter-spacing: 1.5px;
+  }
+}
+@media screen and (max-width: 670px){
+  .adress{
+    .seznam {
+      width: 100%;
+    }
+  }
 }

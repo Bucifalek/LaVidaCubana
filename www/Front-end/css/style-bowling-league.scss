@@ -13,212 +13,260 @@ $font-color:#fff;
 }
 
 .greybox_table {
-  background: url('../img/bowling/texturka2.png');
+  background: url('../img/bowling/texturka3.png');
   width: 100%;
   height: auto;
 }
 
-.table_title{
-  padding-top: 20px;
-  text-align: center;
-  color: $red;
+.posun{
+  margin-top: 60px;
 }
 
-.table_teams{
-  padding-top: 150px;
-  text-align: center;
-  color: $red;
-}
-
-.table_title_time{
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-#tabs{
+.row_tables{
   background: white;
   width: 100%;
   height: auto;
+  padding-bottom: 40px;
 
-  ul{
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
-
-    background: $darkGrey;
-
-    li{
-      display: inline-table;
-      padding: 10px;
-      outline: none;
-
-      a{
-        text-decoration: none;
-        color: white;
-        outline: none;
-      }
-
-      a:hover{
-        color: $red;
-      }
-    }
-  }
-
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
-
-    .rozpis_podzim{
-      width: 100%;
-      color: #696969;
-
-      tr{
-        text-align: center;
-      }
-      .table_last{
-        td{
-          border-bottom: 0px dotted #dcdcdc;
-        }
-      }
-      td{
-        border-bottom: 1px dotted #dcdcdc;
-        padding: 10px;
-      }
-    }
-  }
-}
-
-#tabs_2{
-  background: white;
-  width: 100%;
-  height: auto;
-
-  ul{
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
-
-    background: $darkGrey;
-
-    li{
-      display: inline-table;
-      padding: 10px;
-      outline: none;
-
-      a{
-        text-decoration: none;
-        color: white;
-        outline: none;
-      }
-
-      a:hover{
-        color: $red;
-      }
-    }
-  }
-
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
-
-    .rozpis_zima{
-      width: 100%;
-      color: #696969;
-
-      tr{
-        text-align: center;
-      }
-      .table_last{
-        td{
-          border-bottom: 0px dotted #dcdcdc;
-        }
-      }
-      td{
-        border-bottom: 1px dotted #dcdcdc;
-        padding: 10px;
-      }
-    }
-  }
-}
-
-#tabs_3{
-  background: white;
-  width: 100%;
-  height: auto;
-
-  ul{
-    text-decoration: none;
-    list-style-type: none;
-    display: block;
-    outline: none;
-    text-align: center;
-
-    background: $darkGrey;
-
-    li{
-      display: inline-table;
-      padding: 10px;
-      outline: none;
-
-      a{
-        text-decoration: none;
-        color: white;
-        outline: none;
-      }
-
-      a:hover{
-        color: $red;
-      }
-    }
-  }
-
-  #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
-
-    .rozpis_jednotlivci{
-      width: 100%;
-      color: #696969;
-
-      tr{
-        text-align: center;
-      }
-      .table_last{
-        height: auto;
-
-        td{
-          border-bottom: 0px dotted #dcdcdc;
-          height: auto;
-        }
-      }
-      td{
-        border-bottom: 1px dotted #dcdcdc;
-        padding: 10px;
-      }
-    }
-  }
-}
-
-.groups{
-  width: 100%;
-  height: auto;
-
-  .groups_table{
+  .heading_1{
     width: 100%;
-    height: auto;
 
-    .grey_first{
-      td{
-        padding: 10px;
-        background: $darkGrey;
-        color: white;
-      }
+    .table_title{
+      padding-top: 20px;
+      padding-bottom: 10px;
+      text-align: center;
+      color: $red;
     }
 
-    td{
-      background: white;
+    .table_title_time{
       text-align: center;
-      color: #696969;
-      padding: 10px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .heading_2{
+    width: 100%;
+
+    .table_title_2{
+      padding-top: 20px;
+      padding-bottom: 10px;
+      text-align: center;
+      color: $red;
+    }
+
+    .table_title_time_2{
+      text-align: center;
+      padding-bottom: 20px;
+    }
+  }
+
+  #tabs, #tabs_2, #tabs_3, #tabs_4, #tabs_5{
+    #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
+
+      .rozpis_podzim{
+        width: 100%;
+        color: #696969;
+
+        tr{
+          text-align: center;
+        }
+        td{
+          border: 1px dotted #dcdcdc;
+          padding: 8px;
+        }
+      }
+      .rozpis_zima{
+        width: 100%;
+        color: #696969;
+
+        tr{
+          text-align: center;
+        }
+        td{
+          border: 1px dotted #dcdcdc;
+          padding: 8px;
+        }
+      }
+    }
+  }
+
+  #tabs{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_2{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_3{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_4{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  #tabs_5{
+    background: white;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid rgba(52, 51, 51, 0.64);
+
+    ul{
+      text-decoration: none;
+      list-style-type: none;
+      display: block;
+      outline: none;
+      text-align: center;
+
+      background: $darkGrey;
+
+      li{
+        display: inline-table;
+        padding: 10px;
+        outline: none;
+
+        a{
+          text-decoration: none;
+          color: white;
+          outline: none;
+        }
+
+        a:hover{
+          color: $red;
+        }
+      }
     }
   }
 }
-
