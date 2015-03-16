@@ -21,7 +21,7 @@
     width: 100%; }
     .row_tables .heading_1 .table_title {
       padding-top: 20px;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
       text-align: center;
       color: #d14334; }
     .row_tables .heading_1 .table_title_time {
@@ -31,7 +31,7 @@
     width: 100%; }
     .row_tables .heading_2 .table_title_2 {
       padding-top: 20px;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
       text-align: center;
       color: #d14334; }
     .row_tables .heading_2 .table_title_time_2 {
@@ -43,16 +43,16 @@
     .row_tables #tabs #tabs-1 .rozpis_podzim tr, .row_tables #tabs #tabs-2 .rozpis_podzim tr, .row_tables #tabs #tabs-3 .rozpis_podzim tr, .row_tables #tabs #tabs-4 .rozpis_podzim tr, .row_tables #tabs #tabs-5 .rozpis_podzim tr, .row_tables #tabs #tabs-6 .rozpis_podzim tr, .row_tables #tabs #tabs-7 .rozpis_podzim tr, .row_tables #tabs #tabs-8 .rozpis_podzim tr, .row_tables #tabs #tabs-9 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-9 .rozpis_podzim tr {
       text-align: center; }
     .row_tables #tabs #tabs-1 .rozpis_podzim td, .row_tables #tabs #tabs-2 .rozpis_podzim td, .row_tables #tabs #tabs-3 .rozpis_podzim td, .row_tables #tabs #tabs-4 .rozpis_podzim td, .row_tables #tabs #tabs-5 .rozpis_podzim td, .row_tables #tabs #tabs-6 .rozpis_podzim td, .row_tables #tabs #tabs-7 .rozpis_podzim td, .row_tables #tabs #tabs-8 .rozpis_podzim td, .row_tables #tabs #tabs-9 .rozpis_podzim td, .row_tables #tabs_2 #tabs-1 .rozpis_podzim td, .row_tables #tabs_2 #tabs-2 .rozpis_podzim td, .row_tables #tabs_2 #tabs-3 .rozpis_podzim td, .row_tables #tabs_2 #tabs-4 .rozpis_podzim td, .row_tables #tabs_2 #tabs-5 .rozpis_podzim td, .row_tables #tabs_2 #tabs-6 .rozpis_podzim td, .row_tables #tabs_2 #tabs-7 .rozpis_podzim td, .row_tables #tabs_2 #tabs-8 .rozpis_podzim td, .row_tables #tabs_2 #tabs-9 .rozpis_podzim td, .row_tables #tabs_3 #tabs-1 .rozpis_podzim td, .row_tables #tabs_3 #tabs-2 .rozpis_podzim td, .row_tables #tabs_3 #tabs-3 .rozpis_podzim td, .row_tables #tabs_3 #tabs-4 .rozpis_podzim td, .row_tables #tabs_3 #tabs-5 .rozpis_podzim td, .row_tables #tabs_3 #tabs-6 .rozpis_podzim td, .row_tables #tabs_3 #tabs-7 .rozpis_podzim td, .row_tables #tabs_3 #tabs-8 .rozpis_podzim td, .row_tables #tabs_3 #tabs-9 .rozpis_podzim td, .row_tables #tabs_4 #tabs-1 .rozpis_podzim td, .row_tables #tabs_4 #tabs-2 .rozpis_podzim td, .row_tables #tabs_4 #tabs-3 .rozpis_podzim td, .row_tables #tabs_4 #tabs-4 .rozpis_podzim td, .row_tables #tabs_4 #tabs-5 .rozpis_podzim td, .row_tables #tabs_4 #tabs-6 .rozpis_podzim td, .row_tables #tabs_4 #tabs-7 .rozpis_podzim td, .row_tables #tabs_4 #tabs-8 .rozpis_podzim td, .row_tables #tabs_4 #tabs-9 .rozpis_podzim td, .row_tables #tabs_5 #tabs-1 .rozpis_podzim td, .row_tables #tabs_5 #tabs-2 .rozpis_podzim td, .row_tables #tabs_5 #tabs-3 .rozpis_podzim td, .row_tables #tabs_5 #tabs-4 .rozpis_podzim td, .row_tables #tabs_5 #tabs-5 .rozpis_podzim td, .row_tables #tabs_5 #tabs-6 .rozpis_podzim td, .row_tables #tabs_5 #tabs-7 .rozpis_podzim td, .row_tables #tabs_5 #tabs-8 .rozpis_podzim td, .row_tables #tabs_5 #tabs-9 .rozpis_podzim td {
-      border: 1px dotted #dcdcdc;
-      padding: 8px; }
+      border: 1px dotted rgba(220, 220, 220, 0.35);
+      padding: 5px; }
   .row_tables #tabs #tabs-1 .rozpis_zima, .row_tables #tabs #tabs-2 .rozpis_zima, .row_tables #tabs #tabs-3 .rozpis_zima, .row_tables #tabs #tabs-4 .rozpis_zima, .row_tables #tabs #tabs-5 .rozpis_zima, .row_tables #tabs #tabs-6 .rozpis_zima, .row_tables #tabs #tabs-7 .rozpis_zima, .row_tables #tabs #tabs-8 .rozpis_zima, .row_tables #tabs #tabs-9 .rozpis_zima, .row_tables #tabs_2 #tabs-1 .rozpis_zima, .row_tables #tabs_2 #tabs-2 .rozpis_zima, .row_tables #tabs_2 #tabs-3 .rozpis_zima, .row_tables #tabs_2 #tabs-4 .rozpis_zima, .row_tables #tabs_2 #tabs-5 .rozpis_zima, .row_tables #tabs_2 #tabs-6 .rozpis_zima, .row_tables #tabs_2 #tabs-7 .rozpis_zima, .row_tables #tabs_2 #tabs-8 .rozpis_zima, .row_tables #tabs_2 #tabs-9 .rozpis_zima, .row_tables #tabs_3 #tabs-1 .rozpis_zima, .row_tables #tabs_3 #tabs-2 .rozpis_zima, .row_tables #tabs_3 #tabs-3 .rozpis_zima, .row_tables #tabs_3 #tabs-4 .rozpis_zima, .row_tables #tabs_3 #tabs-5 .rozpis_zima, .row_tables #tabs_3 #tabs-6 .rozpis_zima, .row_tables #tabs_3 #tabs-7 .rozpis_zima, .row_tables #tabs_3 #tabs-8 .rozpis_zima, .row_tables #tabs_3 #tabs-9 .rozpis_zima, .row_tables #tabs_4 #tabs-1 .rozpis_zima, .row_tables #tabs_4 #tabs-2 .rozpis_zima, .row_tables #tabs_4 #tabs-3 .rozpis_zima, .row_tables #tabs_4 #tabs-4 .rozpis_zima, .row_tables #tabs_4 #tabs-5 .rozpis_zima, .row_tables #tabs_4 #tabs-6 .rozpis_zima, .row_tables #tabs_4 #tabs-7 .rozpis_zima, .row_tables #tabs_4 #tabs-8 .rozpis_zima, .row_tables #tabs_4 #tabs-9 .rozpis_zima, .row_tables #tabs_5 #tabs-1 .rozpis_zima, .row_tables #tabs_5 #tabs-2 .rozpis_zima, .row_tables #tabs_5 #tabs-3 .rozpis_zima, .row_tables #tabs_5 #tabs-4 .rozpis_zima, .row_tables #tabs_5 #tabs-5 .rozpis_zima, .row_tables #tabs_5 #tabs-6 .rozpis_zima, .row_tables #tabs_5 #tabs-7 .rozpis_zima, .row_tables #tabs_5 #tabs-8 .rozpis_zima, .row_tables #tabs_5 #tabs-9 .rozpis_zima {
     width: 100%;
     color: #696969; }
     .row_tables #tabs #tabs-1 .rozpis_zima tr, .row_tables #tabs #tabs-2 .rozpis_zima tr, .row_tables #tabs #tabs-3 .rozpis_zima tr, .row_tables #tabs #tabs-4 .rozpis_zima tr, .row_tables #tabs #tabs-5 .rozpis_zima tr, .row_tables #tabs #tabs-6 .rozpis_zima tr, .row_tables #tabs #tabs-7 .rozpis_zima tr, .row_tables #tabs #tabs-8 .rozpis_zima tr, .row_tables #tabs #tabs-9 .rozpis_zima tr, .row_tables #tabs_2 #tabs-1 .rozpis_zima tr, .row_tables #tabs_2 #tabs-2 .rozpis_zima tr, .row_tables #tabs_2 #tabs-3 .rozpis_zima tr, .row_tables #tabs_2 #tabs-4 .rozpis_zima tr, .row_tables #tabs_2 #tabs-5 .rozpis_zima tr, .row_tables #tabs_2 #tabs-6 .rozpis_zima tr, .row_tables #tabs_2 #tabs-7 .rozpis_zima tr, .row_tables #tabs_2 #tabs-8 .rozpis_zima tr, .row_tables #tabs_2 #tabs-9 .rozpis_zima tr, .row_tables #tabs_3 #tabs-1 .rozpis_zima tr, .row_tables #tabs_3 #tabs-2 .rozpis_zima tr, .row_tables #tabs_3 #tabs-3 .rozpis_zima tr, .row_tables #tabs_3 #tabs-4 .rozpis_zima tr, .row_tables #tabs_3 #tabs-5 .rozpis_zima tr, .row_tables #tabs_3 #tabs-6 .rozpis_zima tr, .row_tables #tabs_3 #tabs-7 .rozpis_zima tr, .row_tables #tabs_3 #tabs-8 .rozpis_zima tr, .row_tables #tabs_3 #tabs-9 .rozpis_zima tr, .row_tables #tabs_4 #tabs-1 .rozpis_zima tr, .row_tables #tabs_4 #tabs-2 .rozpis_zima tr, .row_tables #tabs_4 #tabs-3 .rozpis_zima tr, .row_tables #tabs_4 #tabs-4 .rozpis_zima tr, .row_tables #tabs_4 #tabs-5 .rozpis_zima tr, .row_tables #tabs_4 #tabs-6 .rozpis_zima tr, .row_tables #tabs_4 #tabs-7 .rozpis_zima tr, .row_tables #tabs_4 #tabs-8 .rozpis_zima tr, .row_tables #tabs_4 #tabs-9 .rozpis_zima tr, .row_tables #tabs_5 #tabs-1 .rozpis_zima tr, .row_tables #tabs_5 #tabs-2 .rozpis_zima tr, .row_tables #tabs_5 #tabs-3 .rozpis_zima tr, .row_tables #tabs_5 #tabs-4 .rozpis_zima tr, .row_tables #tabs_5 #tabs-5 .rozpis_zima tr, .row_tables #tabs_5 #tabs-6 .rozpis_zima tr, .row_tables #tabs_5 #tabs-7 .rozpis_zima tr, .row_tables #tabs_5 #tabs-8 .rozpis_zima tr, .row_tables #tabs_5 #tabs-9 .rozpis_zima tr {
       text-align: center; }
     .row_tables #tabs #tabs-1 .rozpis_zima td, .row_tables #tabs #tabs-2 .rozpis_zima td, .row_tables #tabs #tabs-3 .rozpis_zima td, .row_tables #tabs #tabs-4 .rozpis_zima td, .row_tables #tabs #tabs-5 .rozpis_zima td, .row_tables #tabs #tabs-6 .rozpis_zima td, .row_tables #tabs #tabs-7 .rozpis_zima td, .row_tables #tabs #tabs-8 .rozpis_zima td, .row_tables #tabs #tabs-9 .rozpis_zima td, .row_tables #tabs_2 #tabs-1 .rozpis_zima td, .row_tables #tabs_2 #tabs-2 .rozpis_zima td, .row_tables #tabs_2 #tabs-3 .rozpis_zima td, .row_tables #tabs_2 #tabs-4 .rozpis_zima td, .row_tables #tabs_2 #tabs-5 .rozpis_zima td, .row_tables #tabs_2 #tabs-6 .rozpis_zima td, .row_tables #tabs_2 #tabs-7 .rozpis_zima td, .row_tables #tabs_2 #tabs-8 .rozpis_zima td, .row_tables #tabs_2 #tabs-9 .rozpis_zima td, .row_tables #tabs_3 #tabs-1 .rozpis_zima td, .row_tables #tabs_3 #tabs-2 .rozpis_zima td, .row_tables #tabs_3 #tabs-3 .rozpis_zima td, .row_tables #tabs_3 #tabs-4 .rozpis_zima td, .row_tables #tabs_3 #tabs-5 .rozpis_zima td, .row_tables #tabs_3 #tabs-6 .rozpis_zima td, .row_tables #tabs_3 #tabs-7 .rozpis_zima td, .row_tables #tabs_3 #tabs-8 .rozpis_zima td, .row_tables #tabs_3 #tabs-9 .rozpis_zima td, .row_tables #tabs_4 #tabs-1 .rozpis_zima td, .row_tables #tabs_4 #tabs-2 .rozpis_zima td, .row_tables #tabs_4 #tabs-3 .rozpis_zima td, .row_tables #tabs_4 #tabs-4 .rozpis_zima td, .row_tables #tabs_4 #tabs-5 .rozpis_zima td, .row_tables #tabs_4 #tabs-6 .rozpis_zima td, .row_tables #tabs_4 #tabs-7 .rozpis_zima td, .row_tables #tabs_4 #tabs-8 .rozpis_zima td, .row_tables #tabs_4 #tabs-9 .rozpis_zima td, .row_tables #tabs_5 #tabs-1 .rozpis_zima td, .row_tables #tabs_5 #tabs-2 .rozpis_zima td, .row_tables #tabs_5 #tabs-3 .rozpis_zima td, .row_tables #tabs_5 #tabs-4 .rozpis_zima td, .row_tables #tabs_5 #tabs-5 .rozpis_zima td, .row_tables #tabs_5 #tabs-6 .rozpis_zima td, .row_tables #tabs_5 #tabs-7 .rozpis_zima td, .row_tables #tabs_5 #tabs-8 .rozpis_zima td, .row_tables #tabs_5 #tabs-9 .rozpis_zima td {
-      border: 1px dotted #dcdcdc;
-      padding: 8px; }
+      border: 1px dotted rgba(220, 220, 220, 0.35);
+      padding: 5px; }
   .row_tables #tabs {
     background: white;
     width: 90%;
@@ -66,7 +66,7 @@
       display: block;
       outline: none;
       text-align: center;
-      background: #343333; }
+      background: #6D6A6A; }
       .row_tables #tabs ul li {
         display: inline-table;
         padding: 10px;
@@ -74,9 +74,12 @@
         .row_tables #tabs ul li a {
           text-decoration: none;
           color: white;
-          outline: none; }
+          outline: none;
+          transition-property: color;
+          transition-duration: 0.6s;
+          transition-delay: 0s,0.25s,0.45s,0.7s; }
         .row_tables #tabs ul li a:hover {
-          color: #d14334; }
+          color: #b4b4b4; }
   .row_tables #tabs_2 {
     background: white;
     width: 90%;
@@ -90,7 +93,7 @@
       display: block;
       outline: none;
       text-align: center;
-      background: #343333; }
+      background: #6D6A6A; }
       .row_tables #tabs_2 ul li {
         display: inline-table;
         padding: 10px;
@@ -98,9 +101,12 @@
         .row_tables #tabs_2 ul li a {
           text-decoration: none;
           color: white;
-          outline: none; }
+          outline: none;
+          transition-property: color;
+          transition-duration: 0.6s;
+          transition-delay: 0s,0.25s,0.45s,0.7s; }
         .row_tables #tabs_2 ul li a:hover {
-          color: #d14334; }
+          color: #b4b4b4; }
   .row_tables #tabs_3 {
     background: white;
     width: 90%;
@@ -114,7 +120,7 @@
       display: block;
       outline: none;
       text-align: center;
-      background: #343333; }
+      background: #6D6A6A; }
       .row_tables #tabs_3 ul li {
         display: inline-table;
         padding: 10px;
@@ -122,9 +128,12 @@
         .row_tables #tabs_3 ul li a {
           text-decoration: none;
           color: white;
-          outline: none; }
+          outline: none;
+          transition-property: color;
+          transition-duration: 0.6s;
+          transition-delay: 0s,0.25s,0.45s,0.7s; }
         .row_tables #tabs_3 ul li a:hover {
-          color: #d14334; }
+          color: #b4b4b4; }
   .row_tables #tabs_4 {
     background: white;
     width: 90%;
@@ -138,7 +147,7 @@
       display: block;
       outline: none;
       text-align: center;
-      background: #343333; }
+      background: #6D6A6A; }
       .row_tables #tabs_4 ul li {
         display: inline-table;
         padding: 10px;
@@ -146,9 +155,12 @@
         .row_tables #tabs_4 ul li a {
           text-decoration: none;
           color: white;
-          outline: none; }
+          outline: none;
+          transition-property: color;
+          transition-duration: 0.6s;
+          transition-delay: 0s,0.25s,0.45s,0.7s; }
         .row_tables #tabs_4 ul li a:hover {
-          color: #d14334; }
+          color: #b4b4b4; }
   .row_tables #tabs_5 {
     background: white;
     width: 90%;
@@ -162,7 +174,7 @@
       display: block;
       outline: none;
       text-align: center;
-      background: #343333; }
+      background: #6D6A6A; }
       .row_tables #tabs_5 ul li {
         display: inline-table;
         padding: 10px;
@@ -170,8 +182,11 @@
         .row_tables #tabs_5 ul li a {
           text-decoration: none;
           color: white;
-          outline: none; }
+          outline: none;
+          transition-property: color;
+          transition-duration: 0.6s;
+          transition-delay: 0s,0.25s,0.45s,0.7s; }
         .row_tables #tabs_5 ul li a:hover {
-          color: #d14334; }
+          color: #b4b4b4; }
 
 /*# sourceMappingURL=style-bowling-league.css.map */
