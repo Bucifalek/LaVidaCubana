@@ -225,8 +225,14 @@ p.created {
   .flexible_content {
     width: 95%; }
 
-  #instagram_box {
-    width: 100%; } }
+  #instagram_box .four_sections {
+    height: auto; }
+  #instagram_box article {
+    width: 25%; }
+  #instagram_box #insta_img_2 {
+    clear: both; }
+  #instagram_box #insta_img_3, #instagram_box #insta_img_4 {
+    float: left; } }
 @media screen and (max-width: 950px) {
   .adress .seznam {
     width: 70%; } }
@@ -236,7 +242,7 @@ p.created {
     font-size: 2.5em;
     padding-top: 25px;
     letter-spacing: 1.5px; } }
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 680px) {
   .adress .seznam {
     width: 100%; } }
 
