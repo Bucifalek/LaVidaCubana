@@ -137,41 +137,6 @@ class basePresenter extends Nette\Application\UI\Presenter
 					'Přidat jednotlivce|user_add' => 'Individual:add',
 					'Tabulka jednotlivců|log_book' => 'Individual:list',
 				],
-
-				/*'Rozpis ligy' => [
-					'Jarní část|flower' => [
-						'Rozpis|edit' => 'League:draft',
-						'Jednotlivá kola|inbox' => 'League:rounds',
-						'Přidat kolo|pushpin' => 'League:add',
-					],
-
-					'Letní část|sun' => [
-						'Rozpis|edit' => 'League:draft',
-						'Jednotlivá kola|inbox' => 'League:rounds',
-						'Přidat kolo|pushpin' => 'League:add',
-					],
-
-					'Podzimní část|leaf' => [
-						'Rozpis|edit' => 'League:draft',
-						'Jednotlivá kola|inbox' => 'League:rounds',
-						'Přidat kolo|pushpin' => 'League:add',
-					],
-					'Zimní část|snowflake' => [
-						'Rozpis|edit' => 'League:draft',
-						'Jednotlivá kola|inbox' => 'League:rounds',
-						'Přidat kolo|pushpin' => 'League:add',
-					],
-				],*/
-				/*
-				'Výsledky|charts' => [
-					'Přidat výsledek|new_window' => 'Result:add',
-					'Výsledky zápasů|charts' => [
-						'Jarní část|flower' => 'Result:spring',
-						'Letní část|sun' => 'Result:summer',
-						'Podzimní část|leaf' => 'Result:fall',
-						'Zimní část|snowflake' => 'Result:winter',
-					],
-				]*/
 			]);
 
 		$menu->addSection('Rozpis ligy',
