@@ -202,6 +202,8 @@ nav {
       width: 7%; }
 
 #map-canvas {
+  background: url("../img/bowling/mapa.png") no-repeat;
+  background-size: cover;
   width: 100%;
   height: 460px; }
 
@@ -228,26 +230,37 @@ p.created {
     padding-bottom: 20px; }
 
   #instagram_box .four_sections {
-    width: 720px;
-    height: 720px !important;
+    width: 600px;
+    height: 600px !important;
     margin: 0 auto !important; }
   #instagram_box article {
     width: 25%; }
   #instagram_box .insta_img_1, #instagram_box .insta_img_2 {
     float: left;
-    height: 360px;
-    width: 360px; }
+    height: 300px;
+    width: 300px; }
   #instagram_box .insta_img_3, #instagram_box .insta_img_4 {
     float: left;
-    height: 360px;
-    width: 360px; }
+    height: 300px;
+    width: 300px; }
   #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover,
   #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
-    line-height: 360px; } }
+    line-height: 300px; } }
 @media screen and (max-width: 950px) {
   .adress .seznam {
-    width: 70%; } }
+    width: 70%;
+    background: rgba(255, 255, 255, 0.75); } }
 @media screen and (max-width: 850px) {
+  .greybox .bowling_text_default, .greybox_2 .bowling_text_default {
+    font-size: 1em !important; }
+    .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info {
+      font-size: 1em !important; }
+
+  .instagram_box_2 .half_blok .half_one, .instagram_box_2 .half_blok .half_two {
+    font-size: 1em !important; }
+    .instagram_box_2 .half_blok .half_one .variant_1, .instagram_box_2 .half_blok .half_two .variant_1 {
+      font-size: 1em !important; }
+
   .logo {
     font-family: bittersweet;
     font-size: 2.5em;
@@ -257,35 +270,36 @@ p.created {
   .category_title {
     padding-bottom: 20px; }
 
-  #instagram_box .four_sections {
-    width: 410px;
-    height: 1640px !important;
-    margin: 0 auto; }
-  #instagram_box article {
-    width: 25%; }
-  #instagram_box .insta_img_1, #instagram_box .insta_img_2 {
-    float: left;
-    height: 410px;
-    width: 410px;
-    margin: 0 auto;
-    margin-bottom: 15px; }
-  #instagram_box .insta_img_3, #instagram_box .insta_img_4 {
-    float: left;
-    height: 410px;
-    width: 410px;
-    margin: 0 auto; }
-  #instagram_box .insta_img_3 {
-    margin-bottom: 15px; }
-  #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover,
-  #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
-    line-height: 410px; }
-
   .time_cenik_info .time_info {
     width: 100%; }
   .time_cenik_info .cenik_info {
     width: 100%; } }
 @media screen and (max-width: 680px) {
   .adress .seznam {
-    width: 100%; } }
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75); }
+
+  #instagram_box .four_sections {
+    width: 300px;
+    height: 1200px !important;
+    margin: 0 auto; }
+  #instagram_box article {
+    width: 25%; }
+  #instagram_box .insta_img_1, #instagram_box .insta_img_2 {
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 15px; }
+  #instagram_box .insta_img_3, #instagram_box .insta_img_4 {
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto; }
+  #instagram_box .insta_img_3 {
+    margin-bottom: 15px; }
+  #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover,
+  #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
+    line-height: 300px; } }
 
 /*# sourceMappingURL=style-bowling.css.map */
