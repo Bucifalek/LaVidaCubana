@@ -22,23 +22,23 @@
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
     <div id="page">
-           <nav>
-               <div class="flexible_content">
-                   <h1 class="logo">La VIDA Cubana</h1>
-                   <ul class="mainmenu">
-                       <li><a n:href="Bowling:default">Všeobecné informace</a></li>
-                       <li><a n:href="Bowling:play">Chci si zahrát</a></li>
-                       <li><a n:href="Bowling:league">Bowlingová liga</a></li>
-                   </ul>
-               </div>
-           </nav>
-           <div class="page_title">
-                <div class="flexible_content">
-                    <h2 class="page_title_h">{include title}</h2>
-                </div>
-           </div>
+        <nav>
+            <div class="flexible_content">
+                <h1 class="logo">La VIDA Cubana</h1>
+                <ul class="mainmenu">
+                    <li><a n:href="Bowling:default">Všeobecné informace</a></li>
+                    <li><a n:href="Bowling:play">Chci si zahrát</a></li>
+                    <li><a n:href="Bowling:league">Bowlingová liga</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page_title">
+             <div class="flexible_content">
+                 <h2 class="page_title_h">{include title} | <a n:href="Homepage:default" class="back">Zpět na rozcestí</a></h2>
+             </div>
+        </div>
 
-	{include content}
+	    {include content}
 
 	    <footer>
              <div class="flexible_content">

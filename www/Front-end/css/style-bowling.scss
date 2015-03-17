@@ -39,12 +39,27 @@ html,body{
   width: 100%;
   background: $darkGrey;
   border-bottom: 1px solid #303030;
+  color: $red;
 
   .page_title_h{
+    width: 50%;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: $red;
     font-size: 18px;
+  }
+  .back{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    color: $red;
+    text-decoration: none;
+
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s;
+  }
+  .back:hover{
+    color: #a7382b;
   }
 }
 
@@ -94,29 +109,28 @@ nav{
 .mainmenu{
   float: right;
   height: auto;
-}
 
-.mainmenu li{
-  display: inline;
-  list-style: none;
-}
+  li{
+    display: inline;
+    list-style: none;
+  }
 
-.mainmenu a{
-  color: $font-color;
-  text-decoration: none;
-  line-height: 100px;
-  font-size: 14px;
-  padding: 15px;
+  a{
+    color: $font-color;
+    text-decoration: none;
+    line-height: 100px;
+    font-size: 14px;
+    padding: 15px;
 
-  border-bottom: 2px solid #d14335;
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s;
+  }
 
-  transition-property: border-bottom-color;
-  transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
-}
-
-.mainmenu a:hover{
-  border-color: $grey;
+  a:hover{
+    color: #c8c8c8;
+    font-weight: bold;
+  }
 }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
@@ -249,21 +263,13 @@ nav{
     color: $darkGrey;
 
     ul{
-      margin-top: 50px;
+      margin-top: 70px;
       margin-left: 40px;
     }
     li{
       list-style: none;
       padding-bottom: 15px;
       font-size: 14px;
-    }
-    .facebook{
-      margin-left: 40px;
-      margin-top: 10px;
-      width: 7%;
-    }
-    .instagram{
-      width: 7%;
     }
   }
 }
@@ -280,7 +286,7 @@ nav{
 footer {
   width: 100%;
   float: left;
-  height: 40px;
+  height: auto;
   bottom: 0;
   background: #000000;
 }
