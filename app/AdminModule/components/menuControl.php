@@ -10,7 +10,7 @@ namespace App\AdminModule\Presenters;
 use Nette\Application\UI;
 use Tracy\Debugger;
 
-class menuControl extends UI\Control
+class MenuControl extends UI\Control
 {
 
 	private $sections;
@@ -28,7 +28,7 @@ class menuControl extends UI\Control
 	public function render()
 	{
 		$template = $this->template;
-		$template->setFile(__DIR__ . '/menuControl.latte');
+		$template->setFile(__DIR__ . '/MenuControl.latte');
 		$template->sections = $this->sections;
 
 		$template->wrapRoute = function ($arg) {
@@ -68,6 +68,28 @@ class menuControl extends UI\Control
 
 			return $parts[0];
 		};
+
+		$template->anyData = function ($arg) {
+			$exploded = explode(",", $arg);
+			if(count($exploded)>1) {
+				return true;
+			}
+
+			return false;
+		};
+
+		$template->parseLink = function($arg) {
+			$exploded = explode(",", $arg);
+
+			return trim($exploded[0]);
+		};
+		$template->parseData = function($arg) {
+			$exploded = explode(",", $arg);
+
+			return $exploded[1];
+		};
+
+
 
 		$template->render();
 	}

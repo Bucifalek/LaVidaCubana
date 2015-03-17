@@ -8,7 +8,7 @@ use Nette,
 use Tracy\Debugger;
 use Tracy\Dumper;
 
-final class supportPresenter extends BasePresenter
+final class SupportPresenter extends BasePresenter
 {
 
 	private $userEmail;

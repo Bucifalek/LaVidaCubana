@@ -14,7 +14,7 @@ use Tracy\Debugger;
  * Class BranchManager
  * @package App\AdminModule\Model
  */
-class branchManager extends Nette\Object
+class BranchManager extends Nette\Object
 {
 	/**
 	 *

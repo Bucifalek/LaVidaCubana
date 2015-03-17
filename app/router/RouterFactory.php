@@ -31,51 +31,62 @@ class RouterFactory
         $prefix = "";
         // Admin Router
 
-		// Menu
-		$router[] = new Route($prefix . 'admin/menu', 'Admin:menu:all');
-		$router[] = new Route($prefix . 'admin/menu/seznam', 'Admin:menu:all');
-		$router[] = new Route($prefix . 'admin/menu/pridat', 'Admin:menu:addMenu');
-		$router[] = new Route($prefix . 'admin/menu/struktura', 'Admin:menu:structure');
-		$router[] = new Route($prefix . 'admin/menu/upravit/[<id>]', 'Admin:menu:edit');
-		$router[] = new Route($prefix . 'admin/menu/pridat-sekci/[<id>]', 'Admin:menu:addSection');
-		$router[] = new Route($prefix . 'admin/menu/pridat-položku/[<id>]', 'Admin:menu:addItem');
+		$router[] = new Route($prefix . 'admin/teamy[/<action>]', 'Admin:Team:*');
+		$router[] = new Route($prefix . 'admin/jednotlivci[/<action>]', 'Admin:Individual:*');
+		$router[] = new Route($prefix . 'admin/liga[/<action>]', 'Admin:League:*');
+		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
 
-        // Support
-        $router[] = new Route($prefix . 'admin/podpora', 'Admin:support:contact');
 
-		// Test
-        $router[] = new Route($prefix . 'admin/test/odeslat-email', 'Admin:test:sendEmail');
+
+
+
+
 
         // nastaveni uctu
-        $router[] = new Route($prefix . 'admin/muj-ucet/', 'Admin:myProfile:default');
+        $router[] = new Route($prefix . 'admin/muj-ucet/', 'Admin:MyProfile:default');
 
         // Plugin 'Článek'
-        $router[] = new Route($prefix . 'admin/clanek/pridat/[<id>]', 'Admin:manageArticle:add');
+        $router[] = new Route($prefix . 'admin/clanek/pridat/[<id>]', 'Admin:ManageArticle:add');
 
         // Obsah
-        $router[] = new Route($prefix . 'admin/obsah/pridat-polozku/', 'Admin:content:addContent');
-        $router[] = new Route($prefix . 'admin/obsah/vsechny-polozky/', 'Admin:content:allContent');
+        $router[] = new Route($prefix . 'admin/obsah/pridat-polozku/', 'Admin:Content:addContent');
+        $router[] = new Route($prefix . 'admin/obsah/vsechny-polozky/', 'Admin:Content:allContent');
 
-        // Struktura
-        $router[] = new Route($prefix . 'admin/struktura-stranek/', 'Admin:structure:default');
+
+
+
+
+
+
+
+
+
 
         // Login
-        $router[] = new Route($prefix . 'admin/zapomenute-heslo', 'Admin:sign:forgot');
-        $router[] = new Route($prefix . 'admin/prihlasit-se', 'Admin:sign:in');
+        $router[] = new Route($prefix . 'admin/zapomenute-heslo', 'Admin:Sign:forgot');
+        $router[] = new Route($prefix . 'admin/prihlasit-se', 'Admin:Sign:in');
 
         // Logout
-        $router[] = new Route($prefix . 'admin/odhlasit-se', 'Admin:sign:out');
+        $router[] = new Route($prefix . 'admin/odhlasit-se', 'Admin:Sign:out');
 
         // Spravci
-        $router[] = new Route($prefix . 'admin/spravci/', 'Admin:users:list');
-        $router[] = new Route($prefix . 'admin/spravci/pridat/', 'Admin:users:add');
-        $router[] = new Route($prefix . 'admin/spravci/upravit/[<userID>]', 'Admin:users:edit');
-        $router[] = new Route($prefix . 'admin/spravci/seznam/', 'Admin:users:list');
+        $router[] = new Route($prefix . 'admin/spravci/', 'Admin:Users:list');
+        $router[] = new Route($prefix . 'admin/spravci/pridat/', 'Admin:Users:add');
+        $router[] = new Route($prefix . 'admin/spravci/upravit/[<userID>]', 'Admin:Users:edit');
+        $router[] = new Route($prefix . 'admin/spravci/seznam/', 'Admin:Users:list');
 
         // Dashboard
-        $router[] = new Route($prefix . 'admin/', 'Admin:dashboard:default');
+        $router[] = new Route($prefix . 'admin/', 'Admin:Dashboard:default');
 
-        // Front Router
+		// Support
+		$router[] = new Route($prefix . 'admin/podpora', 'Admin:Support:contact');
+
+
+
+
+
+
+		// Front Router
         $router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');
         $router[] = new Route($prefix . 'valasske-mezirici/', 'Web:Valmez:default');
         $router[] = new Route($prefix . 'bowling/', 'Web:Bowling:default');

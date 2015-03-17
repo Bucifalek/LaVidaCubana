@@ -10,7 +10,8 @@ namespace NetteModule;
 use Nette,
 	Nette\Application,
 	Nette\Application\Responses,
-	Nette\Http;
+	Nette\Http,
+	Latte;
 
 
 /**
@@ -45,7 +46,7 @@ class MicroPresenter extends Nette\Object implements Application\IPresenter
 
 	/**
 	 * Gets the context.
-	 * @return \SystemContainer|Nette\DI\Container
+	 * @return Nette\DI\Container
 	 */
 	public function getContext()
 	{
@@ -93,12 +94,12 @@ class MicroPresenter extends Nette\Object implements Application\IPresenter
 			$response = array($response, array());
 		}
 		if (is_array($response)) {
-			$response = $this->createTemplate()->setParameters($response[1]);
-			if ($response[0] instanceof \SplFileInfo) {
-				$response->setFile($response[0]);
-			} else {
-				$response->setSource($response[0]);
+			list($templateSource, $templateParams) = $response;
+			$response = $this->createTemplate()->setParameters($templateParams);
+			if (!$templateSource instanceof \SplFileInfo) {
+				$response->getLatte()->setLoader(new Latte\Loaders\StringLoader);
 			}
+			$response->setFile($templateSource);
 		}
 		if ($response instanceof Application\UI\ITemplate) {
 			return new Responses\TextResponse($response);
