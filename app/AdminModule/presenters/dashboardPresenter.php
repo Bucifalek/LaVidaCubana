@@ -10,7 +10,7 @@ use Nette,
  * Class HomepagePresenter
  * @package App\AdminModule\Presenters
  */
-final class dashboardPresenter extends BasePresenter
+final class DashboardPresenter extends BasePresenter
 {
 
 }

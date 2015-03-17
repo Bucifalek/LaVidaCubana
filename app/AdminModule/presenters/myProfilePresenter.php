@@ -13,7 +13,7 @@ use Nette, App\AdminModule\Model;
  * Class MyProfilePresenter
  * @package App\AdminModule\Presenters
  */
-final class myProfilePresenter extends BasePresenter
+final class MyProfilePresenter extends BasePresenter
 {
 
 	/**

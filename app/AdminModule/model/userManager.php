@@ -14,7 +14,7 @@ use Nette\Security as NS;
  * Class UserManager
  * @package App\AdminModule\Model
  */
-class userManager extends Nette\Object
+class UserManager extends Nette\Object
 {
 
 	const TABLE_USERS = "users";

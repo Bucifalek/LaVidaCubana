@@ -13,7 +13,7 @@ use Nette;
  * Class menuManager
  * @package App\AdminModule\Model
  */
-class menuManager extends Nette\Object
+class MenuManager extends Nette\Object
 {
 
 	/**

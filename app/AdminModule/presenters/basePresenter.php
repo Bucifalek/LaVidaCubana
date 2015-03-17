@@ -19,7 +19,7 @@ Debugger::$maxLen = 500; // default: 150
  * Class BasePresenter
  * @package App\AdminModule\Presenters
  */
-class basePresenter extends Nette\Application\UI\Presenter
+class BasePresenter extends Nette\Application\UI\Presenter
 {
 	/**
 	 * @var Nette\Database\Context
@@ -101,8 +101,8 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$this->template->branchName = $this->branchManager->getCurrentName();
 
 		// This is way, how can neon params can be get
-		$config = new \SystemContainer();
-		$config = $config->parameters;
+		//$config = new \SystemContainer();
+		//$config = $config->parameters;
 		//Debugger::barDump($config);
 	}
 
@@ -125,7 +125,7 @@ class basePresenter extends Nette\Application\UI\Presenter
 		/**
 		 * Only glyphicons icons in menu
 		 */
-		$menu = new menuControl;
+		$menu = new MenuControl;
 		$menu->addSection('Bowlingová liga',
 			[
 				'Týmy|star' => [
@@ -189,20 +189,20 @@ class basePresenter extends Nette\Application\UI\Presenter
 						'Přidat kolo|pushpin' => 'League:add',
 					],
 				],
-				'Přidat další rok|pushpin' => 'Rozpis:Add',
+				'Přidat další rok|pushpin' => 'League:addYear',
 
-		]);
+			]);
 
 		$menu->addSection('Výsledky',
 			[
-				'Výsledky 2014|charts' => [
+				/*'Výsledky 2014|charts' => [
 					'Výsledky zápasů|charts' => [
-						'Jarní část|flower' => 'Result:spring',
-						'Letní část|sun' => 'Result:summer',
-						'Podzimní část|leaf' => 'Result:fall',
-						'Zimní část|snowflake' => 'Result:winter',
+						'Jarní část|flower' => 'Result:spring, 2014',
+						'Letní část|sun' => 'Result:summer, 2014',
+						'Podzimní část|leaf' => 'Result:fall, 2014',
+						'Zimní část|snowflake' => 'Result:winter, 2014',
 					]
-				],
+				],*/
 				'Výsledky 2015|charts' => [
 					'Výsledky zápasů|charts' => [
 						'Jarní část|flower' => 'Result:spring',
@@ -213,7 +213,6 @@ class basePresenter extends Nette\Application\UI\Presenter
 				],
 				'Přidat výsledek|new_window' => 'Result:add',
 			]);
-
 
 
 		/*
@@ -227,10 +226,10 @@ class basePresenter extends Nette\Application\UI\Presenter
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[
-					'Přidat|user_add' => 'users:add',
-					'Seznam správců|adress_book' => 'users:list'
+					'Přidat|user_add' => 'Users:add',
+					'Seznam správců|adress_book' => 'Users:list'
 				],
-			'Kontaktovat podporu|bug' => 'support:contact'
+			'Kontaktovat podporu|bug' => 'Support:contact'
 		]);
 
 		return $menu;

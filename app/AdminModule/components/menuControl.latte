@@ -5,10 +5,17 @@
 			{foreach $firstLevelTarget as $secondLevelText => $secondLevelTarget}
 				{* 1.First level *}
 				<li n:if="!is_array($secondLevelTarget)"{ifCurrent $secondLevelTarget} class="active" {/ifCurrent}>
+					{if $anyData($secondLevelTarget)}
+					<a href="{plink $parseLink($secondLevelTarget), $parseData($secondLevelTarget)}">
+                    	<span class="glyphicons {$glyph($secondLevelText)}"></span>
+                    	<span class="sidebar-title">{$name($secondLevelText)}</span>
+                    </a>
+					{else}
 					<a href="{plink $secondLevelTarget}">
 						<span class="glyphicons {$glyph($secondLevelText)}"></span>
 						<span class="sidebar-title">{$name($secondLevelText)}</span>
 					</a>
+					{/if}
 				</li>
 
 				{* 2.Second level *}
@@ -23,7 +30,11 @@
 						{* 2.Second level *}
 						{if !is_array($thirdLevelTarget)}
 							<li{ifCurrent $thirdLevelTarget} class="active" {/ifCurrent}>
-								<a href="{plink $thirdLevelTarget}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
+								{if $anyData($thirdLevelTarget)}
+									<a href="{plink $parseLink($thirdLevelTarget), $parseData($thirdLevelTarget)}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
+								{else}
+									<a href="{plink $thirdLevelTarget}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
+								{/if}
 							</li>
 						{elseif is_array($thirdLevelTarget)}
 						{* 3.Third level *}
@@ -34,7 +45,11 @@
 								</a>
 								<ul class="nav sub-nav sub-two" n:inner-foreach="$thirdLevelTarget as $fourthLevelText => $fourthLevelTarget">
 									<li{ifCurrent $fourthLevelTarget} class="active" {/ifCurrent}>
-										<a href="{plink $fourthLevelTarget}"><span class="glyphicons {$glyph($fourthLevelText)}"></span>{$name($fourthLevelText)} </a>
+										{if $anyData($fourthLevelTarget)}
+                                        	<a href="{plink $parseLink($fourthLevelTarget), $parseData($fourthLevelTarget)}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
+                                        {else}
+                                        	<a href="{plink $fourthLevelTarget}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
+                                        {/if}
 									</li>
 								</ul>
 							</li>
