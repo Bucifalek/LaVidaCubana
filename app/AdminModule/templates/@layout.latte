@@ -109,7 +109,7 @@
 					{/foreach}
 					<li class="divider"></li>
 					<li>
-						<a n:href="Structure:default" class="fw600">
+						<a href="#structure" class="fw600">
 							<span class="fa fa-sitemap pr5"></span> Struktura stránek </a>
 					</li>
 				</ul>
@@ -143,7 +143,7 @@
 			<div class="topbar-left">
 				<ol class="breadcrumb">
 					<li class="crumb-active">
-						<a n:href="Homepage:default">{ifset #nav_module} {include #nav_module} {else} {$branchName}{/ifset}</a>
+						<a n:href="Dashboard:default">{ifset #nav_module} {include #nav_module} {else} {$branchName}{/ifset}</a>
 					</li>
 					{ifset #nav_presenter}
 					<li class="crumb-link">

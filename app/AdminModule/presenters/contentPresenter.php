@@ -15,7 +15,7 @@ use Nette,
  * Class ContentPresenter
  * @package App\AdminModule\Presenters
  */
-final class contentPresenter extends BasePresenter
+final class ContentPresenter extends BasePresenter
 {
 	/**
 	 * @var Nette\Database\Context

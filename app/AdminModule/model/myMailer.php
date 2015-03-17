@@ -16,7 +16,7 @@ use Nette,
  * Class MyMailer
  * @package App\AdminModule\Model
  */
-class myMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
+class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 {
 
 	/**

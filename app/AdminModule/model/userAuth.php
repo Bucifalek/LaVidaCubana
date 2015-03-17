@@ -14,7 +14,7 @@ use Nette\Security as NS;
  * Class userAuth
  * @package App\AdminModule\Model
  */
-class userAuth extends Nette\Object implements NS\IAuthenticator
+class UserAuth extends Nette\Object implements NS\IAuthenticator
 {
 
 	/**

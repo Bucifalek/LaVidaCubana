@@ -17,7 +17,7 @@ use App\AdminModule\Model,
  * Class UsersPresenter
  * @package App\AdminModule\Presenters
  */
-final class usersPresenter extends BasePresenter
+final class UsersPresenter extends BasePresenter
 {
 	/**
 	 * @var Context
