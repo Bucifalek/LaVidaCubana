@@ -23,7 +23,11 @@ html, body {
   padding: 0; }
 
 body {
+<<<<<<< HEAD
+  background: url("../img/background/4.jpg") no-repeat top;
+=======
   background: url("../img/background/3.jpg") no-repeat center;
+>>>>>>> HDGroup/master
   background-size: cover;
   font-family: 'Open Sans', sans-serif; }
 

@@ -35,8 +35,8 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/jednotlivci[/<action>]', 'Admin:Individual:*');
 		$router[] = new Route($prefix . 'admin/liga[/<action>]', 'Admin:League:*');
 		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
-
-
+		$router[] = new Route($prefix . 'admin/novinky[/<action>]', 'Admin:News:*');
+		$router[] = new Route($prefix . 'admin/informace[/<action>]', 'Admin:Info:*');
 
 
 
@@ -44,23 +44,6 @@ class RouterFactory
 
         // nastaveni uctu
         $router[] = new Route($prefix . 'admin/muj-ucet/', 'Admin:MyProfile:default');
-
-        // Plugin 'Článek'
-        $router[] = new Route($prefix . 'admin/clanek/pridat/[<id>]', 'Admin:ManageArticle:add');
-
-        // Obsah
-        $router[] = new Route($prefix . 'admin/obsah/pridat-polozku/', 'Admin:Content:addContent');
-        $router[] = new Route($prefix . 'admin/obsah/vsechny-polozky/', 'Admin:Content:allContent');
-
-
-
-
-
-
-
-
-
-
 
         // Login
         $router[] = new Route($prefix . 'admin/zapomenute-heslo', 'Admin:Sign:forgot');

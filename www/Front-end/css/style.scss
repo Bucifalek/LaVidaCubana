@@ -34,14 +34,14 @@ html,body{
 }
 
 body{
-  background: url("../img/background/3.jpg") no-repeat center;
+  background: url("../img/background/4.jpg") no-repeat top;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
 }
 
 .section-connection{
-  height: 45%;
-  min-height: 45%;
+  height: 40%;
+  min-height: 40%;
 }
 
 .arrow{
@@ -87,8 +87,8 @@ body{
 
 .logo-block{
   width: 33.333%;
-  height: 55%;
-  min-height: 55%;
+  height: 60%;
+  min-height: 60%;
   background: url("../img/textures/pattern.png") rgba(52, 51, 51, 0.41);
   margin: 0 auto;
 
@@ -101,7 +101,7 @@ body{
     text-shadow: 1px 2px rgba(0, 0, 0, 1);
 
     margin: 0;
-    padding-top: 140px;
+    padding-top: 210px;
   }
 
   h2{
@@ -120,7 +120,7 @@ body{
 /*  SEKCE 2 - ROZNOV */
 
 .roznov-block{
-  background: rgba(52, 51, 51, 0.78);
+  background: rgba(52, 51, 51, 0.88);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -162,7 +162,7 @@ body{
 
       h3{
         font-family: 'Open Sans', sans-serif;
-        font-size: 0.8vw;
+        font-size: 1vw;
         padding: 15px;
         color: $red;
         text-shadow: none;
@@ -176,7 +176,7 @@ body{
 /*  SEKCE 3 - VALMEZ */
 
 .valmez-block{
-  background: rgba(209, 67, 52, 0.78);
+  background: rgba(209, 67, 52, 0.88);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -217,7 +217,7 @@ body{
 
       h3{
         font-family: 'Open Sans', sans-serif;
-        font-size: 0.8vw;
+        font-size: 1vw;
         padding: 15px;
         color: white;
         text-shadow: none;
@@ -231,7 +231,7 @@ body{
 /*  SEKCE 4 - BOWLING */
 
 .bowling-block{
-  background: rgba(191, 191, 191, 0.78);
+  background: rgba(191, 191, 191, 0.88);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -273,7 +273,7 @@ body{
 
       h3{
         font-family: 'Open Sans', sans-serif;
-        font-size: 0.8vw;
+        font-size: 1vw;
         padding: 15px;
         color: $darkGrey;
         text-shadow: none;
@@ -400,6 +400,48 @@ body{
           font-size: 3vw;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-height: 768px) {
+  .logo-block{
+
+    h1{
+      padding-top: 130px;
+    }
+  }
+  .roznov-block{
+
+    h2{
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+       font-size: 1.3vw;
+    }
+  }
+  .valmez-block{
+
+    h2{
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+      font-size: 1.3vw;
+    }
+  }
+  .bowling-block{
+
+    h2{
+      padding-top: 20px;
+      font-size: 2.7vw;
+      letter-spacing: 5px;
+    }
+    p{
+      font-size: 1.3vw;
     }
   }
 }
