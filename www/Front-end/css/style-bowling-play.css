@@ -18,68 +18,66 @@
     list-style: none; }
 
 /*  CENIK + PROVOZNI DOBA  */
+.time_cenik_info {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 80px; }
+
 .time_info, .cenik_info {
   width: 50%;
   height: auto;
   table-layout: fixed;
   position: relative;
-  top: 30px;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  top: 30px; }
 
 .time_info {
   float: left; }
 
 .time_info td {
   width: 50%;
-  height: 30px;
-  font-weight: bold; }
+  height: 30px; }
 
 .cenik_info td {
   width: 33%;
-  height: 30px;
-  font-weight: bold; }
+  height: 30px; }
 
 .tab_title {
-  font-size: 1.3em;
+  font-size: 25px;
   color: #d14334; }
 
 /*  HALF BLOKY  */
 .half_blok {
   width: 100%;
-  height: 340px;
-  min-height: 100%; }
+  height: auto; }
   .half_blok .half_one {
     background: white;
-    width: 50%;
-    height: 340px;
-    float: left; }
+    width: 100%;
+    height: auto; }
     .half_blok .half_one .variant_1 {
-      padding-top: 15px;
-      padding-left: 25px;
-      text-align: left;
-      line-height: 35px; }
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      text-align: center;
+      font-size: 1.1em; }
   .half_blok .half_two {
-    background: rgba(255, 255, 255, 0.51);
-    width: 50%;
-    height: 340px;
-    float: left; }
+    background: #f7f7f7;
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px; }
     .half_blok .half_two .variant_2 {
-      padding: 25px;
-      padding-top: 75px;
-      text-align: justify;
-      line-height: 24px; }
+      padding-bottom: 10px;
+      padding-top: 10px;
+      text-align: center;
+      font-size: 1.1em; }
   .half_blok h3 {
     font-family: "Open Sans";
-    font-size: 1.6em;
-    padding-left: 25px;
-    padding-top: 25px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 45px;
     color: #d14334; }
-  .half_blok .play_info_2 {
-    color: #343333;
-    word-spacing: 0px;
-    font-size: 17px; }
-    .half_blok .play_info_2 li {
-      list-style: none; }
 
 #instagram_box_2 {
   width: 100%;

@@ -71,7 +71,7 @@ html,body{
 .greybox_2{
   background:url('../img/bowling/texturka3.png');
   width: 100%;
-  height: 640px;
+  height: auto;
 }
 
 /*  MENU  */
@@ -150,7 +150,7 @@ nav{
 /*  INSTAGRAM GALERIE  */
 
 .category_title{
-  font-size: 1.6em;
+  font-size: 1.9em;
   text-align: center;
   line-height: 60px;
   color: $red;
@@ -158,8 +158,6 @@ nav{
 
 #instagram_box{
   width: 100%;
-  height: auto;
-  min-height: 30%;
   background:url('../img/bowling/texturka.jpg');
   padding-bottom: 70px;
   padding-top: 30px;
@@ -169,7 +167,7 @@ nav{
     width: 100%;
     height: 260px;
     margin-top: 40px;
-    display: inline-table;
+    display: block;
   }
 
   article{
@@ -203,7 +201,7 @@ nav{
 
     .insta_hover{
       color: white;
-      background: rgba(0,0,0,0);
+      background: rgba(0,0,0,0.2);
 
       transition-property: background;
       transition-duration: 0.6s;
@@ -271,6 +269,8 @@ nav{
 }
 
 #map-canvas {
+  background: url("../img/bowling/mapa.png") no-repeat;
+  background-size: cover;
   width: 100%;
   height: 460px;
 }
@@ -290,47 +290,138 @@ p.created {
   line-height: 40px;
   text-align: center;
 }
+
+/*  LOS RESPONSIVOS  */
+
 @media screen and (max-width: 1050px) {
 
-    .flexible_content {
-      width: 95%;
+  .flexible_content {
+    width: 95%;
+  }
+  .category_title{
+    padding-bottom: 20px;
+  }
+  #instagram_box {
+    .four_sections{
+      width: 600px;
+      height: 600px !important;
+      margin: 0 auto !important;
     }
-    #instagram_box {
-      .four_sections{
-        height: auto;
-      }
-      article {
-        width: 25%;
-      }
-      #insta_img_2{
-        clear: both;
-      }
-      #insta_img_3, #insta_img_4{
-        float: left;
+    article {
+      width: 25%;
+    }
+    .insta_img_1, .insta_img_2{
+      float: left;
+      height: 300px;
+      width: 300px;
+    }
+    .insta_img_3, .insta_img_4{
+      float: left;
+      height: 300px;
+      width: 300px;
+    }
+    .insta_img_1, .insta_img_2,
+    .insta_img_3, .insta_img_4{
+      .insta_hover{
+        .on_hover{
+          line-height: 300px;
+        }
       }
     }
+  }
 }
 
 @media screen and (max-width: 950px){
   .adress{
     .seznam {
       width: 70%;
+      background: rgba(255, 255, 255, 0.75);
     }
   }
 }
 
 @media screen and (max-width: 850px) {
+  .greybox, .greybox_2{
+    .bowling_text_default{
+      font-size: 1em !important;
+      .play_info{
+        font-size: 1em !important;
+      }
+    }
+  }
+
+  .instagram_box_2{
+    .half_blok{
+      .half_one, .half_two{
+        font-size: 1em !important;
+        .variant_1{
+          font-size: 1em !important;
+        }
+      }
+    }
+  }
+
   .logo{
     font-family: bittersweet;
     font-size: 2.5em;
     padding-top: 25px;
     letter-spacing: 1.5px;
   }
+
+  .category_title{
+    padding-bottom: 20px;
+  }
+
+  .time_cenik_info{
+
+    .time_info{
+      width: 100%;
+    }
+    .cenik_info{
+      width: 100%;
+    }
+  }
 }
 @media screen and (max-width: 680px){
   .adress{
     .seznam {
       width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  #instagram_box {
+    .four_sections{
+      width: 300px;
+      height: 1200px !important;
+      margin: 0 auto;
+    }
+    article {
+      width: 25%;
+    }
+    .insta_img_1, .insta_img_2{
+      float: left;
+      height: 300px;
+      width: 300px;
+      margin: 0 auto;
+      margin-bottom: 15px;
+    }
+    .insta_img_3, .insta_img_4{
+      float: left;
+      height: 300px;
+      width: 300px;
+      margin: 0 auto;
+    }
+    .insta_img_3{
+      margin-bottom: 15px;
+    }
+    .insta_img_1, .insta_img_2,
+    .insta_img_3, .insta_img_4{
+      .insta_hover{
+        .on_hover{
+          line-height: 300px;
+        }
+      }
     }
   }
 }
