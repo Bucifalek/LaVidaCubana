@@ -23,13 +23,17 @@ html, body {
   padding: 0; }
 
 body {
+<<<<<<< HEAD
   background: url("../img/background/4.jpg") no-repeat top;
+=======
+  background: url("../img/background/3.jpg") no-repeat center;
+>>>>>>> HDGroup/master
   background-size: cover;
   font-family: 'Open Sans', sans-serif; }
 
 .section-connection {
-  height: 40%;
-  min-height: 40%; }
+  height: 45%;
+  min-height: 45%; }
 
 .arrow {
   display: block;
@@ -69,8 +73,8 @@ body {
 /*  SECTION 1 - LOGO  */
 .logo-block {
   width: 33.333%;
-  height: 60%;
-  min-height: 60%;
+  height: 55%;
+  min-height: 55%;
   background: url("../img/textures/pattern.png") rgba(52, 51, 51, 0.41);
   margin: 0 auto; }
   .logo-block h1 {
@@ -81,7 +85,7 @@ body {
     text-align: center;
     text-shadow: 1px 2px black;
     margin: 0;
-    padding-top: 210px; }
+    padding-top: 140px; }
   .logo-block h2 {
     color: white;
     font-family: bittersweet;
@@ -94,7 +98,7 @@ body {
 
 /*  SEKCE 2 - ROZNOV */
 .roznov-block {
-  background: rgba(52, 51, 51, 0.88);
+  background: rgba(52, 51, 51, 0.78);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -126,7 +130,7 @@ body {
       background: #282828; }
       .roznov-block .roznov-transparent #current-action-roznov h3 {
         font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
+        font-size: 0.8vw;
         padding: 15px;
         color: #d14334;
         text-shadow: none;
@@ -135,7 +139,7 @@ body {
 
 /*  SEKCE 3 - VALMEZ */
 .valmez-block {
-  background: rgba(209, 67, 52, 0.88);
+  background: rgba(209, 67, 52, 0.78);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -167,7 +171,7 @@ body {
       background: #b0382d; }
       .valmez-block .valmez-transparent #current-action-valmez h3 {
         font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
+        font-size: 0.8vw;
         padding: 15px;
         color: white;
         text-shadow: none;
@@ -176,7 +180,7 @@ body {
 
 /*  SEKCE 4 - BOWLING */
 .bowling-block {
-  background: rgba(191, 191, 191, 0.88);
+  background: rgba(191, 191, 191, 0.78);
   width: 33.333%;
   height: 100%;
   min-height: 100%;
@@ -209,7 +213,7 @@ body {
       background: #cdcdcd; }
       .bowling-block .bowling-transparent #current-action-bowling h3 {
         font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
+        font-size: 0.8vw;
         padding: 15px;
         color: #343333;
         text-shadow: none;
@@ -282,29 +286,5 @@ body {
       font-size: 10vw; }
     .bowling-block .bowling-transparent #current-action-bowling h3 {
       font-size: 3vw; } }
-@media screen and (max-height: 768px) {
-  .logo-block h1 {
-    padding-top: 130px; }
-
-  .roznov-block h2 {
-    padding-top: 20px;
-    font-size: 2.7vw;
-    letter-spacing: 5px; }
-  .roznov-block p {
-    font-size: 1.3vw; }
-
-  .valmez-block h2 {
-    padding-top: 20px;
-    font-size: 2.7vw;
-    letter-spacing: 5px; }
-  .valmez-block p {
-    font-size: 1.3vw; }
-
-  .bowling-block h2 {
-    padding-top: 20px;
-    font-size: 2.7vw;
-    letter-spacing: 5px; }
-  .bowling-block p {
-    font-size: 1.3vw; } }
 
 /*# sourceMappingURL=style.css.map */

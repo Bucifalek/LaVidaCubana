@@ -26,12 +26,24 @@ html, body {
 .page_title {
   width: 100%;
   background: #343333;
-  border-bottom: 1px solid #303030; }
+  border-bottom: 1px solid #303030;
+  color: #d14334; }
   .page_title .page_title_h {
+    width: 50%;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: #d14334;
     font-size: 18px; }
+  .page_title .back {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    color: #d14334;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s; }
+  .page_title .back:hover {
+    color: #a7382b; }
 
 #page {
   width: 100%;
@@ -74,24 +86,21 @@ nav {
 .mainmenu {
   float: right;
   height: auto; }
-
-.mainmenu li {
-  display: inline;
-  list-style: none; }
-
-.mainmenu a {
-  color: #fff;
-  text-decoration: none;
-  line-height: 100px;
-  font-size: 14px;
-  padding: 15px;
-  border-bottom: 2px solid #d14335;
-  transition-property: border-bottom-color;
-  transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s; }
-
-.mainmenu a:hover {
-  border-color: #dddddd; }
+  .mainmenu li {
+    display: inline;
+    list-style: none; }
+  .mainmenu a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 100px;
+    font-size: 14px;
+    padding: 15px;
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s,0.25s,0.45s,0.7s; }
+  .mainmenu a:hover {
+    color: #c8c8c8;
+    font-weight: bold; }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
 .bowling_text_default {
@@ -188,18 +197,12 @@ nav {
     height: 260px;
     color: #343333; }
     .adress .seznam ul {
-      margin-top: 50px;
+      margin-top: 70px;
       margin-left: 40px; }
     .adress .seznam li {
       list-style: none;
       padding-bottom: 15px;
       font-size: 14px; }
-    .adress .seznam .facebook {
-      margin-left: 40px;
-      margin-top: 10px;
-      width: 7%; }
-    .adress .seznam .instagram {
-      width: 7%; }
 
 #map-canvas {
   background: url("../img/bowling/mapa.png") no-repeat;
@@ -211,7 +214,7 @@ nav {
 footer {
   width: 100%;
   float: left;
-  height: 40px;
+  height: auto;
   bottom: 0;
   background: #000000; }
 
