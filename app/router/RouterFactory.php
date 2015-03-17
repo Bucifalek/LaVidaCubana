@@ -89,10 +89,14 @@ class RouterFactory
 		// Front Router
         $router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');
         $router[] = new Route($prefix . 'valasske-mezirici/', 'Web:Valmez:default');
+
+
         $router[] = new Route($prefix . 'bowling/', 'Web:Bowling:default');
         $router[] = new Route($prefix . 'bowling/chci-si-zahrat', 'Web:Bowling:play');
         $router[] = new Route($prefix . 'bowling/bowlingova-liga', 'Web:Bowling:league');
+
         $router[] = new Route($prefix . '', 'Web:Homepage:default');
+		$router[] = new Route($prefix . '<not-found>', 'Web:Homepage:notFound');
         return $router;
     }
 
