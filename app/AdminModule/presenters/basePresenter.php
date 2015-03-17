@@ -125,120 +125,94 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		/**
 		 * Only glyphicons icons in menu
 		 */
-
 		$menu = new MenuControl;
-		switch ($this->branchManager->getCurrentId()) {
-			/* Branch: Uvodni stranka */
-			case 1:
-				break;
-			/* Branch: Kavarna Roznov pod Radhostem */
-			case 2:
-				break;
-			/* Branch: Kavarna Valmez */
-			case 3:
-				break;
-			/* Branch: Bowling */
-			case 4:
+		$menu->addSection('Bowlingová liga',
+			[
+				'Týmy|star' => [
+					'Přidat tým|pushpin' => 'Team:add',
+					'Tabulka týmů|log_book' => 'Team:list',
+				],
 
-				$menu->addSection('Bowlingová liga',
-					[
-						'Týmy|star' => [
-							'Přidat tým|pushpin' => 'Team:add',
-							'Tabulka týmů|log_book' => 'Team:list',
-						],
+				'Jednotlivci|nameplate' => [
+					'Přidat jednotlivce|user_add' => 'Individual:add',
+					'Tabulka jednotlivců|log_book' => 'Individual:list',
+				],
+			]);
 
-						'Jednotlivci|nameplate' => [
-							'Přidat jednotlivce|user_add' => 'Individual:add',
-							'Tabulka jednotlivců|log_book' => 'Individual:list',
-						],
-						'Aktuality|warning_sign' => [
-							'Přidat|pushpin' => 'News:add',
-							'Historie aktualit|history' => 'News:history',
-						],
-						'Další informace|sampler' => [
-							'Otevírací doba|clock' => 'Info:openTime',
-							'Ceník bowlingu|coins' => 'Info:bowlingPrice',
-							'Pro členy ligy|bowling' => 'Info:leagueMembers',
-						],
-					]);
+		$menu->addSection('Rozpis ligy',
+			[
+				'Rozpis 2014|calendar' => [
+					'Jarní část|flower' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
 
-				$menu->addSection('Rozpis ligy',
-					[
-						'Rozpis 2014|calendar' => [
-							'Jarní část|flower' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Podzimní část|leaf' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Zimní část|snowflake' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Play-off|charts' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat tým|pushpin' => 'League:add',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-						],
-						'Rozpis 2015|calendar' => [
-							'Jarní část|flower' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Podzimní část|leaf' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Zimní část|snowflake' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Play-off|charts' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat tým|pushpin' => 'League:add',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-						],
-						'Přidat další rok|pushpin' => 'League:addYear',
+					'Letní část|sun' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
 
-					]);
+					'Podzimní část|leaf' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+					'Zimní část|snowflake' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+				],
+				'Rozpis 2015|calendar' => [
+					'Jarní část|flower' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
 
-				$menu->addSection('Výsledky',
-					[
-						'Výsledky 2014|charts' => [
-							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring, 2014',
-								'Podzimní část|leaf' => 'Result:fall, 2014',
-								'Zimní část|snowflake' => 'Result:winter, 2014',
-							],
-							'Top 3|podium' => 'Result:top, 2014'
-						],
-						'Výsledky 2015|charts' => [
-							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring',
-								'Podzimní část|leaf' => 'Result:fall',
-								'Zimní část|snowflake' => 'Result:winter',
-							],
-							'Top 3|podium' => 'Result:top, 2015'
-						],
-						'Přidat výsledek|new_window' => 'Result:add',
-					]);
+					'Letní část|sun' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
 
+					'Podzimní část|leaf' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+					'Zimní část|snowflake' => [
+						'Rozpis|edit' => 'League:draft',
+						'Jednotlivá kola|inbox' => 'League:rounds',
+						'Přidat kolo|pushpin' => 'League:add',
+					],
+				],
+				'Přidat další rok|pushpin' => 'League:addYear',
 
-				break;
+			]);
 
-		}
+		$menu->addSection('Výsledky',
+			[
+				/*'Výsledky 2014|charts' => [
+					'Výsledky zápasů|charts' => [
+						'Jarní část|flower' => 'Result:spring, 2014',
+						'Letní část|sun' => 'Result:summer, 2014',
+						'Podzimní část|leaf' => 'Result:fall, 2014',
+						'Zimní část|snowflake' => 'Result:winter, 2014',
+					]
+				],*/
+				'Výsledky 2015|charts' => [
+					'Výsledky zápasů|charts' => [
+						'Jarní část|flower' => 'Result:spring',
+						'Letní část|sun' => 'Result:summer',
+						'Podzimní část|leaf' => 'Result:fall',
+						'Zimní část|snowflake' => 'Result:winter',
+					]
+				],
+				'Přidat výsledek|new_window' => 'Result:add',
+			]);
 
 
 		/*

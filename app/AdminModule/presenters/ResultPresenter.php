@@ -11,19 +11,5 @@ use Nette,
 	App\AdminModule\Model;
 
 class ResultPresenter extends BasePresenter {
-
-	public function renderWinter($year) {
-
-	}
-
-	public function renderFall($year) {
-
-	}
-	public function renderSpring($year) {
-
-	}
-
-	public function renderTop($year) {
-
-	}
+	
 }
