@@ -25565,3 +25565,6 @@ to occupy 100% width at low resolutions */
   border-color: #ffa32b;
   transition:  all 0.3s;
 }
+.newsFeedImage {
+    width: 300px;
+}

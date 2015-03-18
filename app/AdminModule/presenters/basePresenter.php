@@ -130,6 +130,14 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		switch ($this->branchManager->getCurrentId()) {
 			/* Branch: Uvodni stranka */
 			case 1:
+				$menu->addSection('Novinky',
+					[
+						'Valmez|home' => 'MainNews:edit, valmez',
+						'Rožnov|home' => 'MainNews:edit, roznov',
+						'Bowling|home' => 'MainNews:edit, bowling',
+					]
+				);
+
 				break;
 			/* Branch: Kavarna Roznov pod Radhostem */
 			case 2:

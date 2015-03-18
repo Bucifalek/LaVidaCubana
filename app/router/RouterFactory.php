@@ -25,8 +25,6 @@ class RouterFactory
     public static function createRouter()
     {
 		// Back end
-
-
         $router = new RouteList();
         $prefix = "";
         // Admin Router
@@ -37,9 +35,7 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
 		$router[] = new Route($prefix . 'admin/novinky[/<action>]', 'Admin:News:*');
 		$router[] = new Route($prefix . 'admin/informace[/<action>]', 'Admin:Info:*');
-
-
-
+		$router[] = new Route($prefix . 'admin/uvodni-novinky[/<key>]', 'Admin:MainNews:edit');
 
 
         // nastaveni uctu
