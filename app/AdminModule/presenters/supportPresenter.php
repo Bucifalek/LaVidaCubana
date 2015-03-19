@@ -20,9 +20,6 @@ final class SupportPresenter extends BasePresenter
 	 */
 	private $userEmail;
 
-	/**
-	 *
-	 */
 	public function renderContact()
 	{
 		$this->userEmail = $this->getUser()->getIdentity()->data['email'];

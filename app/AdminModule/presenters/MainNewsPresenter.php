@@ -10,7 +10,6 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model,
 	Nette\Application\UI;
-use Tracy\Debugger;
 
 /**
  * Class MainNewsPresenter
@@ -91,11 +90,12 @@ class MainNewsPresenter extends BasePresenter
 		$form = new UI\Form;
 		$form->addProtection();
 		$form->addHidden('key');
-		$form->addText('title');
-		$form->addTextArea('text');
 		if ($this->newsData) {
-			$form->values->title = $this->newsData->title;
-			$form->values->text = $this->newsData->text;
+			$form->addText('title')->setDefaultValue($this->newsData->title);
+			$form->addTextArea('text')->setDefaultValue($this->newsData->text);
+		} else {
+			$form->addText('title');
+			$form->addTextArea('text');
 		}
 		$form->addCheckbox('redirect');
 		$form->addUpload('img');
@@ -120,12 +120,12 @@ class MainNewsPresenter extends BasePresenter
 			$newName = Nette\Utils\Random::generate(30) . "." . $fileExt;
 			$file->move('Files/NewsImages/' . $newName);
 			$values->img_uploaded = $newName;
+			$this->mainNewsManager->deleteOldImage($values->key);
 		}
 		if (!$values->redirect) {
 			unset($values->text);
 		}
 		unset($values->img);
-
 		$this->mainNewsManager->update($values->key, $values);
 		$this->flashMessage('Ulozeno', FLASH_SUCCESS);
 	}

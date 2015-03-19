@@ -49,7 +49,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		return $this->branchManager;
 	}
 
-
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
 	{
 		$this->userManager = $userManager;
@@ -127,8 +126,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 1:
 				$menu->addSection('Novinky',
 					[
-						'Valmez|home' => 'MainNews:edit, valasske-mezirici',
-						'Rožnov|home' => 'MainNews:edit, roznov-pod-radhostem',
+						'Valašské meziříčí|home' => 'MainNews:edit, valasske-mezirici',
+						'Rožnov pod Radhoštěm|home' => 'MainNews:edit, roznov-pod-radhostem',
 						'Bowling|home' => 'MainNews:edit, bowling',
 					]
 				);
