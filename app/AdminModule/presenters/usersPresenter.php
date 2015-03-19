@@ -57,7 +57,7 @@ final class UsersPresenter extends BasePresenter
 	public function renderEdit($userID)
 	{
 		if (!isset($userID)) {
-			//$this->flashMessage('Neplatna URL');
+			$this->flashMessage('Neplatna URL', FLASH_INFO);
 			$this->redirect('Users:list');
 		}
 		$this->template->userData = $this->userManager->getDetails($userID);

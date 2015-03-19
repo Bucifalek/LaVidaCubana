@@ -8,22 +8,21 @@
 {block nav_presenter}Novinky{/block}
 {block nav_action}Upravt{/block}
 {block content}
-
 <div class="tab-content mw800 center-block">
 	<div class="admin-form tab-pane active" id="register2" role="tabpanel">
 		<div class="panel panel-danger heading-border">
 			<div class="panel-heading">
-             <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>{$title}
-             </span>
+             <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Aktuálně pro {$title}</span>
 			</div>
 			<!-- end .form-header section -->
 
-			<form name="addUserForm" id="form-register2" autocomplete="off">
+			<form n:name="editMainNewsForm" id="form-register2" autocomplete="off">
+				<input n:name="key" value="{$key}">
 				<div class="panel-body p25">
 				<label for="names" class="field-label">Text aktuality</label>
 					<div class="section">
 						<label for="email" class="field prepend-icon">
-							<input name="email" id="email" class="gui-input" placeholder="Text aktuality" type="text">
+							<input n:name="title" class="gui-input" placeholder="Text aktuality" type="text">
 							<label for="email" class="field-icon"><i class="fa fa-comments"></i>
 							</label>
 						</label>
@@ -31,46 +30,44 @@
 					<!-- end section -->
 
 
-					{*}<label for="names" class="field-label">Jako odkaz na další stránku</label>{*}
 					<div class="section">
 						<label class="block mt15 switch switch-primary">
-							<input name="tools" id="t4" value="admin" checked="" type="checkbox">
+							<input n:name="redirect" id="t4" {if $redirect}checked="" {/if}type="checkbox">
 							<label for="t4" data-on="Ano" data-off="Ne"></label>
 							<span>Jako odkaz na další stránku</span>
 						</label>
 					</div>
 
-					<div id='moreText' class='mv40'>
-						<div class="section-divider">
+					<div id='moreText' class='{if !$redirect}hidden{/if}'>
+						<div class="section-divider mv40">
 							<span>Detaily novinky</span>
 						</div>
 
 						<label for="names" class="field-label">Delší text aktuality</label>
 						<div class="section">
-							<textarea class="form-control" id="textArea2" rows="3">TODO: Javascript to hide this part of form</textarea>
+							<textarea n:name="text" class="form-control" id="textArea2" rows="3"></textarea>
 						</div>
 
 						<div class='section'>
 							<label class="field prepend-icon append-button file">
 								<span class="button btn-primary">Obrázek k aktualitě</span>
-								<input class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;" type="file">
+								<input class="gui-file" n:name="img" id="file1" onchange="document.getElementById('uploader1').value = this.value;" type="file">
 								<input class="gui-input" id="uploader1" placeholder="Zvolte obrázek" type="text">
 								<label class="field-icon"><i class="fa fa-upload"></i>
 								</label>
 							</label>
 						</div>
 
-						<label for="names" class="field-label">Současná fotografie</label>
-						<div class='section'>
-						<img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/923561_463078603776944_1951179056_n.jpg?oh=80009adc961d73ef14072e9045b6e1df&oe=55B12ACA&__gda__=1434089515_68affd163642e73c80af5d9464cce9fd" class="responsive newsFeedImage">
-
+						<label n:if="$img_uploaded" for="names" class="field-label">Současná fotografie</label>
+						<div class='section' n:if="$img_uploaded">
+							<img src="{$basePath}/Files/NewsImages/{$img_uploaded}" class="media-object mn thumbnail newsFeedImage">
 						</div>
                     </div>
 
 				</div>
 				<!-- end .form-body section -->
 				<div class="panel-footer text-right">
-					<input name="addUser" type="submit"  class="button btn-primary" value="Uložit změny">
+					<input n:name="saveChanges" type="submit"  class="button btn-primary" value="Uložit změny">
 				</div>
 				<!-- end .form-footer section -->
 			</form>
@@ -87,7 +84,10 @@ $( document ).ready(function() {
 		if($('#t4').prop('checked') == false) {
 			$('#moreText').slideUp(500);
 		} else if($('#t4').prop('checked') == true) {
+			$('#moreText').hide();
+			$('#moreText').attr('class', '');
 			$('#moreText').slideDown(500);
+
 		}
 	});
 });

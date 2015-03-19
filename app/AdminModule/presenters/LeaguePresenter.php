@@ -7,9 +7,10 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model;
 
-class LeaguePresenter extends BasePresenter {
-	
+class LeaguePresenter extends BasePresenter
+{
+
 }

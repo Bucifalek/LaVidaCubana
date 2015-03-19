@@ -22,13 +22,15 @@ final class SignPresenter extends BasePresenter
 	public $backlink;
 
 
-	public function renderIn() {
-		if($this->getUser()->isLoggedIn()) {
+	public function renderIn()
+	{
+		if ($this->getUser()->isLoggedIn()) {
 			$this->redirect('Dashboard:default');
 		}
 	}
 
-	public function renderForgot() {
+	public function renderForgot()
+	{
 		//$this->flashMessage('Email s žádostí o nové heslo odeslán.', FLASH_SUCCESS);
 	}
 

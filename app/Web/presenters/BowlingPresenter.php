@@ -10,6 +10,7 @@ namespace App\WebModule\Presenters;
 
 use Nette;
 
-class BowlingPresenter extends BasePresenter {
+class BowlingPresenter extends BasePresenter
+{
 
 }

@@ -20,7 +20,7 @@ class MenuManager extends Nette\Object
 	 * @var Nette\Database\Context
 	 */
 	private $database;
-	
+
 
 	/**
 	 * @param Nette\Database\Context $database
@@ -58,7 +58,7 @@ class MenuManager extends Nette\Object
 	{
 		$structured = [];
 		$result = $this->getMenuDetails($id);
-		if(!$result) {
+		if (!$result) {
 			throw new \Exception('Neexistujici menu');
 		}
 
