@@ -24,22 +24,25 @@ final class DashboardPresenter extends BasePresenter
 		$this->branchManager = $branchManager;
 	}
 
-	public function renderChangeBranch($target, $targetPage, $targetAction, $targetParam) {
+	public function renderChangeBranch($target, $targetPage, $targetAction, $targetParam)
+	{
 		$allBranches = $this->branchManager->getAll();
 		$this->template->switchToBranchName = $allBranches[$target];
 		$this->template->switchToBranchId = $target;
 
-		$this->targetPage = $targetPage.":".$targetAction;
+		$this->targetPage = $targetPage . ":" . $targetAction;
 		$this->targetParam = $targetParam;
 	}
 
-	public function handleGoBack() {
+	public function handleGoBack()
+	{
 		$this->restoreRequest($this->backlink);
 	}
 
-	public function handleSwitchBranch($newBranchID, $targetPage, $targetAction, $targetParam) {
+	public function handleSwitchBranch($newBranchID, $targetPage, $targetAction, $targetParam)
+	{
 		$this->branchManager->setNew($newBranchID);
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
-		$this->redirect( $targetPage.":".$targetAction, $targetParam);
+		$this->redirect($targetPage . ":" . $targetAction, $targetParam);
 	}
 }

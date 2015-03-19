@@ -7,25 +7,33 @@
 
 namespace App\WebModule\Presenters;
 
+use App\AdminModule\Model\MainNewsManager;
 use Nette,
-    Nette\Application\UI;
+	Nette\Application\UI;
 
 class HomepagePresenter extends BasePresenter
 {
 
-    public function renderDefault()
-    {
-        $this->template->anyVariable = 'any value';
-        $this->template->akceRoznov = 'AKCE: Máme pro vás ruskou kávu a je opravdu dost dobrá, ale to není podstatné.';
-        $this->template->akceValmez = 'AKCE: Máme pro vás kubánskou kávu a je opravdu dost dobrá, ale to není podstatné.';
-        $this->template->akceBowling = 'AKCE: Tady je inventura a na tom ani tak nějak nesejde, je přece úterý.';
-    }
+	private $mainNewsManager;
 
-    public function createComponentWelcome()
-    {
-        $control = new welcomeControl();
-        $control->text = 'Vitejte, todle je moje první funkční komponenta.';
-        return $control;
-    }
+	function __construct(MainNewsManager $mainNewsManager)
+	{
+		$this->mainNewsManager = $mainNewsManager;
+	}
+
+	public function renderDefault()
+	{
+		$this->template->akceRoznov = $this->mainNewsManager->getTitle('roznov-pod-radhostem');
+		$this->template->akceValmez = $this->mainNewsManager->getTitle('valasske-mezirici');
+		$this->template->akceBowling = $this->mainNewsManager->getTitle('bowling');
+	}
+
+	public function createComponentWelcome()
+	{
+		$control = new welcomeControl();
+		$control->text = 'Vitejte, todle je moje první funkční komponenta.';
+
+		return $control;
+	}
 
 }

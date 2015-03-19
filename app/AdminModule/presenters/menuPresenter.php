@@ -76,7 +76,7 @@ final class MenuPresenter extends BasePresenter
 		try {
 			$this->template->structuredMenu = $this->menuManager->getMenu($id);
 			$this->template->modulesList = $this->moduleManager->getAllModules();
-		} catch (\Exception $e){
+		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_FAILED);
 			$this->redirect('Menu:all');
 		}

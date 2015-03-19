@@ -127,8 +127,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 1:
 				$menu->addSection('Novinky',
 					[
-						'Valmez|home' => 'MainNews:edit, valmez',
-						'Rožnov|home' => 'MainNews:edit, roznov',
+						'Valmez|home' => 'MainNews:edit, valasske-mezirici',
+						'Rožnov|home' => 'MainNews:edit, roznov-pod-radhostem',
 						'Bowling|home' => 'MainNews:edit, bowling',
 					]
 				);
