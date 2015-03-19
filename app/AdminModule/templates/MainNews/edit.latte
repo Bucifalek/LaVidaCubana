@@ -34,41 +34,43 @@
 					{*}<label for="names" class="field-label">Jako odkaz na další stránku</label>{*}
 					<div class="section">
 						<label class="block mt15 switch switch-primary">
-                                                                            <input name="tools" id="t4" value="admin" checked="" type="checkbox">
-                                                                            <label for="t4" data-on="Ano" data-off="Ne"></label>
-                                                                            <span>Jako odkaz na další stránku</span>
-                                                                        </label>
-					</div>
-					<div class="section-divider mv40">
-                    	<span>Detaily novinky</span>
-                    </div>
-
-					<label for="names" class="field-label">Delší text aktuality</label>
-					<div class="section">
-						<textarea class="form-control" id="textArea2" rows="3"></textarea>
+							<input name="tools" id="t4" value="admin" checked="" type="checkbox">
+							<label for="t4" data-on="Ano" data-off="Ne"></label>
+							<span>Jako odkaz na další stránku</span>
+						</label>
 					</div>
 
-					<div class='section'>
-						<label class="field prepend-icon append-button file">
-                                                                                <span class="button btn-primary">Obrázek k aktualitě</span>
-                                                                                <input class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;" type="file">
-                                                                                <input class="gui-input" id="uploader1" placeholder="Zvolte obrázek" type="text">
-                                                                                <label class="field-icon"><i class="fa fa-upload"></i>
-                                                                                </label>
-                                                                            </label>
+					<div id='moreText' class='mv40'>
+						<div class="section-divider">
+							<span>Detaily novinky</span>
+						</div>
 
-                    </div>
+						<label for="names" class="field-label">Delší text aktuality</label>
+						<div class="section">
+							<textarea class="form-control" id="textArea2" rows="3">TODO: Javascript to hide this part of form</textarea>
+						</div>
 
-					<label for="names" class="field-label">Současná fotografie</label>
-                    <div class='section'>
-                    <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/923561_463078603776944_1951179056_n.jpg?oh=80009adc961d73ef14072e9045b6e1df&oe=55B12ACA&__gda__=1434089515_68affd163642e73c80af5d9464cce9fd" class="responsive newsFeedImage">
+						<div class='section'>
+							<label class="field prepend-icon append-button file">
+								<span class="button btn-primary">Obrázek k aktualitě</span>
+								<input class="gui-file" name="file1" id="file1" onchange="document.getElementById('uploader1').value = this.value;" type="file">
+								<input class="gui-input" id="uploader1" placeholder="Zvolte obrázek" type="text">
+								<label class="field-icon"><i class="fa fa-upload"></i>
+								</label>
+							</label>
+						</div>
 
+						<label for="names" class="field-label">Současná fotografie</label>
+						<div class='section'>
+						<img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/923561_463078603776944_1951179056_n.jpg?oh=80009adc961d73ef14072e9045b6e1df&oe=55B12ACA&__gda__=1434089515_68affd163642e73c80af5d9464cce9fd" class="responsive newsFeedImage">
+
+						</div>
                     </div>
 
 				</div>
 				<!-- end .form-body section -->
 				<div class="panel-footer text-right">
-					<input name="addUser" class="button btn-primary" value="Uložit změny">
+					<input name="addUser" type="submit"  class="button btn-primary" value="Uložit změny">
 				</div>
 				<!-- end .form-footer section -->
 			</form>
@@ -78,4 +80,16 @@
 </div>
 {/block}
 
-{block script}{/block}
+{block script}
+<script type='text/javascript'>
+$( document ).ready(function() {
+	$('#t4').click(function(){
+		if($('#t4').prop('checked') == false) {
+			$('#moreText').slideUp(500);
+		} else if($('#t4').prop('checked') == true) {
+			$('#moreText').slideDown(500);
+		}
+	});
+});
+</script>
+{/block}

@@ -12,6 +12,7 @@ use Nette,
 	Nette\Security,
 	Tracy\Debugger;
 
+// Tracy options
 Debugger::$maxDepth = 10; // default: 3
 Debugger::$maxLen = 500; // default: 150
 
@@ -59,14 +60,12 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
-
 			$this->redirectedToLogin = false;
 			$userData = $this->user->getIdentity()->getData();
 			$this->template->firstName = $userData['firstname'];
 			$this->template->lastName = $userData['lastname'];
 			$this->template->avatar = $userData['avatar'];
 			$this->template->email = $userData['email'];
-
 			try {
 				$this->userManager->isUserBanned($this->getUser());
 			} catch (Security\AuthenticationException $e) {
@@ -74,9 +73,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
-
 			$this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]);
-
 		} else if ($this->redirectedToLogin === false) {
 			$this->redirectedToLogin = true;
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
@@ -95,11 +92,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		if ($this->branchManager->getCurrent() == null) {
 			$this->branchManager->selectDefault();
 		}
-
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
-
 		// This is way, how can neon params can be get
 		//$config = new \SystemContainer();
 		//$config = $config->parameters;
@@ -114,7 +109,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->beforeRender();
 		$this->branchManager->setNew($newBranchID);
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
-		$this->redirect($this->getAction());
+		$this->redirect('Dashboard:default');
 	}
 
 	/**
