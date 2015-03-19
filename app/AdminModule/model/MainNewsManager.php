@@ -7,6 +7,7 @@
 
 namespace App\AdminModule\Model;
 
+use Latte\Loaders\FileLoader;
 use Nette;
 
 class MainNewsManager extends Nette\Object
@@ -37,5 +38,13 @@ class MainNewsManager extends Nette\Object
 		}
 
 		return $data->title;
+	}
+
+	public function deleteOldImage($key) {
+		$data =  $this->database->table('main_news')->where('key', $key)->fetch();
+		$image = $data->img_uploaded;
+		if($image){
+			unlink('Files/NewsImages/' . $image);
+		}
 	}
 }

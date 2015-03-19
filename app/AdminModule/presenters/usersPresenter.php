@@ -41,10 +41,6 @@ final class UsersPresenter extends BasePresenter
 	}
 
 
-	/**
-	 *
-	 */
-
 	public function renderList()
 	{
 		$this->template->currentUsers = $this->userManager->allUsers();
