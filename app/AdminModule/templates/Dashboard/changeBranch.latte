@@ -1,0 +1,25 @@
+{*
+ - @author Jan Kotrba <jan.kotrbaa@gmail.com>
+ - @date 12:28, 19. 3. 2015
+*}
+{block head}{/block}
+
+{block nav_module}Systém{/block}
+{block nav_presenter}Sekce{/block}
+{block nav_action}Změnit sekci{/block}
+
+{block content}
+<div class="panel panel-danger mw600 center-block">
+	<div class="panel-heading">
+        <span class="panel-title">Pozor</span>
+    </div>
+    <div class="panel-body">
+        <p>Pro vstup na tuto stránku musíte změnit sekci webu na <b>{$switchToBranchName}</b>. </p>
+    </div>
+    <div class='panel-footer text-right'>
+		<a n:href="Dashboard:default" class="btn btn-default">Nic neměnit</a>
+		<a n:href="switchBranch!, $switchToBranchId" class="btn btn-danger">Změnit sekci</a>
+    </div>
+</div>
+{/block}
+{block script}{/block}
