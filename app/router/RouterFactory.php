@@ -29,6 +29,8 @@ class RouterFactory
 		$prefix = "";
 		// Admin Router
 
+		$router[] = new Route($prefix . 'admin/export-databaze', 'Admin:Helper:databaseExport');
+
 
 		$router[] = new Route($prefix . 'admin/zmenit-sekci[/<target>]', 'Admin:Dashboard:changeBranch');
 
@@ -79,6 +81,8 @@ class RouterFactory
 
 		$router[] = new Route($prefix . '', 'Web:Homepage:default');
 		$router[] = new Route($prefix . '<not-found>', 'Web:Homepage:notFound');
+
+
 
 		return $router;
 	}

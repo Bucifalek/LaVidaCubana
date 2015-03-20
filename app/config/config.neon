@@ -21,5 +21,6 @@ services:
 	- App\AdminModule\Model\ModulesManager
 	- App\AdminModule\Model\MainNewsManager
 	- App\AdminModule\Model\IndividualManager
+	- App\AdminModule\Model\MysqlExporter
 	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter
