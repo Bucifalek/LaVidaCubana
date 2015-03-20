@@ -29,14 +29,22 @@ class IndividualManager extends Nette\Object {
 		foreach($this->database->table(self::TEAMS_TABLE)->select('id, team_name')->fetchAll() as $team) {
 			$teams[$team->id] = $team->team_name;
 		}
-		Debugger::barDump($teams);
 
+		$individualsFinal = [];
 		$individuals = $this->database->table(self::PLAYERS_TABLE)->limit($limit, $offset)->fetchAll();
 		foreach($individuals as $person) {
-			$team = $this->database->table(self::TEAMS_TABLE)->select('team_name')->where('id', $person['team'])->fetch();
-			Debugger::barDump($team->team_name);
+			$individualsFinal[] = [
+				'name' => $person->name,
+				'team' => $person->team,
+				'team_name' => $teams[$person->team],
+				'score' => $person->score,
+				'score_avg' => $person->score_avg,
+				'index' => $person->index,
+				'matches' => $person->matches,
+				'games' => $person->games
+			];
 		}
 
-		return $individuals;
+		return $individualsFinal;
 	}
 }

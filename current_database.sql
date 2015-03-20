@@ -226,3 +226,5 @@ ALTER TABLE `pages_content` AUTO_INCREMENT=1;
 -- Auto increment value for users
 -- ----------------------------
 ALTER TABLE `users` AUTO_INCREMENT=13;
+
+

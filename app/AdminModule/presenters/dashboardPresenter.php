@@ -45,4 +45,5 @@ final class DashboardPresenter extends BasePresenter
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
 		$this->redirect(":" . $targetPage . ":" . $targetAction, $targetParam);
 	}
+
 }
