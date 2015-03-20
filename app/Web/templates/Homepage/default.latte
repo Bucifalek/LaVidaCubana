@@ -1,5 +1,4 @@
 {block content}
-
 <div class="container">
     <div class="logo-block">
         <h1>La VIDA Cubana</h1>
@@ -9,9 +8,9 @@
         <a n:href="Roznov:default" class="explorer">
             <div class="roznov-block">
                 <div class="roznov-transparent">
-                   <div id="current-action-roznov">
-                   <h3>{$akceRoznov}</h3>
-                   </div>
+                    <div id="current-action-roznov">
+					{control mainNewsRoznov}
+                    </div>
                    <h2>Cafe bar & Coctails</h2>
                    <p>Rožnov pod Radhoštěm <img src="{$basePath}/Front-End/img/arrow/arrow3.png" alt="" class="arrow"></p>
                 </div>
@@ -21,7 +20,7 @@
             <div class="valmez-block">
                 <div class="valmez-transparent">
                     <div id="current-action-valmez">
-                    <h3>{$akceValmez}</h3>
+                    {control mainNewsValmez}
                     </div>
                     <h2>Cafe bar & Coctails</h2>
                     <p>Valašské Meziříčí <img src="{$basePath}/Front-End/img/arrow/arrow2.png" alt="" class="arrow"></p>
@@ -32,7 +31,7 @@
             <div class="bowling-block">
                 <div class="bowling-transparent">
                    <div id="current-action-bowling">
-                   <h3>{$akceBowling}</h3>
+                   {control mainNewsBowling}
                    </div>
                    <h2>Bowling</h2>
                    <p>Valašské Meziříčí <img src="{$basePath}/Front-End/img/arrow/arrow.png" alt="" class="arrow"></p>
@@ -41,6 +40,4 @@
          </a>
     </div>
 </div>
-
-
 {/block}

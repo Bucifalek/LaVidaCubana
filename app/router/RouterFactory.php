@@ -33,7 +33,12 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/zmenit-sekci[/<target>]', 'Admin:Dashboard:changeBranch');
 
 		$router[] = new Route($prefix . 'admin/teamy[/<action>]', 'Admin:Team:*');
-		$router[] = new Route($prefix . 'admin/jednotlivci[/<action>]', 'Admin:Individual:*');
+
+		// Individuals
+		$router[] = new Route($prefix . 'admin/jednotlivci[/strana[/<page=1>]]', 'Admin:Individual:default');
+		$router[] = new Route($prefix . 'admin/jednotlivci/pridat', 'Admin:Individual:add');
+
+		// ...
 		$router[] = new Route($prefix . 'admin/liga[/<action>]', 'Admin:League:*');
 		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
 		$router[] = new Route($prefix . 'admin/novinky[/<action>]', 'Admin:News:*');
@@ -62,7 +67,6 @@ class RouterFactory
 
 		// Support
 		$router[] = new Route($prefix . 'admin/podpora', 'Admin:Support:contact');
-
 
 		// Front Router
 		$router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');

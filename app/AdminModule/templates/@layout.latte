@@ -40,7 +40,7 @@
 	<![endif]-->
 	{block head}{/block}
 </head>
-<body {ifset #pageClass} class='{include pageClass}'{/ifset}>
+<body {ifset #pageClass} class='{include pageClass}'{/ifset} data-spy="scroll" data-target="#nav-spy" data-offset="300">
 <div id="main">
 	<!-- Start: Header -->
 	<header class="navbar navbar-fixed-top bg-light">
@@ -284,107 +284,6 @@
 		});
 
 		Demo.init();
-
-
-		$('.admin-panels').adminpanel({
-			grid: '.admin-grid',
-			draggable: true,
-			mobile: false,
-			callback: function () {
-				bootbox.confirm('<h3>A Custom Callback!</h3>', function () {
-				});
-			},
-			onFinish: function () {
-				$('.admin-panels').addClass('animated fadeIn').removeClass('fade-onload');
-
-				demoHighCharts.init();
-				runVectorMaps();
-
-				Waypoint.refreshAll();
-
-			},
-			onSave: function () {
-				$(window).trigger('resize');
-			}
-		});
-
-		function runVectorMaps() {
-
-			var runJvectorMap = function () {
-				var mapData = [900, 700, 350, 500];
-				$('#WidgetMap').vectorMap({
-					map: 'us_lcc_en',
-					backgroundColor: 'transparent',
-					series: {
-						markers: [{
-							attribute: 'r',
-							scale: [3, 7],
-							values: mapData
-						}]
-					},
-					regionStyle: {
-						initial: {
-							fill: '#E5E5E5'
-						},
-						hover: {
-							"fill-opacity": 0.3
-						}
-					},
-					markers: [{
-						latLng: [37.78, -122.41],
-						name: 'San Francisco,CA'
-					}, {
-						latLng: [36.73, -103.98],
-						name: 'Texas,TX'
-					}, {
-						latLng: [38.62, -90.19],
-						name: 'St. Louis,MO'
-					}, {
-						latLng: [40.67, -73.94],
-						name: 'New York City,NY'
-					}],
-					markerStyle: {
-						initial: {
-							fill: '#a288d5',
-							stroke: '#b49ae0',
-							"fill-opacity": 1,
-							"stroke-width": 10,
-							"stroke-opacity": 0.3,
-							r: 3
-						},
-						hover: {
-							stroke: 'black',
-							"stroke-width": 2
-						},
-						selected: {
-							fill: 'blue'
-						},
-						selectedHover: {}
-					},
-				});
-				var states = ['US-CA', 'US-TX', 'US-MO',
-					'US-NY'
-				];
-				var colors = [bgWarningLr, bgPrimaryLr, bgInfoLr, bgAlertLr];
-				var colors2 = [bgWarning, bgPrimary, bgInfo, bgAlert];
-				$.each(states, function (i, e) {
-					$("#WidgetMap path[data-code=" + e + "]").css({
-						fill: colors[i]
-					});
-				});
-				$('#WidgetMap').find('.jvectormap-marker')
-					.each(function (i, e) {
-						$(e).css({
-							fill: colors2[i],
-							stroke: colors2[i]
-						});
-					});
-			}
-
-			if ($('#WidgetMap').length) {
-				runJvectorMap();
-			}
-		}
 
 	});
 </script>
