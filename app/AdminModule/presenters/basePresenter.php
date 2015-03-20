@@ -94,6 +94,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
+
 		// This is way, how can neon params can be get
 		//$config = new \SystemContainer();
 		//$config = $config->parameters;
@@ -255,6 +256,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Seznam správců|adress_book' => 'Users:list'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
+			'Export databaze|magic' => "Helper:databaseExport",
 		]);
 
 		return $menu;

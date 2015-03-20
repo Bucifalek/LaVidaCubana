@@ -33,7 +33,7 @@
             		<tbody n:inner-foreach="$individuals as $person">
             			<tr>
 							<td>{$person['name']}</td>
-							<td>{$person['team']}</td>
+							<td>{$person['team_name']}</td> {*}TODO odkaz na team, $person['team'] obsahuje ID{*}
 							<td class="text-center">{$person['score']}</td>
 							<td class="text-center">{$person['score_avg']}</td>
 							<td class="text-center">
