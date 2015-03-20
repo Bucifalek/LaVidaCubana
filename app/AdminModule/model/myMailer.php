@@ -70,6 +70,7 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 	public function setHtmlBody($template, $params)
 	{
 		$this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
+
 		return $this;
 	}
 
@@ -80,6 +81,7 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 	public function addTo($target)
 	{
 		$this->message->addTo($target);
+
 		return $this;
 	}
 
@@ -90,6 +92,7 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 	public function setFrom($email)
 	{
 		$this->message->setFrom($email);
+
 		return $this;
 	}
 
@@ -100,6 +103,7 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 	public function setSubject($subject)
 	{
 		$this->message->setSubject($subject);
+
 		return $this;
 	}
 }

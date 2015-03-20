@@ -48,6 +48,7 @@ class UserAuth extends Nette\Object implements NS\IAuthenticator
 			throw new NS\AuthenticationException('Tento účet je zablokován.');
 		}
 		$this->database->table('users')->where('id', $row->id)->update(['activetime' => time()]);
+
 		return new NS\Identity($row->id, $row->role, [
 			'user' => $row->user,
 			'firstname' => $row->real_firstname,

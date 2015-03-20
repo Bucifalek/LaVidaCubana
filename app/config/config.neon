@@ -19,6 +19,6 @@ services:
 	- App\AdminModule\Model\UserManager
 	- App\AdminModule\Model\MenuManager
 	- App\AdminModule\Model\ModulesManager
-
+	- App\AdminModule\Model\MainNewsManager
 	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter

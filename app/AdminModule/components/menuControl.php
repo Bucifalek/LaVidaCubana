@@ -57,8 +57,9 @@ class MenuControl extends UI\Control
 			if (count($parts) > 1) {
 				return "glyphicons-" . $parts[count($parts) - 1];
 			} else {
-				$report = "For action '".$arg."' there's no icon!";
+				$report = "For action '" . $arg . "' there's no icon!";
 				Debugger::barDump($report);
+
 				return "glyphicons-book_open";
 			}
 		};
@@ -71,24 +72,23 @@ class MenuControl extends UI\Control
 
 		$template->anyData = function ($arg) {
 			$exploded = explode(",", $arg);
-			if(count($exploded)>1) {
+			if (count($exploded) > 1) {
 				return true;
 			}
 
 			return false;
 		};
 
-		$template->parseLink = function($arg) {
+		$template->parseLink = function ($arg) {
+			$exploded = explode(", ", $arg);
+
+			return $exploded[0];
+		};
+		$template->parseData = function ($arg) {
 			$exploded = explode(",", $arg);
 
-			return trim($exploded[0]);
+			return str_replace(' ', '', $exploded[1]);
 		};
-		$template->parseData = function($arg) {
-			$exploded = explode(",", $arg);
-
-			return $exploded[1];
-		};
-
 
 
 		$template->render();

@@ -22,10 +22,16 @@ final class SignPresenter extends BasePresenter
 	public $backlink;
 
 
-	public function renderIn() {
-		if($this->getUser()->isLoggedIn()) {
-			$this->redirect('dashboard:default');
+	public function renderIn()
+	{
+		if ($this->getUser()->isLoggedIn()) {
+			$this->redirect('Dashboard:default');
 		}
+	}
+
+	public function renderForgot()
+	{
+		//$this->flashMessage('Email s žádostí o nové heslo odeslán.', FLASH_SUCCESS);
 	}
 
 	/**
@@ -59,7 +65,7 @@ final class SignPresenter extends BasePresenter
 			//$this->redirect('dashboard:default');
 		} catch (Nette\Security\AuthenticationException $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('sign:in');
+			$this->redirect('Sign:in');
 		}
 	}
 

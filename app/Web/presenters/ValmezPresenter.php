@@ -10,6 +10,7 @@ namespace App\WebModule\Presenters;
 use Nette;
 
 
-class ValmezPresenter extends BasePresenter {
+class ValmezPresenter extends BasePresenter
+{
 
 }

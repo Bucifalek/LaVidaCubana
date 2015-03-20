@@ -55,7 +55,7 @@ class BranchManager extends Nette\Object
 		foreach ($this->database->table(self::TABLE_BRANCHES)->fetchAll() as $branch) {
 			$this->branches[$branch->id] = $branch->name;
 		}
-		if(!$this->currentBranch['id']) {
+		if (!$this->currentBranch['id']) {
 			Debugger::barDump("Zadne predchozi nastaveni, inicializovat");
 			$this->selectDefault();
 		}
@@ -99,7 +99,8 @@ class BranchManager extends Nette\Object
 	/**
 	 * @return mixed
 	 */
-	public function getCurrentId() {
+	public function getCurrentId()
+	{
 		return $this->currentBranch['id'];
 	}
 
