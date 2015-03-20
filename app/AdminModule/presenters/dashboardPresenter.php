@@ -43,6 +43,6 @@ final class DashboardPresenter extends BasePresenter
 	{
 		$this->branchManager->setNew($newBranchID);
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
-		$this->redirect($targetPage . ":" . $targetAction, $targetParam);
+		$this->redirect(":" . $targetPage . ":" . $targetAction, $targetParam);
 	}
 }

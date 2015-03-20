@@ -8,32 +8,67 @@
 namespace App\WebModule\Presenters;
 
 use App\AdminModule\Model\MainNewsManager;
+use App\AdminModule\Presenters\MainNewsControl;
 use Nette,
 	Nette\Application\UI;
+use Tracy\Debugger;
 
+/**
+ * Class HomepagePresenter
+ * @package App\WebModule\Presenters
+ */
 class HomepagePresenter extends BasePresenter
 {
 
+	/**
+	 * @var MainNewsManager
+	 */
 	private $mainNewsManager;
 
+	/**
+	 * @param MainNewsManager $mainNewsManager
+	 */
 	function __construct(MainNewsManager $mainNewsManager)
 	{
 		$this->mainNewsManager = $mainNewsManager;
 	}
 
-	public function renderDefault()
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsRoznov()
 	{
-		$this->template->akceRoznov = $this->mainNewsManager->getTitle('roznov-pod-radhostem');
-		$this->template->akceValmez = $this->mainNewsManager->getTitle('valasske-mezirici');
-		$this->template->akceBowling = $this->mainNewsManager->getTitle('bowling');
+		$data = $this->mainNewsManager->get('roznov-pod-radhostem');
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
+
+		return $mainNews;
 	}
 
-	public function createComponentWelcome()
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsValmez()
 	{
-		$control = new welcomeControl();
-		$control->text = 'Vitejte, todle je moje první funkční komponenta.';
+		$data = $this->mainNewsManager->get('valasske-mezirici');
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
 
-		return $control;
+		return $mainNews;
 	}
 
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsBowling()
+	{
+		$data = $this->mainNewsManager->get('bowling');
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
+
+		return $mainNews;
+	}
 }

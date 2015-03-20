@@ -124,7 +124,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		switch ($this->branchManager->getCurrentId()) {
 			/* Branch: Uvodni stranka */
 			case 1:
-				$menu->addSection('Novinky',
+				$menu->addSection('Aktuálně',
 					[
 						'Valašské meziříčí|home' => 'MainNews:edit, valasske-mezirici',
 						'Rožnov pod Radhoštěm|home' => 'MainNews:edit, roznov-pod-radhostem',
@@ -151,7 +151,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 						'Jednotlivci|nameplate' => [
 							'Přidat jednotlivce|user_add' => 'Individual:add',
-							'Tabulka jednotlivců|log_book' => 'Individual:list',
+							'Seznam jednotlivců|log_book' => 'Individual:default',
 						],
 						'Aktuality|warning_sign' => [
 							'Přidat|pushpin' => 'News:add',
@@ -236,10 +236,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 						],
 						'Přidat výsledek|new_window' => 'Result:add',
 					]);
-
-
 				break;
-
 		}
 
 
@@ -257,9 +254,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Přidat|user_add' => 'Users:add',
 					'Seznam správců|adress_book' => 'Users:list'
 				],
-			'Kontaktovat podporu|bug' => 'Support:contact'
+			'Kontaktovat podporu|bug' => 'Support:contact',
 		]);
 
 		return $menu;
 	}
 }
+

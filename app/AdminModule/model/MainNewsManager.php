@@ -30,16 +30,6 @@ class MainNewsManager extends Nette\Object
 		return $this->database->table('main_news')->where('key', $key)->update($data);
 	}
 
-	public function getTitle($key)
-	{
-		$data = $this->database->table('main_news')->where('key', $key)->fetch();
-		if (empty($data->title)) {
-			return "Tady pro vás nic nemáme.";
-		}
-
-		return $data->title;
-	}
-
 	public function deleteOldImage($key) {
 		$data =  $this->database->table('main_news')->where('key', $key)->fetch();
 		$image = $data->img_uploaded;
