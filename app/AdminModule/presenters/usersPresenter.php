@@ -239,7 +239,6 @@ final class UsersPresenter extends BasePresenter
 			$this->userManager->add([
 				'user' => $values->username,
 				'password' => Passwords::hash($strongPassword),
-				'password_pure' => $strongPassword,
 				'real_firstname' => $values->firstname,
 				'real_lastname' => $values->lastname,
 				'email' => $values->email,
@@ -249,7 +248,7 @@ final class UsersPresenter extends BasePresenter
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 		}
 
-		try {
+		/*try {
 			$myMailer = new Model\myMailer;
 			$myMailer->setHtmlBody(
 				__DIR__ . '/../templates/EmailTemplates/userAddedEmail.latte',
@@ -269,8 +268,8 @@ final class UsersPresenter extends BasePresenter
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 			$this->redirect('Users:list');
-		}
-		$this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit.", FLASH_SUCCESS);
+		}*/
+		$this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit, heslo je $strongPassword", FLASH_SUCCESS);
 		$this->redirect('Users:list');
 	}
 }
