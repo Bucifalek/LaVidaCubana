@@ -9,6 +9,7 @@ namespace App\AdminModule\Model;
 
 use Nette;
 use Nette\Security as NS;
+use Tracy\Debugger;
 
 /**
  * Class UserManager
@@ -82,6 +83,7 @@ class UserManager extends Nette\Object
 	 */
 	public function add($details)
 	{
+		Debugger::barDump($details);
 		// TODO: Check if user details not in database(email, nickname)
 		if (!$this->database->table(self::TABLE_USERS)->insert($details)) {
 			throw new \Exception('Nepodařilo se uložit do databáze');
