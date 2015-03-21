@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 $red: #d14334;
 $darkGrey: #343333;
@@ -119,6 +119,50 @@ html,body{
       padding-top: 20px;
       padding-bottom: 20px;
       font-size: 20px;
+    }
+  }
+}
+
+/*  MEDIA QUERIES - TY RESPONSIVY  */
+
+@media screen and (max-width: 980px) {
+
+}
+
+@media screen and (max-width: 600px) {
+  .half_part_1{
+    .text_coming{
+      width: 80%;
+    }
+    .text_coming_2{
+      width: 70%;
+    }
+  }
+  .half_part_2{
+    .text_coming{
+      width: 80%;
+    }
+    .text_coming_2{
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .half_part_1{
+    .text_coming{
+    width: 80%;
+    }
+    .text_coming_2{
+      width: 70%;
+    }
+  }
+  .half_part_2{
+    .text_coming{
+      width: 80%;
+    }
+    .text_coming_2{
+      width: 70%;
     }
   }
 }
