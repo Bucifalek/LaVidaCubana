@@ -14,11 +14,13 @@ use Tracy\Debugger;
 class IndividualPresenter extends BasePresenter
 {
 	private $individuaManager;
+	private $teamsManager;
 
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\IndividualManager $individualManager)
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\IndividualManager $individualManager, Model\TeamsManager $teamsManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
 		$this->individuaManager = $individualManager;
+		$this->teamsManager = $teamsManager;
 	}
 
 	public function renderDefault($page)
@@ -41,5 +43,25 @@ class IndividualPresenter extends BasePresenter
 	public function handleChangePage($pageNum)
 	{
 		$this->redirect('Individual:default', $pageNum);
+	}
+
+	public function createComponentAddIndividualForm()
+	{
+		$teamOptions = [];
+		foreach($this->teamsManager->getAll() as $team) {
+			$teamOptions[$team->id] = $team->team_name;
+		}
+
+		$form = new Nette\Forms\Form;
+		$form->addText('name')->setRequired('Nezadali jste jméno.');
+		$form->addSelect('team', $teamOptions);
+		$form->addSubmit('addUser', 'Přidat');
+		$form->onSuccess[] = [$this, 'addIndividualFormSucceeded'];
+
+		return $form;
+	}
+
+	public function addIndividualFormSucceeded() {
+
 	}
 }
