@@ -18,6 +18,9 @@ use Tracy\Debugger;
 class UserManager extends Nette\Object
 {
 
+	/**
+	 *
+	 */
 	const TABLE_USERS = "users";
 
 	/**
@@ -43,6 +46,21 @@ class UserManager extends Nette\Object
 		$row = $this->database->table(self::TABLE_USERS)->where('id', $user->getId())->fetch();
 		if ($row->banned) {
 			throw new NS\AuthenticationException('Váš účet byl právě zablokován!');
+		}
+	}
+
+
+	/**
+	 * @param $id
+	 * @param $data
+	 * @throws \Exception
+	 */
+	public function update($id, $data)
+	{
+		try {
+			$this->database->table(self::TABLE_USERS)->where('id', $id)->update($data);
+		} catch (\Exception $e) {
+			throw new \Exception($e->getMessage());
 		}
 	}
 
