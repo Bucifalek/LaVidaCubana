@@ -43,10 +43,10 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 		$this->message = new Message;
 		$config = [
 			'smtp' => true,
-			'host' => 'smtp-78628.m28.wedos.net',
+			'host' => 'smtp-93282.m82.wedos.net',
 			'port' => '465',
 			'secure' => 'ssl',
-			'username' => 'cms@pizzeriaitaliana.cz',
+			'username' => 'upozorneni@kotyslab.cz',
 			'password' => 'cust168255332210'
 		];
 		$this->mailer = new Nette\Mail\SmtpMailer($config);
