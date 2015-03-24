@@ -152,7 +152,7 @@ body{
       display: block;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 3%;
+      padding-top: 1.5%;
     }
   }
   .valmez_block{
@@ -204,7 +204,7 @@ body{
       display: block;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 3%;
+      padding-top: 1.5%;
     }
   }
   .bowling_block{
@@ -257,7 +257,7 @@ body{
       display: block;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 3%;
+      padding-top: 1.5%;
     }
   }
 }
@@ -419,7 +419,35 @@ body{
       }
     }
   }
+}
 
+@media screen and (max-height: 700px) {
+
+  .part_one{
+    .logo_block{
+
+      h1{
+        .word_l{
+          font-size: 8vw;
+        }
+        .word_a{
+          font-size: 6.7vw;
+        }
+        .vida{
+          font-size: 7.4vw;
+        }
+        .cubana{
+          font-size: 5.5vw;
+        }
+      }
+      p{
+        font-size: 4.2vw;
+      }
+      img{
+        width: 20%;
+      }
+    }
+  }
 }
 
 /*
