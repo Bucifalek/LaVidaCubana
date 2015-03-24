@@ -248,10 +248,10 @@ final class UsersPresenter extends BasePresenter
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 		}
 
-		/*try {
-			$myMailer = new Model\myMailer;
+		try {
+			$myMailer = new Model\MyMailer;
 			$myMailer->setHtmlBody(
-				__DIR__ . '/../templates/EmailTemplates/userAddedEmail.latte',
+				__DIR__ . '/../templates/EmailTemplates/newUserEmail.latte',
 				[
 					'username' => $values->username,
 					'firstname' => $values->firstname,
@@ -262,13 +262,15 @@ final class UsersPresenter extends BasePresenter
 				]
 			)
 				->addTo($values->email)
-				->setFrom("cms@jkotrba.net")
+				->setFrom("upozorneni@kotyslab.cz")
 				->setSubject("Vytvoření účtu");
 			$myMailer->sendEmail();
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 			$this->redirect('Users:list');
-		}*/
+		}
+
+
 		$this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit, heslo je $strongPassword", FLASH_SUCCESS);
 		$this->redirect('Users:list');
 	}

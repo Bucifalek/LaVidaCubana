@@ -118,7 +118,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	public function createComponentMenu()
 	{
 		/**
-		 * Only glyphicons icons in menu
+		 * Use only glyphicons icons in menu
 		 */
 
 		$menu = new MenuControl;
@@ -214,7 +214,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 							],
 						],
 						'Přidat další rok|pushpin' => 'League:addYear',
-
 					]);
 
 				$menu->addSection('Výsledky',
@@ -240,7 +239,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				break;
 		}
 
-
 		/*
 			$allModules = [];
 			foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
@@ -256,7 +254,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Seznam správců|adress_book' => 'Users:list'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Export databaze|magic' => "Helper:databaseExport",
+			'Export databáze|magic' => "Helper:databaseExport",
 		]);
 
 		return $menu;
