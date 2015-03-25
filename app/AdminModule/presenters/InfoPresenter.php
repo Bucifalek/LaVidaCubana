@@ -10,18 +10,31 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
-class InfoPresenter extends BasePresenter
+/**
+ * Class InfoPresenter
+ * @package App\AdminModule\Presenters
+ */
+final class InfoPresenter extends BasePresenter
 {
+	/**
+	 *
+	 */
 	public function renderLeagueMembers()
 	{
 
 	}
 
+	/**
+	 *
+	 */
 	public function renderBowlingPrice()
 	{
 
 	}
 
+	/**
+	 *
+	 */
 	public function renderOpenTime()
 	{
 

@@ -19,11 +19,6 @@ class UserManager extends Nette\Object
 {
 
 	/**
-	 *
-	 */
-	const TABLE_USERS = "users";
-
-	/**
 	 * @var Nette\Database\Context
 	 */
 	private $database;
@@ -43,7 +38,7 @@ class UserManager extends Nette\Object
 	 */
 	public function isUserBanned(NS\User $user)
 	{
-		$row = $this->database->table(self::TABLE_USERS)->where('id', $user->getId())->fetch();
+		$row = $this->database->table(DatabaseStructure::USERS)->where('id', $user->getId())->fetch();
 		if ($row->banned) {
 			throw new NS\AuthenticationException('Váš účet byl právě zablokován!');
 		}
@@ -58,7 +53,7 @@ class UserManager extends Nette\Object
 	public function update($id, $data)
 	{
 		try {
-			$this->database->table(self::TABLE_USERS)->where('id', $id)->update($data);
+			$this->database->table(DatabaseStructure::USERS)->where('id', $id)->update($data);
 		} catch (\Exception $e) {
 			throw new \Exception($e->getMessage());
 		}
@@ -72,7 +67,7 @@ class UserManager extends Nette\Object
 	 */
 	public function newPassword($userID, $plain, $pass)
 	{
-		if (!$this->database->table(self::TABLE_USERS)->where('id', $userID)->update(
+		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $userID)->update(
 			['password' => $pass, 'password_pure' => $plain])
 		) {
 			throw new \Exception('Nepodařilo se změnit heslo.');
@@ -87,7 +82,7 @@ class UserManager extends Nette\Object
 	 */
 	public function getDetails($id)
 	{
-		$data = $this->database->table(self::TABLE_USERS)->where('id', $id)->fetch();
+		$data = $this->database->table(DatabaseStructure::USERS)->where('id', $id)->fetch();
 		if (!$data) {
 			throw new \Exception('Nelze ziskat informace z databaze');
 		} else {
@@ -101,9 +96,8 @@ class UserManager extends Nette\Object
 	 */
 	public function add($details)
 	{
-		Debugger::barDump($details);
 		// TODO: Check if user details not in database(email, nickname)
-		if (!$this->database->table(self::TABLE_USERS)->insert($details)) {
+		if (!$this->database->table(DatabaseStructure::USERS)->insert($details)) {
 			throw new \Exception('Nepodařilo se uložit do databáze');
 		}
 	}
@@ -114,7 +108,7 @@ class UserManager extends Nette\Object
 	 */
 	public function ban($id)
 	{
-		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 1, 'bantime' => time()])) {
+		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $id)->update(['banned' => 1, 'bantime' => time()])) {
 			throw new \Exception('Nepodařilo se zablokovat správce');
 		}
 	}
@@ -125,7 +119,7 @@ class UserManager extends Nette\Object
 	 */
 	public function unBan($id)
 	{
-		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->update(['banned' => 0])) {
+		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $id)->update(['banned' => 0])) {
 			throw new \Exception('Nepodařilo se odblokovat správce');
 		}
 	}
@@ -136,7 +130,7 @@ class UserManager extends Nette\Object
 	 */
 	public function delete($id)
 	{
-		if (!$this->database->table(self::TABLE_USERS)->where('id', $id)->delete()) {
+		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $id)->delete()) {
 			throw new \Exception('Nepodařilo se smazat uživatele.');
 		}
 	}
@@ -147,7 +141,7 @@ class UserManager extends Nette\Object
 	 */
 	public function newAvatar($user, $id)
 	{
-		$this->database->table(self::TABLE_USERS)->where('id', $user)->update(['avatar' => $id]);
+		$this->database->table(DatabaseStructure::USERS)->where('id', $user)->update(['avatar' => $id]);
 	}
 
 	/**
@@ -155,7 +149,7 @@ class UserManager extends Nette\Object
 	 */
 	public function allUsers()
 	{
-		return $this->database->table(self::TABLE_USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
+		return $this->database->table(DatabaseStructure::USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
 	}
 
 }

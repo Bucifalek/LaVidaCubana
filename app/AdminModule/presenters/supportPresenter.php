@@ -31,12 +31,12 @@ final class SupportPresenter extends BasePresenter
 	 */
 	public function createComponentContactSupportForm()
 	{
-		$form = new Nette\Application\UI\myForm;
+		$form = new Nette\Application\UI\Form;
 		$form->addProtection();
 		$form->addText('email')->setDefaultValue($this->userEmail);
 		$form->addTextArea('text')->setRequired('Musíte vyplnit');
 		$form->addSubmit('send');
-		$form->onSuccess[] = [$this, 'contactSupportFormSuccess'];
+		$form->onSuccess[] = $this->contactSupportFormSuccess;
 
 		return $form;
 	}

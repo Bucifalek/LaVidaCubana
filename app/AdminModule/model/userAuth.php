@@ -38,7 +38,7 @@ class UserAuth extends Nette\Object implements NS\IAuthenticator
 	public function authenticate(array $credentials)
 	{
 		list($username, $password) = $credentials;
-		$row = $this->database->table('users')->where('user', $username)->fetch();
+		$row = $this->database->table(DatabaseStructure::USERS)->where('user', $username)->fetch();
 
 		if (!$row || !NS\Passwords::verify($password, $row->password)) {
 			throw new NS\AuthenticationException('Nesprávné jméno nebo heslo.');
@@ -47,7 +47,7 @@ class UserAuth extends Nette\Object implements NS\IAuthenticator
 		if ($row->banned) {
 			throw new NS\AuthenticationException('Tento účet je zablokován.');
 		}
-		$this->database->table('users')->where('id', $row->id)->update(['activetime' => time()]);
+		$this->database->table(DatabaseStructure::USERS)->where('id', $row->id)->update(['activetime' => time()]);
 
 		return new NS\Identity($row->id, $row->role, [
 			'user' => $row->user,

@@ -10,24 +10,40 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
+/**
+ * Class ResultPresenter
+ * @package App\AdminModule\Presenters
+ */
 class ResultPresenter extends BasePresenter
 {
 
+	/**
+	 * @param $year
+	 */
 	public function renderWinter($year)
 	{
 
 	}
 
+	/**
+	 * @param $year
+	 */
 	public function renderFall($year)
 	{
 
 	}
 
+	/**
+	 * @param $year
+	 */
 	public function renderSpring($year)
 	{
 
 	}
 
+	/**
+	 * @param $year
+	 */
 	public function renderTop($year)
 	{
 

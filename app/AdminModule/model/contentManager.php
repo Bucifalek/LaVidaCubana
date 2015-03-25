@@ -20,7 +20,6 @@ class ContentManager extends Nette\Object
 	/**
 	 *
 	 */
-	const TABLE_CONTENT = "content";
 
 	/**
 	 * @var Nette\Database\Context
@@ -45,7 +44,7 @@ class ContentManager extends Nette\Object
 	 */
 	public function isUnique($title)
 	{
-		if ($this->database->table(self::TABLE_CONTENT)->where('title', $title)->where('branch_id', $this->branchManager->getCurrentId())->count('*') == 0) {
+		if ($this->database->table(DatabaseStructure::PAGES_CONTENT)->where('title', $title)->where('branch_id', $this->branchManager->getCurrentId())->count('*') == 0) {
 			return true;
 		}
 

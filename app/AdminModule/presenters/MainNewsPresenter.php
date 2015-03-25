@@ -15,7 +15,7 @@ use Nette,
  * Class MainNewsPresenter
  * @package App\AdminModule\Presenters
  */
-class MainNewsPresenter extends BasePresenter
+final class MainNewsPresenter extends BasePresenter
 {
 	/**
 	 * @var Model\BranchManager

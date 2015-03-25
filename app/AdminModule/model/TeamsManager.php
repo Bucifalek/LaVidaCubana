@@ -11,8 +11,6 @@ use Nette;
 class TeamsManager extends Nette\Object
 {
 
-	const TEAMS_TABLE = "bowling_teams";
-
 	private $database;
 
 	function __construct(Nette\Database\Context $database)
@@ -22,6 +20,6 @@ class TeamsManager extends Nette\Object
 
 	public function getAll()
 	{
-		return $this->database->table(self::TEAMS_TABLE)->fetchAll();
+		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->fetchAll();
 	}
 }
