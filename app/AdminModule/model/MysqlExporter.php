@@ -8,24 +8,36 @@ namespace App\AdminModule\Model;
 
 use Nette;
 
+/**
+ * Class MysqlExporter
+ * @package App\AdminModule\Model
+ */
 class MysqlExporter extends Nette\Object
 {
+	/**
+	 *
+	 */
 	const BACKUP_DIR = "DatabaseBackup";
 
+	/**
+	 * @var Nette\Database\Context
+	 */
 	private $database;
 
+	/**
+	 * @var
+	 */
 	private $exportedSql;
 
+	/**
+	 * @var string
+	 */
 	private $filename;
 
-	/**
-	 * @return string
-	 */
-	public function getFilename()
-	{
-		return $this->filename;
-	}
 
+	/**
+	 * @param Nette\Database\Context $database
+	 */
 	function __construct(Nette\Database\Context $database)
 	{
 		$this->database = $database;
@@ -35,17 +47,35 @@ class MysqlExporter extends Nette\Object
 		$this->filename = self::BACKUP_DIR . '/' . "Mysql-" . $dbName . "-exported-" . date("j-n-Y-H-i-s") . ".sql";
 	}
 
+
+	/**
+	 * @return string
+	 */
+	public function getFilename()
+	{
+		return $this->filename;
+	}
+
+	/**
+	 * @param $table
+	 */
 	private function dropTable($table)
 	{
 		$this->exportedSql .= "DROP TABLE IF EXISTS " . $table . ";\n\n";
 	}
 
+	/**
+	 * @param $table
+	 */
 	private function createTable($table)
 	{
 		$result = $this->database->query('SHOW CREATE TABLE ' . $table)->fetch();
 		$this->exportedSql .= $result["Create Table"] . ";\n\n";
 	}
 
+	/**
+	 * @param $table
+	 */
 	private function insertData($table)
 	{
 		foreach ($this->database->table($table)->fetchAll() as $row) {
@@ -60,6 +90,9 @@ class MysqlExporter extends Nette\Object
 		}
 	}
 
+	/**
+	 *
+	 */
 	public function export()
 	{
 		$tables = $this->database->getStructure()->getTables();
@@ -72,11 +105,18 @@ class MysqlExporter extends Nette\Object
 		}
 	}
 
+	/**
+	 *
+	 */
 	public function save()
 	{
 		@mkdir(self::BACKUP_DIR);
-		$handle = fopen($this->filename, 'w+');
-		fwrite($handle, $this->exportedSql);
-		fclose($handle);
+		try {
+			$handle = fopen($this->filename, 'w+');
+			fwrite($handle, $this->exportedSql);
+			fclose($handle);
+		} catch (\Exception $e) {
+			throw new Nette\IOException("Cannot write result to file $this->filename");
+		}
 	}
 }

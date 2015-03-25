@@ -9,7 +9,7 @@ namespace App\AdminModule\Presenters;
 use Nette, 
 	App\AdminModule\Model;
 
-class HelperPresenter extends BasePresenter {
+final class HelperPresenter extends BasePresenter {
 
 	private $mysqlExporter;
 

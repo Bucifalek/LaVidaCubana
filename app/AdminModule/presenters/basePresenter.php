@@ -13,8 +13,6 @@ use Nette,
 	Tracy\Debugger;
 
 // Tracy options
-Debugger::$maxDepth = 10; // default: 3
-Debugger::$maxLen = 500; // default: 150
 
 /**
  * Class BasePresenter
@@ -132,7 +130,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 						'Bowling|home' => 'MainNews:edit, bowling',
 					]
 				);
-
 				break;
 			/* Branch: Kavarna Roznov pod Radhostem */
 			case 2:
@@ -142,7 +139,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				break;
 			/* Branch: Bowling */
 			case 4:
-
 				$menu->addSection('Bowlingová liga',
 					[
 						'Týmy|star' => [
@@ -164,7 +160,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 							'Pro členy ligy|bowling' => 'Info:leagueMembers',
 						],
 					]);
-
 				$menu->addSection('Rozpis ligy',
 					[
 						'Rozpis 2014|calendar' => [
@@ -215,7 +210,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 						],
 						'Přidat další rok|pushpin' => 'League:addYear',
 					]);
-
 				$menu->addSection('Výsledky',
 					[
 						'Výsledky 2014|charts' => [
@@ -239,14 +233,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				break;
 		}
 
-		/*
-			$allModules = [];
-			foreach ($this->modulesManager->getAllUsed() as $moduleName => $moduleActions) {
-				$allModules[$moduleName] = $moduleActions;
-			}
-			$menu->addSection('Použité moduly', $allModules);
-		*/
-
 		$menu->addSection('Systém', [
 			'Správci|group' =>
 				[
@@ -260,4 +246,3 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		return $menu;
 	}
 }
-

@@ -137,7 +137,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
-INSERT INTO users VALUES ('4', 'nugatu', '$2y$10$iIJdUZdYsHV3gtmDYqhYLeL4rDvLnJLUQXKWPzi9BC3mVYxWCQRhy', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1426913209', '0', '');
+INSERT INTO users VALUES ('4', 'nugatu', '$2y$10$iIJdUZdYsHV3gtmDYqhYLeL4rDvLnJLUQXKWPzi9BC3mVYxWCQRhy', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1427230060', '0', '');
 INSERT INTO users VALUES ('12', 'bucifalek', '$2y$10$dH9BSKIiuXj85XHNJAU/zeNzn/hu7qkDDWBe7lQE/dUc8gfMZo.be', 'Jan', 'Barton', 'janbartonn@gmail.com', '6', '0', '142427226', '0', '');
 INSERT INTO users VALUES ('14', 'malcik', '$2y$10$AeJoX97v2VioMs92mHuoAufdv0apFeckdfaMeFxescjVBG1AYlK3.', 'David', 'Janík', 'contact.janik@seznam.cz', '', '0', '', '0', '');
 

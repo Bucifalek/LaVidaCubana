@@ -10,14 +10,24 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
+/**
+ * Class NewsPresenter
+ * @package App\AdminModule\Presenters
+ */
 class NewsPresenter extends BasePresenter
 {
 
+	/**
+	 *
+	 */
 	public function renderAdd()
 	{
 
 	}
 
+	/**
+	 *
+	 */
 	public function renderHistory()
 	{
 

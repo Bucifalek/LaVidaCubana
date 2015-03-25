@@ -34,8 +34,13 @@
             			<td>{$user->real_firstname}</td>
             			<td>{$user->real_lastname}</td>
             			<td>{$user->user}</td>
-            			<td>{if $user->banned}<span class="label label-danger cursor" title="Zablokován {$user->bantime|date:'%d.%m.%Y'} ve {$user->bantime|date:'%H:%I:%S'}">Blokovaný</span>{else}
-            			<span class="label label-success cursor" title="Naposled aktivní {$user->activetime|date:'%d.%m.%Y'} ve {$user->activetime|date:'%H:%I:%S'}">Aktivní</span>{/if}
+            			<td>
+            			{if $user->banned}
+            			<span class="label label-danger cursor" title="Zablokován {$user->bantime|date:'%d.%m.%Y'} ve {$user->bantime|date:'%H:%I:%S'}">Blokovaný</span>
+            			{else}
+            			<span n:if="$user->activetime" class="label label-success cursor" title="Naposled aktivní {$user->activetime|date:'%d.%m.%Y'} ve {$user->activetime|date:'%H:%I:%S'}">Aktivní</span>
+            			<span n:if="!$user->activetime" class="label label-success cursor" title="Správce doposud nebyl přihlášen">Aktivní</span>
+            			{/if}
             			</td>
             			<td>{$user->email}</td>
             			<td class="text-right">
