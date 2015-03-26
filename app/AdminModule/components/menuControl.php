@@ -27,19 +27,13 @@ class MenuControl extends UI\Control
 
 	public function render()
 	{
-		$template = $this->template;
-		$template->setFile(__DIR__ . '/MenuControl.latte');
-		$template->sections = $this->sections;
+		$this->template->setFile(__DIR__ . '/MenuControl.latte');
+		$this->template->sections = $this->sections;
 
-		$template->wrapRoute = function ($arg) {
+		$this->template->wrapRoute = function ($arg) {
 			if (is_array($arg)) {
 				$value = reset($arg);
-				if (is_array($value)) {
-					$route = explode(":", reset($value));
-				} else {
-					$route = explode(":", $value);
-				}
-
+				$route = (is_array($value)) ? explode(":", reset($value)) : explode(":", $value);
 				unset($route[count($route) - 1]);
 				$result = implode(":", $route) . ":*";
 
@@ -52,7 +46,7 @@ class MenuControl extends UI\Control
 			return $result;
 		};
 
-		$template->glyph = function ($arg) {
+		$this->template->glyph = function ($arg) {
 			$parts = explode("|", $arg);
 			if (count($parts) > 1) {
 				return "glyphicons-" . $parts[count($parts) - 1];
@@ -64,13 +58,13 @@ class MenuControl extends UI\Control
 			}
 		};
 
-		$template->name = function ($arg) {
+		$this->template->name = function ($arg) {
 			$parts = explode("|", $arg);
 
 			return $parts[0];
 		};
 
-		$template->anyData = function ($arg) {
+		$this->template->anyData = function ($arg) {
 			$exploded = explode(",", $arg);
 			if (count($exploded) > 1) {
 				return true;
@@ -79,18 +73,32 @@ class MenuControl extends UI\Control
 			return false;
 		};
 
-		$template->parseLink = function ($arg) {
+		$this->template->parseLink = function ($arg) {
 			$exploded = explode(", ", $arg);
 
 			return $exploded[0];
 		};
-		$template->parseData = function ($arg) {
+		$this->template->parseData = function ($arg) {
 			$exploded = explode(",", $arg);
 
 			return str_replace(' ', '', $exploded[1]);
 		};
+		$this->template->secondLevelSelected=false;
 
+		$this->template->changeSecondLevel = function () {
+			$this->changeSecondLevel();
+		};
 
-		$template->render();
+		$this->template->render();
+	}
+
+	public function changeSecondLevel() {
+		if($this->template->secondLevelSelected == false) {
+			$this->template->secondLevelSelected = true;
+			Debugger::barDump("zmemeno");
+
+		}
+		Debugger::barDump($this->template->secondLevelSelected);
+		return $this;
 	}
 }

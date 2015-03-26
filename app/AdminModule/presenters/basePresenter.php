@@ -125,9 +125,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 1:
 				$menu->addSection('Aktuálně',
 					[
-						'Valašské meziříčí|home' => 'MainNews:edit, valasske-mezirici',
-						'Rožnov pod Radhoštěm|home' => 'MainNews:edit, roznov-pod-radhostem',
-						'Bowling|home' => 'MainNews:edit, bowling',
+						'Valašské meziříčí|coffe_cup' => 'MainNews:edit, valasske-mezirici',
+						'Rožnov pod Radhoštěm|coffe_cup' => 'MainNews:edit, roznov-pod-radhostem',
+						'Bowling|bowling' => 'MainNews:edit, bowling',
 					]
 				);
 				break;
@@ -150,14 +150,14 @@ class BasePresenter extends Nette\Application\UI\Presenter
 							'Přidat jednotlivce|user_add' => 'Individual:add',
 							'Seznam jednotlivců|log_book' => 'Individual:default',
 						],
-						'Aktuality|warning_sign' => [
+						'Aktuálně|warning_sign' => [
 							'Přidat|pushpin' => 'News:add',
 							'Historie aktualit|history' => 'News:history',
 						],
 						'Další informace|sampler' => [
 							'Otevírací doba|clock' => 'Info:openTime',
 							'Ceník bowlingu|coins' => 'Info:bowlingPrice',
-							'Pro členy ligy|bowling' => 'Info:leagueMembers',
+							'Pro členy ligy|bowling' => 'Info:forMembers',
 						],
 					]);
 				$menu->addSection('Rozpis ligy',
@@ -214,17 +214,17 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					[
 						'Výsledky 2014|charts' => [
 							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring, 2014',
-								'Podzimní část|leaf' => 'Result:fall, 2014',
-								'Zimní část|snowflake' => 'Result:winter, 2014',
+								'Jarní část|flower' => 'Result:*, spring, 2014',
+								'Podzimní část|leaf' => 'Result:*, 2014',
+								'Zimní část|snowflake' => 'Result:*, 2014',
 							],
 							'Top 3|podium' => 'Result:top, 2014'
 						],
 						'Výsledky 2015|charts' => [
 							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring',
-								'Podzimní část|leaf' => 'Result:fall',
-								'Zimní část|snowflake' => 'Result:winter',
+								'Jarní část|flower' => 'Result:*, 2015',
+								'Podzimní část|leaf' => 'Result:*, 2015',
+								'Zimní část|snowflake' => 'Result:*, 2015',
 							],
 							'Top 3|podium' => 'Result:top, 2015'
 						],

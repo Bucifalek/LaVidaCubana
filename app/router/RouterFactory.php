@@ -29,22 +29,43 @@ class RouterFactory
 		$prefix = "";
 		// Admin Router
 
+		// System
 		$router[] = new Route($prefix . 'admin/export-databaze', 'Admin:Helper:databaseExport');
-
-
 		$router[] = new Route($prefix . 'admin/zmenit-sekci[/<target>]', 'Admin:Dashboard:changeBranch');
 
-		$router[] = new Route($prefix . 'admin/teamy[/<action>]', 'Admin:Team:*');
+		// Teams
+		$router[] = new Route($prefix . 'admin/teamy', 'Admin:Team:list');
+		$router[] = new Route($prefix . 'admin/teamy/pridat', 'Admin:Team:add');
+		$router[] = new Route($prefix . 'admin/teamy/upravit[/<teamID>]', 'Admin:Team:edit');
 
 		// Individuals
 		$router[] = new Route($prefix . 'admin/jednotlivci[/strana[/<page=1>]]', 'Admin:Individual:default');
 		$router[] = new Route($prefix . 'admin/jednotlivci/pridat', 'Admin:Individual:add');
 
+		// News
+		$router[] = new Route($prefix . 'admin/aktualne', 'Admin:News:history');
+		$router[] = new Route($prefix . 'admin/aktualne/pridat', 'Admin:News:add');
+
+		// Dalsi informace
+		$router[] = new Route($prefix . 'admin/informace/oteviraci-doba', 'Admin:Info:openTime');
+		$router[] = new Route($prefix . 'admin/informace/cenik-bowlingu', 'Admin:Info:bowlingPrice');
+		$router[] = new Route($prefix . 'admin/informace/pro-cleny', 'Admin:Info:forMembers');
+
+		// Rozpis / jarni cast
+		// admin/liga/<year>/<season>/rozpis
+		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/rozpis', 'Admin:League:draft');
+
+
+
+
+
+
+
+
+
 		// ...
 		$router[] = new Route($prefix . 'admin/liga[/<action>]', 'Admin:League:*');
 		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
-		$router[] = new Route($prefix . 'admin/novinky[/<action>]', 'Admin:News:*');
-		$router[] = new Route($prefix . 'admin/informace[/<action>]', 'Admin:Info:*');
 		$router[] = new Route($prefix . 'admin/uvodni-novinky[/<key>]', 'Admin:MainNews:edit');
 
 
@@ -69,6 +90,8 @@ class RouterFactory
 
 		// Support
 		$router[] = new Route($prefix . 'admin/podpora', 'Admin:Support:contact');
+
+
 
 		// Front Router
 		$router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');
