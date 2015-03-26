@@ -51,21 +51,15 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/informace/cenik-bowlingu', 'Admin:Info:bowlingPrice');
 		$router[] = new Route($prefix . 'admin/informace/pro-cleny', 'Admin:Info:forMembers');
 
-		// Rozpis / jarni cast
-		// admin/liga/<year>/<season>/rozpis
+		// Rozpis
 		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/rozpis', 'Admin:League:draft');
+		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/jednotliva-kola', 'Admin:League:rounds');
+		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/pridat-kolo', 'Admin:League:add');
+		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/pridat-team', 'Admin:Team:addTo');
+		$router[] = new Route($prefix . 'admin/liga/pridat-dalsi-rok', 'Admin:League:addYear');
 
 
-
-
-
-
-
-
-
-		// ...
-		$router[] = new Route($prefix . 'admin/liga[/<action>]', 'Admin:League:*');
-		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:*');
+		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:default');
 		$router[] = new Route($prefix . 'admin/uvodni-novinky[/<key>]', 'Admin:MainNews:edit');
 
 
@@ -92,7 +86,6 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/podpora', 'Admin:Support:contact');
 
 
-
 		// Front Router
 		$router[] = new Route($prefix . 'roznov-pod-radhostem/', 'Web:Roznov:default');
 		$router[] = new Route($prefix . 'valasske-mezirici/', 'Web:Valmez:default');
@@ -104,7 +97,6 @@ class RouterFactory
 
 		$router[] = new Route($prefix . '', 'Web:Homepage:default');
 		$router[] = new Route($prefix . '<not-found>', 'Web:Homepage:notFound');
-
 
 
 		return $router;

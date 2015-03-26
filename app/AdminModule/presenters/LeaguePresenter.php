@@ -16,5 +16,18 @@ use Nette,
  */
 final class LeaguePresenter extends BasePresenter
 {
+	public function renderDraft($year, $season)
+	{
 
+	}
+
+	public function renderRounds($year, $season)
+	{
+
+	}
+
+	public function renderAdd($year, $season)
+	{
+
+	}
 }

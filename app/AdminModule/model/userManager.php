@@ -152,4 +152,8 @@ class UserManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
 	}
 
+	public function updateActiveTime($user) {
+		$this->database->table('users')->where('id', $user->getId())->update(['activetime' => time()]);
+	}
+
 }
