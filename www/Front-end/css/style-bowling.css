@@ -29,21 +29,22 @@ html, body {
   border-bottom: 1px solid #303030;
   color: #d14334; }
   .page_title .page_title_h {
-    width: 50%;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 18px; }
-  .page_title .back {
-    padding-top: 15px;
-    padding-bottom: 15px;
+  .page_title a {
+    position: relative;
+    text-align: right;
+    float: right;
+    margin-top: -40px;
     font-size: 18px;
-    color: #d14334;
+    color: white;
     text-decoration: none;
     transition-property: color;
     transition-duration: 0.6s;
     transition-delay: 0s,0.25s,0.45s,0.7s; }
-  .page_title .back:hover {
-    color: #a7382b; }
+  .page_title a:hover {
+    color: #d14334; }
 
 #page {
   width: 100%;
@@ -82,10 +83,42 @@ nav {
   letter-spacing: 3px;
   float: left;
   color: white; }
+  .logo .word_l {
+    font-size: 65px; }
+  .logo .word_a {
+    font-size: 48px; }
+  .logo .vida {
+    font-size: 65px;
+    padding-left: 10px;
+    padding-right: 10px; }
+  .logo .cubana {
+    font-size: 45px;
+    letter-spacing: 2px; }
 
 .mainmenu {
   float: right;
-  height: auto; }
+  height: auto;
+  position: relative; }
+  .mainmenu .dropdown:hover ul {
+    display: inline-block; }
+  .mainmenu ul {
+    position: absolute;
+    z-index: +111;
+    top: 100%;
+    width: 132px;
+    display: none;
+    right: 0;
+    background: black;
+    padding: 0; }
+    .mainmenu ul li {
+      display: block;
+      padding: 0px;
+      line-height: 0px;
+      text-align: center; }
+      .mainmenu ul li a {
+        line-height: 60px; }
+      .mainmenu ul li a:hover {
+        color: #d14334; }
   .mainmenu li {
     display: inline;
     list-style: none; }
@@ -95,12 +128,12 @@ nav {
     line-height: 100px;
     font-size: 14px;
     padding: 15px;
+    padding-bottom: 41px;
     transition-property: color;
     transition-duration: 0.6s;
     transition-delay: 0s,0.25s,0.45s,0.7s; }
   .mainmenu a:hover {
-    color: #c8c8c8;
-    font-weight: bold; }
+    color: #343333; }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
 .bowling_text_default {
