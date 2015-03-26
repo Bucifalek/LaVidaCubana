@@ -10,7 +10,11 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model;
 
-class TeamPresenter extends BasePresenter
+/**
+ * Class TeamPresenter
+ * @package App\AdminModule\Presenters
+ */
+final class TeamPresenter extends BasePresenter
 {
 
 }

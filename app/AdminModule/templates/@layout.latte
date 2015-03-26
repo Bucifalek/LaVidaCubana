@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Meta, title, CSS, favicons, etc. -->
 	<meta charset="utf-8">
 	<meta name="theme-color" content="#30363e">
 	<title>{ifset #title}{include title|striptags} | {/ifset}KotysLAB</title>
@@ -57,8 +56,7 @@
 			</ul>
 		</div>
 		<ul class="nav navbar-nav navbar-left">
-			{*}
-			<li class="dropdown hidden">{*}
+			{*}<li class="dropdown hidden">{*}
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					<span class="glyphicons glyphicons-settings fs14"></span>
@@ -100,12 +98,9 @@
 				</a>
 				<ul class="dropdown-menu animated animated-short flipInX" role="menu">
 					{foreach $branchList as $id => $name}
-					{if $currentBranch['id'] != $id}
-					<li>
-						<a href="{link ChangeBranch!, $id}" class="fw600">
-							<span class="glyphicon glyphicon-share-alt pr5"></span> {$name}</a>
+					<li n:if="$currentBranch['id'] != $id">
+						<a href="{link ChangeBranch!, $id}" class="fw600"><span class="glyphicon glyphicon-share-alt pr5"></span> {$name}</a>
 					</li>
-					{/if}
 					{/foreach}
 					<li class="divider"></li>
 					<li>
@@ -258,8 +253,7 @@
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript"
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/highcharts/highcharts.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/circles/circles.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/raphael/raphael.js"></script>
@@ -267,14 +261,11 @@
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/utility/utility.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/main.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/demo.js"></script>
-<script type="text/javascript"
-		src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/json2.js"></script>
-<script type="text/javascript"
-		src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript"
-		src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
-
+<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/json2.js"></script>
+<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/pages/widgets.js"></script>
+
 {ifset #script}{include script}{/ifset}
 <script type="text/javascript">
 	jQuery(document).ready(function () {

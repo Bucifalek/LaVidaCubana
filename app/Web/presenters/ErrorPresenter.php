@@ -9,7 +9,7 @@ use Nette,
 /**
  * Error presenter.
  */
-class ErrorPresenter extends BasePresenter
+final class ErrorPresenter extends BasePresenter
 {
 
 	/**

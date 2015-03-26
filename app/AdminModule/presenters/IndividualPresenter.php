@@ -11,11 +11,28 @@ use Nette,
 	App\AdminModule\Model;
 use Tracy\Debugger;
 
+/**
+ * Class IndividualPresenter
+ * @package App\AdminModule\Presenters
+ */
 class IndividualPresenter extends BasePresenter
 {
+	/**
+	 * @var Model\IndividualManager
+	 */
 	private $individuaManager;
+	/**
+	 * @var Model\TeamsManager
+	 */
 	private $teamsManager;
 
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 * @param Model\BranchManager $branchManager
+	 * @param Model\IndividualManager $individualManager
+	 * @param Model\TeamsManager $teamsManager
+	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\IndividualManager $individualManager, Model\TeamsManager $teamsManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
@@ -23,6 +40,9 @@ class IndividualPresenter extends BasePresenter
 		$this->teamsManager = $teamsManager;
 	}
 
+	/**
+	 * @param $page
+	 */
 	public function renderDefault($page)
 	{
 		$paginator = new Nette\Utils\Paginator;
@@ -40,11 +60,17 @@ class IndividualPresenter extends BasePresenter
 		}
 	}
 
+	/**
+	 * @param $pageNum
+	 */
 	public function handleChangePage($pageNum)
 	{
 		$this->redirect('Individual:default', $pageNum);
 	}
 
+	/**
+	 * @return Nette\Forms\Form
+	 */
 	public function createComponentAddIndividualForm()
 	{
 		$teamOptions = [];
@@ -59,9 +85,5 @@ class IndividualPresenter extends BasePresenter
 		$form->onSuccess[] = [$this, 'addIndividualFormSucceeded'];
 
 		return $form;
-	}
-
-	public function addIndividualFormSucceeded() {
-
 	}
 }

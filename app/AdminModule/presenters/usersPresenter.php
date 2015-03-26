@@ -10,8 +10,8 @@ namespace App\AdminModule\Presenters;
 use App\AdminModule\Model,
 	Nette\Application\UI,
 	Nette\Database\Context,
-	Nette\Security\Passwords,
-	Utils;
+	Nette\Security\Passwords;
+use Nette\Utils\Random;
 
 /**
  * Class UsersPresenter
@@ -119,7 +119,7 @@ final class UsersPresenter extends BasePresenter
 	 */
 	public function handleRegenPass($id)
 	{
-		$strongPassword = Utils\passGenerator::generateStrongPassword();
+		$strongPassword = Random::generate(30, '0-9a-zA-Z');
 		try {
 			$userDetails = $this->userManager->getDetails($id);
 			$this->userManager->newPassword($id, $strongPassword, Passwords::hash($strongPassword));
@@ -234,7 +234,7 @@ final class UsersPresenter extends BasePresenter
 	 */
 	public function addUserFormSucceeded(UI\Form $form, $values)
 	{
-		$strongPassword = Utils\passGenerator::generateStrongPassword();
+		$strongPassword = Random::generate(30, '0-9a-zA-Z');
 		try {
 			$this->userManager->add([
 				'user' => $values->username,
@@ -242,7 +242,9 @@ final class UsersPresenter extends BasePresenter
 				'real_firstname' => $values->firstname,
 				'real_lastname' => $values->lastname,
 				'email' => $values->email,
-				'banned' => '0'
+				'banned' => 0,
+				'avatar' => 1,
+				'activetime' => 0,
 			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
@@ -269,7 +271,6 @@ final class UsersPresenter extends BasePresenter
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 			$this->redirect('Users:list');
 		}
-
 
 		$this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit, heslo je $strongPassword", FLASH_SUCCESS);
 		$this->redirect('Users:list');

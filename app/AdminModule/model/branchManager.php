@@ -17,10 +17,6 @@ use Tracy\Debugger;
 class BranchManager extends Nette\Object
 {
 	/**
-	 *
-	 */
-	const TABLE_BRANCHES = "branches";
-	/**
 	 * @var Nette\Database\Context
 	 */
 	private $database;
@@ -52,7 +48,7 @@ class BranchManager extends Nette\Object
 		$this->session = $session->getSection('currentBranch');
 		$this->currentBranch = $this->session->data;
 
-		foreach ($this->database->table(self::TABLE_BRANCHES)->fetchAll() as $branch) {
+		foreach ($this->database->table(DatabaseStructure::BRANCHES)->fetchAll() as $branch) {
 			$this->branches[$branch->id] = $branch->name;
 		}
 		if (!$this->currentBranch['id']) {
