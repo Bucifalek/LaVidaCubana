@@ -24,17 +24,25 @@
     <div id="page">
         <nav>
             <div class="flexible_content">
-                <h1 class="logo">La VIDA Cubana</h1>
+                <h1 class="logo"><span class="word_l">L</span><span class="word_a">a</span><span class="vida">VIDA</span><span class="cubana">Cubana</span></h1>
                 <ul class="mainmenu">
                     <li><a n:href="Bowling:default">Všeobecné informace</a></li>
                     <li><a n:href="Bowling:play">Chci si zahrát</a></li>
-                    <li><a n:href="Bowling:league">Bowlingová liga</a></li>
+                    <li class="dropdown"><a n:href="Bowling:league">Bowlingová liga</a>
+                        <ul>
+                            <li><a n:href="Bowling:rules">Pravidla</a></li>
+                            <li><a n:href="Bowling:draft">Rozpis</a></li>
+                            <li><a n:href="Bowling:news">Aktuálně</a></li>
+                            <li><a n:href="Bowling:top">Top 3</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
         <div class="page_title">
              <div class="flexible_content">
-                 <h2 class="page_title_h">{include title} | <a n:href="Homepage:default" class="back">Zpět na rozcestí</a></h2>
+                 <h2 class="page_title_h">{include title}</h2>
+                 <a n:href="Homepage:default">Zpět na rozcestí!</a>
              </div>
         </div>
 
