@@ -8,7 +8,6 @@
 namespace App\AdminModule\Presenters;
 
 use Nette\Application\UI;
-use Nette\Utils\Arrays;
 use Tracy\Debugger;
 
 /**
@@ -37,25 +36,26 @@ class MenuControl extends UI\Control
 	 */
 	private function selectCurrentLink()
 	{
-		/*$currentRoute = str_replace('Admin:', null, $this->getPresenter()->getName()) . ":" . $this->getPresenter()->getAction();
+		$currentRoute = str_replace('Admin:', null, $this->getPresenter()->getName()) . ":" . $this->getPresenter()->getAction();
 		$parameters = $this->getPresenter()->getRequest()->getParameters();
 		if (count($parameters) > 1) {
 			$currentRoute .= ", " . implode(", ", $parameters);
 		}
 		$currentRoute = str_replace(', ' . $this->getPresenter()->getAction(), '', $currentRoute);
-		Debugger::barDump('currentRoute#' . $currentRoute);
+		Debugger::barDump('currentRoute# ' . $currentRoute);
 
 
-		foreach($this->sections as $sKey => $section) {
-			$key = array_search($currentRoute, $section);
-			if($key) {
-				//$this->sections[$sKey][$key] = $currentRoute . "@current@";
-				Arrays::renameKey($this->sections[$sKey], $key, '@current@' . $key);
+		/*
+				foreach($this->sections as $sKey => $section) {
+					$key = array_search($currentRoute, $section);
+					if($key) {
+						//$this->sections[$sKey][$key] = $currentRoute . "@current@";
+						Arrays::renameKey($this->sections[$sKey], $key, '@current@' . $key);
 
-			}
-		}
-		Debugger::barDump($this->sections);
-*/
+					}
+				}
+				Debugger::barDump($this->sections);
+		*/
 
 	}
 

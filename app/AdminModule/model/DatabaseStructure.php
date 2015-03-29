@@ -3,7 +3,7 @@
  * @author Jan Kotrba <jan.kotrbaa@gmail.com>
  * @date 21:06, 24. 3. 2015
  */
- 
+
 namespace App\AdminModule\Model;
 
 use Nette;
@@ -12,7 +12,8 @@ use Nette;
  * Class DatabaseStructure
  * @package App\AdminModule\Model
  */
-class DatabaseStructure extends Nette\Object {
+class DatabaseStructure extends Nette\Object
+{
 
 	/**
 	 * Bowling players table

@@ -9,10 +9,7 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model,
-	Nette\Security,
-	Tracy\Debugger;
-
-// Tracy options
+	Nette\Security;
 
 /**
  * Class BasePresenter
