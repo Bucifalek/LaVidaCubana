@@ -36,7 +36,7 @@ html, body {
     position: relative;
     text-align: right;
     float: right;
-    margin-top: -40px;
+    margin-top: -39px;
     font-size: 18px;
     color: white;
     text-decoration: none;
@@ -74,7 +74,7 @@ html, body {
 nav {
   width: 100%;
   height: 100px;
-  background-color: #d14334; }
+  background: #d14334; }
 
 .logo {
   font-family: bittersweet;
@@ -199,10 +199,7 @@ nav {
     background: rgba(0, 0, 0, 0.2);
     transition-property: background;
     transition-duration: 0.6s;
-    transition-delay: 0s,0.25s,0.45s,0.7s;
-    -moz-transition-property: background;
-    -moz-transition-duration: 0.6s;
-    -moz-transition-delay: 0s,0.25s,0.45s,0.7s; }
+    transition-delay: 0s,0.25s,0.45s,0.7s; }
     #instagram_box .insta_img_1 .insta_hover .on_hover, #instagram_box .insta_img_2 .insta_hover .on_hover, #instagram_box .insta_img_3 .insta_hover .on_hover, #instagram_box .insta_img_4 .insta_hover .on_hover {
       visibility: hidden;
       text-align: center;
@@ -230,8 +227,8 @@ nav {
     height: 260px;
     color: #343333; }
     .adress .seznam ul {
-      margin-top: 70px;
-      margin-left: 40px; }
+      margin-top: 60px;
+      margin-left: 30px; }
     .adress .seznam li {
       list-style: none;
       padding-bottom: 15px;
@@ -287,9 +284,9 @@ p.created {
     width: 70%;
     background: rgba(255, 255, 255, 0.75); } }
 @media screen and (max-width: 850px) {
-  .greybox .bowling_text_default, .greybox_2 .bowling_text_default {
+  .greybox .bowling_text_default, .greybox_2 .bowling_text_default, .greybox_table .bowling_text_default {
     font-size: 1em !important; }
-    .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info {
+    .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info, .greybox_table .bowling_text_default .play_info {
       font-size: 1em !important; }
 
   .instagram_box_2 .half_blok .half_one, .instagram_box_2 .half_blok .half_two {
@@ -310,6 +307,43 @@ p.created {
     width: 100%; }
   .time_cenik_info .cenik_info {
     width: 100%; } }
+@media screen and (max-width: 710px) {
+  nav {
+    width: 100%;
+    height: 230px;
+    background: #d14334; }
+
+  .logo {
+    margin: 0 auto !important;
+    text-align: center;
+    width: 100%; }
+
+  .mainmenu {
+    width: 100%; }
+    .mainmenu ul {
+      width: 100%; }
+      .mainmenu ul li a {
+        line-height: 40px; }
+    .mainmenu li {
+      float: left;
+      width: 100%;
+      text-align: center;
+      height: 40px;
+      background: none;
+      transition-property: background;
+      transition-duration: 0.1s;
+      transition-delay: 0s,0.25s,0.45s,0.7s; }
+    .mainmenu li:hover {
+      background: #343333;
+      color: white;
+      transition-property: background;
+      transition-duration: 0.6s;
+      transition-delay: 0s,0.25s,0.45s,0.7s; }
+    .mainmenu a {
+      padding: 0px;
+      line-height: 40px; }
+    .mainmenu a:hover {
+      color: #d14334; } }
 @media screen and (max-width: 680px) {
   .adress .seznam {
     width: 100%;
