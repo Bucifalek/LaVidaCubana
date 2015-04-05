@@ -6,10 +6,11 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model;
 
-final class HelperPresenter extends BasePresenter {
+final class HelperPresenter extends BasePresenter
+{
 
 	private $mysqlExporter;
 
@@ -20,7 +21,8 @@ final class HelperPresenter extends BasePresenter {
 	}
 
 
-	public function renderDatabaseExport() {
+	public function renderDatabaseExport()
+	{
 		$this->mysqlExporter->export();
 		$this->mysqlExporter->save();
 		$this->template->savedTo = $this->mysqlExporter->getFilename();

@@ -74,7 +74,7 @@ class IndividualPresenter extends BasePresenter
 	public function createComponentAddIndividualForm()
 	{
 		$teamOptions = [];
-		foreach($this->teamsManager->getAll() as $team) {
+		foreach ($this->teamsManager->getAll() as $team) {
 			$teamOptions[$team->id] = $team->team_name;
 		}
 

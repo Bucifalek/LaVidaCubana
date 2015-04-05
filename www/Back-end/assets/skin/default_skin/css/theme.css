@@ -25567,3 +25567,7 @@ to occupy 100% width at low resolutions */
 .newsFeedImage {
     width: 300px;
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}

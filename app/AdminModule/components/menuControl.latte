@@ -4,7 +4,8 @@
 			<li class="sidebar-label pt15">{$firstLevelText}</li>
 			{foreach $firstLevelTarget as $secondLevelText => $secondLevelTarget}
 				{* 1.First level *}
-				<li n:if="!is_array($secondLevelTarget)"{ifCurrent $secondLevelTarget} class="active" {/ifCurrent}>
+
+				<li n:if="!is_array($secondLevelTarget)"{if $currentFirst == $wrapRoute($secondLevelTarget)} class="active"{/if}>
 					{if $anyData($secondLevelTarget)}
 					<a href="{plink $parseLink($secondLevelTarget), $parseData($secondLevelTarget)}">
                     	<span class="glyphicons {$glyph($secondLevelText)}"></span>
@@ -20,7 +21,7 @@
 
 				{* 2.Second level *}
 				<li n:if="is_array($secondLevelTarget)">
-					<a class="accordion-toggle{ifCurrent $wrapRoute($secondLevelTarget)} menu-open{/ifCurrent}" href="#">
+					<a class="accordion-toggle {if $currentFirst == $wrapRoute($secondLevelTarget)} menu-open{/if}" href="#">
 						<span class="glyphicons {$glyph($secondLevelText)}"></span>
 						<span class="sidebar-title">{$name($secondLevelText)}</span>
 						<span class="caret"></span>
@@ -29,7 +30,7 @@
 					<ul class="nav sub-nav" n:inner-foreach="$secondLevelTarget as $thirdLevelText => $thirdLevelTarget">
 						{* 2.Second level *}
 						{if !is_array($thirdLevelTarget)}
-							<li{ifCurrent $thirdLevelTarget} class="active" {/ifCurrent}>
+							<li{if $currentLink == $thirdLevelTarget} class="active"{/if}>
 								{if $anyData($thirdLevelTarget)}
 									<a href="{plink $parseLink($thirdLevelTarget), $parseData($thirdLevelTarget)}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
 								{else}
@@ -38,18 +39,19 @@
 							</li>
 						{elseif is_array($thirdLevelTarget)}
 						{* 3.Third level *}
+
 							<li>
-								<a class="accordion-toggle{ifCurrent $wrapRoute($secondLevelTarget)} menu-open{/ifCurrent}" href="#">
+								<a class="accordion-toggle{if $wrapRoute($thirdLevelTarget) == $wrapRoute($currentLink)} menu-open{/if}" href="#">
 									<span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}
 									<span class="caret"></span>
 								</a>
 								<ul class="nav sub-nav sub-two" n:inner-foreach="$thirdLevelTarget as $fourthLevelText => $fourthLevelTarget">
 									<li{ifCurrent $fourthLevelTarget} class="active" {/ifCurrent}>
 										{if $anyData($fourthLevelTarget)}
-                                        	<a href="{plink $parseLink($fourthLevelTarget), $parseData($fourthLevelTarget)}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
-                                        {else}
-                                        	<a href="{plink $fourthLevelTarget}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
-                                        {/if}
+									    	<a href="{plink $parseLink($fourthLevelTarget), $parseData($fourthLevelTarget), $parseSecondData($fourthLevelTarget)}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
+									    {else}
+									    	<a href="{plink $fourthLevelTarget}"><span class="glyphicons {$glyph($fourthLevelText)}"></span> {$name($fourthLevelText)} </a>
+									    {/if}
 									</li>
 								</ul>
 							</li>

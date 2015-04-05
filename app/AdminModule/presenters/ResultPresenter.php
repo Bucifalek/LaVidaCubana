@@ -17,29 +17,45 @@ use Nette,
 class ResultPresenter extends BasePresenter
 {
 
+
 	/**
 	 * @param $year
+	 * @param $season
 	 */
-	public function renderWinter($year)
+	public function renderDefault($year, $season)
+	{
+	}
+
+
+	/**
+	 * @param $year
+	 * @param $season
+	 */
+	public function renderWinter($year, $season)
 	{
 
 	}
 
+
 	/**
 	 * @param $year
+	 * @param $season
 	 */
-	public function renderFall($year)
+	public function renderFall($year, $season)
 	{
 
 	}
 
+
 	/**
 	 * @param $year
+	 * @param $season
 	 */
-	public function renderSpring($year)
+	public function renderSpring($year, $season)
 	{
 
 	}
+
 
 	/**
 	 * @param $year
