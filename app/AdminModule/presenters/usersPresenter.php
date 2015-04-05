@@ -75,7 +75,7 @@ final class UsersPresenter extends BasePresenter
 
 		if (isset($userDetails)) {
 			try {
-				$myMailer = new Model\myMailer;
+				$myMailer = new Model\MyMailer;
 				$myMailer->setHtmlBody(
 					__DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
 					[
@@ -130,7 +130,7 @@ final class UsersPresenter extends BasePresenter
 
 		if (isset($userDetails)) {
 			try {
-				$myMailer = new Model\myMailer;
+				$myMailer = new Model\MyMailer;
 				$myMailer->setHtmlBody(
 					__DIR__ . '/../templates/EmailTemplates/passwordChangeEmail.latte',
 					[

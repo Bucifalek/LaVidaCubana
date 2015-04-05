@@ -9,6 +9,7 @@ namespace App\AdminModule\Model;
 
 use Latte\Loaders\FileLoader;
 use Nette;
+use Tracy\Debugger;
 
 /**
  * Class MainNewsManager
@@ -28,15 +29,23 @@ class MainNewsManager extends Nette\Object
 	function __construct(Nette\Database\Context $context)
 	{
 		$this->database = $context;
+		Debugger::barDump($context);
 	}
+
 
 	/**
 	 * @param $key
 	 * @return bool|mixed|Nette\Database\Table\IRow
+	 * @throws \Exception
 	 */
 	public function get($key)
 	{
-		return $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
+		$result = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
+		if (!$result) {
+			throw new \Exception('MainNews section #' . $key . ' not found!');
+		}
+
+		return $result;
 	}
 
 	/**

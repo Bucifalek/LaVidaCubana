@@ -39,6 +39,7 @@ final class HomepagePresenter extends BasePresenter
 	public function createComponentMainNewsRoznov()
 	{
 		$data = $this->mainNewsManager->get('roznov-pod-radhostem');
+		Debugger::barDump($data);
 		$mainNews = new MainNewsControl();
 		$mainNews->setTitle($data->title);
 		$mainNews->setRedirect($data->redirect);
