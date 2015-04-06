@@ -52,14 +52,14 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/informace/pro-cleny', 'Admin:Info:forMembers');
 
 		// Rozpis
-		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/rozpis', 'Admin:League:draft');
-		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/jednotliva-kola', 'Admin:League:rounds');
-		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/pridat-kolo', 'Admin:League:add');
-		$router[] = new Route($prefix . 'admin/liga/<year>/<season>/pridat-team', 'Admin:Team:addTo');
+		$router[] = new Route($prefix . 'admin/liga/<season>/rozpis', 'Admin:League:draft');
+		$router[] = new Route($prefix . 'admin/liga/<season>/jednotliva-kola', 'Admin:League:rounds');
+		$router[] = new Route($prefix . 'admin/liga/<season>/pridat-kolo', 'Admin:League:add');
+		$router[] = new Route($prefix . 'admin/liga/<season>/pridat-team', 'Admin:Team:addTo');
 		$router[] = new Route($prefix . 'admin/liga/pridat-dalsi-rok', 'Admin:League:addYear');
 
 
-		$router[] = new Route($prefix . 'admin/vysledky[/<action>][/<year>]', 'Admin:Result:default');
+		$router[] = new Route($prefix . 'admin/vysledky[/<action>]', 'Admin:Result:default');
 		$router[] = new Route($prefix . 'admin/uvodni-novinky[/<key>]', 'Admin:MainNews:edit');
 
 
