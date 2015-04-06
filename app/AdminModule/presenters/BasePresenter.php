@@ -9,10 +9,8 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model,
-	Nette\Security,
-	Tracy\Debugger;
-
-// Tracy options
+	Nette\Security;
+use Tracy\Debugger;
 
 /**
  * Class BasePresenter
@@ -59,10 +57,12 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		if ($this->getUser()->isLoggedIn()) {
 			$this->redirectedToLogin = false;
 			$userData = $this->user->getIdentity()->getData();
+
 			$this->template->firstName = $userData['firstname'];
 			$this->template->lastName = $userData['lastname'];
 			$this->template->avatar = $userData['avatar'];
 			$this->template->email = $userData['email'];
+
 			try {
 				$this->userManager->isUserBanned($this->getUser());
 			} catch (Security\AuthenticationException $e) {
@@ -70,7 +70,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
-			$this->database->table('users')->where('id', $this->getUser()->getId())->update(['activetime' => time()]);
+			$this->userManager->updateActiveTime($this->getUser());
 		} else if ($this->redirectedToLogin === false) {
 			$this->redirectedToLogin = true;
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
@@ -119,15 +119,15 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		 * Use only glyphicons icons in menu
 		 */
 
-		$menu = new MenuControl;
+		$menu = new MenuControl();
 		switch ($this->branchManager->getCurrentId()) {
 			/* Branch: Uvodni stranka */
 			case 1:
 				$menu->addSection('Aktuálně',
 					[
-						'Valašské meziříčí|home' => 'MainNews:edit, valasske-mezirici',
-						'Rožnov pod Radhoštěm|home' => 'MainNews:edit, roznov-pod-radhostem',
-						'Bowling|home' => 'MainNews:edit, bowling',
+						'Valašské meziříčí|coffe_cup'    => 'MainNews:edit, valasske-mezirici',
+						'Rožnov pod Radhoštěm|coffe_cup' => 'MainNews:edit, roznov-pod-radhostem',
+						'Bowling|bowling'                => 'MainNews:edit, bowling',
 					]
 				);
 				break;
@@ -141,107 +141,71 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 4:
 				$menu->addSection('Bowlingová liga',
 					[
-						'Týmy|star' => [
-							'Přidat tým|pushpin' => 'Team:add',
+						'Týmy|star'               => [
+							'Přidat tým|pushpin'    => 'Team:add',
 							'Tabulka týmů|log_book' => 'Team:list',
 						],
-
-						'Jednotlivci|nameplate' => [
+						'Jednotlivci|nameplate'   => [
 							'Přidat jednotlivce|user_add' => 'Individual:add',
 							'Seznam jednotlivců|log_book' => 'Individual:default',
 						],
-						'Aktuality|warning_sign' => [
-							'Přidat|pushpin' => 'News:add',
+						'Aktuálně|warning_sign'   => [
+							'Přidat|pushpin'            => 'News:add',
 							'Historie aktualit|history' => 'News:history',
 						],
 						'Další informace|sampler' => [
-							'Otevírací doba|clock' => 'Info:openTime',
-							'Ceník bowlingu|coins' => 'Info:bowlingPrice',
-							'Pro členy ligy|bowling' => 'Info:leagueMembers',
+							'Otevírací doba|clock'   => 'Info:openTime',
+							'Ceník bowlingu|coins'   => 'Info:bowlingPrice',
+							'Pro členy ligy|bowling' => 'Info:forMembers',
 						],
 					]);
 				$menu->addSection('Rozpis ligy',
 					[
-						'Rozpis 2014|calendar' => [
-							'Jarní část|flower' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Podzimní část|leaf' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Zimní část|snowflake' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Play-off|charts' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat tým|pushpin' => 'League:add',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
+						'Jarní část|flower'    => [
+							'Rozpis|edit'           => 'League:draft, leto',
+							'Jednotlivá kola|inbox' => 'League:rounds, leto',
+							'Přidat kolo|pushpin'   => 'League:add, leto',
 						],
-						'Rozpis 2015|calendar' => [
-							'Jarní část|flower' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Podzimní část|leaf' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Zimní část|snowflake' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
-							'Play-off|charts' => [
-								'Rozpis|edit' => 'League:draft',
-								'Jednotlivá kola|inbox' => 'League:rounds',
-								'Přidat tým|pushpin' => 'League:add',
-								'Přidat kolo|pushpin' => 'League:add',
-							],
+						'Podzimní část|leaf'   => [
+							'Rozpis|edit'           => 'League:draft, podzim',
+							'Jednotlivá kola|inbox' => 'League:rounds, podzim',
+							'Přidat kolo|pushpin'   => 'League:add, podzim',
 						],
-						'Přidat další rok|pushpin' => 'League:addYear',
+						'Zimní část|snowflake' => [
+							'Rozpis|edit'           => 'League:draft, zima',
+							'Jednotlivá kola|inbox' => 'League:rounds, zima',
+							'Přidat kolo|pushpin'   => 'League:add, zima',
+						],
+						'Play-off|charts'      => [
+							'Rozpis|edit'           => 'League:draft, playoff',
+							'Jednotlivá kola|inbox' => 'League:rounds, playoff',
+							'Přidat tým|pushpin'    => 'League:add, playoff',
+							'Přidat kolo|pushpin'   => 'Team:addTo, playoff',
+						],
 					]);
 				$menu->addSection('Výsledky',
 					[
-						'Výsledky 2014|charts' => [
-							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring, 2014',
-								'Podzimní část|leaf' => 'Result:fall, 2014',
-								'Zimní část|snowflake' => 'Result:winter, 2014',
-							],
-							'Top 3|podium' => 'Result:top, 2014'
+						'Výsledky zápasů|charts'     => [
+							'Jarní část|flower'    => 'Result:default, leto, 2015',
+							'Podzimní část|leaf'   => 'Result:default, podzim, 2015',
+							'Zimní část|snowflake' => 'Result:default, zima, 2015',
 						],
-						'Výsledky 2015|charts' => [
-							'Výsledky zápasů|charts' => [
-								'Jarní část|flower' => 'Result:spring',
-								'Podzimní část|leaf' => 'Result:fall',
-								'Zimní část|snowflake' => 'Result:winter',
-							],
-							'Top 3|podium' => 'Result:top, 2015'
-						],
+						'Top 3|podium'               => 'Result:top, 2015',
+
 						'Přidat výsledek|new_window' => 'Result:add',
 					]);
 				break;
 		}
 
 		$menu->addSection('Systém', [
-			'Správci|group' =>
+			'Správci|group'           =>
 				[
-					'Přidat|user_add' => 'Users:add',
+					'Přidat|user_add'            => 'Users:add',
 					'Seznam správců|adress_book' => 'Users:list'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Export databáze|magic' => "Helper:databaseExport",
-		]);
+			'Export databáze|magic'   => "Helper:databaseExport",
+		]);;
 
 		return $menu;
 	}

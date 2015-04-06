@@ -4,7 +4,7 @@
 			<li class="sidebar-label pt15">{$firstLevelText}</li>
 			{foreach $firstLevelTarget as $secondLevelText => $secondLevelTarget}
 				{* 1.First level *}
-				<li n:if="!is_array($secondLevelTarget)"{ifCurrent $secondLevelTarget} class="active" {/ifCurrent}>
+				<li n:if="!is_array($secondLevelTarget)"{ifCurrent $secondLevelTarget} class="active"{/ifCurrent}>
 					{if $anyData($secondLevelTarget)}
 					<a href="{plink $parseLink($secondLevelTarget), $parseData($secondLevelTarget)}">
                     	<span class="glyphicons {$glyph($secondLevelText)}"></span>
@@ -20,7 +20,7 @@
 
 				{* 2.Second level *}
 				<li n:if="is_array($secondLevelTarget)">
-					<a class="accordion-toggle{ifCurrent $wrapRoute($secondLevelTarget)} menu-open{/ifCurrent}" href="#">
+					<a class="accordion-toggle {ifCurrent $wrapRoute($secondLevelTarget)} menu-open{/ifCurrent}" href="#">
 						<span class="glyphicons {$glyph($secondLevelText)}"></span>
 						<span class="sidebar-title">{$name($secondLevelText)}</span>
 						<span class="caret"></span>

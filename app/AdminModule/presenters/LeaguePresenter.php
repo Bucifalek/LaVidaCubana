@@ -9,6 +9,7 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
+use Tracy\Debugger;
 
 /**
  * Class LeaguePresenter
@@ -16,5 +17,18 @@ use Nette,
  */
 final class LeaguePresenter extends BasePresenter
 {
+	public function renderDraft($season)
+	{
 
+	}
+
+	public function renderRounds($season)
+	{
+
+	}
+
+	public function renderAdd($season)
+	{
+
+	}
 }
