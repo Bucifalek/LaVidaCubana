@@ -28,22 +28,18 @@ class TeamsManager extends Nette\Object
         return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->count();
     }
 
+    public function get($id)
+    {
+        return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->where(['id' => $id])->fetch();
+    }
+
     public function getPage($limit, $offset)
     {
-        $teamsFinal = [];
-        $teams = $this->database->table(DatabaseStructure::BOWLING_TEAMS)->limit($limit, $offset)->order('score DESC')->fetchAll();
-        foreach ($teams as $team) {
-            $teamsFinal[] = [
-                'name' => $team->name,
-                'score' => $team->score,
-                'score_avg' => $team->score_avg,
-                'index' => $team->index,
-                'matches' => $team->matches,
-                'helpers' => $team->helpers,
-                'points' => $team->points,
-            ];
-        }
+        return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->limit($limit, $offset)->order('score DESC')->fetchAll();
+    }
 
-        return $teamsFinal;
+    public function removeMember($id)
+    {
+        return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->update(['team' => 0]);
     }
 }

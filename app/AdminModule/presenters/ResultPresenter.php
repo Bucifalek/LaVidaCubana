@@ -8,7 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-	App\AdminModule\Model;
+    App\AdminModule\Model;
 
 /**
  * Class ResultPresenter
@@ -18,15 +18,15 @@ class ResultPresenter extends BasePresenter
 {
 
 
-	public function renderDefault($season)
-	{
-	}
+    public function renderDefault($season)
+    {
+    }
 
-	/**
-	 * @param $year
-	 */
-	public function renderTop($year)
-	{
+    /**
+     * @param $year
+     */
+    public function renderTop($year)
+    {
 
-	}
+    }
 }

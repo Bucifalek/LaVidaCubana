@@ -8,9 +8,9 @@
 namespace App\AdminModule\Model;
 
 use Nette,
-	Nette\Mail,
-	Nette\Mail\Message,
-	Latte;
+    Nette\Mail,
+    Nette\Mail\Message,
+    Latte;
 
 /**
  * Class MyMailer
@@ -19,91 +19,91 @@ use Nette,
 class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 {
 
-	/**
-	 * @var Mail\SmtpMailer
-	 */
-	private $mailer;
+    /**
+     * @var Mail\SmtpMailer
+     */
+    private $mailer;
 
-	/**
-	 * @var Latte\Engine
-	 */
-	private $latteEngine;
+    /**
+     * @var Latte\Engine
+     */
+    private $latteEngine;
 
-	/**
-	 * @var Message
-	 */
-	private $message;
+    /**
+     * @var Message
+     */
+    private $message;
 
-	/**
-	 *
-	 */
-	function __construct()
-	{
-		$this->latteEngine = new Latte\Engine;
-		$this->message = new Message;
-		$config = [
-			'smtp'     => true,
-			'host'     => 'smtp-93282.m82.wedos.net',
-			'port'     => '465',
-			'secure'   => 'ssl',
-			'username' => 'upozorneni@kotyslab.cz',
-			'password' => 'cust168255332210'
-		];
-		$this->mailer = new Nette\Mail\SmtpMailer($config);
-	}
+    /**
+     *
+     */
+    function __construct()
+    {
+        $this->latteEngine = new Latte\Engine;
+        $this->message = new Message;
+        $config = [
+            'smtp' => true,
+            'host' => 'smtp-93282.m82.wedos.net',
+            'port' => '465',
+            'secure' => 'ssl',
+            'username' => 'upozorneni@kotyslab.cz',
+            'password' => 'cust168255332210'
+        ];
+        $this->mailer = new Nette\Mail\SmtpMailer($config);
+    }
 
-	/**
-	 * @throws Mail\SmtpException
-	 * @throws \Exception
-	 */
-	public function sendEmail()
-	{
-		$this->mailer->send($this->message);
-	}
+    /**
+     * @throws Mail\SmtpException
+     * @throws \Exception
+     */
+    public function sendEmail()
+    {
+        $this->mailer->send($this->message);
+    }
 
-	/**
-	 * @param $template
-	 * @param $params
-	 * @return $this
-	 * @throws \Exception
-	 */
-	public function setHtmlBody($template, $params)
-	{
-		$this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
+    /**
+     * @param $template
+     * @param $params
+     * @return $this
+     * @throws \Exception
+     */
+    public function setHtmlBody($template, $params)
+    {
+        $this->message->setHtmlBody($this->latteEngine->renderToString($template, $params));
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param $target
-	 * @return $this
-	 */
-	public function addTo($target)
-	{
-		$this->message->addTo($target);
+    /**
+     * @param $target
+     * @return $this
+     */
+    public function addTo($target)
+    {
+        $this->message->addTo($target);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param $email
-	 * @return $this
-	 */
-	public function setFrom($email)
-	{
-		$this->message->setFrom($email);
+    /**
+     * @param $email
+     * @return $this
+     */
+    public function setFrom($email)
+    {
+        $this->message->setFrom($email);
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param $subject
-	 * @return $this
-	 */
-	public function setSubject($subject)
-	{
-		$this->message->setSubject($subject);
+    /**
+     * @param $subject
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->message->setSubject($subject);
 
-		return $this;
-	}
+        return $this;
+    }
 }

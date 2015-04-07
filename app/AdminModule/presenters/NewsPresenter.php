@@ -8,7 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-	App\AdminModule\Model;
+    App\AdminModule\Model;
 
 /**
  * Class NewsPresenter
@@ -17,19 +17,19 @@ use Nette,
 class NewsPresenter extends BasePresenter
 {
 
-	/**
-	 *
-	 */
-	public function renderAdd()
-	{
+    /**
+     *
+     */
+    public function renderAdd()
+    {
 
-	}
+    }
 
-	/**
-	 *
-	 */
-	public function renderHistory()
-	{
+    /**
+     *
+     */
+    public function renderHistory()
+    {
 
-	}
+    }
 }

@@ -18,55 +18,55 @@ use Tracy\Debugger;
 class MainNewsManager extends Nette\Object
 {
 
-	/**
-	 * @var Nette\Database\Context
-	 */
-	private $database;
+    /**
+     * @var Nette\Database\Context
+     */
+    private $database;
 
-	/**
-	 * @param Nette\Database\Context $context
-	 */
-	function __construct(Nette\Database\Context $context)
-	{
-		$this->database = $context;
-		Debugger::barDump($context);
-	}
+    /**
+     * @param Nette\Database\Context $context
+     */
+    function __construct(Nette\Database\Context $context)
+    {
+        $this->database = $context;
+        Debugger::barDump($context);
+    }
 
 
-	/**
-	 * @param $key
-	 * @return bool|mixed|Nette\Database\Table\IRow
-	 * @throws \Exception
-	 */
-	public function get($key)
-	{
-		$result = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
-		if (!$result) {
-			throw new \Exception('MainNews section #' . $key . ' not found!');
-		}
+    /**
+     * @param $key
+     * @return bool|mixed|Nette\Database\Table\IRow
+     * @throws \Exception
+     */
+    public function get($key)
+    {
+        $result = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
+        if (!$result) {
+            throw new \Exception('MainNews section #' . $key . ' not found!');
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	/**
-	 * @param $key
-	 * @param $data
-	 * @return int
-	 */
-	public function update($key, $data)
-	{
-		return $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update($data);
-	}
+    /**
+     * @param $key
+     * @param $data
+     * @return int
+     */
+    public function update($key, $data)
+    {
+        return $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update($data);
+    }
 
-	/**
-	 * @param $key
-	 */
-	public function deleteOldImage($key)
-	{
-		$data = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
-		$image = $data->img_uploaded;
-		if ($image) {
-			unlink('Files/NewsImages/' . $image);
-		}
-	}
+    /**
+     * @param $key
+     */
+    public function deleteOldImage($key)
+    {
+        $data = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
+        $image = $data->img_uploaded;
+        if ($image) {
+            unlink('Files/NewsImages/' . $image);
+        }
+    }
 }

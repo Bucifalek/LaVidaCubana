@@ -8,7 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-	App\AdminModule\Model;
+    App\AdminModule\Model;
 
 /**
  * Class InfoPresenter
@@ -16,27 +16,27 @@ use Nette,
  */
 final class InfoPresenter extends BasePresenter
 {
-	/**
-	 *
-	 */
-	public function renderLeagueMembers()
-	{
+    /**
+     *
+     */
+    public function renderLeagueMembers()
+    {
 
-	}
+    }
 
-	/**
-	 *
-	 */
-	public function renderBowlingPrice()
-	{
+    /**
+     *
+     */
+    public function renderBowlingPrice()
+    {
 
-	}
+    }
 
-	/**
-	 *
-	 */
-	public function renderOpenTime()
-	{
+    /**
+     *
+     */
+    public function renderOpenTime()
+    {
 
-	}
+    }
 }

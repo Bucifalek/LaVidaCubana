@@ -17,44 +17,44 @@ use Nette\Security as NS;
 class UserAuth extends Nette\Object implements NS\IAuthenticator
 {
 
-	/**
-	 * @var Nette\Database\Context
-	 */
-	public $database;
+    /**
+     * @var Nette\Database\Context
+     */
+    public $database;
 
-	/**
-	 * @param Nette\Database\Context $database
-	 */
-	function __construct(Nette\Database\Context $database)
-	{
-		$this->database = $database;
-	}
+    /**
+     * @param Nette\Database\Context $database
+     */
+    function __construct(Nette\Database\Context $database)
+    {
+        $this->database = $database;
+    }
 
-	/**
-	 * @param array $credentials
-	 * @return NS\Identity
-	 * @throws NS\AuthenticationException
-	 */
-	public function authenticate(array $credentials)
-	{
-		list($username, $password) = $credentials;
-		$row = $this->database->table(DatabaseStructure::USERS)->where('user', $username)->fetch();
+    /**
+     * @param array $credentials
+     * @return NS\Identity
+     * @throws NS\AuthenticationException
+     */
+    public function authenticate(array $credentials)
+    {
+        list($username, $password) = $credentials;
+        $row = $this->database->table(DatabaseStructure::USERS)->where('user', $username)->fetch();
 
-		if (!$row || !NS\Passwords::verify($password, $row->password)) {
-			throw new NS\AuthenticationException('Nesprávné jméno nebo heslo.');
-		}
+        if (!$row || !NS\Passwords::verify($password, $row->password)) {
+            throw new NS\AuthenticationException('Nesprávné jméno nebo heslo.');
+        }
 
-		if ($row->banned) {
-			throw new NS\AuthenticationException('Tento účet je zablokován.');
-		}
-		$this->database->table(DatabaseStructure::USERS)->where('id', $row->id)->update(['activetime' => time()]);
+        if ($row->banned) {
+            throw new NS\AuthenticationException('Tento účet je zablokován.');
+        }
+        $this->database->table(DatabaseStructure::USERS)->where('id', $row->id)->update(['activetime' => time()]);
 
-		return new NS\Identity($row->id, $row->role, [
-			'user'      => $row->user,
-			'firstname' => $row->real_firstname,
-			'lastname'  => $row->real_lastname,
-			'avatar'    => $row->avatar,
-			'email'     => $row->email
-		]);
-	}
+        return new NS\Identity($row->id, $row->role, [
+            'user' => $row->user,
+            'firstname' => $row->real_firstname,
+            'lastname' => $row->real_lastname,
+            'avatar' => $row->avatar,
+            'email' => $row->email
+        ]);
+    }
 }
