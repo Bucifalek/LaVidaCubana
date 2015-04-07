@@ -44,8 +44,8 @@ class IndividualManager extends Nette\Object
 	public function getPage($limit, $offset)
 	{
 		$teams = [];
-		foreach ($this->database->table(DatabaseStructure::BOWLING_TEAMS)->select('id, team_name')->fetchAll() as $team) {
-			$teams[$team->id] = $team->team_name;
+		foreach ($this->database->table(DatabaseStructure::BOWLING_TEAMS)->select('id, name')->fetchAll() as $team) {
+			$teams[$team->id] = $team->name;
 		}
 
 		$individualsFinal = [];
@@ -54,7 +54,7 @@ class IndividualManager extends Nette\Object
 			$individualsFinal[] = [
 				'name'      => $person->name,
 				'team'      => $person->team,
-				'team_name' => $teams[$person->team],
+				'team_name' => (isset($teams[$person->team])) ? $teams[$person->team] : 'Tým neexistuje',
 				'score'     => $person->score,
 				'score_avg' => $person->score_avg,
 				'index'     => $person->index,

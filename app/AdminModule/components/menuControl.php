@@ -8,6 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette\Application\UI;
+use Nette\Utils\Strings;
 use Tracy\Debugger;
 
 class MenuControl extends UI\Control
@@ -32,6 +33,7 @@ class MenuControl extends UI\Control
 
 		$this->template->currentLink = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
 		$this->template->currentWithParams = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
+
 		$params = [$this->presenter->getParameter('season')];
 		if (count($params) > 0) {
 			$imp = implode(', ', $params);
@@ -41,7 +43,12 @@ class MenuControl extends UI\Control
 		}
 
 		$this->template->wrapRouteWithParams = function ($arg) {
-			return reset($arg);
+			foreach($arg as $route) {
+				if(Strings::contains($route, $this->presenter->getAction())) {
+					return $route;
+				}
+			}
+			return $route;
 		};
 
 
