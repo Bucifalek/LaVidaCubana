@@ -58,9 +58,6 @@ final class SignPresenter extends BasePresenter
 	{
 		$values = $form->values;
 		try {
-			$acl = new Nette\Security\Permission();
-			$acl->addResource('admin');
-			// Separate to sections
 			$this->getUser()->login($values->username, $values->password);
 			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
 			$this->restoreRequest($this->backlink);

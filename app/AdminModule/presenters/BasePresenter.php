@@ -139,7 +139,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				break;
 			/* Branch: Bowling */
 			case 4:
-				$menu->addSection('Bowlingová liga',
+				/*$menu->addSection('Bowlingová liga',
 					[
 						'Týmy|star'               => [
 							'Přidat tým|pushpin'    => 'Team:add',
@@ -158,7 +158,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 							'Ceník bowlingu|coins'   => 'Info:bowlingPrice',
 							'Pro členy ligy|bowling' => 'Info:forMembers',
 						],
-					]);
+					]);*/
 				$menu->addSection('Rozpis ligy',
 					[
 						'Jarní část|flower'    => [
