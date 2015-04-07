@@ -143,7 +143,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					[
 						'Týmy|star'               => [
 							'Přidat tým|pushpin'    => 'Team:add',
-							'Tabulka týmů|log_book' => 'Team:list',
+							'Tabulka týmů|log_book' => 'Team:default',
 						],
 						'Jednotlivci|nameplate'   => [
 							'Přidat jednotlivce|user_add' => 'Individual:add',

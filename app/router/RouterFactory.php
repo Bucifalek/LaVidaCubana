@@ -34,7 +34,7 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/zmenit-sekci[/<target>]', 'Admin:Dashboard:changeBranch');
 
 		// Teams
-		$router[] = new Route($prefix . 'admin/teamy', 'Admin:Team:list');
+		$router[] = new Route($prefix . 'admin/teamy', 'Admin:Team:default');
 		$router[] = new Route($prefix . 'admin/teamy/pridat', 'Admin:Team:add');
 		$router[] = new Route($prefix . 'admin/teamy/upravit[/<teamID>]', 'Admin:Team:edit');
 
