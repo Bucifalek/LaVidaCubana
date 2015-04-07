@@ -16,23 +16,10 @@ use Nette,
  */
 final class TeamPresenter extends BasePresenter
 {
-	private $teamManager;
-
-	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\TeamsManager $teamsManager)
-	{
-		parent::__construct($userManager, $database, $branchManager);
-		$this->teamManager = $teamsManager;
-	}
-
-
-	public function renderList() {
-		$this->template->teams = $this->teamManager->getAll();
-	}
-
-
 	public function renderAdd($season)
 	{
 
 	}
+
 
 }
