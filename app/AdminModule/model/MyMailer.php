@@ -42,10 +42,10 @@ class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 		$this->latteEngine = new Latte\Engine;
 		$this->message = new Message;
 		$config = [
-			'smtp'     => true,
-			'host'     => 'smtp-93282.m82.wedos.net',
-			'port'     => '465',
-			'secure'   => 'ssl',
+			'smtp' => true,
+			'host' => 'smtp-93282.m82.wedos.net',
+			'port' => '465',
+			'secure' => 'ssl',
 			'username' => 'upozorneni@kotyslab.cz',
 			'password' => 'cust168255332210'
 		];

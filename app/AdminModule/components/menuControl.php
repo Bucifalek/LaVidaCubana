@@ -43,8 +43,8 @@ class MenuControl extends UI\Control
 		}
 
 		$this->template->wrapRouteWithParams = function ($arg) {
-			foreach($arg as $route) {
-				if(Strings::contains($route, $this->presenter->getAction())) {
+			foreach ($arg as $route) {
+				if (Strings::contains($route, $this->presenter->getAction())) {
 					return $route;
 				}
 			}

@@ -51,10 +51,10 @@ final class MainNewsPresenter extends BasePresenter
 		parent::beforeRender();
 		if ($this->branchManager->getCurrentId() != 1) {
 			$this->redirect('Dashboard:changeBranch', [
-				'target'       => 1,
-				'targetPage'   => $this->getPresenter()->name,
+				'target' => 1,
+				'targetPage' => $this->getPresenter()->name,
 				'targetAction' => $this->getAction(),
-				'targetParam'  => $this->getParameter('key'),
+				'targetParam' => $this->getParameter('key'),
 			]);
 		}
 	}

@@ -50,11 +50,11 @@ class UserAuth extends Nette\Object implements NS\IAuthenticator
 		$this->database->table(DatabaseStructure::USERS)->where('id', $row->id)->update(['activetime' => time()]);
 
 		return new NS\Identity($row->id, $row->role, [
-			'user'      => $row->user,
+			'user' => $row->user,
 			'firstname' => $row->real_firstname,
-			'lastname'  => $row->real_lastname,
-			'avatar'    => $row->avatar,
-			'email'     => $row->email
+			'lastname' => $row->real_lastname,
+			'avatar' => $row->avatar,
+			'email' => $row->email
 		]);
 	}
 }
