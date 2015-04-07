@@ -13,11 +13,11 @@
 			<div class="panel-heading">
 				<span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Přidat jednotlivce</span>
 			</div>
-			<form n:name="addIndividualForm" id="form-register2" autocomplete="off">
+			<form n:name="addIndividualForm" autocomplete="off">
 				<div class="panel-body p25">
 					<div class="section">
 						<label for="firstname" class="field prepend-icon">
-							<input name="firstname" id="firstname" class="gui-input" placeholder="Jméno..."
+							<input n:name="name" id="firstname" class="gui-input" placeholder="Jméno..."
 								   type="text">
 							<label for="firstname" class="field-icon"><i class="fa fa-user"></i>
 							</label>
@@ -25,15 +25,13 @@
 					</div>
 					<!-- end .section row section -->
 					<div class="section">
-						<select id="multiselect1" n:inner-foreach="$teams as $team">
-						    <option value="{$team->id}">{$team->name}</option>
-						</select>
+						<select n:name="team" id="multiselect1"></select>
 					</div>
 					<!-- end section -->
 				</div>
 				<!-- end .form-body section -->
 				<div class="panel-footer text-right">
-					<input name="addUser" type="submit" value="Přidat hráče" class="button btn-primary">
+					<input n:name="addUser" type="submit" value="Přidat hráče" class="button btn-primary">
 				</div>
 				<!-- end .form-footer section -->
 			</form>

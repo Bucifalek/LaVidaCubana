@@ -52,22 +52,45 @@ class IndividualManager extends Nette\Object
 		$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
 		foreach ($individuals as $person) {
 			$individualsFinal[] = [
-				'name' => $person->name,
-				'team' => $person->team,
+				'id'        => $person->id,
+				'name'      => $person->name,
+				'team'      => $person->team,
 				'team_name' => (isset($teams[$person->team])) ? $teams[$person->team] : 'Tým neexistuje',
-				'score' => $person->score,
+				'score'     => $person->score,
 				'score_avg' => $person->score_avg,
-				'index' => $person->index,
-				'matches' => $person->matches,
-				'games' => $person->games
+				'index'     => $person->index,
+				'matches'   => $person->matches,
+				'games'     => $person->games
 			];
 		}
 
 		return $individualsFinal;
 	}
 
+	/**
+	 * @param $id
+	 * @return array|Nette\Database\Table\IRow[]
+	 */
 	public function fromTeam($id)
 	{
-		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('team', $id)->fetchAll();
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('team', $id)->order('score DESC')->fetchAll();
+	}
+
+	/**
+	 * @param $data
+	 * @return bool|int|Nette\Database\Table\IRow
+	 */
+	public function add($data)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->insert($data);
+	}
+
+	/**
+	 * @param $id
+	 * @return int
+	 */
+	public function delete($id)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->delete();
 	}
 }

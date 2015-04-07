@@ -43,12 +43,10 @@ class IndividualPresenter extends BasePresenter
 
 	public function renderAdd()
 	{
-		$teams = $this->teamsManager->getAll();
-		if (!$teams) {
+		if (!$this->teamsManager->getAll()) {
 			$this->flashMessage('Pro přidání hráče musíte nejprve vytvořit tým.', FLASH_WARNING);
 			$this->redirect('Team:add');
 		}
-		$this->template->teams = $teams;
 	}
 
 	/**
@@ -88,15 +86,37 @@ class IndividualPresenter extends BasePresenter
 	{
 		$teamOptions = [];
 		foreach ($this->teamsManager->getAll() as $team) {
-			$teamOptions[$team->id] = $team->id;
+			$teamOptions[$team->id] = $team->name;
 		}
 
-		$form = new Nette\Forms\Form;
-		$form->addText('name')->setRequired('Nezadali jste jméno.');
-		$form->addSelect('team', $teamOptions);
+		$form = new Nette\Application\UI\Form;
+		$form->addText('name');
+		$form->addSelect('team', null, $teamOptions);
 		$form->addSubmit('addUser', 'Přidat');
 		$form->onSuccess[] = [$this, 'addIndividualFormSucceeded'];
 
 		return $form;
+	}
+
+	public function addIndividualFormSucceeded(Nette\Application\UI\Form $form)
+	{
+		$values = $form->getValues();
+		$this->individualManager->add([
+			'name'      => $values->name,
+			'team'      => $values->team,
+			'score'     => 0,
+			'score_avg' => 0,
+			'index'     => 0,
+			'matches'   => 0,
+			'games'     => 0,
+		]);
+		$this->flashMessage('Jednotlivec přidán, nyní ho můžete zařadit do týmu.', FLASH_SUCCESS);
+		$this->redirect('Individual:default');
+	}
+
+	public function handleRemoveMember($id) {
+		$this->individualManager->delete($id);
+		$this->flashMessage('Jednotlivec úspěšně smazán.');
+		$this->redirect('Individual:default', $this->getParameter('page'));
 	}
 }

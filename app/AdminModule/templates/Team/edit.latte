@@ -34,7 +34,7 @@
                     	<span>Členové týmu</span>
                     </div>
                     <div class="panel-body pn mb10 cursor-pointer">
-                    	<table class="table table-hover">
+                    	<table class="table table-hover" n:if="$teamMembers">
                     		<thead>
                     		<tr>
                     			<th>Jméno</th>
@@ -77,6 +77,9 @@
                     		</tr>
                     		</tbody>
                     	</table>
+                    	<div n:if="!$teamMembers">
+                    	    V tomto týmu zatím nejsou žádní hráči.
+                    	</div>
                     </div>
  				</div>
  				<div class="panel-footer text-right">
