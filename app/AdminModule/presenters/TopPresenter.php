@@ -7,7 +7,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette,
-    App\AdminModule\Model;
+	App\AdminModule\Model;
 
 class TopPresenter extends BasePresenter
 {

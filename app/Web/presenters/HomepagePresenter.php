@@ -10,7 +10,7 @@ namespace App\WebModule\Presenters;
 use App\AdminModule\Model\MainNewsManager;
 use App\AdminModule\Presenters\MainNewsControl;
 use Nette,
-    Nette\Application\UI;
+	Nette\Application\UI;
 use Tracy\Debugger;
 
 /**
@@ -20,56 +20,56 @@ use Tracy\Debugger;
 final class HomepagePresenter extends BasePresenter
 {
 
-    /**
-     * @var MainNewsManager
-     */
-    private $mainNewsManager;
+	/**
+	 * @var MainNewsManager
+	 */
+	private $mainNewsManager;
 
-    /**
-     * @param MainNewsManager $mainNewsManager
-     */
-    function __construct(MainNewsManager $mainNewsManager)
-    {
-        $this->mainNewsManager = $mainNewsManager;
-    }
+	/**
+	 * @param MainNewsManager $mainNewsManager
+	 */
+	function __construct(MainNewsManager $mainNewsManager)
+	{
+		$this->mainNewsManager = $mainNewsManager;
+	}
 
-    /**
-     * @return MainNewsControl
-     */
-    public function createComponentMainNewsRoznov()
-    {
-        $data = $this->mainNewsManager->get('roznov-pod-radhostem');
-        Debugger::barDump($data);
-        $mainNews = new MainNewsControl();
-        $mainNews->setTitle($data->title);
-        $mainNews->setRedirect($data->redirect);
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsRoznov()
+	{
+		$data = $this->mainNewsManager->get('roznov-pod-radhostem');
+		Debugger::barDump($data);
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
 
-        return $mainNews;
-    }
+		return $mainNews;
+	}
 
-    /**
-     * @return MainNewsControl
-     */
-    public function createComponentMainNewsValmez()
-    {
-        $data = $this->mainNewsManager->get('valasske-mezirici');
-        $mainNews = new MainNewsControl();
-        $mainNews->setTitle($data->title);
-        $mainNews->setRedirect($data->redirect);
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsValmez()
+	{
+		$data = $this->mainNewsManager->get('valasske-mezirici');
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
 
-        return $mainNews;
-    }
+		return $mainNews;
+	}
 
-    /**
-     * @return MainNewsControl
-     */
-    public function createComponentMainNewsBowling()
-    {
-        $data = $this->mainNewsManager->get('bowling');
-        $mainNews = new MainNewsControl();
-        $mainNews->setTitle($data->title);
-        $mainNews->setRedirect($data->redirect);
+	/**
+	 * @return MainNewsControl
+	 */
+	public function createComponentMainNewsBowling()
+	{
+		$data = $this->mainNewsManager->get('bowling');
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
 
-        return $mainNews;
-    }
+		return $mainNews;
+	}
 }
