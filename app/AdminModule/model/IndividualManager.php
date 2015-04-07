@@ -52,14 +52,14 @@ class IndividualManager extends Nette\Object
 		$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
 		foreach ($individuals as $person) {
 			$individualsFinal[] = [
-				'name' => $person->name,
-				'team' => $person->team,
+				'name'      => $person->name,
+				'team'      => $person->team,
 				'team_name' => $teams[$person->team],
-				'score' => $person->score,
+				'score'     => $person->score,
 				'score_avg' => $person->score_avg,
-				'index' => $person->index,
-				'matches' => $person->matches,
-				'games' => $person->games
+				'index'     => $person->index,
+				'matches'   => $person->matches,
+				'games'     => $person->games
 			];
 		}
 

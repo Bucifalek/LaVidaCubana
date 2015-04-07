@@ -20,22 +20,46 @@
 
 				{* 2.Second level *}
 				<li n:if="is_array($secondLevelTarget)">
-					<a class="accordion-toggle {ifCurrent $wrapRoute($secondLevelTarget)} menu-open{/ifCurrent}" href="#">
-						<span class="glyphicons {$glyph($secondLevelText)}"></span>
-						<span class="sidebar-title">{$name($secondLevelText)}</span>
-						<span class="caret"></span>
-					</a>
+					{dump $currentLink}
+					{dump $currentWithParams}
+
+					{if $currentLink == $currentWithParams}
+					<a class="accordion-toggle {if $wrapRoute($currentLink) == $wrapRoute($secondLevelTarget)} menu-open{/if}" href="#">
+                    	<span class="glyphicons {$glyph($secondLevelText)}"></span>
+                    	<span class="sidebar-title">{$name($secondLevelText)}</span>
+                    	<span class="caret"></span>
+                    </a>
+					{else}
+					<a class="accordion-toggle {if $currentWithParams == $wrapRouteWithParams($secondLevelTarget)} menu-open{/if}" href="#">
+                    						<span class="glyphicons {$glyph($secondLevelText)}"></span>
+                    						<span class="sidebar-title">{$name($secondLevelText)}</span>
+                    						<span class="caret"></span>
+                    					</a>
+					{/if}
+
+
 
 					<ul class="nav sub-nav" n:inner-foreach="$secondLevelTarget as $thirdLevelText => $thirdLevelTarget">
 						{* 2.Second level *}
 						{if !is_array($thirdLevelTarget)}
-							<li{ifCurrent $thirdLevelTarget} class="active" {/ifCurrent}>
+							{if $anyData($thirdLevelTarget)}
+								<li{if $currentWithParams == $thirdLevelTarget} class="active"{/if}>
 								{if $anyData($thirdLevelTarget)}
 									<a href="{plink $parseLink($thirdLevelTarget), $parseData($thirdLevelTarget)}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
 								{else}
 									<a href="{plink $thirdLevelTarget}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
 								{/if}
 							</li>
+							{else}
+								<li{ifCurrent $thirdLevelTarget} class="active"{/ifCurrent}>
+									{if $anyData($thirdLevelTarget)}
+										<a href="{plink $parseLink($thirdLevelTarget), $parseData($thirdLevelTarget)}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
+									{else}
+										<a href="{plink $thirdLevelTarget}"><span class="glyphicons {$glyph($thirdLevelText)}"></span> {$name($thirdLevelText)}</a>
+									{/if}
+								</li>
+							{/if}
+
 						{elseif is_array($thirdLevelTarget)}
 						{* 3.Third level *}
 							<li>

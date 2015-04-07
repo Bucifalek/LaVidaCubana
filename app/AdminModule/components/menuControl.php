@@ -30,6 +30,21 @@ class MenuControl extends UI\Control
 		$this->template->setFile(__DIR__ . '/MenuControl.latte');
 		$this->template->sections = $this->sections;
 
+		$this->template->currentLink = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
+		$this->template->currentWithParams = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
+		$params = [$this->presenter->getParameter('season')];
+		if (count($params) > 0) {
+			$imp = implode(', ', $params);
+			if (strlen($imp) > 0) {
+				$this->template->currentWithParams .= ', ' . $imp;
+			}
+		}
+
+		$this->template->wrapRouteWithParams = function ($arg) {
+			return reset($arg);
+		};
+
+
 		$this->template->wrapRoute = function ($arg) {
 			if (is_array($arg)) {
 				$value = reset($arg);
@@ -45,7 +60,6 @@ class MenuControl extends UI\Control
 
 			return $result;
 		};
-
 		$this->template->glyph = function ($arg) {
 			$parts = explode("|", $arg);
 			if (count($parts) > 1) {
@@ -57,13 +71,11 @@ class MenuControl extends UI\Control
 				return "glyphicons-book_open";
 			}
 		};
-
 		$this->template->name = function ($arg) {
 			$parts = explode("|", $arg);
 
 			return $parts[0];
 		};
-
 		$this->template->anyData = function ($arg) {
 			$exploded = explode(",", $arg);
 			if (count($exploded) > 1) {
@@ -72,7 +84,6 @@ class MenuControl extends UI\Control
 
 			return false;
 		};
-
 		$this->template->parseLink = function ($arg) {
 			$exploded = explode(", ", $arg);
 
