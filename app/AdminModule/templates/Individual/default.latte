@@ -30,8 +30,8 @@
             			<th class="text-right">Akce</th>
             		</tr>
             		</thead>
-            		<tbody n:inner-foreach="$individuals as $person">
-            			<tr>
+            		<tbody>
+            			<tr n:foreach="$individuals as $person">
 							<td>{$person['name']}</td>
 							<td>{$person['team_name']}</td> {*}TODO odkaz na team, $person['team'] obsahuje ID{*}
 							<td class="text-center">{$person['score']}</td>
@@ -67,7 +67,8 @@
             		</tbody>
             	</table>
             </div>
-            <div class="panel-footer"><div class="row">
+            <div class="panel-footer">
+                <div class="row" n:if="$individuals">
                       {if $paginator->itemCount % 2 == 0}
                       	<div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam z {$paginator->itemCount}</div>
                       {else}
@@ -83,6 +84,9 @@
 						</ul>
                     </div>
                </div>
+                <div class="row" n:if="!$individuals">
+                    <div class='p5'>Seznam je prázdný</div>
+                </div>
             </div>
 		</div>
 	</div>

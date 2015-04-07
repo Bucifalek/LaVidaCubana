@@ -27,7 +27,7 @@ final class LeaguePresenter extends BasePresenter
 
 	}
 
-	public function renderAdd($season)
+	public function renderAddRound($season)
 	{
 
 	}

@@ -18,44 +18,9 @@ class ResultPresenter extends BasePresenter
 {
 
 
-	/**
-	 * @param $year
-	 * @param $season
-	 */
-	public function renderDefault($year, $season)
+	public function renderDefault($season)
 	{
 	}
-
-
-	/**
-	 * @param $year
-	 * @param $season
-	 */
-	public function renderWinter($year, $season)
-	{
-
-	}
-
-
-	/**
-	 * @param $year
-	 * @param $season
-	 */
-	public function renderFall($year, $season)
-	{
-
-	}
-
-
-	/**
-	 * @param $year
-	 * @param $season
-	 */
-	public function renderSpring($year, $season)
-	{
-
-	}
-
 
 	/**
 	 * @param $year
