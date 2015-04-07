@@ -55,7 +55,7 @@ class IndividualManager extends Nette\Object
 				'id'        => $person->id,
 				'name'      => $person->name,
 				'team'      => $person->team,
-				'team_name' => (isset($teams[$person->team])) ? $teams[$person->team] : 'Tým neexistuje',
+				'team_name' => (isset($teams[$person->team])) ? $teams[$person->team] : 'Žádný tým',
 				'score'     => $person->score,
 				'score_avg' => $person->score_avg,
 				'index'     => $person->index,
