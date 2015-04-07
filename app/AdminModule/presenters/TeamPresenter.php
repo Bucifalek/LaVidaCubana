@@ -9,6 +9,7 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
+use Tracy\Debugger;
 
 /**
  * Class TeamPresenter
@@ -72,8 +73,9 @@ final class TeamPresenter extends BasePresenter
 	public function createComponentAddTeamForm()
 	{
 		$form = new Nette\Forms\Form;
-		$form->addText('name')->setRequired('Nezadali jste jméno.');
-		$form->addSubmit('addTeam', 'Přidat');
+		$form->addProtection();
+		$form->addText('name');
+		$form->addSubmit('addTeam');
 		$form->onSuccess[] = [$this, 'addTeamFormSucceeded'];
 
 		return $form;
@@ -82,6 +84,8 @@ final class TeamPresenter extends BasePresenter
 	public function addTeamFormSucceeded($form)
 	{
 		$values = $form->getValues();
+		Debugger::barDump('jsem tu');
+		$this->redirect('Team:default');
 	}
 
 	public function handleDeleteTeamMember($memberId, $teamId)
@@ -91,14 +95,20 @@ final class TeamPresenter extends BasePresenter
 		$this->redirect('Team:edit', $teamId);
 	}
 
-	public function createComponentRenameTeam()
+	protected function createComponentRenameTeamForm()
 	{
 		$form = new Nette\Forms\Form;
-		$form->addText('name')->setRequired('Nezadali jste jméno.');
+		$form->addText('name');
 		$form->addSubmit('save');
-		$form->onSuccess[] = [$this, 'saveTeamFormSucceeded'];
+		$form->onSuccess[] = [$this, 'renameTeamFormSucceeded'];
 
 		return $form;
+	}
+
+	protected function renameTeamFormSucceeded()
+	{
+		die('jsem tu');
+		$this->flashMessage('Změny uloženy', FLASH_SUCCESS);
 	}
 
 }

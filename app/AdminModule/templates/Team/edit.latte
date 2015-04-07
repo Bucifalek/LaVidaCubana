@@ -15,7 +15,7 @@
                   <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Tým {$team['name']}
                   </span>
  			</div>
- 			<form  id="form-register2" autocomplete="off">
+ 			<form n:name="renameTeamForm" id="form-register2" autocomplete="off">
  				<div class="panel-body">
  					<div class="section-divider mt10 mb40">
  						<span>Název týmu</span>
@@ -23,7 +23,7 @@
  					<div class="section row">
  						<div class="col-md-12">
  							<label for="firstname" class="field prepend-icon">
- 								<input name="firstname" id="firstname" class="gui-input" placeholder="Jméno..."
+ 								<input n:name="name" id="firstname" class="gui-input" placeholder="Jméno týmu..."
  									   type="text" value="{$team['name']}">
  								<label for="firstname" class="field-icon"><i class="fa fa-user"></i>
  								</label>
@@ -80,7 +80,7 @@
                     </div>
  				</div>
  				<div class="panel-footer text-right">
- 					<input type="submit" name="updateUser" class="button btn-primary" value="Uložit">
+ 					<input  n:name="save" type="submit" class="button btn-primary" value="Uložit změny">
  				</div>
  			</form>
  		</div>
