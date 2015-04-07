@@ -33,7 +33,7 @@
             			<tr>
 							<td>{$team['name']}</td>
 							<td>{$team['score']}</td>
-							<td class="text-center">{$team['score_avg']}</td>
+							<td class="text-center">{$team['score_avg']|number:1}</td>
 							<td class="text-center">
                             {if $team['index'] == 1}
                             	<i class='glyphicons glyphicons-up_arrow'></i>
@@ -56,7 +56,7 @@
 										</li>
 										<li class="divider"></li>
 										<li>
-											<a href="">Smazat hráče</a>
+											<a n:href="RemoveTeam!, $team->id">Odebrat tým</a>
 										</li>
 									</ul>
 								</div>

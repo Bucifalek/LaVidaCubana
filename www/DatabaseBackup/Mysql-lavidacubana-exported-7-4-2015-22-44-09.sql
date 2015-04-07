@@ -1,8 +1,27 @@
+DROP TABLE IF EXISTS bowling_opentime;
+
+CREATE TABLE `bowling_opentime` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `day` varchar(10) DEFAULT NULL,
+  `open` int(15) DEFAULT NULL,
+  `close` int(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+INSERT INTO bowling_opentime VALUES ('1', 'Pondělí', '', '');
+INSERT INTO bowling_opentime VALUES ('3', 'Úterý', '', '');
+INSERT INTO bowling_opentime VALUES ('4', 'Středa', '', '');
+INSERT INTO bowling_opentime VALUES ('5', 'Čtvrtek', '', '');
+INSERT INTO bowling_opentime VALUES ('6', 'Pátek', '', '');
+INSERT INTO bowling_opentime VALUES ('7', 'Sobota', '', '');
+INSERT INTO bowling_opentime VALUES ('8', 'Neděle', '', '');
+
+
 DROP TABLE IF EXISTS bowling_players;
 
 CREATE TABLE `bowling_players` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `team` int(10) DEFAULT NULL,
   `score` int(10) DEFAULT NULL,
   `score_avg` float(10,0) DEFAULT NULL,
@@ -10,9 +29,9 @@ CREATE TABLE `bowling_players` (
   `matches` int(10) DEFAULT NULL,
   `games` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
-INSERT INTO bowling_players VALUES ('2', 'Fel?ír David', '1', '1508', '188', '1', '2', '8');
+INSERT INTO bowling_players VALUES ('2', 'Felčír David', '1', '1508', '188', '1', '2', '8');
 INSERT INTO bowling_players VALUES ('3', 'Vá?a Tonda', '1', '8168', '186', '0', '11', '44');
 INSERT INTO bowling_players VALUES ('4', 'Rešetko Martin', '1', '8754', '182', '1', '12', '48');
 INSERT INTO bowling_players VALUES ('5', 'Gartus Zden?k', '1', '2180', '182', '-1', '3', '12');
@@ -46,6 +65,20 @@ INSERT INTO bowling_players VALUES ('32', 'St?ít?zský Radomír', '1', '3932', 
 INSERT INTO bowling_players VALUES ('33', 'Kolá?ek Honza', '1', '2621', '164', '0', '4', '16');
 
 
+DROP TABLE IF EXISTS bowling_price;
+
+CREATE TABLE `bowling_price` (
+  `id` int(11) NOT NULL,
+  `key` varchar(50) DEFAULT NULL,
+  `timezone_1_price` int(5) DEFAULT NULL,
+  `timezone_1_range` varchar(150) DEFAULT NULL,
+  `timezone_2_price` int(5) DEFAULT NULL,
+  `timezone_2_range` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 DROP TABLE IF EXISTS bowling_teams;
 
 CREATE TABLE `bowling_teams` (
@@ -58,7 +91,7 @@ CREATE TABLE `bowling_teams` (
   `helpers` int(10) DEFAULT NULL,
   `points` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 INSERT INTO bowling_teams VALUES ('1', 'Drahop', '40760', '10.7', '1', '15', '141', '26');
 INSERT INTO bowling_teams VALUES ('2', 'A je dem', '40760', '1', '0', '14', '102', '20');
@@ -95,7 +128,7 @@ CREATE TABLE `main_news` (
   `img_uploaded` varchar(255) DEFAULT NULL,
   `redirect` int(1) DEFAULT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO main_news VALUES ('bowling', '', 't', '0', '0');
 INSERT INTO main_news VALUES ('roznov-pod-radhostem', '', 't', '0', '0');
@@ -111,9 +144,9 @@ CREATE TABLE `pages` (
   `key` varchar(255) DEFAULT NULL,
   `url` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO pages VALUES ('1', '1', 'Uvodní stránka celeho webu', 'uvodni-stranka-celeho-webu', '/');
+INSERT INTO pages VALUES ('1', '1', 'Uvodní stránka celého webu', 'uvodni-stranka-celeho-webu', '/');
 
 
 DROP TABLE IF EXISTS pages_content;
@@ -121,10 +154,10 @@ DROP TABLE IF EXISTS pages_content;
 CREATE TABLE `pages_content` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `branch_id` int(10) DEFAULT NULL,
-  `key` varchar(255) DEFAULT NULL,
-  `data` text,
+  `key` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `data` text CHARACTER SET latin1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -144,9 +177,9 @@ CREATE TABLE `users` (
   `bantime` int(10) DEFAULT '0',
   `role` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
-INSERT INTO users VALUES ('4', 'nugatulavida', 'Cpnoyvlf7gibN3joSECd6puNIMBrMK', '$2y$10$RHkZu9Q9NYkbILFFS0mX6OrAa597jblmQ1xwZv5mM3BEdYV0lxQb6', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1428437526', '0', '0');
+INSERT INTO users VALUES ('4', 'nugatulavida', 'Cpnoyvlf7gibN3joSECd6puNIMBrMK', '$2y$10$RHkZu9Q9NYkbILFFS0mX6OrAa597jblmQ1xwZv5mM3BEdYV0lxQb6', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1428439449', '0', '0');
 INSERT INTO users VALUES ('12', 'bucifalek', '', '$2y$10$dH9BSKIiuXj85XHNJAU/zeNzn/hu7qkDDWBe7lQE/dUc8gfMZo.be', 'Jan', 'Barton', 'janbartonn@gmail.com', '6', '0', '142427226', '0', '0');
 INSERT INTO users VALUES ('14', 'malcik', '', '$2y$10$AeJoX97v2VioMs92mHuoAufdv0apFeckdfaMeFxescjVBG1AYlK3.', 'David', 'Janík', 'contact.janik@seznam.cz', '2', '0', '1428429495', '0', '0');
 

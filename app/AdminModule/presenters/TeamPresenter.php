@@ -17,9 +17,22 @@ use Tracy\Debugger;
  */
 final class TeamPresenter extends BasePresenter
 {
+	/**
+	 * @var Model\TeamsManager
+	 */
 	private $teamManager;
+	/**
+	 * @var Model\IndividualManager
+	 */
 	private $individualManager;
 
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 * @param Model\BranchManager $branchManager
+	 * @param Model\TeamsManager $teamsManager
+	 * @param Model\IndividualManager $individualManager
+	 */
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\TeamsManager $teamsManager, Model\IndividualManager $individualManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
@@ -28,6 +41,9 @@ final class TeamPresenter extends BasePresenter
 	}
 
 
+	/**
+	 * @param $page
+	 */
 	public function renderDefault($page)
 	{
 
@@ -49,6 +65,16 @@ final class TeamPresenter extends BasePresenter
 	}
 
 	/**
+	 * @param $id
+	 */
+	public function handleRemoveTeam($id)
+	{
+		$this->teamManager->delete($id);
+		$this->flashMessage('Tým byl odebrán.');
+		$this->redirect('Team:default');
+	}
+
+	/**
 	 * @param $pageNum
 	 */
 	public function handleChangePage($pageNum)
@@ -56,38 +82,43 @@ final class TeamPresenter extends BasePresenter
 		$this->redirect('Team:default', $pageNum);
 	}
 
+	/**
+	 * @param $id
+	 */
 	public function renderEdit($id)
 	{
 		$this->template->team = $this->teamManager->get($id);
 		$this->template->teamMembers = $this->individualManager->fromTeam($id);
 	}
 
-	public function renderAdd($season)
-	{
-
-	}
-
 	/**
-	 * @return Nette\Forms\Form
+	 * @return Nette\Application\UI\Form
 	 */
-	public function createComponentAddTeamForm()
+	protected function createComponentRenameTeamForm()
 	{
-		$form = new Nette\Forms\Form;
-		$form->addProtection();
+		$form = new Nette\Application\UI\Form;
 		$form->addText('name');
-		$form->addSubmit('addTeam');
-		$form->onSuccess[] = [$this, 'addTeamFormSucceeded'];
+		$form->addSubmit('save');
+		$form->onSubmit[] = callback($this, 'renameTeamFormSucceeded');
 
 		return $form;
 	}
 
-	public function addTeamFormSucceeded($form)
+	/**
+	 * @param Nette\Application\UI\Form $form
+	 */
+	public function renameTeamFormSucceeded(Nette\Application\UI\Form $form)
 	{
 		$values = $form->getValues();
-		Debugger::barDump('jsem tu');
-		$this->redirect('Team:default');
+		$this->teamManager->rename($this->getPresenter()->getParameter('id'), $values->name);
+		$this->flashMessage('Změny uloženy', FLASH_SUCCESS);
 	}
 
+
+	/**
+	 * @param $memberId
+	 * @param $teamId
+	 */
 	public function handleDeleteTeamMember($memberId, $teamId)
 	{
 		$this->teamManager->removeMember($memberId);
@@ -95,20 +126,37 @@ final class TeamPresenter extends BasePresenter
 		$this->redirect('Team:edit', $teamId);
 	}
 
-	protected function createComponentRenameTeamForm()
+
+	/**
+	 * @param $season
+	 */
+	public function renderAdd($season)
 	{
-		$form = new Nette\Forms\Form;
-		$form->addText('name');
-		$form->addSubmit('save');
-		$form->onSuccess[] = [$this, 'renameTeamFormSucceeded'];
+
+	}
+
+
+	/**
+	 * @return Nette\Forms\Form
+	 */
+	public function createComponentAddTeamForm()
+	{
+		$form = new Nette\Application\UI\Form;
+		$form->addText('teamName')->setRequired();
+		$form->addSubmit('addTeam', 'Přidat hráče');
+		$form->onSuccess[] = callback($this, 'addTeamFormSucceeded');
 
 		return $form;
 	}
 
-	protected function renameTeamFormSucceeded()
+	/**
+	 * @param Nette\Application\UI\Form $form
+	 */
+	public function addTeamFormSucceeded(Nette\Application\UI\Form $form)
 	{
-		die('jsem tu');
-		$this->flashMessage('Změny uloženy', FLASH_SUCCESS);
+		$values = $form->getValues();
+		$this->teamManager->add($values['teamName']);
+		$this->flashMessage('Tým byl přídán.');
+		$this->redirect('Team:default');
 	}
-
 }

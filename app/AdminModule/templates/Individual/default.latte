@@ -32,9 +32,10 @@
             		<tbody>
             			<tr n:foreach="$individuals as $person">
 							<td>{$person['name']}</td>
-							<td>{$person['team_name']}</td> {*}TODO odkaz na team, $person['team'] obsahuje ID{*}
+							<td n:if="$person['team'] == 0">{$person['team_name']}</td>
+							<td n:if="$person['team'] != 0"><a n:href="Team:edit, $person['team']">{$person['team_name']}</a></td>
 							<td class="text-center">{$person['score']}</td>
-							<td class="text-center">{$person['score_avg']}</td>
+							<td class="text-center">{$person['score_avg']|number:1}</td>
 							<td class="text-center">
 							{if $person['index'] == 1}
 								<i class='glyphicons glyphicons-up_arrow'></i>
@@ -57,7 +58,7 @@
 										</li>
 										<li class="divider"></li>
 										<li>
-											<a href="">Smazat hráče</a>
+											<a n:href="RemoveMember!, $person['id']">Smazat hráče</a>
 										</li>
 									</ul>
 								</div>
