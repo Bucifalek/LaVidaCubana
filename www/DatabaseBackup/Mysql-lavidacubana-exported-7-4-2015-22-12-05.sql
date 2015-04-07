@@ -144,9 +144,10 @@ CREATE TABLE `users` (
   `bantime` int(10) DEFAULT '0',
   `role` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
-INSERT INTO users VALUES ('4', 'nugatulavida', 'Cpnoyvlf7gibN3joSECd6puNIMBrMK', '$2y$10$RHkZu9Q9NYkbILFFS0mX6OrAa597jblmQ1xwZv5mM3BEdYV0lxQb6', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1428425523', '0', '');
-INSERT INTO users VALUES ('12', 'bucifalek', '', '$2y$10$dH9BSKIiuXj85XHNJAU/zeNzn/hu7qkDDWBe7lQE/dUc8gfMZo.be', 'Jan', 'Barton', 'janbartonn@gmail.com', '6', '0', '142427226', '0', '');
+INSERT INTO users VALUES ('4', 'nugatulavida', 'Cpnoyvlf7gibN3joSECd6puNIMBrMK', '$2y$10$RHkZu9Q9NYkbILFFS0mX6OrAa597jblmQ1xwZv5mM3BEdYV0lxQb6', 'Jan', 'Kotrba', 'jan.kotrbaa@gmail.com', '2', '0', '1428437526', '0', '0');
+INSERT INTO users VALUES ('12', 'bucifalek', '', '$2y$10$dH9BSKIiuXj85XHNJAU/zeNzn/hu7qkDDWBe7lQE/dUc8gfMZo.be', 'Jan', 'Barton', 'janbartonn@gmail.com', '6', '0', '142427226', '0', '0');
+INSERT INTO users VALUES ('14', 'malcik', '', '$2y$10$AeJoX97v2VioMs92mHuoAufdv0apFeckdfaMeFxescjVBG1AYlK3.', 'David', 'Janík', 'contact.janik@seznam.cz', '2', '0', '1428429495', '0', '0');
 
 
