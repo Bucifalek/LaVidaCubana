@@ -125,9 +125,9 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 1:
 				$menu->addSection('Aktuálně',
 					[
-						'Valašské meziříčí|coffe_cup'    => 'MainNews:edit, valasske-mezirici',
+						'Valašské meziříčí|coffe_cup' => 'MainNews:edit, valasske-mezirici',
 						'Rožnov pod Radhoštěm|coffe_cup' => 'MainNews:edit, roznov-pod-radhostem',
-						'Bowling|bowling'                => 'MainNews:edit, bowling',
+						'Bowling|bowling' => 'MainNews:edit, bowling',
 					]
 				);
 				break;
@@ -141,72 +141,72 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 4:
 				$menu->addSection('Bowlingová liga',
 					[
-						'Týmy|star'               => [
-							'Přidat tým|pushpin'    => 'Team:add',
+						'Týmy|star' => [
+							'Přidat tým|pushpin' => 'Team:add',
 							'Tabulka týmů|log_book' => 'Team:default',
 						],
-						'Jednotlivci|nameplate'   => [
+						'Jednotlivci|nameplate' => [
 							'Přidat jednotlivce|user_add' => 'Individual:add',
 							'Seznam jednotlivců|log_book' => 'Individual:default',
 						],
-						'Aktuálně|warning_sign'   => [
-							'Přidat|pushpin'            => 'News:add',
+						'Aktuálně|warning_sign' => [
+							'Přidat|pushpin' => 'News:add',
 							'Historie aktualit|history' => 'News:history',
 						],
 						'Další informace|sampler' => [
-							'Otevírací doba|clock'   => 'Info:openTime',
-							'Ceník bowlingu|coins'   => 'Info:bowlingPrice',
+							'Otevírací doba|clock' => 'Info:openTime',
+							'Ceník bowlingu|coins' => 'Info:bowlingPrice',
 							'Pro členy ligy|bowling' => 'Info:forMembers',
 						],
 					]);
 
 				$menu->addSection('Rozpis ligy',
 					[
-						'Jarní část|flower'    => [
-							'Rozpis|edit'           => 'League:draft, leto',
+						'Jarní část|flower' => [
+							'Rozpis|edit' => 'League:draft, leto',
 							'Jednotlivá kola|inbox' => 'League:rounds, leto',
-							'Přidat kolo|pushpin'   => 'League:addRound, leto',
+							'Přidat kolo|pushpin' => 'League:addRound, leto',
 						],
-						'Podzimní část|leaf'   => [
-							'Rozpis|edit'           => 'League:draft, podzim',
+						'Podzimní část|leaf' => [
+							'Rozpis|edit' => 'League:draft, podzim',
 							'Jednotlivá kola|inbox' => 'League:rounds, podzim',
-							'Přidat kolo|pushpin'   => 'League:addRound, podzim',
+							'Přidat kolo|pushpin' => 'League:addRound, podzim',
 						],
 						'Zimní část|snowflake' => [
-							'Rozpis|edit'           => 'League:draft, zima',
+							'Rozpis|edit' => 'League:draft, zima',
 							'Jednotlivá kola|inbox' => 'League:rounds, zima',
-							'Přidat kolo|pushpin'   => 'League:addRound, zima',
+							'Přidat kolo|pushpin' => 'League:addRound, zima',
 						],
-						'Play-off|charts'      => [
-							'Rozpis|edit'           => 'League:draft, playoff',
+						'Play-off|charts' => [
+							'Rozpis|edit' => 'League:draft, playoff',
 							'Jednotlivá kola|inbox' => 'League:rounds, playoff',
-							'Přidat kolo|pushpin'   => 'League:addRound, playoff',
-							'Přidat tým|pushpin'    => 'Team:add, playoff',
+							'Přidat kolo|pushpin' => 'League:addRound, playoff',
+							'Přidat tým|pushpin' => 'Team:add, playoff',
 						],
 					]);
 
 				$menu->addSection('Výsledky',
 					[
-						'Výsledky zápasů|charts'     => [
-							'Jarní část|flower'    => 'Result:default, jaro',
-							'Podzimní část|leaf'   => 'Result:default, podzim',
+						'Výsledky zápasů|charts' => [
+							'Jarní část|flower' => 'Result:default, jaro',
+							'Podzimní část|leaf' => 'Result:default, podzim',
 							'Zimní část|snowflake' => 'Result:default, zima',
-							'Play-off|charts'      => 'Result:default, play-off',
+							'Play-off|charts' => 'Result:default, play-off',
 						],
-						'Top 3|podium'               => 'Top:default',
+						'Top 3|podium' => 'Top:default',
 						'Přidat výsledek|new_window' => 'Result:add',
 					]);
 				break;
 		}
 
 		$menu->addSection('Systém', [
-			'Správci|group'           =>
+			'Správci|group' =>
 				[
-					'Přidat|user_add'            => 'Users:add',
+					'Přidat|user_add' => 'Users:add',
 					'Seznam správců|adress_book' => 'Users:list'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Export databáze|magic'   => "Helper:databaseExport",
+			'Export databáze|magic' => "Helper:databaseExport",
 		]);
 
 		return $menu;

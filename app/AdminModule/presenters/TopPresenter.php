@@ -6,9 +6,10 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model;
 
-class TopPresenter extends BasePresenter {
-	
+class TopPresenter extends BasePresenter
+{
+
 }

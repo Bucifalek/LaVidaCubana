@@ -36,12 +36,12 @@ class RouterFactory
 		// Teams
 		$router[] = new Route($prefix . 'admin/teamy', 'Admin:Team:default');
 		$router[] = new Route($prefix . 'admin/teamy/pridat', 'Admin:Team:add');
-		$router[] = new Route($prefix . 'admin/teamy/upravit[/<teamID>]', 'Admin:Team:edit');
+		$router[] = new Route($prefix . 'admin/teamy/upravit[/<id>]', 'Admin:Team:edit');
 
 		// Individuals
 		$router[] = new Route($prefix . 'admin/jednotlivci[/strana[/<page=1>]]', 'Admin:Individual:default');
 		$router[] = new Route($prefix . 'admin/jednotlivci/pridat', 'Admin:Individual:add');
-		$router[] = new Route($prefix . 'admin/jednotlivci/upravit', 'Admin:Individual:edit');
+		$router[] = new Route($prefix . 'admin/jednotlivci/upravit[/<id>]', 'Admin:Individual:edit');
 
 		// News
 		$router[] = new Route($prefix . 'admin/aktualne', 'Admin:News:history');
@@ -58,7 +58,6 @@ class RouterFactory
 		$router[] = new Route($prefix . 'admin/liga/<season>/pridat-kolo', 'Admin:League:addRound');
 		$router[] = new Route($prefix . 'admin/liga/<season>/pridat-team', 'Admin:Team:add');
 		$router[] = new Route($prefix . 'admin/liga/pridat-dalsi-rok', 'Admin:League:addYear');
-
 
 
 		$router[] = new Route($prefix . 'admin/vysledky/top-3', 'Admin:Top:default');
@@ -99,10 +98,10 @@ class RouterFactory
 		$router[] = new Route($prefix . 'bowling/', 'Web:Bowling:default');
 		$router[] = new Route($prefix . 'bowling/chci-si-zahrat', 'Web:Bowling:play');
 		$router[] = new Route($prefix . 'bowling/bowlingova-liga', 'Web:Bowling:league');
-        $router[] = new Route($prefix . 'bowling/pravidla', 'Web:Bowling:rules');
-        $router[] = new Route($prefix . 'bowling/rozpis', 'Web:Bowling:draft');
-        $router[] = new Route($prefix . 'bowling/aktualne', 'Web:Bowling:news');
-        $router[] = new Route($prefix . 'bowling/top-3', 'Web:Bowling:top');
+		$router[] = new Route($prefix . 'bowling/pravidla', 'Web:Bowling:rules');
+		$router[] = new Route($prefix . 'bowling/rozpis', 'Web:Bowling:draft');
+		$router[] = new Route($prefix . 'bowling/aktualne', 'Web:Bowling:news');
+		$router[] = new Route($prefix . 'bowling/top-3', 'Web:Bowling:top');
 
 		$router[] = new Route($prefix . '', 'Web:Homepage:default');
 		$router[] = new Route($prefix . '<not-found>', 'Web:Homepage:notFound');

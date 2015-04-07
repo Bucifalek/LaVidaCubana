@@ -11,39 +11,35 @@ use Nette;
 class TeamsManager extends Nette\Object
 {
 
-    private $database;
+	private $database;
 
-    function __construct(Nette\Database\Context $database)
-    {
-        $this->database = $database;
-    }
+	function __construct(Nette\Database\Context $database)
+	{
+		$this->database = $database;
+	}
 
-    public function getAll()
-    {
-        return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->order('score DESC')->fetchAll();
-    }
+	public function getAll()
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->order('score DESC')->fetchAll();
+	}
 
-    public function total()
-    {
-        return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->count();
-    }
+	public function total()
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->count();
+	}
 
-    public function getPage($limit, $offset)
-    {
-        $teamsFinal = [];
-        $teams = $this->database->table(DatabaseStructure::BOWLING_TEAMS)->limit($limit, $offset)->order('score DESC')->fetchAll();
-        foreach ($teams as $team) {
-            $teamsFinal[] = [
-                'name' => $team->name,
-                'score' => $team->score,
-                'score_avg' => $team->score_avg,
-                'index' => $team->index,
-                'matches' => $team->matches,
-                'helpers' => $team->helpers,
-                'points' => $team->points,
-            ];
-        }
+	public function get($id)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->where(['id' => $id])->fetch();
+	}
 
-        return $teamsFinal;
-    }
+	public function getPage($limit, $offset)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->limit($limit, $offset)->order('score DESC')->fetchAll();
+	}
+
+	public function removeMember($id)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->update(['team' => 0]);
+	}
 }

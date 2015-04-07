@@ -71,7 +71,7 @@ class BranchManager extends Nette\Object
 	public function getDefault()
 	{
 		return [
-			'id'    => key($this->branches),
+			'id' => key($this->branches),
 			'title' => $this->branches[key($this->branches)]
 		];
 	}
@@ -114,7 +114,7 @@ class BranchManager extends Nette\Object
 	public function setNew($id)
 	{
 		$this->session->data = $this->currentBranch = [
-			'id'    => $id,
+			'id' => $id,
 			'title' => $this->branches[$id]
 		];
 	}

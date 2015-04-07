@@ -79,10 +79,10 @@ final class UsersPresenter extends BasePresenter
 				$myMailer->setHtmlBody(
 					__DIR__ . '/../templates/EmailTemplates/banUserEmail.latte',
 					[
-						'firstname'   => $userDetails->real_firstname,
-						'lastname'    => $userDetails->real_lastname,
-						'user'        => $userDetails->user,
-						'website'     => 'La VIDA Cubana',
+						'firstname' => $userDetails->real_firstname,
+						'lastname' => $userDetails->real_lastname,
+						'user' => $userDetails->user,
+						'website' => 'La VIDA Cubana',
 						'website_url' => 'http://cms.jkotrba.net/admin/'
 					]
 				)
@@ -134,8 +134,8 @@ final class UsersPresenter extends BasePresenter
 				$myMailer->setHtmlBody(
 					__DIR__ . '/../templates/EmailTemplates/passwordChangeEmail.latte',
 					[
-						'user'        => $userDetails->user,
-						'website'     => 'La VIDA Cubana',
+						'user' => $userDetails->user,
+						'website' => 'La VIDA Cubana',
 						'website_url' => 'http://cms.jkotrba.net/admin/',
 						'newPassword' => $strongPassword
 					]
@@ -198,9 +198,9 @@ final class UsersPresenter extends BasePresenter
 		try {
 			$this->userManager->update($values->id, [
 				'real_firstname' => $values->firstname,
-				'real_lastname'  => $values->lastname,
-				'user'           => $values->username,
-				'email'          => $values->email
+				'real_lastname' => $values->lastname,
+				'user' => $values->username,
+				'email' => $values->email
 			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
@@ -237,14 +237,14 @@ final class UsersPresenter extends BasePresenter
 		$strongPassword = Random::generate(30, '0-9a-zA-Z');
 		try {
 			$this->userManager->add([
-				'user'           => $values->username,
-				'password'       => Passwords::hash($strongPassword),
+				'user' => $values->username,
+				'password' => Passwords::hash($strongPassword),
 				'real_firstname' => $values->firstname,
-				'real_lastname'  => $values->lastname,
-				'email'          => $values->email,
-				'banned'         => 0,
-				'avatar'         => 1,
-				'activetime'     => 0,
+				'real_lastname' => $values->lastname,
+				'email' => $values->email,
+				'banned' => 0,
+				'avatar' => 1,
+				'activetime' => 0,
 			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
@@ -255,11 +255,11 @@ final class UsersPresenter extends BasePresenter
 			$myMailer->setHtmlBody(
 				__DIR__ . '/../templates/EmailTemplates/newUserEmail.latte',
 				[
-					'username'    => $values->username,
-					'firstname'   => $values->firstname,
-					'lastname'    => $values->lastname,
-					'password'    => $strongPassword,
-					'website'     => 'La VIDA Cubana',
+					'username' => $values->username,
+					'firstname' => $values->firstname,
+					'lastname' => $values->lastname,
+					'password' => $strongPassword,
+					'website' => 'La VIDA Cubana',
 					'website_url' => 'http://cms.jkotrba.net/admin/'
 				]
 			)
