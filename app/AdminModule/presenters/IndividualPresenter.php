@@ -20,7 +20,7 @@ class IndividualPresenter extends BasePresenter
 	/**
 	 * @var Model\IndividualManager
 	 */
-	private $individuaManager;
+	private $individualManager;
 	/**
 	 * @var Model\TeamsManager
 	 */
@@ -36,8 +36,19 @@ class IndividualPresenter extends BasePresenter
 	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager, Model\IndividualManager $individualManager, Model\TeamsManager $teamsManager)
 	{
 		parent::__construct($userManager, $database, $branchManager);
-		$this->individuaManager = $individualManager;
+		$this->individualManager = $individualManager;
 		$this->teamsManager = $teamsManager;
+	}
+
+
+	public function renderAdd()
+	{
+		$teams = $this->teamsManager->getAll();
+		if (!$teams) {
+			$this->flashMessage('Pro přidání hráče musíte nejprve vytvořit tým.', FLASH_WARNING);
+			$this->redirect('Team:add');
+		}
+		$this->template->teams = $teams;
 	}
 
 	/**
@@ -46,15 +57,17 @@ class IndividualPresenter extends BasePresenter
 	public function renderDefault($page)
 	{
 		$paginator = new Nette\Utils\Paginator;
-		$paginator->setItemCount($this->individuaManager->total());
+		$paginator->setItemCount($this->individualManager->total());
 		$paginator->setPage($page);
 		$paginator->setItemsPerPage(10);
-		$this->template->individuals = $this->individuaManager->getPage($paginator->getLength(), $paginator->getOffset());
+
+		$this->template->individuals = $this->individualManager->getPage($paginator->getLength(), $paginator->getOffset());
 		$this->template->paginator = $paginator;
 
 		$this->template->currentFrom = 1 + $paginator->offset;
 		$this->template->currentTo = $paginator->itemsPerPage + $paginator->offset;
 		$this->template->totalPages = ceil($paginator->itemCount / $paginator->itemsPerPage);
+
 		if ($paginator->isLast()) {
 			$this->template->currentTo = $paginator->itemCount;
 		}
@@ -75,7 +88,7 @@ class IndividualPresenter extends BasePresenter
 	{
 		$teamOptions = [];
 		foreach ($this->teamsManager->getAll() as $team) {
-			$teamOptions[$team->id] = $team->team_name;
+			$teamOptions[$team->id] = $team->id;
 		}
 
 		$form = new Nette\Forms\Form;

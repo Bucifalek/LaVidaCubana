@@ -16,8 +16,10 @@ use Nette,
  */
 final class TeamPresenter extends BasePresenter
 {
-	public function renderAddTo($season)
+	public function renderAdd($season)
 	{
 
 	}
+
+
 }
