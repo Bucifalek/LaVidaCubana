@@ -108,6 +108,10 @@ class BranchManager extends Nette\Object
 		return $this->branches;
 	}
 
+	public function get($id) {
+		$this->branches[$id];
+	}
+
 	/**
 	 * @param $id
 	 */
