@@ -9,7 +9,6 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
-use Tracy\Debugger;
 
 /**
  * Class TeamPresenter
@@ -27,6 +26,11 @@ final class TeamPresenter extends BasePresenter
 	private $individualManager;
 
 	/**
+	 * @var Model\BranchManager
+	 */
+	private $branchManager;
+
+	/**
 	 * @param Model\UserManager $userManager
 	 * @param Nette\Database\Context $database
 	 * @param Model\BranchManager $branchManager
@@ -38,6 +42,24 @@ final class TeamPresenter extends BasePresenter
 		parent::__construct($userManager, $database, $branchManager);
 		$this->teamManager = $teamsManager;
 		$this->individualManager = $individualManager;
+		$this->branchManager = $branchManager;
+	}
+
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+		parent::beforeRender();
+
+		if ($this->branchManager->getCurrentId() != 4) {
+			$this->redirect('Dashboard:changeBranch', [
+				'target' => 1,
+				'targetPage' => $this->getPresenter()->name,
+				'targetAction' => $this->getAction(),
+				'targetParam' => $this->getParameter('key'),
+			]);
+		}
 	}
 
 
@@ -46,7 +68,6 @@ final class TeamPresenter extends BasePresenter
 	 */
 	public function renderDefault($page)
 	{
-
 		$paginator = new Nette\Utils\Paginator;
 		$paginator->setItemCount($this->teamManager->total());
 		$paginator->setPage($page);
@@ -87,7 +108,13 @@ final class TeamPresenter extends BasePresenter
 	 */
 	public function renderEdit($id)
 	{
-		$this->template->team = $this->teamManager->get($id);
+		try {
+			$this->template->team = $this->teamManager->get($id);
+		} catch (Model\TeamNowFoundException $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Team:default');
+		}
+
 		$this->template->teamMembers = $this->individualManager->fromTeam($id);
 	}
 
@@ -97,6 +124,7 @@ final class TeamPresenter extends BasePresenter
 	protected function createComponentRenameTeamForm()
 	{
 		$form = new Nette\Application\UI\Form;
+		$form->addProtection();
 		$form->addText('name');
 		$form->addSubmit('save');
 		$form->onSubmit[] = callback($this, 'renameTeamFormSucceeded');
@@ -104,14 +132,20 @@ final class TeamPresenter extends BasePresenter
 		return $form;
 	}
 
+
 	/**
 	 * @param Nette\Application\UI\Form $form
 	 */
 	public function renameTeamFormSucceeded(Nette\Application\UI\Form $form)
 	{
 		$values = $form->getValues();
-		$this->teamManager->rename($this->getPresenter()->getParameter('id'), $values->name);
-		$this->flashMessage('Změny uloženy', FLASH_SUCCESS);
+		try {
+			$this->teamManager->rename($this->getPresenter()->getParameter('id'), $values->name);
+			$this->flashMessage('Změny uloženy', FLASH_SUCCESS);
+		} catch (Model\TeamNowFoundException $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Team:edit', $this->getPresenter()->getParameter('id'));
+		}
 	}
 
 
@@ -122,7 +156,7 @@ final class TeamPresenter extends BasePresenter
 	public function handleDeleteTeamMember($memberId, $teamId)
 	{
 		$this->teamManager->removeMember($memberId);
-		$this->flashMessage('Uživatel byl odebrán z týmu.', FLASH_SUCCESS);
+		$this->flashMessage('Hráč byl odebrán z týmu.', FLASH_SUCCESS);
 		$this->redirect('Team:edit', $teamId);
 	}
 
@@ -142,6 +176,7 @@ final class TeamPresenter extends BasePresenter
 	public function createComponentAddTeamForm()
 	{
 		$form = new Nette\Application\UI\Form;
+		$form->addProtection();
 		$form->addText('teamName')->setRequired();
 		$form->addSubmit('addTeam', 'Přidat hráče');
 		$form->onSuccess[] = callback($this, 'addTeamFormSucceeded');
@@ -155,7 +190,12 @@ final class TeamPresenter extends BasePresenter
 	public function addTeamFormSucceeded(Nette\Application\UI\Form $form)
 	{
 		$values = $form->getValues();
-		$this->teamManager->add($values['teamName']);
+		try {
+			$this->teamManager->add($values['teamName']);
+		} catch (Model\AlreadyExistsException $e) {
+			$this->flashMessage($e->getMessage(), FLASH_WARNING);
+			$this->redirect('Team:default');
+		}
 		$this->flashMessage('Tým byl přídán.');
 		$this->redirect('Team:default');
 	}

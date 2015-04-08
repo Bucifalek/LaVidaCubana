@@ -47,12 +47,9 @@ class BranchManager extends Nette\Object
 		$this->database = $database;
 		$this->session = $session->getSection('currentBranch');
 		$this->currentBranch = $this->session->data;
+		$this->branches = $this->database->table(DatabaseStructure::BRANCHES)->fetchAll();
 
-		foreach ($this->database->table(DatabaseStructure::BRANCHES)->fetchAll() as $branch) {
-			$this->branches[$branch->id] = $branch->name;
-		}
-		if (!$this->currentBranch['id']) {
-			Debugger::barDump("Zadne predchozi nastaveni, inicializovat");
+		if (!$this->currentBranch) {
 			$this->selectDefault();
 		}
 	}
@@ -62,7 +59,7 @@ class BranchManager extends Nette\Object
 	 */
 	public function selectDefault()
 	{
-		return $this->session->data = $this->getDefault();
+		return $this->session->data = $this->currentBranch = $this->getDefault();
 	}
 
 	/**
@@ -70,9 +67,12 @@ class BranchManager extends Nette\Object
 	 */
 	public function getDefault()
 	{
+		$branch = reset($this->branches);
+
 		return [
-			'id' => key($this->branches),
-			'title' => $this->branches[key($this->branches)]
+			'id'   => $branch['id'],
+			'name' => $branch['name'],
+			'url'  => $branch['url'],
 		];
 	}
 
@@ -89,7 +89,7 @@ class BranchManager extends Nette\Object
 	 */
 	public function getCurrentName()
 	{
-		return $this->currentBranch['title'];
+		return $this->currentBranch['name'];
 	}
 
 	/**
@@ -108,14 +108,20 @@ class BranchManager extends Nette\Object
 		return $this->branches;
 	}
 
+	public function get($id)
+	{
+		return $this->branches[$id];
+	}
+
 	/**
 	 * @param $id
 	 */
 	public function setNew($id)
 	{
 		$this->session->data = $this->currentBranch = [
-			'id' => $id,
-			'title' => $this->branches[$id]
+			'id'   => $id,
+			'name' => $this->branches[$id]['name'],
+			'url'  => $this->branches[$id]['url'],
 		];
 	}
 

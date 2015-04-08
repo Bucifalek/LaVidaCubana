@@ -85,13 +85,16 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 			return @$e[1];
 		};
-
+/*
 		if ($this->branchManager->getCurrent() == null) {
 			$this->branchManager->selectDefault();
 		}
+*/
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
+
+		//$this->template->currentBranchLink = $this->branchManager->getCurrentLink();
 
 		// This is way, how can neon params can be get
 		//$config = new \SystemContainer();
@@ -104,7 +107,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	 */
 	public function handleChangeBranch($newBranchID)
 	{
-		$this->beforeRender();
+		Debugger::barDump('jsem tu');
 		$this->branchManager->setNew($newBranchID);
 		$this->flashMessage('Nyní upravujete sekci ' . $this->branchManager->getCurrentName(), FLASH_INFO);
 		$this->redirect('Dashboard:default');

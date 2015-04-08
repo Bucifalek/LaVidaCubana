@@ -134,6 +134,8 @@ nav {
     transition-delay: 0s,0.25s,0.45s,0.7s; }
   .mainmenu a:hover {
     color: #343333; }
+  .mainmenu li.active a {
+    color: #343333; }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
 .bowling_text_default {
