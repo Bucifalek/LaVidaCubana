@@ -26,6 +26,8 @@ class IndividualPresenter extends BasePresenter
 	 */
 	private $teamsManager;
 
+	private $branchManager;
+
 	/**
 	 * @param Model\UserManager $userManager
 	 * @param Nette\Database\Context $database
@@ -38,6 +40,20 @@ class IndividualPresenter extends BasePresenter
 		parent::__construct($userManager, $database, $branchManager);
 		$this->individualManager = $individualManager;
 		$this->teamsManager = $teamsManager;
+		$this->branchManager = $branchManager;
+	}
+
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		if ($this->branchManager->getCurrentId() != 4) {
+			$this->redirect('Dashboard:changeBranch', [
+				'target'       => 1,
+				'targetPage'   => $this->getPresenter()->name,
+				'targetAction' => $this->getAction(),
+				'targetParam'  => $this->getParameter('key'),
+			]);
+		}
 	}
 
 
@@ -114,7 +130,8 @@ class IndividualPresenter extends BasePresenter
 		$this->redirect('Individual:default');
 	}
 
-	public function handleRemoveMember($id) {
+	public function handleRemoveMember($id)
+	{
 		$this->individualManager->delete($id);
 		$this->flashMessage('Jednotlivec úspěšně smazán.');
 		$this->redirect('Individual:default', $this->getParameter('page'));
