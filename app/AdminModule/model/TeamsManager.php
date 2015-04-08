@@ -50,7 +50,12 @@ class TeamsManager extends Nette\Object
 	 */
 	public function get($id)
 	{
-		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->where(['id' => $id])->fetch();
+		$team = $this->database->table(DatabaseStructure::BOWLING_TEAMS)->where(['id' => $id])->fetch();
+		if (!$team) {
+			throw new TeamNowFoundException('Tento tým neexistuje!');
+		}
+
+		return $team;
 	}
 
 	/**
@@ -72,12 +77,18 @@ class TeamsManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->update(['team' => 0]);
 	}
 
+
 	/**
 	 * @param $name
 	 * @return bool|int|Nette\Database\Table\IRow
+	 * @throws AlreadyExistsException
 	 */
 	public function add($name)
 	{
+		if ($this->database->table(DatabaseStructure::BOWLING_TEAMS)->where('name', $name)->count() > 0) {
+			throw new AlreadyExistsException('Tento tým již existuje!');
+		}
+
 		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->insert(['name' => $name]);
 	}
 
@@ -93,10 +104,29 @@ class TeamsManager extends Nette\Object
 	/**
 	 * @param $id
 	 * @param $newName
-	 * @return int
+	 * @throws TeamNowFoundException
 	 */
 	public function rename($id, $newName)
 	{
-		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->where('id', $id)->update(['name' => $newName]);
+		if (!$this->database->table(DatabaseStructure::BOWLING_TEAMS)->where('id', $id)->update(['name' => $newName])) {
+			throw new TeamNowFoundException('Nepodařilo se přejmenovat team.');
+		}
 	}
+
+}
+
+/**
+ * Class AlreadyExistsException
+ * @package App\AdminModule\Model
+ */
+class AlreadyExistsException extends \Exception
+{
+}
+
+/**
+ * Class TeamNowFoundException
+ * @package App\AdminModule\Model
+ */
+class TeamNowFoundException extends \Exception
+{
 }

@@ -94,18 +94,17 @@
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					<span class="glyphicons fa-xl glyphicons-pencil"></span>
-					<span class="fw600 pl10">Upravujete : {$currentBranch['title']}</span>
+					<span class="fw600 pl10">Upravujete : {$currentBranch['name']}</span>
 				</a>
 				<ul class="dropdown-menu animated animated-short flipInX" role="menu">
-					{foreach $branchList as $id => $name}
+					{foreach $branchList as $id => $branch}
 					<li n:if="$currentBranch['id'] != $id">
-						<a href="{link ChangeBranch!, $id}" class="fw600"><span class="glyphicon glyphicon-share-alt pr5"></span> {$name}</a>
+						<a href="{link ChangeBranch!, $id}" class="fw600"><span class="glyphicon glyphicon-share-alt pr5"></span> {$branch->name}</a>
 					</li>
 					{/foreach}
 					<li class="divider"></li>
 					<li>
-						<a href="#structure" class="fw600">
-							<span class="fa fa-sitemap pr5"></span> Struktura stránek </a>
+						<a href="{$basePath}{$branch->url}" class="fw600" target='_blank'><span class="fa fa-external-link pr5"></span> Přejít na stránky </a>
 					</li>
 				</ul>
 			</li>

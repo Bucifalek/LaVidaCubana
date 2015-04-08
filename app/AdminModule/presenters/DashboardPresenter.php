@@ -46,8 +46,8 @@ final class DashboardPresenter extends BasePresenter
 	 */
 	public function renderChangeBranch($target, $targetPage, $targetAction, $targetParam)
 	{
-		$allBranches = $this->branchManager->getAll();
-		$this->template->switchToBranchName = $allBranches[$target];
+		$targetBranch = $this->branchManager->get($target);
+		$this->template->switchToBranchName = $targetBranch['name'];
 		$this->template->switchToBranchId = $target;
 
 		$this->targetPage = $targetPage . ":" . $targetAction;
