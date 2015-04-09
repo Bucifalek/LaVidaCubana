@@ -95,8 +95,14 @@ class UserManager extends Nette\Object
 	 * @throws \Exception
 	 */
 	public function add($details)
-	{
-		// TODO: Check if user details not in database(email, nickname)
+	{	
+		/*
+		$sameEmail = $this->database->table(DatabaseStructure::USERS)->where('email', $details['email'])->count();
+		$sameNickName = $this->database->table(DatabaseStructure::USERS)->where('nickname', $details['nickname'])->count();
+		if($sameEmail OR $sameNickName) {
+			throw new \Exception('titu uzivatele jiz existuji.');
+		}*/
+
 		if (!$this->database->table(DatabaseStructure::USERS)->insert($details)) {
 			throw new \Exception('Nepodařilo se uložit do databáze');
 		}

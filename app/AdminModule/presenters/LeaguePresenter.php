@@ -17,6 +17,28 @@ use Tracy\Debugger;
  */
 final class LeaguePresenter extends BasePresenter
 {
+
+	private $branchManager;
+
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
+	{
+		parent::__construct($userManager, $database, $branchManager);
+		$this->branchManager = $branchManager;
+	}
+
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		if ($this->branchManager->getCurrentId() != 4) {
+			$this->redirect('Dashboard:changeBranch', [
+				'target'       => 1,
+				'targetPage'   => $this->getPresenter()->name,
+				'targetAction' => $this->getAction(),
+				'targetParam'  => $this->getParameter('key'),
+			]);
+		}
+	}
+
 	public function renderDraft($season)
 	{
 

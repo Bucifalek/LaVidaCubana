@@ -9,7 +9,7 @@ namespace App\AdminModule\Model;
 
 use Latte\Loaders\FileLoader;
 use Nette;
-use Tracy\Debugger;
+use Utils;
 
 /**
  * Class MainNewsManager
@@ -29,7 +29,6 @@ class MainNewsManager extends Nette\Object
 	function __construct(Nette\Database\Context $context)
 	{
 		$this->database = $context;
-		Debugger::barDump($context);
 	}
 
 
@@ -66,7 +65,8 @@ class MainNewsManager extends Nette\Object
 		$data = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
 		$image = $data->img_uploaded;
 		if ($image) {
-			unlink('Files/NewsImages/' . $image);
+			@unlink('Files/NewsImages/' . $image);
 		}
+		// FileSystem::delete('Files/NewsImages/' . $image); // try to use this
 	}
 }

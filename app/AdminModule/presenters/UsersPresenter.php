@@ -29,9 +29,11 @@ final class UsersPresenter extends BasePresenter
 	 */
 	private $userManager;
 
+
 	/**
 	 * @param Context $database
 	 * @param Model\UserManager $userManager
+	 * @param Model\BranchManager $branchManager
 	 */
 	function __construct(Context $database, Model\UserManager $userManager, Model\BranchManager $branchManager)
 	{
@@ -41,6 +43,9 @@ final class UsersPresenter extends BasePresenter
 	}
 
 
+	/**
+	 *
+	 */
 	public function renderList()
 	{
 		$this->template->currentUsers = $this->userManager->allUsers();
