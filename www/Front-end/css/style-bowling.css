@@ -136,6 +136,10 @@ nav {
     color: #343333; }
   .mainmenu li.active a {
     color: #343333; }
+  .mainmenu .white a {
+    color: white !important; }
+  .mainmenu .white a:hover {
+    color: #d14334 !important; }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
 .bowling_text_default {
