@@ -28,12 +28,12 @@
                 <ul class="mainmenu">
                     <li{ifCurrent Bowling:default} class='active'{/ifCurrent}><a n:href="Bowling:default">Všeobecné informace</a></li>
                     <li{ifCurrent Bowling:play} class='active'{/ifCurrent}><a n:href="Bowling:play">Chci si zahrát</a></li>
-                    <li class="dropdown"><a n:href="Bowling:league">Bowlingová liga</a>
+                    <li{ifCurrent Bowling:league} class='active dropdown'{/ifCurrent} class="dropdown"><a n:href="Bowling:league">Bowlingová liga</a>
                         <ul>
-                            <li><a n:href="Bowling:rules">Pravidla</a></li>
-                            <li><a n:href="Bowling:draft">Rozpis</a></li>
-                            <li><a n:href="Bowling:news">Aktuálně</a></li>
-                            <li><a n:href="Bowling:top">Top 3</a></li>
+                            <li{ifCurrent Bowling:rules} class='active'{/ifCurrent} class="white"><a n:href="Bowling:rules" class="white">Pravidla</a></li>
+                            <li{ifCurrent Bowling:draft} class='active'{/ifCurrent} class="white"><a n:href="Bowling:draft" class="white">Rozpis</a></li>
+                            <li{ifCurrent Bowling:news} class='active'{/ifCurrent} class="white"><a n:href="Bowling:news" class="white">Aktuálně</a></li>
+                            <li{ifCurrent Bowling:top} class='active'{/ifCurrent} class="white"><a n:href="Bowling:top" class="white">Top 3</a></li>
                         </ul>
                     </li>
                 </ul>
