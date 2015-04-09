@@ -52,14 +52,7 @@ class IndividualPresenter extends BasePresenter
 	public function beforeRender()
 	{
 		parent::beforeRender();
-		if ($this->branchManager->getCurrentId() != 4) {
-			$this->redirect('Dashboard:changeBranch', [
-				'target'       => 1,
-				'targetPage'   => $this->getPresenter()->name,
-				'targetAction' => $this->getAction(),
-				'targetParam'  => $this->getParameter('key'),
-			]);
-		}
+		$this->requireBranch(4);
 	}
 
 
@@ -130,8 +123,8 @@ class IndividualPresenter extends BasePresenter
 	{
 		$values = $form->getValues();
 		$this->individualManager->add([
-			'name'      => $values->name,
-			'team'      => $values->team,
+			'name' => $values->name,
+			'team' => $values->team,
 		]);
 		$this->flashMessage('Jednotlivec přidán, nyní ho můžete zařadit do týmu.', FLASH_SUCCESS);
 		$this->redirect('Individual:default');

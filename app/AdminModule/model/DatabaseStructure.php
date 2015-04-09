@@ -50,7 +50,18 @@ class DatabaseStructure extends Nette\Object
 	 */
 	const USERS = "users";
 
+	/**
+	 * Bowling price table
+	 */
 	const BOWLING_PRICE = "bowling_price";
 
+	/**
+	 * Bowling open time table
+	 */
 	const BOWLING_OPENTIME = "bowling_opentime";
+
+	/**
+	 * Web visitors
+	 */
+	const WEB_VISITORS = "visitors";
 }

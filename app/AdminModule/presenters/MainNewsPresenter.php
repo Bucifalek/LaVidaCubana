@@ -49,15 +49,7 @@ final class MainNewsPresenter extends BasePresenter
 	public function beforeRender()
 	{
 		parent::beforeRender();
-
-		if ($this->branchManager->getCurrentId() != 1) {
-			$this->redirect('Dashboard:changeBranch', [
-				'target' => 1,
-				'targetPage' => $this->getPresenter()->name,
-				'targetAction' => $this->getAction(),
-				'targetParam' => $this->getParameter('key'),
-			]);
-		}
+		$this->requireBranch(1);
 	}
 
 	/**
@@ -131,4 +123,9 @@ final class MainNewsPresenter extends BasePresenter
 		$this->flashMessage('Ulozeno', FLASH_SUCCESS);
 	}
 
+	public function handleClear($key) {
+		$this->mainNewsManager->clear($key);
+		$this->flashMessage('Aktualita vymazána.', FLASH_SUCCESS);
+		$this->redirect('MainNews:edit', $key);
+	}
 }
