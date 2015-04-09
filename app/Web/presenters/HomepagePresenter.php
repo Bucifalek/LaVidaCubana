@@ -9,6 +9,7 @@ namespace App\WebModule\Presenters;
 
 use App\AdminModule\Model\MainNewsManager;
 use App\AdminModule\Presenters\MainNewsControl;
+use App\WebModule\Model\Visitors;
 use Nette,
 	Nette\Application\UI;
 use Tracy\Debugger;
@@ -25,11 +26,11 @@ final class HomepagePresenter extends BasePresenter
 	 */
 	private $mainNewsManager;
 
-	/**
-	 * @param MainNewsManager $mainNewsManager
-	 */
-	function __construct(MainNewsManager $mainNewsManager)
+
+
+	public function __construct(MainNewsManager $mainNewsManager, Visitors $visitors)
 	{
+		parent::__construct($visitors);
 		$this->mainNewsManager = $mainNewsManager;
 	}
 
@@ -39,7 +40,6 @@ final class HomepagePresenter extends BasePresenter
 	public function createComponentMainNewsRoznov()
 	{
 		$data = $this->mainNewsManager->get('roznov-pod-radhostem');
-		Debugger::barDump($data);
 		$mainNews = new MainNewsControl();
 		$mainNews->setTitle($data->title);
 		$mainNews->setRedirect($data->redirect);

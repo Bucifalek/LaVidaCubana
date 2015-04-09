@@ -32,7 +32,7 @@
             		<tbody>
             			<tr n:foreach="$individuals as $person">
 							<td>{$person['name']}</td>
-							<td n:if="$person['team'] == 0">{$person['team_name']}</td>
+							<td n:if="$person['team'] == 0" class='text-danger'>{$person['team_name']}</td>
 							<td n:if="$person['team'] != 0"><a n:href="Team:edit, $person['team']">{$person['team_name']}</a></td>
 							<td class="text-center">{$person['score']}</td>
 							<td class="text-center">{$person['score_avg']|number:1}</td>
