@@ -26,6 +26,9 @@ class IndividualPresenter extends BasePresenter
 	 */
 	private $teamsManager;
 
+	/**
+	 * @var Model\BranchManager
+	 */
 	private $branchManager;
 
 	/**
@@ -43,6 +46,9 @@ class IndividualPresenter extends BasePresenter
 		$this->branchManager = $branchManager;
 	}
 
+	/**
+	 *
+	 */
 	public function beforeRender()
 	{
 		parent::beforeRender();
@@ -57,6 +63,9 @@ class IndividualPresenter extends BasePresenter
 	}
 
 
+	/**
+	 *
+	 */
 	public function renderAdd()
 	{
 		if (!$this->teamsManager->getAll()) {
@@ -114,22 +123,23 @@ class IndividualPresenter extends BasePresenter
 		return $form;
 	}
 
+	/**
+	 * @param Nette\Application\UI\Form $form
+	 */
 	public function addIndividualFormSucceeded(Nette\Application\UI\Form $form)
 	{
 		$values = $form->getValues();
 		$this->individualManager->add([
 			'name'      => $values->name,
 			'team'      => $values->team,
-			'score'     => 0,
-			'score_avg' => 0,
-			'index'     => 0,
-			'matches'   => 0,
-			'games'     => 0,
 		]);
 		$this->flashMessage('Jednotlivec přidán, nyní ho můžete zařadit do týmu.', FLASH_SUCCESS);
 		$this->redirect('Individual:default');
 	}
 
+	/**
+	 * @param $id
+	 */
 	public function handleRemoveMember($id)
 	{
 		$this->individualManager->delete($id);

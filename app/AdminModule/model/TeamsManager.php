@@ -44,9 +44,11 @@ class TeamsManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::BOWLING_TEAMS)->count();
 	}
 
+
 	/**
 	 * @param $id
-	 * @return bool|mixed|Nette\Database\Table\IRow
+	 * @return mixed
+	 * @throws TeamNowFoundException
 	 */
 	public function get($id)
 	{
