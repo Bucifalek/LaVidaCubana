@@ -38,10 +38,13 @@
 							<td class="text-center">{$person['score_avg']|number:1}</td>
 							<td class="text-center">
 							{if $person['index'] == 1}
-								<i class='glyphicons glyphicons-up_arrow'></i>
-							{elseif $person['index'] -1}
-								<i class='glyphicons glyphicons-down_arrow'></i>
+								<i class='glyphicons glyphicons-up_arrow cursor-pointer' title="Stoupající výkon"></i>
+							{elseif $person['index'] == -1}
+								<i class='glyphicons glyphicons-down_arrow cursor-pointer' title="Klesající výkon"></i>
+							{else}
+								<i class='glyphicon glyphicon-minus cursor-pointer' title="Beze změny výkonu"></i>
 							{/if}
+							{dump $person['index']}
 							</td>
 							<td class="text-center">{$person['matches']}</td>
 							<td class="text-center">{$person['games']}</td>
