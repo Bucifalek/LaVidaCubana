@@ -30947,3 +30947,6 @@ to occupy 100% width at low resolutions */
 .cursor-pointer {
     cursor: pointer;
 }
+.no-border{
+    border-bottom: 0px !important;
+}
