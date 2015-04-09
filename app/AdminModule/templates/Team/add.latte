@@ -13,12 +13,11 @@
 			<div class="panel-heading">
 				<span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Přidat tým</span>
 			</div>
-			<form n:name="addTeamForm" id="form-register2" autocomplete="off">
+			<form n:name="addTeamForm" autocomplete="off">
 				<div class="panel-body p25">
 					<div class="section">
 						<label for="firstname" class="field prepend-icon">
-							<input name="firstname" id="firstname" class="gui-input" placeholder="Jméno..."
-								   type="text">
+							<input n:name="teamName" id="firstname" class="gui-input" placeholder="Jméno týmu...">
 							<label for="firstname" class="field-icon"><i class="fa fa-user"></i>
 							</label>
 						</label>
@@ -27,7 +26,7 @@
 				</div>
 				<!-- end .form-body section -->
 				<div class="panel-footer text-right">
-					<input name="addUser" type="submit" value="Přidat hráče" class="button btn-primary">
+					<input n:name="addTeam" type="submit" value="Přidat hráče" class="button btn-primary">
 				</div>
 				<!-- end .form-footer section -->
 			</form>

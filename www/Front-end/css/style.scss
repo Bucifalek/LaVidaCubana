@@ -4,7 +4,7 @@ $red: #d14334;
 $darkGrey: #343333;
 $white: #ffffff;
 
-@font-face{
+@font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
@@ -21,18 +21,18 @@ $white: #ffffff;
   background: $darkGrey;
 }
 
-html,body{
+html, body {
   margin: 0;
   padding: 0;
   outline: none;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   background: url("../img/background/2.jpg") no-repeat top center;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
@@ -40,7 +40,7 @@ body{
 
 /*  CONTAINER  */
 
-.container{
+.container {
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -48,11 +48,11 @@ body{
 
 /*  PART 1 */
 
-.part_one{
+.part_one {
   width: 100%;
   height: 60%;
 
-  .logo_block{
+  .logo_block {
     background: url("../img/textures/pattern.png") rgba(52, 51, 51, 0.41);
     margin: 0 auto;
     width: 33.333%;
@@ -62,27 +62,27 @@ body{
     text-align: center;
     color: #ffffff;
 
-    h1{
+    h1 {
       padding-top: 150px;
       text-shadow: 1px 2px rgba(0, 0, 0, 1);
 
-      .word_l{
+      .word_l {
         font-size: 6vw;
       }
-      .word_a{
+      .word_a {
         font-size: 4.7vw;
       }
-      .vida{
+      .vida {
         font-size: 5.4vw;
         padding-left: 10px;
         padding-right: 10px;
       }
-      .cubana{
+      .cubana {
         font-size: 3.5vw;
         letter-spacing: 2px;
       }
     }
-    p{
+    p {
       font-size: 2.2vw;
       text-shadow: 1px 2px rgba(0, 0, 0, 1);
     }
@@ -91,17 +91,17 @@ body{
 
 /*  PART 2  */
 
-.part_two{
+.part_two {
   width: 100%;
   height: 40%;
 
-  .roznov_block{
+  .roznov_block {
     width: 33.333%;
     height: 100%;
     background: rgba(52, 51, 51, 0.95);
     float: left;
 
-    .news_roznov{
+    .news_roznov {
       width: 100%;
       height: auto;
       background: rgba(42, 41, 41, 0.95);
@@ -115,45 +115,45 @@ body{
       color: rgba(209, 67, 52, 0.60);
       text-align: center;
 
-      a{
+      a {
         text-decoration: none;
         color: rgba(209, 67, 52, 0.60);
 
         transition-property: color;
         transition-duration: 0.6s;
-        transition-delay: 0s,0.25s,0.45s,0.7s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
       }
-      a:hover{
+      a:hover {
         color: rgba(209, 67, 52, 0.90);
       }
     }
 
-    h3{
+    h3 {
       text-align: center;
       color: white;
       font-family: bittersweet;
       font-size: 3vw;
       padding-top: 40px;
     }
-    p{
+    p {
       text-align: center;
       color: $red;
     }
 
-    .arrow{
+    .arrow {
       display: block;
       margin-left: auto;
       margin-right: auto;
       padding-top: 1.5%;
     }
   }
-  .valmez_block{
+  .valmez_block {
     width: 33.333%;
     height: 100%;
     background: rgba(209, 67, 52, 0.95);
     float: left;
 
-    .news_valmez{
+    .news_valmez {
       width: 100%;
       height: auto;
       background: rgba(170, 52, 40, 0.95);
@@ -167,45 +167,45 @@ body{
       color: rgba(255, 255, 255, 0.60);
       text-align: center;
 
-      a{
+      a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.60);
 
         transition-property: color;
         transition-duration: 0.6s;
-        transition-delay: 0s,0.25s,0.45s,0.7s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
       }
-      a:hover{
+      a:hover {
         color: rgba(255, 255, 255, 0.90);
       }
     }
 
-    h3{
+    h3 {
       text-align: center;
       color: #e5e5e5;
       font-family: bittersweet;
       font-size: 3vw;
       padding-top: 40px;
     }
-    p{
+    p {
       text-align: center;
       color: #e5e5e5;
     }
 
-    .arrow{
+    .arrow {
       display: block;
       margin-left: auto;
       margin-right: auto;
       padding-top: 1.5%;
     }
   }
-  .bowling_block{
+  .bowling_block {
     width: 33.333%;
     height: 100%;
     background: rgba(190, 190, 190, 0.95);
     float: left;
 
-    .news_bowling{
+    .news_bowling {
       width: 100%;
       height: auto;
       background: rgba(175, 175, 175, 0.95);
@@ -219,20 +219,20 @@ body{
       color: rgba(52, 51, 51, 0.60);
       text-align: center;
 
-      a{
+      a {
         text-decoration: none;
         color: rgba(52, 51, 51, 0.60);
 
         transition-property: color;
         transition-duration: 0.6s;
-        transition-delay: 0s,0.25s,0.45s,0.7s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
       }
-      a:hover{
+      a:hover {
         color: rgba(52, 51, 51, 0.90);
       }
     }
 
-    h3{
+    h3 {
       text-align: center;
       color: white;
       font-family: bittersweet;
@@ -240,12 +240,12 @@ body{
       letter-spacing: 5px;
       padding-top: 40px;
     }
-    p{
+    p {
       text-align: center;
       color: $darkGrey;
     }
 
-    .arrow{
+    .arrow {
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -256,7 +256,7 @@ body{
 
 /*  ODKAZ  */
 
-.roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text{
+.roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text {
   width: 100%;
   height: auto;
   background: rgba(255, 255, 255, 0.15);
@@ -264,15 +264,15 @@ body{
 
   transition-property: background;
   transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
+  transition-delay: 0s, 0.25s, 0.45s, 0.7s;
 }
 
-.roznov_block > .explorer > .heading_text:hover, .valmez_block > .explorer > .heading_text:hover, .bowling_block > .explorer > .heading_text:hover{
+.roznov_block > .explorer > .heading_text:hover, .valmez_block > .explorer > .heading_text:hover, .bowling_block > .explorer > .heading_text:hover {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.30);
 }
 
-.roznov_block > .explorer, .valmez_block > .explorer, .bowling_block > .explorer{
+.roznov_block > .explorer, .valmez_block > .explorer, .bowling_block > .explorer {
   text-decoration: none;
 }
 
@@ -280,68 +280,68 @@ body{
 
 @media screen and (max-width: 980px) {
 
-  body{
+  body {
     background: none;
   }
 
-  .part_one{
-    .logo_block{
+  .part_one {
+    .logo_block {
       width: 100%;
       background: url("../img/background/2-blur.jpg") no-repeat top center;
       background-size: cover;
 
-      h1{
+      h1 {
         padding-top: 50px;
 
-        .word_l{
+        .word_l {
           font-size: 12vw;
         }
-        .word_a{
+        .word_a {
           font-size: 10.7vw;
         }
-        .vida{
+        .vida {
           font-size: 11.4vw;
         }
-        .cubana{
+        .cubana {
           font-size: 9.5vw;
         }
       }
-      p{
+      p {
         font-size: 6.2vw;
       }
     }
   }
 
-  .part_two{
-    .roznov_block{
+  .part_two {
+    .roznov_block {
       width: 50%;
 
-      .news_roznov{
+      .news_roznov {
         font-size: 1.4vw;
       }
-      h3{
+      h3 {
         font-size: 4vw;
         padding-top: 5%;
       }
     }
-    .valmez_block{
+    .valmez_block {
       width: 50%;
 
-      .news_valmez{
+      .news_valmez {
         font-size: 1.4vw;
       }
-      h3{
+      h3 {
         font-size: 4vw;
         padding-top: 5%;
       }
     }
-    .bowling_block{
+    .bowling_block {
       width: 100%;
 
-      .news_bowling{
+      .news_bowling {
         font-size: 1.4vw;
       }
-      h3{
+      h3 {
         font-size: 4vw;
         padding-top: 2%;
       }
@@ -352,61 +352,61 @@ body{
 
 @media screen and (max-width: 600px) {
 
-  body{
+  body {
     background: none;
   }
 
-  .part_one{
-    .logo_block{
+  .part_one {
+    .logo_block {
 
-      h1{
-        .word_l{
+      h1 {
+        .word_l {
           font-size: 16vw;
         }
-        .word_a{
+        .word_a {
           font-size: 14.7vw;
         }
-        .vida{
+        .vida {
           font-size: 15.4vw;
         }
-        .cubana{
+        .cubana {
           font-size: 13.5vw;
         }
       }
-      p{
+      p {
         font-size: 8.2vw;
       }
     }
   }
 
-  .part_two{
-    .roznov_block{
+  .part_two {
+    .roznov_block {
       width: 100%;
 
-      .news_roznov{
+      .news_roznov {
         font-size: 2.5vw;
       }
-      h3{
+      h3 {
         font-size: 6.4vw;
       }
     }
-    .valmez_block{
+    .valmez_block {
       width: 100%;
 
-      .news_valmez{
+      .news_valmez {
         font-size: 2.5vw;
       }
-      h3{
+      h3 {
         font-size: 6.4vw;
       }
     }
-    .bowling_block{
+    .bowling_block {
       width: 100%;
 
-      .news_bowling{
+      .news_bowling {
         font-size: 2.5vw;
       }
-      h3{
+      h3 {
         font-size: 6.4vw;
       }
     }
@@ -415,24 +415,24 @@ body{
 
 @media screen and (max-height: 700px) {
 
-  .part_one{
-    .logo_block{
+  .part_one {
+    .logo_block {
 
-      h1{
-        .word_l{
+      h1 {
+        .word_l {
           font-size: 8vw;
         }
-        .word_a{
+        .word_a {
           font-size: 6.7vw;
         }
-        .vida{
+        .vida {
           font-size: 7.4vw;
         }
-        .cubana{
+        .cubana {
           font-size: 5.5vw;
         }
       }
-      p{
+      p {
         font-size: 4.2vw;
       }
     }

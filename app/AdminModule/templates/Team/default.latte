@@ -33,14 +33,17 @@
             			<tr>
 							<td>{$team['name']}</td>
 							<td>{$team['score']}</td>
-							<td class="text-center">{$team['score_avg']}</td>
+							<td class="text-center">{$team['score_avg']|number:1}</td>
 							<td class="text-center">
-                            {if $team['index'] == 1}
-                            	<i class='glyphicons glyphicons-up_arrow'></i>
-                            {elseif $team['index'] -1}
-                            	<i class='glyphicons glyphicons-down_arrow'></i>
-                            {/if}
-                            </td>
+							{if $team['index'] == 1}
+								<i class='glyphicons glyphicons-up_arrow cursor-pointer' title="Stoupající výkon"></i>
+							{elseif $team['index'] == -1}
+								<i class='glyphicons glyphicons-down_arrow cursor-pointer' title="Klesající výkon"></i>
+							{else}
+								<i class='glyphicon glyphicon-minus cursor-pointer' title="Beze změny výkonu"></i>
+							{/if}
+							{dump $team['index']}
+							</td>
 							<td class="text-center">{$team['matches']}</td>
 							<td class="text-center">{$team['helpers']}</td>
 							<td class="text-center">{$team['points']}</td>
@@ -56,7 +59,7 @@
 										</li>
 										<li class="divider"></li>
 										<li>
-											<a href="">Smazat hráče</a>
+											<a n:href="RemoveTeam!, $team->id">Odebrat tým</a>
 										</li>
 									</ul>
 								</div>

@@ -49,6 +49,7 @@ final class MainNewsPresenter extends BasePresenter
 	public function beforeRender()
 	{
 		parent::beforeRender();
+
 		if ($this->branchManager->getCurrentId() != 1) {
 			$this->redirect('Dashboard:changeBranch', [
 				'target' => 1,

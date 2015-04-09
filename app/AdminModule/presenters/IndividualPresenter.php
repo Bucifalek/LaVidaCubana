@@ -27,6 +27,11 @@ class IndividualPresenter extends BasePresenter
 	private $teamsManager;
 
 	/**
+	 * @var Model\BranchManager
+	 */
+	private $branchManager;
+
+	/**
 	 * @param Model\UserManager $userManager
 	 * @param Nette\Database\Context $database
 	 * @param Model\BranchManager $branchManager
@@ -38,17 +43,35 @@ class IndividualPresenter extends BasePresenter
 		parent::__construct($userManager, $database, $branchManager);
 		$this->individualManager = $individualManager;
 		$this->teamsManager = $teamsManager;
+		$this->branchManager = $branchManager;
+	}
+
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		if ($this->branchManager->getCurrentId() != 4) {
+			$this->redirect('Dashboard:changeBranch', [
+				'target'       => 1,
+				'targetPage'   => $this->getPresenter()->name,
+				'targetAction' => $this->getAction(),
+				'targetParam'  => $this->getParameter('key'),
+			]);
+		}
 	}
 
 
+	/**
+	 *
+	 */
 	public function renderAdd()
 	{
-		$teams = $this->teamsManager->getAll();
-		if (!$teams) {
+		if (!$this->teamsManager->getAll()) {
 			$this->flashMessage('Pro přidání hráče musíte nejprve vytvořit tým.', FLASH_WARNING);
 			$this->redirect('Team:add');
 		}
-		$this->template->teams = $teams;
 	}
 
 	/**
@@ -88,15 +111,39 @@ class IndividualPresenter extends BasePresenter
 	{
 		$teamOptions = [];
 		foreach ($this->teamsManager->getAll() as $team) {
-			$teamOptions[$team->id] = $team->id;
+			$teamOptions[$team->id] = $team->name;
 		}
 
-		$form = new Nette\Forms\Form;
-		$form->addText('name')->setRequired('Nezadali jste jméno.');
-		$form->addSelect('team', $teamOptions);
+		$form = new Nette\Application\UI\Form;
+		$form->addText('name');
+		$form->addSelect('team', null, $teamOptions);
 		$form->addSubmit('addUser', 'Přidat');
 		$form->onSuccess[] = [$this, 'addIndividualFormSucceeded'];
 
 		return $form;
+	}
+
+	/**
+	 * @param Nette\Application\UI\Form $form
+	 */
+	public function addIndividualFormSucceeded(Nette\Application\UI\Form $form)
+	{
+		$values = $form->getValues();
+		$this->individualManager->add([
+			'name'      => $values->name,
+			'team'      => $values->team,
+		]);
+		$this->flashMessage('Jednotlivec přidán, nyní ho můžete zařadit do týmu.', FLASH_SUCCESS);
+		$this->redirect('Individual:default');
+	}
+
+	/**
+	 * @param $id
+	 */
+	public function handleRemoveMember($id)
+	{
+		$this->individualManager->delete($id);
+		$this->flashMessage('Jednotlivec úspěšně smazán.');
+		$this->redirect('Individual:default', $this->getParameter('page'));
 	}
 }
