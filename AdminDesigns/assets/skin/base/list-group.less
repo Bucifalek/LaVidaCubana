@@ -106,36 +106,60 @@ a.list-group-item {
 }
 
 
-// Contextual variants
-//
-// Add modifier classes to change text and background color on individual items.
-// Organizationally, this must come after the `:hover` states.
+// Linked list items - Custom format
+// Used on messages and calendar pages
+.list-group {
 
-& when (@skin-primary) {
-  .list-group-item-variant(primary; @state-primary-bg; @state-primary-text);
-}
-& when (@skin-success) {
-  .list-group-item-variant(success; @state-success-bg; @state-success-text);
-}
-& when (@skin-info) {
-  .list-group-item-variant(info; @state-info-bg; @state-info-text);
-}
-& when (@skin-warning) {
-  .list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
-}
-& when (@skin-danger) {
-  .list-group-item-variant(danger; @state-danger-bg; @state-danger-text);
-}
-& when (@skin-alert) {
-  .list-group-item-variant(alert; @state-alert-bg; @state-alert-text);
-}
-& when (@skin-system) {
-  .list-group-item-variant(system; @state-system-bg; @state-system-text);
-}
-& when (@skin-dark) {
-  .list-group-item-variant(dark; @state-dark-bg; @state-dark-text);
-}
+  // list group item header
+  &.list-group-links .list-group-header {
+    list-style: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 7px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+  }
 
+  // list group item
+  &.list-group-links .list-group-item {
+    color: #AAA;
+    font-weight: 600;
+    background: transparent;
+    border: 0;
+    padding: 8px 9px;
+  }
+
+  // list group item - special label formatting
+  &.list-group-links .list-group-item .label {
+    float: right;
+    line-height: inherit;
+    padding: .1em .6em .2em;
+  }
+
+  // list group item icons
+  &.list-group-links .list-group-item i.fa {
+    padding-right: 5px;
+  }
+
+  // list group "circle" icon (via font awesome)
+  &.list-group-links .list-group-item .fa-circle {
+    float: right;
+    font-size: 14px;
+  }
+
+  // List group styles - spacing
+  &.list-group-links.list-group-spacing-sm > a { padding: 6px 9px; }
+  &.list-group-links.list-group-spacing-xs > a { padding: 4px 9px; }
+
+  // List group styles - divider
+  &.list-group-links .list-group-divider {
+    border-bottom: 1px dashed #DDD;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+  }
+
+}
 
 // Custom content options
 //

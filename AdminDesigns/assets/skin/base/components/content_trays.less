@@ -3,8 +3,9 @@
      A. Trays
      B. Tray Sizes
      C. Tray Bin
-     D. Tray Navigation
-     E. Tray Hover Settings
+     D. Misc Tray Helpers
+     E. Tray Navigation
+     F. Tray Hover Settings
 =================================================
    A. Content Trays
 ================================================= */
@@ -16,7 +17,11 @@
 
 #content.table-layout > div,
 #content.table-layout > section {
+    vertical-align: top;    
     padding: 25px 20px 50px;
+}
+#content.table-layout > aside {
+    vertical-align: top;
 }
 
 /*trays*/
@@ -25,9 +30,9 @@
     position: relative;
     width: 250px;
     min-height: 100%;
+    padding: 15px;
     border-right: 1px solid #DDD;
     background: #f5f5f5;
-    padding: 15px;
 }
 
 /*Right tray*/
@@ -55,17 +60,17 @@
 .tray200 {
     width: 200px;
 }
-.tray225 {
-    width: 225px;
+.tray240 {
+    width: 240px;
 }
-.tray250 {
-    width: 250px;
-}
-.tray250 {
+.tray270 {
     width: 270px;
 }
 .tray290 {
     width: 290px;
+}
+.tray300 {
+    width: 300px;
 }
 .tray320 {
     width: 320px;
@@ -76,20 +81,51 @@
 .tray400 {
     width: 400px;
 }
+/* affixed tray widths - we subtract 1px to make
+ * sure the parent left/right border is display */
+.tray200 .tray-nav.affix {
+    width: 199px;
+}
+.tray200 .tray-nav.affix {
+    width: 239px;
+}
+.tray270 .tray-nav.affix {
+    width: 269px;
+}
+.tray290 .tray-nav.affix {
+    width: 289px;
+}
+.tray300 .tray-nav.affix {
+    width: 299px;
+}
+.tray320 .tray-nav.affix {
+    width: 319px;
+}
+.tray350 .tray-nav.affix {
+    width: 349px;
+}
+.tray400 .tray-nav.affix {
+    width: 399px;
+}
 
 /*===============================================
    C. Tray Bin
 ================================================= */
 
-/*a dashed bin great for organizing buttons and links*/
+/* tray bin - great for organizing buttons and links
+ * negative margin added to counter parent tray padding
+ */
 .tray-bin {
-    padding: 7px;
-    border: 1px dashed #CCC;
-    background: #eee;
     min-height: 65px;
-    margin-bottom: 20px;
+    padding: 7px;
+    margin: 0 -15px 15px;
+    border: 1px dashed #CCC;   
+    background: #eee;
 }
-
+.tray-bin.stretch {
+    border-left: 0;
+    border-right: 0
+}
 /*If navbar has a contextual bg we make menu links white*/
 .tray-bin div[class*='col-'] {
     padding-left: 5px;
@@ -107,9 +143,37 @@
 }
 
 /*===============================================
-   D. Tray Navigation
+   D. Misc Tray Helpers
 ================================================= */
 
+/* often used as first title in tray */
+.tray-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 0 5px 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Icon list commonly seen in tray header */
+.icon-list {
+  margin: 20px 0 30px;
+  font-size: 14px;
+  padding-left: 5px;
+  list-style: none;
+}
+.icon-list li + li {
+  padding-top: 10px;
+}
+
+/*===============================================
+   E. Tray Navigation
+================================================= */
+/* tray navigation - negative margin added
+ * to counter parent tray padding
+ */
+ul.tray-nav {
+    margin: 15px -15px;
+}
 /* item link */
 ul.tray-nav li a {
     width: 100%;
@@ -208,7 +272,7 @@ ul.tray-nav.tray-nav-arrow li:hover a:after {
 }
 .tray-nav.tray-nav-border li a {
     font-size: 14px;
-    padding: 12px 15px 12px 30px;
+    padding: 12px 15px 12px 23px;
 }
 .tray-nav.tray-nav-border li:after {
     content: "";
@@ -258,9 +322,28 @@ ul.tray-nav.tray-nav-arrow li:hover a:after {
     background: @brand-dark;
 }
 
+/* Tray elements fixed settings */
+.tray-nav.affix,
+.tray .tray-affix {
+    top: 55px;
+}
+#topbar.affix + #content .tray-nav.affix,
+#topbar.affix + #content .tray .tray-affix  {
+    top: 115px;
+}
+
+
+/* tray-nav animation helper class */
+.tray-nav[data-nav-animate] li {
+  display: none;
+}
+.tray-nav[data-nav-animate] li.animated {
+  display: block;
+}
+
 
 /*===============================================
-   E. Tray Hover Settings
+   F. Tray Hover Settings
 
    At <1000 window width javascript will add a 
    "tray-rescale" class to the document body. This
@@ -268,9 +351,19 @@ ul.tray-nav.tray-nav-arrow li:hover a:after {
    expand it only when the user hovers over the 
    portion that's still visible
 ================================================= */
+body.tray-rescale {
+    overflow-x: hidden;
+}
+body.tray-rescale.sb-r-o .tray-center {
+    padding-right: 20px !important;
+}
+body.tray-rescale.sb-r-o .tray-left,
+body.tray-rescale.sb-r-o .tray-left {
+    display: none;
+}
 body.tray-rescale .tray-left,
 body.tray-rescale .tray-right {
-    position: fixed;
+    position: absolute;
     z-index: 1;
     opacity: 0.5;
     -webkit-transition: all 0.3s ease;
@@ -310,6 +403,9 @@ body.tray-rescale .tray.tray270 {
 body.tray-rescale .tray.tray290 {
     right: -245px;
 }
+body.tray-rescale .tray.tray300 {
+    right: -255px;
+}
 body.tray-rescale .tray.tray320 {
     right: -275px;
 }
@@ -332,10 +428,10 @@ body.tray-rescale .tray-right:hover {right: 0px;}
 
 
 /* adjust any bootstrap affix settings if they exist */
-body.tray-rescale .tray .tray-nav.affix,
-body.tray-rescale .tray .affix-pane.affix {
-    top: auto;
-}
+// body.tray-rescale .tray .tray-nav.affix,
+// body.tray-rescale .tray .affix-pane.affix {
+//     top: auto;
+// }
 
 // Changes added via updates
 // Update v1.2

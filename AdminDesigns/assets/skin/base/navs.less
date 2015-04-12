@@ -130,6 +130,7 @@
 
     // Links rendered as pills
     > a {
+      color: #888;
       padding: 8px 14px;
       border-radius: @nav-pills-border-radius;
     }
@@ -142,7 +143,7 @@
       &,
       &:hover,
       &:focus {
-        color: @nav-pills-active-link-hover-color;
+        color: #FFF;
         background-color: @nav-pills-active-link-hover-bg;
       }
     }
@@ -161,6 +162,71 @@
   }
 }
 
+// Page Heading 
+// Used as a heading pane inside #content. Negative margin
+// is used to negate padding from #content 
+.page-heading {
+  position: relative;
+  padding: 30px 40px;
+  margin: -25px -20px 25px;
+  border-bottom: 1px solid #d9d9d9;
+  background-color: #f2f2f2;
+}
+
+// Page Nav. Negative margin
+// is used to negate padding from #content
+.page-tabs {
+    margin: -25px -20px 30px;
+    padding: 15px 25px 0;
+    border-bottom: 1px solid #ddd;
+    background: #e9e9e9;
+
+  .nav-tabs {
+    border-bottom: 0;
+  }
+  .nav-tabs > li > a {
+    color: #AAA;
+    padding: 10px 20px;
+  }
+  .nav-tabs > li:hover > a,
+  .nav-tabs > li:focus > a {
+    border-color: #ddd;
+  }
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    color: #666;
+    font-weight: 600;
+    background-color: #eee;
+    border-bottom-color: transparent;
+  }
+
+  // Responsive page nav styles(converts to block menu)
+  @media(max-width: 800px) {
+    padding: 25px 20px 0;
+
+    .nav-tabs li {
+      float: none;
+      margin-bottom: 5px;
+    }
+    .nav-tabs li:last-child,
+    .nav-tabs li.active:last-child {
+      margin-bottom: 10px;
+    }
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus {
+      border: 1px solid #DDD;
+    }
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+      border-bottom-color: #ddd;
+    }
+  }
+
+
+}
+  
 
 // Nav variations
 // --------------------------------------------------

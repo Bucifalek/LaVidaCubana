@@ -13,13 +13,20 @@
 /* Sidebar Left Container */
 #sidebar_left {
     color: #fff;
+    font-size: 13px;
     position: absolute;
     top: 0;
     left: 0;
     width: 230px;
     min-height: 100%;
+    padding-top: 60px;
     padding-bottom: 40px;
     background-color: #30363e;
+}
+.sidebar-left-content {
+    height: 100%;
+    // width: 230px;
+    // overflow: hidden;
 }
 
 /* Sidebar Left Menu */
@@ -294,6 +301,7 @@
 
 /* active state */
 body.sb-l-m .sidebar-toggle-mini span {}
+
 /* Sidebar Minified State */
 body.sb-l-m #sidebar_left {
     z-index: 1028;
@@ -421,6 +429,9 @@ body.sb-l-m .navbar-brand {
 /*===============================================
   D. Nano Sidebar Scroller Settings (Core Plugin)
 ================================================= */
+#sidebar_left.nano > .nano-content {
+  padding-top: 60px;
+}
 #sidebar_left.affix.nano .tooltip {
     z-index: 9999 !important;
 }
@@ -433,6 +444,11 @@ body.sb-l-m #sidebar_left.nano {
 body.sb-l-m #sidebar_left.nano > .nano-content {
     overflow: visible;
     right: 0 !important;
+}
+/* If the sidebar is minified and in mobile mode we hard disable
+ * the entire plugin via a display !important */
+body.sb-l-m.mobile-view .nano > .nano-pane {
+  display: none !important;
 }
 
 
@@ -464,7 +480,6 @@ body.sb-l-m #sidebar_left.nano > .nano-content {
 .sidebar-menu > li > a.menu-open:after {
   background: @sb-active-border;
 }
-
 
 /* Sub-Menu Item - BG Color */
 .sidebar-menu > li > ul {
@@ -693,7 +708,6 @@ body.sb-l-m {
         width: 45px;
     }
 
-
     /* hide sidebar user menu button when the sidebar is
     collapsed. As it's not accessible in this mode*/
     .sb-l-o .navbar .sidebar-menu-toggle,
@@ -707,3 +721,4 @@ body.sb-l-m {
     }
 
 }
+

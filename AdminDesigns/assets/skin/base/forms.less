@@ -572,7 +572,7 @@ input[type="checkbox"] {
 
 
 /*===============================================
-  B. Form Groups 
+  Form Groups 
 ================================================= */
 .form-bordered .form-group {
   border-bottom: 1px solid #f2f2f2;
@@ -586,7 +586,7 @@ input[type="checkbox"] {
 }
 
 /*===============================================
-  B. Field Icons and Addons
+  Field Icons and Addons
 ================================================= */
 .append-icon {
   position: absolute;
@@ -606,3 +606,57 @@ input[type="checkbox"] {
   color: #4a89dc;
   background-color: #fafafa;
   border-color: #DDD; }
+
+
+/*===============================================
+  Input Hero - Used on FAQ and ui-icons page
+================================================= */
+.input-group.input-hero {
+    display: block;
+}
+.input-group.input-hero .input-group-addon {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    border: 0;
+    background: transparent;
+    z-index: 3;
+    font-size: 18px;
+}
+.input-group.input-hero .input-group-addon + input.form-control {
+    border-left: 3px solid @brand-primary;
+    display: block;
+    float: none;
+    padding-left: 60px;
+    z-index: 0 !important;
+}
+
+
+/* Input Hero Size - SM */
+.input-hero.input-hero-sm .form-control {
+  height: 54px;
+  background: #FFF;
+}
+.input-hero.input-hero-sm .input-group-addon {
+  top: 8px;
+  left: 10px;
+}
+.input-group.input-hero-sm .input-group-addon + input.form-control {
+  padding-left: 54px;
+}
+
+
+/*===============================================
+  Maxlength Indicator - 3rd party plugin
+  Not enough styles to grant own stylesheet
+================================================= */
+.bootstrap-maxlength {
+    opacity: 0.6;
+    padding: 0px 15px;
+    border-radius: 0;
+}
+.bootstrap-maxlength.maxlength-right {
+    padding: 7px 12px;
+    margin-top: -8px;
+    margin-left: 7px;
+}

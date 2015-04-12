@@ -71,7 +71,7 @@ table.dataTable td.dataTables_empty {
 }
 .dt-abc-filter span {
   cursor: pointer;
-  padding: 0 10px;
+  padding: 0 9px;
   font-size: 12px;
   font-weight: 600;
   color: #4a89dc;
@@ -134,6 +134,32 @@ table.dataTable tr.row-label td {
 .DTE .DTE_Body:after {
   clear: both;
 }
+
+/*
+ * DataTables Editor Addon - Checkbox
+ */
+.fchild-checkbox.dataTable thead th.sorting_disabled {
+  background: #FFF;
+}
+.fchild-checkbox.dataTable tr td:first-child {
+  text-align: center;
+}
+.fchild-checkbox.dataTable tr td:first-child:before {
+  content: "\f096"; /* fa-square-o */
+  font-family: FontAwesome;
+  color: #BBB;
+}
+.fchild-checkbox.dataTable tr.active td:first-child:before {
+  content: "\f046"; /* fa-check-square-o */
+  color: #555;
+}
+.fchild-checkbox.dataTable tr td.dataTables_empty:first-child:before {
+  content: "";
+}
+div.DTE_Inline div.DTE_Field input {
+  background-color: #FFFEF0;
+}
+
 /*
  * PRINTING
  * Print display styles
