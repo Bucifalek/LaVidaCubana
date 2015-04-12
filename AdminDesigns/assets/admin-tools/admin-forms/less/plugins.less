@@ -1,7 +1,6 @@
 
-
 /*==================================================================
-  B. jQuery 3rd Party - Stepper
+  Stepper - jQuery UI
 ===================================================================*/
 .stepper-wrap {
     position: relative;
@@ -80,16 +79,348 @@
 }
 
 /*==================================================================
-  B. jQuery 3rd Party - Spectrum Color Picker
+  Datepicker - jQuery UI
+===================================================================*/
+.ui-datepicker {
+    width: 18em;
+    margin-top:8px;
+    display: none;
+    background: #fff;
+    position:relative;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,.1);
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+    border:1px solid #DDD;
+    z-index:1025 !important;     
+    text-align: center;
+    color: #666;
+}
+
+.ui-datepicker a { color: #404040; text-align:center; }
+.ui-datepicker .ui-state-disabled span{ color:#DBDBDB;}
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    background: #F5F5F5;
+    border-bottom:1px solid #CFCFCF;
+    line-height: 27px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    width: 34px;
+    height: 34px;
+    display: block;
+    font-size: 14px;
+    position: absolute;
+    text-decoration: none;
+    cursor: pointer;
+    color:#666;
+    top:20.5%;
+}
+
+.ui-datepicker .ui-datepicker-prev { left: 2px;  }
+.ui-datepicker .ui-datepicker-next { right: 2px; }
+.ui-datepicker .ui-datepicker-title { 
+    margin: 0 2.3em; 
+    line-height: 1.8em; 
+    text-align: center;
+    color:#555; 
+}
+
+.ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0; 
+    padding: 1px 5px; 
+    background-color: #EEE; 
+    border-color: #CCC;
+}
+.ui-datepicker .ui-datepicker-title select option {
+    background: #FFF;
+}
+.ui-datepicker select.ui-datepicker-month-year { width: 100%; }
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year { width: 52%; }
+.ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    margin: 0 0 15px;
+    border-collapse: collapse;
+}
+
+.ui-datepicker th {
+    padding: .5em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+
+.ui-datepicker td { border: 0; padding:2px 5px; }
+.ui-datepicker td span,
+.ui-datepicker td a {
+    color: #AAA;
+    padding: .25em;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.ui-datepicker td span:hover,
+.ui-datepicker td a:hover {  background:#F5F5F5; }
+.ui-datepicker .ui-state-disabled span:hover{ background:none; }
+
+.ui-datepicker-today a,
+.ui-datepicker-today a:hover,
+.ui-datepicker .ui-state-active, 
+.ui-datepicker .ui-state-highlight {
+    font-weight: 600;
+    color:#fff;
+    background: #CCC !important;
+}
+.ui-datepicker .ui-state-active {
+    background: #888 !important;
+}
+
+/* jQuery UI Buttons */
+.ui-datepicker-buttonpane{ border-top:1px solid #DDD; padding:10px; background: #f8f8f8;  }
+.ui-datepicker-buttonpane button {
+    padding: 5px 12px;
+    margin-right: 10px;
+    font-size: 13px;
+    position: relative;
+    line-height: normal;
+    display: inline-block;
+    -webkit-user-drag: none;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.2);
+    vertical-align: middle;
+    background: #FFF;
+    text-align: center;
+    overflow: visible;  
+    cursor: pointer;
+    color: #333;
+    border: 1px solid #ddd;
+}
+/* jQuery UI Button States */
+.ui-datepicker-buttonpane button:hover { color: #243140; background: #E8E8E8; }
+.ui-datepicker-buttonpane button:active{ color: #1d2938; background: #C4C4C4; }
+.ui-monthpicker .ui-datepicker-header{ margin-bottom:3px; }
+
+/* Inline Picker */
+.ui-datepicker-inline { width: 100%; }
+.ui-datepicker-inline,
+.ui-timepicker-inline,
+.ui-datetimepicker-inline {
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+/*==================================================================
+  Monthpicker - jQuery UI
+===================================================================*/
+.hasMonthpicker .ui-datepicker td { 
+    width: 25%;
+    padding: 10px 8px; 
+}
+
+/*==================================================================
+  Multi-Month Datepicker - jQuery UI
+===================================================================*/
+.cal-widget .ui-datepicker { width: 100%; margin-top:0; }
+.cal-widget .ui-datepicker:before{ display:none; }
+.ui-datepicker.ui-datepicker-multi { width: auto; }
+.ui-datepicker-multi .ui-datepicker-group { float: left; }
+.ui-datepicker-multi .ui-datepicker-group table { width: 95%; margin: 0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width: 50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width: 33.333%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width: 25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width: 0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear: left; }
+.ui-datepicker-row-break { clear: both; width: 100%; font-size: 0; }
+
+/*==================================================================
+  TimePicker - jQuery UI
+===================================================================*/
+.ui-timepicker-div .ui-widget-header {
+    position: relative;
+    background: #F5F5F5;
+    line-height: 27px;
+    font-size: 15px;
+    padding: 10px;
+ }
+ 
+.ui-timepicker-div dl { text-align: left; border:1px solid #EEE; border-width:1px 0 0 0; padding:15px 10px; margin:0; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 20px 40%; }
+.ui-timepicker-div dl .ui_tpicker_hour, 
+.ui-timepicker-div dl .ui_tpicker_minute, 
+.ui-timepicker-div dl .ui_tpicker_second,  
+.ui-timepicker-div dl .ui_tpicker_millisec{ background:#E5E5E5;  position:relative; top:6px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
+
+/* jQuery Slider Settings when inside a timepicker widget */
+.ui-timepicker-div .ui-slider .ui-slider-handle.ui-state-active {
+    background: #FFF !important;
+ }
+
+/*==================================================================
+  Slider - jQuery UI
+===================================================================*/
+.admin-form .slider-countbox {
+    margin-bottom: 5px;
+    color: #f6931f;
+    font-weight: bold;
+    border: 0;
+    background: transparent;
+}
+
+.slider-wrapper, 
+.sliderv-wrapper{ 
+    background:#E5E5E5; 
+    position:relative; 
+}
+
+.ui-slider {
+    position: relative;
+    text-align: left;
+}
+
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: default;
+    background:#fff;
+    border:3px solid #ccc;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -o-border-radius:20px;
+    border-radius:20px; 
+    -ms-touch-action: none;
+    touch-action: none;
+    margin-top:-3px;
+    outline:none;
+}
+
+.ui-slider .ui-slider-handle:before{
+    content: '';
+    width: 7px;
+    height: 7px;
+    position:absolute;
+    background-color: #ccc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -o-border-radius: 10px; 
+    border-radius: 10px;
+    z-index: 2; 
+    left:4px;
+    top:4px;
+}
+
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+    background-color: #aaa;
+}
+
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range { filter: inherit; }
+
+.ui-slider-horizontal { height: .5em; }
+
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical, 
+.sliderv-wrapper { width: .5em; height: 100px; }
+
+.ui-slider-vertical .ui-slider-handle { left: -.45em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+.slider-input{  color:#f6931f!important; border:0; background:none; }
+
+.slider-group .sliderv-wrapper{ height:150px; float:left; margin:15px 15px; }
+
+.ui-slider .ui-state-active {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing;
+}
+
+/* progress bar strips */
+.ui-slider .ui-slider-range {
+    background-size: 16px 16px;
+    background-image: -webkit-linear-gradient(top left,  
+                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
+                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));                      
+    background-image: linear-gradient(to bottom right,  
+                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
+                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
+}
+
+/*==================================================================
+  Slider Tooltips - jQuery UI
+===================================================================*/
+.slider-tip {
+    display: block;
+    position: absolute;
+    text-align: center;
+    font: 10pt Tahoma, Arial, sans-serif ;
+    background: #333333;
+    padding:10px;
+    color: #fff;
+}
+
+.slider-wrapper .slider-tip{ top: -50px; left:-15px; }
+.slider-wrapper .slider-tip:after { 
+    content: ''; 
+    position: absolute; 
+    top: 98%;
+    left: 35%;
+    border-top: 8px solid #333333;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent; 
+}
+
+.sliderv-wrapper .slider-tip{ left: 30px; top:-12px; }
+.sliderv-wrapper .slider-tip:after{ 
+    content: ''; 
+    position: absolute;
+    top:30%;
+    right: 98%;
+    border-right: 8px solid #333333;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;   
+}
+
+
+/*==================================================================
+  Spectrum Color Picker
 ===================================================================*/
 .sp-container {
-	position:absolute;
+    position:absolute;
     display:inline-block;
     *display: inline;    
-	z-index: 9999994;
+    z-index: 9999994;
     overflow: hidden;
     *zoom: 1;
-	top: 0;
+    top: 0;
     left: 0;    
 
     border-radius: 0;
@@ -194,9 +525,9 @@
 .sp-container button  {
     -webkit-user-select:none;
     -moz-user-select: -moz-none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     -o-user-select:none;
     user-select: none;
 }
@@ -352,21 +683,21 @@
 .sp-initial .sp-clear-display { background-position: center; }
 .sp-button-container { float: right; }
 .sp-replacer {
-	cursor:pointer;
-	overflow:hidden;
+    cursor:pointer;
+    overflow:hidden;
     padding: 4px 10px;    
-	position: absolute; 
+    position: absolute; 
     background: #F5F5F5;
-	vertical-align: middle;
-	border: solid 1px #DDD;
-	border-width:1px 1px 1px 0;
+    vertical-align: middle;
+    border: solid 1px #DDD;
+    border-width:1px 1px 1px 0;
     display:inline-block;
-	*display: inline;
-	height: 100%;
-	color: #333;
-	margin:0;
-	*zoom: 1; 
-	right:0;
+    *display: inline;
+    height: 100%;
+    color: #333;
+    margin:0;
+    *zoom: 1; 
+    right:0;
 }
 
 .sp-replacer:hover, .sp-replacer.sp-active {
@@ -384,9 +715,9 @@
     line-height: 16px;
     float:left;
     font-size:12px;
-	color:#9F9F9F;
-	position:relative;
-	top:6px;
+    color:#9F9F9F;
+    position:relative;
+    top:6px;
 }
 .sp-preview{
     position:relative;
@@ -394,7 +725,7 @@
     height: 20px;
     border: solid 1px #222;
     margin-right: 5px;
-	margin-top:6px;
+    margin-top:6px;
     float:left;
     z-index: 0;
 }
@@ -444,8 +775,6 @@
     color: #666 !important;
     text-decoration:none;
 }
-
-
 .sp-palette span:hover, 
 .sp-palette span.sp-thumb-active{
     border-color: #000;
@@ -484,13 +813,12 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
 
 .sfcolor{ padding-right:63px; }
 .sfcolor .gui-input + .sp-replacer{ 
-	width:63px;
+    width:63px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-    box-sizing: border-box;	 
+    -o-box-sizing: border-box;
+    box-sizing: border-box;  
 }
-
 
 /* Custom Changes - Field preview thumb */
 .sp-preview { border-color: #fff; }
@@ -535,7 +863,6 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
     opacity: 1;
 }
 
-
 /* Custom Changes - Palette Container */
 .sp-palette-button-container {
     display: none; // disable/hide button
@@ -562,7 +889,6 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
   transform: rotate(-10deg);
 }
 
-
 .inline-cp + .sp-container {
     width: 100%;
     box-shadow: none;
@@ -584,347 +910,25 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
   top: 3px;
 }
 
-/*==================================================================
-  B. jQuery UI - Datepicker
-===================================================================*/
-.ui-datepicker {
-    width: 18em;
-    margin-top:8px;
-    display: none;
-    background: #fff;
-    position:relative;
-    font: 14px/1.55  "Roboto", Arial, Helvetica, sans-serif;
-    -webkit-box-shadow: 0 0 4px rgba(0,0,0,.1);
-    -moz-box-shadow: 0 0 4px rgba(0,0,0,.1);
-    -o-box-shadow: 0 0 4px rgba(0,0,0,.1);
-    box-shadow: 0 0 4px rgba(0,0,0,.1);
-    border:1px solid #DDD;
-    z-index:1025 !important;     
-    text-align: center;
-    color: #666;
-    
-}
-
-.ui-datepicker a { color: #404040; text-align:center; }
-.ui-datepicker .ui-state-disabled span{ color:#DBDBDB;}
-.ui-datepicker .ui-datepicker-header {
-    position: relative;
-    background: #F5F5F5;
-    border-bottom:1px solid #CFCFCF;
-    line-height: 27px;
-    font-size: 15px;
-    padding: 10px;
-}
-
-.ui-datepicker .ui-datepicker-prev,
-.ui-datepicker .ui-datepicker-next {
-    width: 34px;
-    height: 34px;
-    display: block;
-    font-size: 14px;
-    position: absolute;
-    text-decoration: none;
-    cursor: pointer;
-    color:#666;
-    top:20.5%;
-}
-
-.ui-datepicker .ui-datepicker-prev { left: 2px;  }
-.ui-datepicker .ui-datepicker-next { right: 2px; }
-.ui-datepicker .ui-datepicker-title { 
-    margin: 0 2.3em; 
-    line-height: 1.8em; 
-    text-align: center;
-    color:#555; 
-}
-
-.ui-datepicker .ui-datepicker-title select {
-    font-size: 1em;
-    margin: 1px 0; 
-    padding: 1px 5px; 
-    background-color: #EEE; 
-    border-color: #CCC;
-}
-.ui-datepicker .ui-datepicker-title select option {
-    background: #FFF;
-}
-.ui-datepicker select.ui-datepicker-month-year { width: 100%; }
-.ui-datepicker select.ui-datepicker-month,
-.ui-datepicker select.ui-datepicker-year { width: 52%; }
-.ui-datepicker table {
-    width: 100%;
-    font-size: .9em;
-    margin: 0 0 15px;
-    border-collapse: collapse;
-}
-
-.ui-datepicker th {
-    padding: .5em .3em;
-    text-align: center;
-    font-weight: bold;
-    border: 0;
-}
-
-.ui-datepicker td { border: 0; padding:2px 5px; }
-.ui-datepicker td span,
-.ui-datepicker td a {
-    color: #AAA;
-    padding: .25em;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-}
-
-.ui-datepicker td span:hover,
-.ui-datepicker td a:hover {  background:#F5F5F5; }
-.ui-datepicker .ui-state-disabled span:hover{ background:none; }
-
-.ui-datepicker-today a,
-.ui-datepicker-today a:hover,
-.ui-datepicker .ui-state-active, 
-.ui-datepicker .ui-state-highlight {
-    font-weight: 700;
-    color:#fff;
-    background: #CCC !important;
-}
-.ui-datepicker .ui-state-active {
-    background: #888 !important;
-}
-
-
-/* jQuery UI Buttons */
-.ui-datepicker-buttonpane{ border-top:1px solid #DDD; padding:10px; background: #f8f8f8;  }
-.ui-datepicker-buttonpane button {
-    padding: 5px 12px;
-    margin-right: 10px;
-    font-size: 13px;
-    position: relative;
-    line-height: normal;
-    display: inline-block;
-    -webkit-user-drag: none;
-    text-shadow: 0 1px rgba(255, 255, 255, 0.2);
-    vertical-align: middle;
-    background: #FFF;
-    text-align: center;
-    overflow: visible;  
-    cursor: pointer;
-    color: #333;
-    border: 1px solid #ddd;
-}
-/* jQuery UI Button States */
-.ui-datepicker-buttonpane button:hover { color: #243140; background: #E8E8E8; }
-.ui-datepicker-buttonpane button:active{ color: #1d2938; background: #C4C4C4; }
-.ui-monthpicker .ui-datepicker-header{ margin-bottom:3px; }
-
-/* Inline Picker */
-.ui-datepicker-inline { width: 100%; }
-.ui-datepicker-inline,
-.ui-timepicker-inline,
-.ui-datetimepicker-inline {
-  box-shadow: none;
-  margin: 0 auto;
-}
 
 /*==================================================================
-  B. jQuery UI - MonthPicker Adjustments
+  Google Map Block 
 ===================================================================*/
-.hasMonthpicker .ui-datepicker td { 
-    width: 25%;
-    padding: 10px 8px; 
-}
-
-/*==================================================================
-  B. jQuery UI - Multi Datepicker Adjustments
-===================================================================*/
-.cal-widget .ui-datepicker { width: 100%; margin-top:0; }
-.cal-widget .ui-datepicker:before{ display:none; }
-.ui-datepicker.ui-datepicker-multi { width: auto; }
-.ui-datepicker-multi .ui-datepicker-group { float: left; }
-.ui-datepicker-multi .ui-datepicker-group table { width: 95%; margin: 0 auto .4em; }
-.ui-datepicker-multi-2 .ui-datepicker-group { width: 50%; }
-.ui-datepicker-multi-3 .ui-datepicker-group { width: 33.333%; }
-.ui-datepicker-multi-4 .ui-datepicker-group { width: 25%; }
-.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
-.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width: 0; }
-.ui-datepicker-multi .ui-datepicker-buttonpane { clear: left; }
-.ui-datepicker-row-break { clear: both; width: 100%; font-size: 0; }
-
-/*==================================================================
-  B. jQuery UI - Timepicker
-===================================================================*/
-.ui-timepicker-div .ui-widget-header {
-    position: relative;
-    background: #F5F5F5;
-    line-height: 27px;
-    font-size: 15px;
-    padding: 10px;
- }
- 
-
- 
-.ui-timepicker-div dl { text-align: left; border:1px solid #EEE; border-width:1px 0 0 0; padding:15px 10px; margin:0; }
-.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
-.ui-timepicker-div dl dd { margin: 0 10px 20px 40%; }
-.ui-timepicker-div dl .ui_tpicker_hour, 
-.ui-timepicker-div dl .ui_tpicker_minute, 
-.ui-timepicker-div dl .ui_tpicker_second,  
-.ui-timepicker-div dl .ui_tpicker_millisec{ background:#E5E5E5;  position:relative; top:6px; }
-.ui-timepicker-div td { font-size: 90%; }
-.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
-.ui-timepicker-rtl{ direction: rtl; }
-.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
-.ui-timepicker-rtl dl dt{ float: right; clear: right; }
-.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
-
-
-/* jQuery Slider Settings when inside a timepicker widget */
-.ui-timepicker-div .ui-slider .ui-slider-handle.ui-state-active {
-    background: #FFF !important;
- }
+.admin-form .map-container { padding:7px; border: 1px solid #CFCFCF; }
+.admin-form #map_canvas { width:100%; height:300px; overflow:hidden; }
+.admin-form .block { display:block; }
 
 
 /*==================================================================
-  B. jQuery UI - Slider
-===================================================================*/
-.slider-wrapper, 
-.sliderv-wrapper{ 
-    background:#E5E5E5; 
-    position:relative; 
-}
-
-.ui-slider {
-    position: relative;
-    text-align: left;
-}
-
-.ui-slider .ui-slider-handle {
-    position: absolute;
-    z-index: 2;
-    width: 1.5em;
-    height: 1.5em;
-    cursor: default;
-    background:#fff;
-    border:3px solid #ccc;
-    -webkit-border-radius:20px;
-    -moz-border-radius:20px;
-    -o-border-radius:20px;
-    border-radius:20px; 
-    -ms-touch-action: none;
-    touch-action: none;
-    margin-top:-3px;
-    outline:none;
-}
-
-.ui-slider .ui-slider-handle:before{
-    content: '';
-    width: 7px;
-    height: 7px;
-    position:absolute;
-    background-color: #ccc;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px; 
-    -o-border-radius: 10px; 
-    border-radius: 10px;
-    z-index: 2; 
-    left:4px;
-    top:4px;
-}
-
-.ui-slider .ui-slider-range {
-    position: absolute;
-    z-index: 1;
-    font-size: .7em;
-    display: block;
-    border: 0;
-    background-position: 0 0;
-    background-color: #aaa;
-}
-
-.ui-slider.ui-state-disabled .ui-slider-handle,
-.ui-slider.ui-state-disabled .ui-slider-range { filter: inherit; }
-.ui-slider-horizontal { height: .5em; }
-.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
-.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
-.ui-slider-horizontal .ui-slider-range-min { left: 0; }
-.ui-slider-horizontal .ui-slider-range-max { right: 0; }
-.ui-slider-vertical, 
-.sliderv-wrapper { width: .5em; height: 100px; }
-.ui-slider-vertical .ui-slider-handle { left: -.45em; margin-left: 0; margin-bottom: -.6em; }
-.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
-.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
-.ui-slider-vertical .ui-slider-range-max { top: 0; }
-.slider-input{  color:#f6931f!important; border:0; background:none; }
-.slider-group .sliderv-wrapper{ height:150px; float:left; margin:15px 15px;   }
-.ui-slider .ui-state-active {
-    cursor: -webkit-grabbing;
-    cursor: -moz-grabbing;
-    cursor: grabbing;
-}
-
-/* progress bar strips + animation IE10+ */
-.ui-slider .ui-slider-range {
-    background-size: 16px 16px;
-    background-image: -webkit-linear-gradient(top left,  
-                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
-                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
-                      
-    background-image: -moz-linear-gradient(top left,  
-                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
-                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
-                      
-    background-image: -o-linear-gradient(top left,  
-                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
-                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
-                      
-    background-image: linear-gradient(to bottom right,  
-                      transparent, transparent 25%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 50%, 
-                      transparent 50%, transparent 75%, rgba(255, 255, 255, 0.3) 75%, rgba(255, 255, 255, 0.3));
-}
-
-/*==================================================================
-  B. jQuery UI - Slider Tooltips
-===================================================================*/
-.slider-tip {
-    display: block;
-    position: absolute;
-    text-align: center;
-    font: 10pt Tahoma, Arial, sans-serif ;
-    background: #333333;
-    padding:10px;
-    color: #fff;
-}
-
-.slider-wrapper .slider-tip{ top: -50px; left:-15px; }
-.slider-wrapper .slider-tip:after { 
-    content: ''; 
-    position: absolute; 
-    top: 98%;
-    left: 35%;
-    border-top: 8px solid #333333;
-    border-right: 8px solid transparent;
-    border-left: 8px solid transparent; 
-}
-
-.sliderv-wrapper .slider-tip{ left: 30px; top:-12px; }
-.sliderv-wrapper .slider-tip:after{ 
-    content: ''; 
-    position: absolute;
-    top:30%;
-    right: 98%;
-    border-right: 8px solid #333333;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;   
-}
-
-
-/*==================================================================
-  B. Custom Form Wizard
+  AdminForm Wizard
 ===================================================================*/
 
+/* form wizard wrapper */
 .wizard {
     background-color: #FFF;
 }
-/* wizard top nav - steps */
+
+/* Wizard top nav - "steps" */
 .wizard .steps {
     text-align: center;
     padding: 20px 15px 10px;
@@ -958,11 +962,13 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
   text-decoration: none;
   -webkit-user-drag: none;
 }
-/* nav item states */
+
+/* Nav item states */
 .wizard .steps li.current a { background-color: @brand-primary-dark; }
 .wizard .steps li.disabled a { background-color: #BBBBBB !important; } 
 .wizard .steps li.current a:focus { outline-color: transparent; }
-/* disable various nav meta information */
+
+/* Disable various nav meta information */
 .wizard .steps li a .current-info,
 .wizard .steps li a .number { display: none; }
 
@@ -1009,11 +1015,6 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
     cursor: not-allowed;
     background-color: #BBB !important; 
 } 
-
-
-
-/* STEPS STYLES ------------------
-----------------------------------*/
 
 /* hide steps icons */
 .wizard.steps-hide-icons .steps .fa,
@@ -1084,5 +1085,3 @@ background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKi
 .wizard.steps-justified .content {
     padding-top: 10px;
 }
-
-

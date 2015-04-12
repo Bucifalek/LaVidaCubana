@@ -51,8 +51,8 @@
 @import "@{base-path}/switches.less";
 @import "@{base-path}/checkboxes.less";
 @import "@{base-path}/icons.less";
-@import "@{base-path}/tiles.less";
-@import "@{base-path}/widgets.less"; // Added patch v1.3
+// @import "@{base-path}/tiles.less"; // Removed in patch v1.4 - added to widgets folder
+@import "@{base-path}/widgets.less"; // Added patch v1.4
 
 // Base Components w/ JavaScript
 @import "@{base-path}/modals.less";
@@ -81,5 +81,6 @@
 // Page specific styles
 @import "@{base-path}/pages.less";
 
-// Base Animation library
-@import "@{base-path}/animate.less";
+// Generated Base Skin Colors
+@import "@{base-path}/theme.less";
+
