@@ -23,9 +23,6 @@ html, body {
   margin: 0;
   padding: 0; }
 
-.left {
-  text-align: left !important; }
-
 .page_title {
   width: 100%;
   background: #343333;
@@ -66,7 +63,7 @@ html, body {
 .greybox {
   background: url("../img/bowling/texturka3.png");
   width: 100%;
-  height: auto; }
+  height: 500px; }
 
 .greybox_2 {
   background: url("../img/bowling/texturka3.png");
@@ -168,23 +165,9 @@ nav {
     margin: 0 auto;
     padding-bottom: 80px; }
 
-/*  AKTUALITA  */
-.actualRow {
-  width: 100%;
-  height: auto;
-  margin-top: 20px; }
-  .actualRow #actual {
-    background: white;
-    width: 49%;
-    height: 256px; }
-  .actualRow #actualIMG {
-    background: black;
-    width: 49%;
-    height: 256px; }
-
 /*  INSTAGRAM GALERIE  */
 .category_title {
-  font-size: 1.9em;
+  font-size: 1.5em;
   text-align: center;
   line-height: 60px;
   color: #d14334; }
