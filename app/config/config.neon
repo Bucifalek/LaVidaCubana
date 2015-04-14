@@ -21,7 +21,10 @@ services:
 	- App\AdminModule\Model\IndividualManager
 	- App\AdminModule\Model\MysqlExporter
 	- App\AdminModule\Model\TeamsManager
-	- App\WebModule\Model\Visitors
+	- App\AdminModule\Model\OpenTimeManager
 
+
+
+	- App\WebModule\Model\Visitors
 	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter

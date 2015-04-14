@@ -12,7 +12,7 @@ use Nette;
  * Class MysqlExporter
  * @package App\AdminModule\Model
  */
-class MysqlExporter extends Nette\Object
+final class MysqlExporter extends Nette\Object
 {
 	/**
 	 *

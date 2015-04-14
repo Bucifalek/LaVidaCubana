@@ -12,7 +12,7 @@ use Nette;
  * Class DatabaseStructure
  * @package App\AdminModule\Model
  */
-class DatabaseStructure extends Nette\Object
+final class DatabaseStructure extends Nette\Object
 {
 
 	/**

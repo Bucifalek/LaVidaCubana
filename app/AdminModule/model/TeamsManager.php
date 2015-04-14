@@ -12,7 +12,7 @@ use Nette;
  * Class TeamsManager
  * @package App\AdminModule\Model
  */
-class TeamsManager extends Nette\Object
+final class TeamsManager extends Nette\Object
 {
 
 	/**
