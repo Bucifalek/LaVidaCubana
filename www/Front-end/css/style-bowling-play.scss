@@ -32,6 +32,7 @@ $font-color: #fff;
 /*  CENIK + PROVOZNI DOBA  */
 
 .time_cenik_info {
+  background: rgba(255, 255, 255, 0.50);
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -49,6 +50,7 @@ $font-color: #fff;
 
 .time_info {
   float: left;
+  margin-left: 13px;
 }
 
 .time_info td {
