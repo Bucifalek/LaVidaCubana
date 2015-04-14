@@ -1,5 +1,6 @@
 {*
-- @author Jan Kotrba <jan.kotrbaa@gmail.com>
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
 - @date 0:12, 11. 2. 2015
 - @copyright 2015 Jan Kotrba
 *}
@@ -15,28 +16,28 @@
 {block content}
 
 <div class="pv20 ph40 bg-light dark br-b br-grey posr">
-	<div class="table-layout">
-		<div class="w200 text-center pr30 hidden-xs">
-			<img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" class="responsive">
-		</div>
-		<div class="va-t m30">
-			<h2 n:block="title"> {$firstName}.{$lastName}
-				<small> Profil</small>
-			</h2>
-			<p class="fs15 mb20">{$email}</p>
-		</div>
-	</div>
+    <div class="table-layout">
+        <div class="w200 text-center pr30 hidden-xs">
+            <img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" class="responsive">
+        </div>
+        <div class="va-t m30">
+            <h2 n:block="title"> {$firstName}.{$lastName}
+                <small> Profil</small>
+            </h2>
+            <p class="fs15 mb20">{$email}</p>
+        </div>
+    </div>
 </div>
 <div class="panel panel-success panel-border top mt20 mb35 mr20 ml20">
-	<div class="panel-heading">
-		<span class="panel-title">Vyberte si svého avatara</span>
-	</div>
-	<div class="panel-body bg-light dark text-center">
-		{for $i = 1; $i <= 9; $i++}
-		<a href="{link changeUserPhoto!, $user->id, $i}"><img
-				class="m3 p2 img-avatar{if $i == $avatar} img-avatar-current{/if}"
-				src="{$basePath}/Back-end/assets/img/avatars/{$i}.png"></a>
-		{/for}
-	</div>
+    <div class="panel-heading">
+        <span class="panel-title">Vyberte si svého avatara</span>
+    </div>
+    <div class="panel-body bg-light dark text-center">
+        {for $i = 1; $i <= 9; $i++}
+        <a href="{link changeUserPhoto!, $user->id, $i}"><img
+                class="m3 p2 img-avatar{if $i == $avatar} img-avatar-current{/if}"
+                src="{$basePath}/Back-end/assets/img/avatars/{$i}.png"></a>
+        {/for}
+    </div>
 </div>
 {/block}
