@@ -1,77 +1,86 @@
 {block content}
 <div class="col-md-6 tab-content mw800">
-	<div class="panel">
-    		<div class="panel-heading">
-    			<span class="panel-icon"><i class="fa fa-pencil"></i></span>
-    			<span class="panel-title">Informace o sekci</span>
-    		</div>
-    		<div class="panel-body">
-    			<h2>Obsah</h2>
-    			<p>V teto sekci upravujete <a href="{$basePath}{$branch['url']}" target="_blank">www.lavidacubana.cz{$branch['url']}</a></p>
-    		</div>
-    	</div>
-
-    	<div class="panel">
-        		<div class="panel-heading">
-        			<span class="panel-icon"><i class="fa fa-pencil"></i></span>
-        			<span class="panel-title">Návštěvnost</span>
-        		</div>
-        		<div class="panel-body">
-				<div class="btn-group pull-right">
-					<button aria-expanded="false" type="button" class="btn btn-danger btn-sm  dropdown-toggle" data-toggle="dropdown">
-	                    {$filter['day']}
-	                    <span class="caret"></span>
-	                </button>
-	                <ul class="dropdown-menu pull-right" role="menu">
-	                    {ifCurrent Dashboard:default, today}{else}
-                         <li>
-                            <a n:href="Dashboard:default, today">Dnes</a>
-                        </li>
-                        {/ifCurrent}
-
-	                    {ifCurrent Dashboard:default, yesterday}{else}
-	                     <li>
-                            <a n:href="Dashboard:default, yesterday">Včera</a>
-                        </li>
-	                    {/ifCurrent}
-
-						{ifCurrent Dashboard:default,  lastweek}{else}
-	                     <li>
-                            <a n:href="Dashboard:default,  lastweek">Poslední týden</a>
-                        </li>
-	                    {/ifCurrent}
-
-						{ifCurrent Dashboard:default,  lastmonth}{else}
-                         <li>
-                            <a n:href="Dashboard:default,  lastmonth">Poslední měsíc</a>
-                        </li>
-                        {/ifCurrent}
-
-                        {ifCurrent Dashboard:default, ''}{else}
-                        <li>
-                            <a n:href="Dashboard:default">Vše</a>
-                        </li>
-                        {/ifCurrent}
-
-	                </ul>
-                </div>
-        		<blockquote class="blockquote-primary">
-                    <p n:if="$branchVisits == 0">{$branchVisits} návštěvníků</p>
-                    <p n:if="$branchVisits == 1">{$branchVisits} návštěvník</p>
-					<p n:if="$branchVisits >= 2 && $branchVisits < 5">{$branchVisits} návštěvníci</p>
-					<p n:if="$branchVisits >= 5">{$branchVisits} návštěvníků</p>
-
-
-                    {if $filter['interval'][0] == false}
-                            <small n:if="$filter['day'] == 'Vše'">Od  počátku do {$filter['interval'][1]|date:'j.n.'}</small>
-                       		<small n:if="$filter['day'] == 'Dnes'">Dnes {$filter['interval'][1]|date:'j.n.'}</small>
-                        	<small n:if="$filter['day'] != 'Vše' && $filter['day'] == 'Dnes'">{$filter['interval'][1]|date:'j.n.'}</small>
-                    {else}
-                        <small n:if="$filter['day'] == 'Dnes'">Dnes {$filter['interval'][1]|date:'j.n.'}</small>
-						<small n:if="$filter['day'] != 'Dnes'">Od {$filter['interval'][0]|date:'j.n.'} do {$filter['interval'][1]|date:'j.n.'}</small>
-                    {/if}
-                </blockquote>
-            </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <span class="panel-icon"><i class="fa fa-pencil"></i></span>
+            <span class="panel-title">Informace o sekci</span>
         </div>
-	</div>
+        <div class="panel-body">
+            <h2>Obsah</h2>
+
+            <p>V teto sekci upravujete <a href="{$basePath}{$branch['url']}" target="_blank">www.lavidacubana.cz{$branch['url']}</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-heading">
+            <span class="panel-icon"><i class="fa fa-pencil"></i></span>
+            <span class="panel-title">Návštěvnost</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn-group pull-right">
+                <button aria-expanded="false" type="button" class="btn btn-danger btn-sm  dropdown-toggle"
+                        data-toggle="dropdown">
+                    {$filter['day']}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    {ifCurrent Dashboard:default, today}{else}
+                    <li>
+                        <a n:href="Dashboard:default, today">Dnes</a>
+                    </li>
+                    {/ifCurrent}
+
+                    {ifCurrent Dashboard:default, yesterday}{else}
+                    <li>
+                        <a n:href="Dashboard:default, yesterday">Včera</a>
+                    </li>
+                    {/ifCurrent}
+
+                    {ifCurrent Dashboard:default, lastweek}{else}
+                    <li>
+                        <a n:href="Dashboard:default,  lastweek">Poslední týden</a>
+                    </li>
+                    {/ifCurrent}
+
+                    {ifCurrent Dashboard:default, lastmonth}{else}
+                    <li>
+                        <a n:href="Dashboard:default,  lastmonth">Poslední měsíc</a>
+                    </li>
+                    {/ifCurrent}
+
+                    {ifCurrent Dashboard:default, ''}{else}
+                    <li>
+                        <a n:href="Dashboard:default">Vše</a>
+                    </li>
+                    {/ifCurrent}
+
+                </ul>
+            </div>
+            <blockquote class="blockquote-primary">
+                <p n:if="$branchVisits == 0">{$branchVisits} návštěvníků</p>
+
+                <p n:if="$branchVisits == 1">{$branchVisits} návštěvník</p>
+
+                <p n:if="$branchVisits >= 2 && $branchVisits < 5">{$branchVisits} návštěvníci</p>
+
+                <p n:if="$branchVisits >= 5">{$branchVisits} návštěvníků</p>
+
+
+                {if $filter['interval'][0] == false}
+                <small n:if="$filter['day'] == 'Vše'">Od počátku do {$filter['interval'][1]|date:'j.n.'}</small>
+                <small n:if="$filter['day'] == 'Dnes'">Dnes {$filter['interval'][1]|date:'j.n.'}</small>
+                <small n:if="$filter['day'] != 'Vše' && $filter['day'] == 'Dnes'">{$filter['interval'][1]|date:'j.n.'}
+                </small>
+                {else}
+                <small n:if="$filter['day'] == 'Dnes'">Dnes {$filter['interval'][1]|date:'j.n.'}</small>
+                <small n:if="$filter['day'] != 'Dnes'">Od {$filter['interval'][0]|date:'j.n.'} do
+                    {$filter['interval'][1]|date:'j.n.'}
+                </small>
+                {/if}
+            </blockquote>
+        </div>
+    </div>
+</div>
 {/block}

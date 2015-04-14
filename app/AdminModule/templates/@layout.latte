@@ -1,258 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="theme-color" content="#30363e">
-	<title>{ifset #title}{include title|striptags} | {/ifset}KotysLAB</title>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#30363e">
+    <title>{ifset #title}{include title|striptags} | {/ifset}KotysLAB</title>
 
-	{*}
-	<meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme"/>
-	<meta name="description" content="AdminDesigns - A Responsive HTML5 Admin UI Framework">
-	<meta name="author" content="AdminDesigns">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{*}
+    {*}
+    <meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme"/>
+    <meta name="description" content="AdminDesigns - A Responsive HTML5 Admin UI Framework">
+    <meta name="author" content="AdminDesigns">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {*}
 
-	<!-- Font CSS (Via CDN) -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,latin-ext' rel='stylesheet'
-		  type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,latin-ext' rel='stylesheet'
-		  type='text/css'>
+    <!-- Font CSS (Via CDN) -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,latin-ext' rel='stylesheet'
+          type='text/css'>
 
-	<!-- Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/assets/skin/default_skin/css/theme.css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{$basePath}/Back-end/assets/skin/default_skin/css/theme.css">
 
-	<!-- Admin Panels CSS -->
-	<link rel="stylesheet" type="text/css"
-		  href="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.css">
+    <!-- Admin Panels CSS -->
+    <link rel="stylesheet" type="text/css"
+          href="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.css">
 
-	<!-- Admin Forms CSS -->
-	<link rel="stylesheet" type="text/css"
-		  href="{$basePath}/Back-end/assets/admin-tools/admin-forms/css/admin-forms.css">
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css"
+          href="{$basePath}/Back-end/assets/admin-tools/admin-forms/css/admin-forms.css">
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="{$basePath}/Back-end/assets/img/favicon.ico?v=2">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{$basePath}/Back-end/assets/img/favicon.ico?v=2">
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-	<![endif]-->
-	{block head}{/block}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    {block head}{/block}
 </head>
-<body {ifset #pageClass} class='{include pageClass}'{/ifset} data-spy="scroll" data-target="#nav-spy" data-offset="300">
+<body {ifset #pageClass} class='{include pageClass}' {/ifset} data-spy="scroll" data-target="#nav-spy" data-offset="300">
 <div id="main">
-	<!-- Start: Header -->
-	<header class="navbar navbar-fixed-top bg-light">
-		<div class="navbar-branding">
-			<a class="navbar-brand" n:href="Dashboard:default"><img src="{$basePath}/Back-end/assets/img/logos/cms.png"
-																   alt="" class="brand-logo mr5"><b>Kotys</b>LAB</a>
-			<span id="toggle_sidemenu_l" class="glyphicons glyphicons-show_lines"></span>
-			<ul class="nav navbar-nav pull-right hidden">
-				<li>
-					<a href="#" class="sidebar-menu-toggle">
-						<span class="octicon octicon-ruby fs20 mr10 pull-right "></span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		{*}<ul class="nav navbar-nav navbar-left">
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<span class="glyphicons glyphicons-settings fs14"></span>
-				</a>
-				<ul class="dropdown-menu" role="menu">
-					<li>
-						<a href="javascript:void(0);">
-							<span class="fa fa-times-circle-o pr5 text-primary"></span> Reset LocalStorage </a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">
-							<span class="fa fa-slideshare pr5 text-info"></span> Force Global Logout </a>
-					</li>
-					<li class="divider mv5"></li>
-					<li>
-						<a href="javascript:void(0);">
-							<span class="fa fa-tasks pr5 text-danger"></span> Run Cron Job </a>
-					</li>
-					<li>
-						<a href="javascript:void(0);">
-							<span class="fa fa-wrench pr5 text-warning"></span> Maintenance Mode </a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-		{*}
-		{*}
-		<form class="navbar-form navbar-left navbar-search ml5" role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Hledat..." value="Hledat...">
-			</div>
-		</form>
-		{*}
-		<ul class="nav navbar-nav navbar-right">
-			{* Notifications control *}
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<span class="glyphicons fa-xl glyphicons-pencil"></span>
-					<span class="fw600 pl10">Upravujete : {$currentBranch['name']}</span>
-				</a>
-				<ul class="dropdown-menu animated animated-short flipInX" role="menu">
-					{foreach $branchList as $id => $branch}
-					<li n:if="$currentBranch['id'] != $id">
-						<a href="{link ChangeBranch!, $id}" class="fw600"><span class="glyphicon glyphicon-share-alt pr5"></span> {$branch->name}</a>
-					</li>
-					{/foreach}
-					<li class="divider"></li>
-					<li>
-						<a href="{$basePath}{$branch->url}" class="fw600" target='_blank'><span class="fa fa-external-link pr5"></span> Přejít na stránky </a>
-					</li>
-				</ul>
-			</li>
-			<li class="ph10 pv20"><i class="fa fa-circle text-tp fs8"></i>
-			</li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img
-						src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" alt="avatar" class="mw30 br64 mr15">
-					<span>{$firstName}.{$lastName}</span>
-					<span class="caret caret-tp"></span>
-				</a>
-				<ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
-					<li class="br-t of-h">
-						<a n:href="MyProfile:default" class="fw600 p12 animated animated-short fadeInDown">
-							<span class="fa fa-gear pr5"></span> Můj účet </a>
-					</li>
-					<li class="br-t of-h">
-						<a n:href="Sign:out" class="fw600 p12 animated animated-short fadeInDown">
-							<span class="fa fa-power-off pr5"></span> Odhlásit se </a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</header>
+    <header class="navbar navbar-fixed-top bg-light">
+        <div class="navbar-branding">
+            <a class="navbar-brand" n:href="Dashboard:default"><img src="{$basePath}/Back-end/assets/img/logos/cms.png"
+                                                                    alt="" class="brand-logo mr5"><b>Kotys</b>LAB</a>
+            <span id="toggle_sidemenu_l" class="glyphicons glyphicons-show_lines"></span>
+            <ul class="nav navbar-nav pull-right hidden">
+                <li>
+                    <a href="#" class="sidebar-menu-toggle">
+                        <span class="octicon octicon-ruby fs20 mr10 pull-right "></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            {* Notifications control *}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="glyphicons fa-xl glyphicons-pencil"></span>
+                    <span class="fw600 pl10">Upravujete : {$currentBranch['name']}</span>
+                </a>
+                <ul class="dropdown-menu animated animated-short flipInX" role="menu">
+                    {foreach $branchList as $id => $branch}
+                    <li n:if="$currentBranch['id'] != $id">
+                        <a href="{link ChangeBranch!, $id}" class="fw600"><span
+                                class="glyphicon glyphicon-share-alt pr5"></span> {$branch->name}</a>
+                    </li>
+                    {/foreach}
+                    <li class="divider"></li>
+                    <li>
+                        <a href="{$basePath}{$branch->url}" class="fw600" target='_blank'><span
+                                class="fa fa-external-link pr5"></span> Přejít na stránky </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ph10 pv20"><i class="fa fa-circle text-tp fs8"></i>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img
+                        src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" alt="avatar" class="mw30 br64 mr15">
+                    <span>{$firstName}.{$lastName}</span>
+                    <span class="caret caret-tp"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
+                    <li class="br-t of-h">
+                        <a n:href="MyProfile:default" class="fw600 p12 animated animated-short fadeInDown">
+                            <span class="fa fa-gear pr5"></span> Můj účet </a>
+                    </li>
+                    <li class="br-t of-h">
+                        <a n:href="Sign:out" class="fw600 p12 animated animated-short fadeInDown">
+                            <span class="fa fa-power-off pr5"></span> Odhlásit se </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
 
-	{control menu}
+    {control menu}
 
-	<section id="content_wrapper">
-		<header id="topbar">
-			<div class="topbar-left">
-				<ol class="breadcrumb">
-					<li class="crumb-active">
-						<a n:href="Dashboard:default">{ifset #nav_module} {include #nav_module} {else} {$branchName}{/ifset}</a>
-					</li>
-					{ifset #nav_presenter}
-					<li class="crumb-link">
-						<a href="">{include nav_presenter}</a>
-					</li>
-					{/ifset}
-					{ifset #nav_action}
-					<li class="crumb-trail">{include nav_action}</li>
-					{/ifset}
-				</ol>
-			</div>
-		</header>
-		<section id="content" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
-			{* Flashes *}
-			<div class="special-alerts" n:inner-foreach="$flashes as $flash">
-				<div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					<i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
-					{$flash->message}
-				</div>
-			</div>
-
-			{include content}
-
-		</section>
-	<aside id="sidebar_right" class="nano">
-		<div class="sidebar_right_content nano-content">
-			<div class="tab-block sidebar-block br-n">
-				<ul class="nav nav-tabs tabs-border nav-justified hidden">
-					<li class="active">
-						<a href="#sidebar-right-tab1" data-toggle="tab">Tab 1</a>
-					</li>
-					<li>
-						<a href="#sidebar-right-tab2" data-toggle="tab">Tab 2</a>
-					</li>
-					<li>
-						<a href="#sidebar-right-tab3" data-toggle="tab">Tab 3</a>
-					</li>
-				</ul>
-				<div class="tab-content br-n">
-					<div id="sidebar-right-tab1" class="tab-pane active">
-
-						<h5 class="title-divider text-muted mb20"> Server Statistics <span class="pull-right"> 2013 <i
-									class="fa fa-caret-down ml5"></i> </span></h5>
-
-						<div class="progress mh5">
-							<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="45"
-								 aria-valuemin="0" aria-valuemax="100" style="width: 44%">
-								<span class="fs11">DB Request</span>
-							</div>
-						</div>
-						<div class="progress mh5">
-							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45"
-								 aria-valuemin="0" aria-valuemax="100" style="width: 84%">
-								<span class="fs11 text-left">Server Load</span>
-							</div>
-						</div>
-						<div class="progress mh5">
-							<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
-								 aria-valuemin="0" aria-valuemax="100" style="width: 61%">
-								<span class="fs11 text-left">Server Connections</span>
-							</div>
-						</div>
-
-						<h5 class="title-divider text-muted mt30 mb10">Traffic Margins</h5>
-
-						<div class="row">
-							<div class="col-xs-5">
-								<h3 class="text-primary mn pl5">132</h3>
-							</div>
-							<div class="col-xs-7 text-right">
-								<h3 class="text-success-dark mn"><i class="fa fa-caret-up"></i> 13.2% </h3>
-							</div>
-						</div>
-
-						<h5 class="title-divider text-muted mt25 mb10">Database Request</h5>
-
-						<div class="row">
-							<div class="col-xs-5">
-								<h3 class="text-primary mn pl5">212</h3>
-							</div>
-							<div class="col-xs-7 text-right">
-								<h3 class="text-success-dark mn"><i class="fa fa-caret-up"></i> 25.6% </h3>
-							</div>
-						</div>
-
-						<h5 class="title-divider text-muted mt25 mb10">Server Response</h5>
-
-						<div class="row">
-							<div class="col-xs-5">
-								<h3 class="text-primary mn pl5">82.5</h3>
-							</div>
-							<div class="col-xs-7 text-right">
-								<h3 class="text-danger mn"><i class="fa fa-caret-down"></i> 17.9% </h3>
-							</div>
-						</div>
-
-						<h5 class="title-divider text-muted mt40 mb20"> Server Statistics <span
-								class="pull-right text-primary fw600">USA</span></h5>
-
-						<div id="sidebar-right-map" class="hide-jzoom" style="width: 100%; height: 180px;"></div>
-
-					</div>
-					<div id="sidebar-right-tab2" class="tab-pane"></div>
-					<div id="sidebar-right-tab3" class="tab-pane"></div>
-				</div>
-			</div>
-		</div>
-	</aside>
+    <section id="content_wrapper">
+        <header id="topbar">
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="crumb-active">
+                        <a n:href="Dashboard:default">{ifset #nav_module} {include #nav_module} {else}
+                            {$branchName}{/ifset}</a>
+                    </li>
+                    {ifset #nav_presenter}
+                    <li class="crumb-link">
+                        <a href="">{include nav_presenter}</a>
+                    </li>
+                    {/ifset}
+                    {ifset #nav_action}
+                    <li class="crumb-trail">{include nav_action}</li>
+                    {/ifset}
+                </ol>
+            </div>
+        </header>
+        <section id="content" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
+        {* Flashes *}
+        <div class="special-alerts" n:inner-foreach="$flashes as $flash">
+            <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
+                {$flash->message}
+            </div>
+        </div>
+        {include content}
+    </section>
 </div>
 
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+<script type="text/javascript"
+        src="http://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/highcharts/highcharts.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/circles/circles.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/vendor/plugins/raphael/raphael.js"></script>
@@ -260,21 +143,24 @@
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/utility/utility.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/main.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/demo.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/json2.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
+<script type="text/javascript"
+        src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/json2.js"></script>
+<script type="text/javascript"
+        src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript"
+        src="{$basePath}/Back-end/assets/admin-tools/admin-plugins/admin-panels/adminpanels.js"></script>
 <script type="text/javascript" src="{$basePath}/Back-end/assets/js/pages/widgets.js"></script>
 
 {ifset #script}{include script}{/ifset}
 <script type="text/javascript">
-	jQuery(document).ready(function () {
-		"use strict";
-		Core.init({
-			sbm: "sb-l-c",
-		});
+    jQuery(document).ready(function () {
+        "use strict";
+        Core.init({
+            sbm: "sb-l-c",
+        });
 
-		Demo.init();
+        Demo.init();
 
-	});
+    });
 </script>
 </body>
