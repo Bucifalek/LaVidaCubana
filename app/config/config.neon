@@ -15,6 +15,7 @@ nette:
 		expiration: 14 days
 
 services:
+	# Admin module
 	- App\AdminModule\Model\BranchManager
 	- App\AdminModule\Model\UserManager
 	- App\AdminModule\Model\MainNewsManager
@@ -22,9 +23,11 @@ services:
 	- App\AdminModule\Model\MysqlExporter
 	- App\AdminModule\Model\TeamsManager
 	- App\AdminModule\Model\OpenTimeManager
+	- App\AdminModule\Model\BowlingPriceManager
 
 
-
+	# Web
 	- App\WebModule\Model\Visitors
+
 	authenticator: App\AdminModule\Model\UserAuth
 	router: App\RouterFactory::createRouter
