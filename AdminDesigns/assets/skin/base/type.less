@@ -119,6 +119,45 @@ mark,
 .text-uppercase      { text-transform: uppercase; }
 .text-capitalize     { text-transform: capitalize; }
 
+// Contextual colors
+.text-white {
+  .text-emphasis-variant(@white);
+}
+.text-muted {
+  .text-emphasis-variant(@muted);
+}
+.text-primary when (@skin-primary) {
+  .text-emphasis-variant(@brand-primary);
+}
+.text-success when (@skin-success) {
+  .text-emphasis-variant(@brand-success);
+}
+.text-info when (@skin-info) {
+  .text-emphasis-variant(@brand-info);
+}
+.text-warning when (@skin-warning) {
+  .text-emphasis-variant(@brand-warning);
+}
+.text-danger when (@skin-danger) {
+  .text-emphasis-variant(@brand-danger);
+}
+.text-alert when (@skin-alert) {
+  .text-emphasis-variant(@brand-alert);
+}
+.text-system when (@skin-system) {
+  .text-emphasis-variant(@brand-system);
+}
+.text-dark when (@skin-dark) {
+  .text-emphasis-variant(@brand-dark);
+}
+
+// Transparent Text (not fully crossbrowser supported)
+.text-tp {
+  color: rgba(0,0,0,0.2);
+  a&:hover {
+     color: rgba(0,0,0,0.3);
+  }
+}
 
 // Page header
 // -------------------------
@@ -129,30 +168,6 @@ mark,
   border-bottom: 1px solid @page-header-border-color;
 }
 
-
-// Content header
-// -------------------------
-
-.content-header {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 40px;
-}
-.content-header h1,
-.content-header h2,
-.content-header h3,
-.content-header h4 {
-  line-height: 30px;
-}
-
-// Micro Content header
-// -------------------------
-.micro-header {
-  color: #999;
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
 
 // Lists
 // -------------------------
@@ -258,6 +273,16 @@ blockquote {
     } 
   }
 
+  // blockquote colors
+  &.blockquote-primary { border-color: @brand-primary; }
+  &.blockquote-success { border-color: @brand-success; }
+  &.blockquote-info { border-color: @brand-info; }
+  &.blockquote-warning { border-color: @brand-warning; }
+  &.blockquote-danger { border-color: @brand-danger; }
+  &.blockquote-alert { border-color: @brand-alert; }
+  &.blockquote-system { border-color: @brand-system; }
+  &.blockquote-dark { border-color: @brand-dark; }
+
   // blockquote options
   &.blockquote-rounded { border-radius: 11px; }
   &.blockquote-thin { border-width: 3px; }
@@ -345,6 +370,30 @@ address {
      margin: 0px 10px 0 0;
      padding-bottom: 26px;
   }
+
+  // dropcap colors
+  &.dropcap-default:first-letter { color: @brand-dark; }
+  &.dropcap-primary:first-letter { color: @brand-primary; }
+  &.dropcap-success:first-letter { color: @brand-success; }
+  &.dropcap-info:first-letter { color: @brand-info; }
+  &.dropcap-warning:first-letter { color: @brand-warning; }
+  &.dropcap-danger:first-letter { color: @brand-danger; }
+  &.dropcap-alert:first-letter { color: @brand-alert; }
+  &.dropcap-system:first-letter { color: @brand-system; }
+  &.dropcap-dark:first-letter { color: @brand-dark; }
+  &.dropcap-muted:first-letter { color: #AAA; }
+
+  &.dropcap-fill:first-letter { color: #FFF; }
+  &.dropcap-fill.dropcap-default:first-letter { background-color: @brand-dark; }
+  &.dropcap-fill.dropcap-primary:first-letter { background-color: @brand-primary; }
+  &.dropcap-fill.dropcap-success:first-letter { background-color: @brand-success; }
+  &.dropcap-fill.dropcap-info:first-letter { background-color: @brand-info; }
+  &.dropcap-fill.dropcap-warning:first-letter { background-color: @brand-warning; }
+  &.dropcap-fill.dropcap-danger:first-letter { background-color: @brand-danger; }
+  &.dropcap-fill.dropcap-alert:first-letter { background-color: @brand-alert; }
+  &.dropcap-fill.dropcap-system:first-letter { background-color: @brand-system; }
+  &.dropcap-fill.dropcap-dark:first-letter { background-color: @brand-dark; }
+  &.dropcap-fill.dropcap-muted:first-letter { color: #555; background-color: @brand-default; }
 
 }
 

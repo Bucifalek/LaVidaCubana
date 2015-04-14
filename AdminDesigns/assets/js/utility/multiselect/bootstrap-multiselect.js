@@ -5,7 +5,6 @@
  *
  * Dual licensed under the BSD-3-Clause and the Apache License, Version 2.0.
  */
-;
 ! function($) {
 
    "use strict"; // jshint ;_;

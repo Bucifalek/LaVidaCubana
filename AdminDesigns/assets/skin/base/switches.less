@@ -142,3 +142,31 @@ div.switch.round label:after {
 .switch.switch-inline + .switch.switch-inline {
     margin-left:15px
 }
+
+
+// Contextual Skin Variations
+//
+& when (@skin-primary) {
+    div.switch.switch-primary input:checked + label { background-color: @brand-primary; }
+}
+& when (@skin-success) {
+    div.switch.switch-success input:checked + label { background-color: @brand-success; }
+}
+& when (@skin-info) {
+    div.switch.switch-info input:checked + label { background-color: @brand-info; }
+}
+& when (@skin-warning) {
+    div.switch.switch-warning input:checked + label { background-color: @brand-warning; }
+}
+& when (@skin-danger) {
+    div.switch.switch-danger input:checked + label { background-color: @brand-danger; }
+}
+& when (@skin-alert) {
+    div.switch.switch-alert input:checked + label { background-color: @brand-alert; }
+}
+& when (@skin-system) {
+    div.switch.switch-system input:checked + label { background-color: @brand-system; }
+}
+& when (@skin-dark) {
+    div.switch.switch-dark input:checked + label { background-color: @brand-dark; }
+}

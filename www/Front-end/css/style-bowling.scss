@@ -35,10 +35,6 @@ html, body {
   padding: 0;
 }
 
-.left{
-  text-align: left !important;
-}
-
 .page_title {
   width: 100%;
   background: $darkGrey;
@@ -88,7 +84,7 @@ html, body {
 .greybox {
   background: url('../img/bowling/texturka3.png');
   width: 100%;
-  height: auto;
+  height: 500px;
 }
 
 .greybox_2 {
@@ -233,30 +229,10 @@ nav {
   }
 }
 
-/*  AKTUALITA  */
-
-.actualRow {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-
-  #actual {
-    background: white;
-    width: 49%;
-    height: 256px;
-  }
-
-  #actualIMG {
-    background: rgb(0, 0, 0);
-    width: 49%;
-    height: 256px;
-  }
-}
-
 /*  INSTAGRAM GALERIE  */
 
 .category_title {
-  font-size: 1.9em;
+  font-size: 1.5em;
   text-align: center;
   line-height: 60px;
   color: $red;

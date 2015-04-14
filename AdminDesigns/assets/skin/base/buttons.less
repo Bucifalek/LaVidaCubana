@@ -61,7 +61,63 @@
     }
 
 }
-
+// Contextual Skin Variations
+// --------------------------------------------------
+// Default appears as grey
+.btn-default {
+    // Special Settings for Light/White Buttons
+    .button-variant-light(@btn-default-color;
+    @btn-default-bg;
+    @btn-default-border);
+}
+// Primary appears as blue
+.btn-primary when (@skin-primary) {
+    .button-variant(@btn-primary-color;
+    @btn-primary-bg;
+    @btn-primary-border);
+}
+// Success appears as green
+.btn-success when (@skin-success) {
+    .button-variant(@btn-success-color;
+    @btn-success-bg;
+    @btn-success-border);
+}
+// Info appears as light blue
+.btn-info when (@skin-info) {
+    .button-variant(@btn-info-color;
+    @btn-info-bg;
+    @btn-info-border);
+}
+// Warning appears as orange
+.btn-warning when (@skin-warning) {
+    .button-variant(@btn-warning-color;
+    @btn-warning-bg;
+    @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger when (@skin-danger) {
+    .button-variant(@btn-danger-color;
+    @btn-danger-bg;
+    @btn-danger-border);
+}
+// Alert and error appear as purple
+.btn-alert when (@skin-alert) {
+    .button-variant(@btn-alert-color;
+    @btn-alert-bg;
+    @btn-alert-border);
+}
+// System and error appear as teal
+.btn-system when (@skin-system) {
+    .button-variant(@btn-system-color;
+    @btn-system-bg;
+    @btn-system-border);
+}
+// Dark and error appear as dark/black
+.btn-dark when (@skin-dark) {
+    .button-variant(@btn-dark-color;
+    @btn-dark-bg;
+    @btn-dark-border);
+}
 // Link buttons
 // -------------------------
 // Make a button look and behave like a link
@@ -119,8 +175,6 @@
     @line-height-small;
     @border-radius-small);
 }
-
-
 // Block button
 // --------------------------------------------------
 .btn-block {
@@ -139,8 +193,6 @@ input[type="button"] {
         width: 100%;
     }
 }
-
-
 // Alt Btns - white buttons with thick left border
 // --------------------------------------------------
 // default alt btns
@@ -161,9 +213,9 @@ input[type="button"] {
 }
 .btn.btn-alt.item-active,
 .btn.btn-alt:hover,
-.btn.btn-alt:focus {
-    color: #666 !important;
-    background-color: #fefefe !important;
+.btn.btn-alt:hover {
+    color: #666;
+    background-color: #fefefe;
 }
 // alt btns with gradient (set via .btn-gradient)
 .btn.btn-alt.btn-gradient {
@@ -179,18 +231,51 @@ input[type="button"] {
     border-left: 4px solid #DDD;
 }
 .btn.btn-alt.btn-gradient:hover,
-.btn.btn-alt.btn-gradient:focus {
+.btn.btn-alt.btn-gradient:hover {
     background-color: #eee;
 }
-
+// alt button contextuals
+.btn.btn-alt.btn-default {
+    border-left-color: #AAA;
+}
+.btn.btn-alt.btn-primary {
+    border-left-color: @brand-primary;
+}
+.btn.btn-alt.btn-success {
+    border-left-color: @brand-success;
+}
+.btn.btn-alt.btn-info {
+    border-left-color: @brand-info;
+}
+.btn.btn-alt.btn-warning {
+    border-left-color: @brand-warning;
+}
+.btn.btn-alt.btn-danger {
+    border-left-color: @brand-danger;
+}
+.btn.btn-alt.btn-alert {
+    border-left-color: @brand-alert;
+}
+.btn.btn-alt.btn-system {
+    border-left-color: @brand-system;
+}
+.btn.btn-alt.btn-dark {
+    border-left-color: @brand-dark;
+}
 .btn.btn-alt.item-checked {
     opacity: 1;
     color: #666;
     border-left-color: @brand-success !important;
     transition: all 0.2s ease;
 }
-
-
+// alt btns hover option
+.alt-btns-hover .btn.btn-alt {
+    opacity: 0.5;
+}
+.alt-btns-hover .btn.btn-alt:hover,
+.alt-btns-hover .btn.btn-alt.item-active {
+    opacity: 1;
+}
 // Holder Style - applies a placeholder like style to the element
 // --------------------------------------------------
 .holder-style {
@@ -230,20 +315,4 @@ input[type="button"] {
 .holder-style:focus .holder-icon,
 .holder-style.holder-active .holder-icon {
     color: @brand-success;
-}
-
-
-// Button Hover Effects 
-// ------------------------------------------------
-
-// '.btn-dimmer' - Dims all child btn except active & :hover btns
-.btn-dimmer.btn,
-.btn-dimmer .btn {
-    opacity: 0.5;
-}
-.btn-dimmer.btn:hover,
-.btn-dimmer .btn:hover,
-.btn-dimmer.btn.item-active,
-.btn-dimmer .btn.item-active {
-    opacity: 1;
 }
