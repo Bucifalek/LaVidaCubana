@@ -192,6 +192,13 @@ nav {
   li.active a {
     color: $darkGrey;
   }
+
+  .white a{
+    color: white !important;
+  }
+  .white a:hover{
+    color: $red !important;
+  }
 }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
