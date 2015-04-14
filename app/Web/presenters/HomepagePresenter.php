@@ -26,12 +26,20 @@ final class HomepagePresenter extends BasePresenter
 	 */
 	private $mainNewsManager;
 
-
-
 	public function __construct(MainNewsManager $mainNewsManager, Visitors $visitors)
 	{
 		parent::__construct($visitors);
 		$this->mainNewsManager = $mainNewsManager;
+	}
+
+	private function getMainNews($key)
+	{
+		$data = $this->mainNewsManager->get($key);
+		$mainNews = new MainNewsControl();
+		$mainNews->setTitle($data->title);
+		$mainNews->setRedirect($data->redirect);
+
+		return $mainNews;
 	}
 
 	/**
@@ -39,12 +47,7 @@ final class HomepagePresenter extends BasePresenter
 	 */
 	public function createComponentMainNewsRoznov()
 	{
-		$data = $this->mainNewsManager->get('roznov-pod-radhostem');
-		$mainNews = new MainNewsControl();
-		$mainNews->setTitle($data->title);
-		$mainNews->setRedirect($data->redirect);
-
-		return $mainNews;
+		return $this->getMainNews('roznov-pod-radhostem');
 	}
 
 	/**
@@ -52,12 +55,7 @@ final class HomepagePresenter extends BasePresenter
 	 */
 	public function createComponentMainNewsValmez()
 	{
-		$data = $this->mainNewsManager->get('valasske-mezirici');
-		$mainNews = new MainNewsControl();
-		$mainNews->setTitle($data->title);
-		$mainNews->setRedirect($data->redirect);
-
-		return $mainNews;
+		return $this->getMainNews('valasske-mezirici');
 	}
 
 	/**
@@ -65,11 +63,6 @@ final class HomepagePresenter extends BasePresenter
 	 */
 	public function createComponentMainNewsBowling()
 	{
-		$data = $this->mainNewsManager->get('bowling');
-		$mainNews = new MainNewsControl();
-		$mainNews->setTitle($data->title);
-		$mainNews->setRedirect($data->redirect);
-
-		return $mainNews;
+		return $this->getMainNews('bowling');
 	}
 }

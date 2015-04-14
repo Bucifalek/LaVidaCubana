@@ -31,10 +31,10 @@
                             </label>
                         </div>
                     </div>
-                    <div class="section-divider mt40 mb40">
+                    <div n:if="$noteam" class="section-divider mt40 mb40">
                         <span>Členové týmu</span>
                     </div>
-                    <div class="panel-body pn mb10 cursor-pointer">
+                    <div n:if="$noteam" class="panel-body pn mb10 cursor-pointer">
                         <table class="table table-hover" n:if="$teamMembers">
                             <thead>
                             <tr>
@@ -73,10 +73,9 @@
                                             <li>
                                                 <a n:href="Individual:edit, $member->id">Upravit hráče</a>
                                             </li>
-                                            <li class="divider"></li>
                                             <li>
                                                 <a href="{link DeleteTeamMember!, $member->id, $member->team}">Odebrat
-                                                    z týmu</a>
+                                                    hráče</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -87,10 +86,12 @@
                         <div n:if="!$teamMembers">
                             V tomto týmu zatím nejsou žádní hráči.
                         </div>
-                        <div n:if="$noteam" class="section-divider mt40 mb40">
+                        <div class="section-divider mt40 mb40">
                             <span>Jednotlivci bez týmu</span>
                         </div>
-                        <div n:if="$noteam"  class="panel-body pn mb10 cursor-pointer">
+                        <div class="panel-body pn mb10 cursor-pointer">
+
+
                             <table class="table table-hover">
                                 <thead>
                                 <tr>

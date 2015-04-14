@@ -112,4 +112,12 @@ final class IndividualManager extends Nette\Object
 	{
 		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->update($data);
 	}
+
+	/**
+	 * @return array
+	 */
+	public function noTeam()
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('team', '0')->fetchAll();
+	}
 }

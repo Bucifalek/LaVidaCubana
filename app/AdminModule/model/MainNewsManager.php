@@ -39,9 +39,6 @@ final class MainNewsManager extends Nette\Object
 	public function get($key)
 	{
 		$result = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
-		if (!$result) {
-			throw new \Exception('MainNews section #' . $key . ' not found!');
-		}
 
 		return $result;
 	}
@@ -53,6 +50,8 @@ final class MainNewsManager extends Nette\Object
 	 */
 	public function update($key, $data)
 	{
+		unset($data['img']);
+
 		return $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update($data);
 	}
 
@@ -64,6 +63,7 @@ final class MainNewsManager extends Nette\Object
 		$data = $this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->fetch();
 		if ($data) {
 			FileSystem::delete('Files/NewsImages/' . $data->img_uploaded);
+			$this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update(['img_uploaded' => '']);
 		}
 	}
 
@@ -74,6 +74,7 @@ final class MainNewsManager extends Nette\Object
 	public function clear($key)
 	{
 		$data = $this->get($key);
+
 		FileSystem::delete('Files/NewsImages/' . $data->img_uploaded);
 
 		$this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update([
@@ -83,4 +84,30 @@ final class MainNewsManager extends Nette\Object
 			'redirect'     => 0,
 		]);
 	}
+
+	/**
+	 * @param $values
+	 * @return null|string
+	 */
+	public function saveImage($values)
+	{
+		@FileSystem::createDir('Files/NewsImages/');
+
+		$file = $values->img;
+		if ($file->isOk()) {
+			$name = $file->getSanitizedName();
+			$fileExt = explode(".", $name);
+			$fileExt = $fileExt[count($fileExt) - 1];
+			$newName = Nette\Utils\Random::generate(30) . "." . $fileExt;
+
+			if (!$file->move('Files/NewsImages/' . $newName)) {
+				$this->error('Upload main news image failed.', FLASH_WARNING);
+			}
+
+			return $newName;
+		}
+
+		return null;
+	}
+
 }

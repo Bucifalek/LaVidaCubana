@@ -110,6 +110,7 @@ class IndividualPresenter extends BasePresenter
 	public function createComponentAddIndividualForm()
 	{
 		$teamOptions = [];
+		$teamOptions[0] = 'Žádný tým';
 		foreach ($this->teamsManager->getAll() as $team) {
 			$teamOptions[$team->id] = $team->name;
 		}
@@ -145,6 +146,7 @@ class IndividualPresenter extends BasePresenter
 		$individual = $this->individualManager->get($this->getParameter('id'));
 
 		$teamOptions = [];
+		$teamOptions[0] = 'Žádný tým';
 		foreach ($this->teamsManager->getAll() as $team) {
 			$teamOptions[$team->id] = $team->name;
 		}
