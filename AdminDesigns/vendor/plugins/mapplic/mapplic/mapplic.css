@@ -362,7 +362,9 @@ svg a {
 	margin-bottom: 10px;
 }
 
-.mapplic-list-category > a {
+.mapplic-list-category > a,
+.mapplic-list-category > a:hover,
+.mapplic-list-category > a:focus {
 	background-color: #aaa;
 	color: #fff;
 	display: block;
