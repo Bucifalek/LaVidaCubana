@@ -28,8 +28,6 @@
                     	<span class="caret"></span>
                     </a>
 					{else}
-					{dump $currentWithParams}
-					{dump $wrapRouteWithParams($secondLevelTarget)}
 					<a class="accordion-toggle {if $currentWithParams == $wrapRouteWithParams($secondLevelTarget)} menu-open{/if}" href="#">
                     	<span class="glyphicons {$glyph($secondLevelText)}"></span>
                     	<span class="sidebar-title">{$name($secondLevelText)}</span>

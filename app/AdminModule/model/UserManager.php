@@ -9,13 +9,12 @@ namespace App\AdminModule\Model;
 
 use Nette;
 use Nette\Security as NS;
-use Tracy\Debugger;
 
 /**
  * Class UserManager
  * @package App\AdminModule\Model
  */
-class UserManager extends Nette\Object
+final class UserManager extends Nette\Object
 {
 
 	/**

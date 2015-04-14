@@ -12,7 +12,7 @@ use Nette;
  * Class IndividualManager
  * @package App\AdminModule\Model
  */
-class IndividualManager extends Nette\Object
+final class IndividualManager extends Nette\Object
 {
 
 	/**
@@ -92,5 +92,24 @@ class IndividualManager extends Nette\Object
 	public function delete($id)
 	{
 		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->delete();
+	}
+
+	/**
+	 * @param $id
+	 * @return bool|mixed|Nette\Database\Table\IRow
+	 */
+	public function get($id)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->fetch();
+	}
+
+	/**
+	 * @param $id
+	 * @param $data
+	 * @return int
+	 */
+	public function update($id, $data)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $id)->update($data);
 	}
 }
