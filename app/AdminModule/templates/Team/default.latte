@@ -14,7 +14,7 @@
              <span class="panel-title" n:block="title"><i class="glyphicons glyphicons-adress_book"></i>Seznam týmů
              </span>
 			</div>
-			<div class="panel-body pn">
+			<div class="panel-body pn ml10 mr10 mb10 cursor-pointer">
             	<table class="table table-hover">
             		<thead>
             		<tr>
@@ -29,7 +29,6 @@
             		</tr>
             		</thead>
             		<tbody n:inner-foreach="$teams as $team">
-            		{dump $team}
             			<tr>
 							<td>{$team['name']}</td>
 							<td>{$team['score']}</td>
@@ -42,7 +41,6 @@
 							{else}
 								<i class='glyphicon glyphicon-minus cursor-pointer' title="Beze změny výkonu"></i>
 							{/if}
-							{dump $team['index']}
 							</td>
 							<td class="text-center">{$team['matches']}</td>
 							<td class="text-center">{$team['helpers']}</td>

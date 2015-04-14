@@ -108,7 +108,17 @@ final class TeamPresenter extends BasePresenter
 		}
 
 		$this->template->teamMembers = $this->individualManager->fromTeam($id);
+		$this->template->teamId = $id;
+		$this->template->noteam = $this->individualManager->noTeam();
 	}
+
+	public function handleAssignPlayer($individualId, $teamId)
+	{
+		$this->teamManager->addToTeam($individualId, $teamId);
+		$this->flashMessage('Hráč byl přidán do týmu.', FLASH_SUCCESS);
+		$this->redirect('Team:edit', $this->getParameter('id'));
+	}
+
 
 	/**
 	 * @return Nette\Application\UI\Form
@@ -188,7 +198,7 @@ final class TeamPresenter extends BasePresenter
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 			$this->redirect('Team:default');
 		}
-		$this->flashMessage('Tým byl přídán.');
+		$this->flashMessage('Tým byl přídán.', FLASH_SUCCESS);
 		$this->redirect('Team:default');
 	}
 }

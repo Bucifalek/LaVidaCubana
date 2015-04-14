@@ -10,6 +10,7 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model,
 	Nette\Application\UI;
+use Tracy\Debugger;
 
 /**
  * Class MainNewsPresenter
@@ -69,7 +70,13 @@ final class MainNewsPresenter extends BasePresenter
 		} else {
 			$this->template->title = ucfirst($key);
 		}
-		$this->newsData = $this->mainNewsManager->get($key);
+		$data = $this->mainNewsManager->get($key);
+		if(!$data) {
+			$this->flashMessage('Tato sekce novinek neexistuje!', FLASH_FAILED);
+			$this->redirect('Dashboard:default');
+		}
+
+		$this->newsData = $data;
 		$this->template->key = $key;
 		$this->template->redirect = $this->newsData->redirect;
 		$this->template->img_uploaded = $this->newsData->img_uploaded;
@@ -99,31 +106,44 @@ final class MainNewsPresenter extends BasePresenter
 
 	}
 
+
 	/**
 	 * @param UI\Form $form
 	 */
 	public function editMainNewsFormSucceeded(UI\Form $form)
 	{
 		$values = $form->getValues();
-		$file = $values->img;
-		if ($file->isOk()) {
-			$name = $file->getSanitizedName();
-			$fileExt = explode(".", $name);
-			$fileExt = $fileExt[count($fileExt) - 1];
-			$newName = Nette\Utils\Random::generate(30) . "." . $fileExt;
-			$file->move('Files/NewsImages/' . $newName);
-			$values->img_uploaded = $newName;
-			$this->mainNewsManager->deleteOldImage($values->key);
-		}
+
 		if (!$values->redirect) {
-			unset($values->text);
+			$values->text = '';
+			$values->img_uploaded = '0';
 		}
-		unset($values->img);
-		$this->mainNewsManager->update($values->key, $values);
-		$this->flashMessage('Ulozeno', FLASH_SUCCESS);
+
+		if ($values->img->isOk()) {
+			$this->mainNewsManager->deleteOldImage($values->key);
+			$values->img_uploaded = $this->mainNewsManager->saveImage($values);
+		}
+
+		if (!$values->title) {
+			$this->flashMessage('Není vyplněný krátký text aktuality.', FLASH_FAILED);
+		} else {
+			$this->mainNewsManager->update($values->key, $values);
+			if ($values->redirect AND $values->text == "") {
+				$this->flashMessage('Nemáte vyplněný dlouhý text aktuality.', FLASH_INFO);
+			} else {
+				$this->flashMessage('Změny uloženy.', FLASH_SUCCESS);
+			}
+		}
 	}
 
-	public function handleClear($key) {
+	public function handleDeleteCurrentImage($key)
+	{
+		$this->mainNewsManager->deleteOldImage($key);
+		$this->flashMessage('Změny uloženy.', FLASH_SUCCESS);
+	}
+
+	public function handleClear($key)
+	{
 		$this->mainNewsManager->clear($key);
 		$this->flashMessage('Aktualita vymazána.', FLASH_SUCCESS);
 		$this->redirect('MainNews:edit', $key);

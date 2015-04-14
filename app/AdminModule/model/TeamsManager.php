@@ -115,6 +115,17 @@ final class TeamsManager extends Nette\Object
 		}
 	}
 
+
+	/**
+	 * @param $user
+	 * @param $team
+	 * @return int
+	 */
+	public function addToTeam($user, $team)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where('id', $user)->update(['team' => $team]);
+	}
+
 }
 
 /**

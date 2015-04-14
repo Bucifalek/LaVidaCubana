@@ -12,10 +12,8 @@
 	<div class="admin-form tab-pane active" id="register2" role="tabpanel">
 		<div class="panel panel-danger heading-border">
 			<div class="panel-heading">
-             <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Aktuálně pro {$title}</span>
+            <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Aktuálně pro {$title}</span>
 			</div>
-			<!-- end .form-header section -->
-
 			<form n:name="editMainNewsForm" id="form-register2" autocomplete="off">
 				<input n:name="key" value="{$key}">
 				<div class="panel-body p25">
@@ -27,9 +25,6 @@
 							</label>
 						</label>
 					</div>
-					<!-- end section -->
-
-
 					<div class="section">
 						<label class="block mt15 switch switch-primary">
 							<input n:name="redirect" id="t4" {if $redirect}checked="" {/if}type="checkbox">
@@ -61,19 +56,17 @@
 						<label n:if="$img_uploaded" for="names" class="field-label">Současná fotografie</label>
 						<div class='section' n:if="$img_uploaded">
 							<img src="{$basePath}/Files/NewsImages/{$img_uploaded}" class="media-object mn thumbnail newsFeedImage">
+							<a n:href="DeleteCurrentImage!, $key" class="button btn-danger mt15">Smazat současný obrázek</a>
 						</div>
                     </div>
 
 				</div>
-				<!-- end .form-body section -->
 				<div class="panel-footer text-right">
-					<a class="button btn-danger" n:href="clear!">Žádná aktualita</a>
+					<a class="button btn-danger mr10" n:href="clear!">Žádná aktualita</a>
 					<input n:name="saveChanges" type="submit"  class="button btn-primary" value="Uložit změny">
 				</div>
-				<!-- end .form-footer section -->
 			</form>
 		</div>
-		<!-- end .admin-form section -->
 	</div>
 </div>
 {/block}
