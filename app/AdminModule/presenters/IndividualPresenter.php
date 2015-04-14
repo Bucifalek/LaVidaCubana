@@ -9,7 +9,6 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
-use Tracy\Debugger;
 
 /**
  * Class IndividualPresenter
@@ -55,18 +54,6 @@ class IndividualPresenter extends BasePresenter
 		$this->requireBranch(4);
 	}
 
-
-	/**
-	 *
-	 */
-	public function renderAdd()
-	{
-		if (!$this->teamsManager->getAll()) {
-			$this->flashMessage('Pro přidání hráče musíte nejprve vytvořit tým.', FLASH_WARNING);
-			$this->redirect('Team:add');
-		}
-	}
-
 	/**
 	 * @param $page
 	 */
@@ -89,13 +76,33 @@ class IndividualPresenter extends BasePresenter
 		}
 	}
 
+
 	/**
-	 * @param $pageNum
+	 * @param $id
 	 */
-	public function handleChangePage($pageNum)
+	public function renderEdit($id)
 	{
-		$this->redirect('Individual:default', $pageNum);
+		$individual = $this->individualManager->get($id);
+
+		if (!$individual) {
+			$this->flashMessage('Spatne ID', FLASH_FAILED);
+			$this->redirect('Individual:default');
+		}
+
+		$this->template->name = $individual->name;
 	}
+
+	/**
+	 *
+	 */
+	public function renderAdd()
+	{
+		if (!$this->teamsManager->getAll()) {
+			$this->flashMessage('Pro přidání hráče musíte nejprve vytvořit tým.', FLASH_WARNING);
+			$this->redirect('Team:add');
+		}
+	}
+
 
 	/**
 	 * @return Nette\Forms\Form
@@ -131,6 +138,42 @@ class IndividualPresenter extends BasePresenter
 	}
 
 	/**
+	 * @return Nette\Application\UI\Form
+	 */
+	public function createComponentEditIndividualForm()
+	{
+		$individual = $this->individualManager->get($this->getParameter('id'));
+
+		$teamOptions = [];
+		foreach ($this->teamsManager->getAll() as $team) {
+			$teamOptions[$team->id] = $team->name;
+		}
+
+		$form = new Nette\Application\UI\Form;
+		$form->addText('name')->setValue($individual->name);
+		$form->addSelect('team', null, $teamOptions)->setDefaultValue($individual->team);
+		$form->addSubmit('saveUser');
+		$form->onSuccess[] = [$this, 'editIndividualFormSucceeded'];
+
+		return $form;
+	}
+
+	/**
+	 * @param Nette\Application\UI\Form $form
+	 */
+	public function editIndividualFormSucceeded(Nette\Application\UI\Form $form)
+	{
+		$values = $form->getValues();
+		$this->individualManager->update($this->getParameter('id'), [
+			'name' => $values->name,
+			'team' => $values->team,
+		]);
+		$this->flashMessage('Změny uloženy.', FLASH_SUCCESS);
+		$this->redirect('Individual:default');
+	}
+
+
+	/**
 	 * @param $id
 	 */
 	public function handleRemoveMember($id)
@@ -138,5 +181,13 @@ class IndividualPresenter extends BasePresenter
 		$this->individualManager->delete($id);
 		$this->flashMessage('Jednotlivec úspěšně smazán.');
 		$this->redirect('Individual:default', $this->getParameter('page'));
+	}
+
+	/**
+	 * @param $pageNum
+	 */
+	public function handleChangePage($pageNum)
+	{
+		$this->redirect('Individual:default', $pageNum);
 	}
 }

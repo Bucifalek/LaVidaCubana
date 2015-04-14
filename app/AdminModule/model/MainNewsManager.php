@@ -14,7 +14,7 @@ use Nette\Utils\FileSystem;
  * Class MainNewsManager
  * @package App\AdminModule\Model
  */
-class MainNewsManager extends Nette\Object
+final class MainNewsManager extends Nette\Object
 {
 
 	/**
@@ -67,15 +67,20 @@ class MainNewsManager extends Nette\Object
 		}
 	}
 
-	public function clear($key) {
+	/**
+	 * @param $key
+	 * @throws \Exception
+	 */
+	public function clear($key)
+	{
 		$data = $this->get($key);
 		FileSystem::delete('Files/NewsImages/' . $data->img_uploaded);
 
 		$this->database->table(DatabaseStructure::MAIN_NEWS)->where('key', $key)->update([
-			'title' => null,
-			'text' => null,
+			'title'        => null,
+			'text'         => null,
 			'img_uploaded' => 0,
-			'redirect' => 0,
+			'redirect'     => 0,
 		]);
 	}
 }

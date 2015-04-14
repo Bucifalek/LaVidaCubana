@@ -48,6 +48,7 @@ class MenuControl extends UI\Control
 					return $route;
 				}
 			}
+
 			return $route;
 		};
 

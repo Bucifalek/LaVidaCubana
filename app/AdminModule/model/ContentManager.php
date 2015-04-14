@@ -14,7 +14,7 @@ use Tracy\Debugger;
  * Class ContentManager
  * @package App\AdminModule\Model
  */
-class ContentManager extends Nette\Object
+final class ContentManager extends Nette\Object
 {
 
 	/**
