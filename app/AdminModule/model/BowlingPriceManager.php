@@ -35,4 +35,9 @@ class BowlingPriceManager extends Nette\Object
 	{
 		return $this->database->table(DatabaseStructure::BOWLING_PRICE)->fetchAll();
 	}
+
+	public function updateDay($id, $data)
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PRICE)->where('id', $id)->update($data);
+	}
 }
