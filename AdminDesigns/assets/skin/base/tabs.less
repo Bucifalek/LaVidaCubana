@@ -6,7 +6,7 @@
 /* Tabs Wrapper */
 .tab-block { position: relative }
 
-/* Tabs Content */
+/* Tabs Content Container */
 .tab-block .tab-content {
     overflow: auto;
     position: relative;
@@ -17,21 +17,15 @@
     background-color: #FFF;
 }
 
-
-/*===============================================
-  Tab Navigation
-================================================= */
+/* Tab Navigation */
 .tab-block .nav-tabs {
     position: relative;
     border: 0;
 }
-
-/* nav tab item */
 .tab-block .nav-tabs > li {
     float: left;
     margin-bottom: -1px;
 }
-/* nav tab link */
 .tab-block .nav-tabs > li > a {
     position: relative;
     z-index: 9;
@@ -45,11 +39,10 @@
 }
 .tab-block .nav-tabs > li:first-child > a { margin-left: 0 }
 
-
-/* nav tab link:hover */
+/* tab states */
 .tab-block .nav-tabs > li > a:hover { background-color: #eeeeee; }
 
-/* nav tab active link:focus:hover */
+/* active states */
 .tab-block .nav-tabs > li.active > a,
 .tab-block .nav-tabs > li.active > a:hover,
 .tab-block .nav-tabs > li.active > a:focus {
@@ -62,16 +55,12 @@
     border-bottom: 1px solid #FFF;
 }
 
-/*===============================================
-  Tab Navigation - Tabs Left
-================================================= */
+/* Tabs - Left */
 .tabs-left { float: left }
-/* nav tab item */
 .tabs-left > li {
     float: none;
     margin: 0 -1px -1px 0;
 }
-/* nav tab item link */
 .tabs-left > li > a {
     padding: 12px 16px;
     color: #777;
@@ -80,9 +69,8 @@
     border-color: #DDD;
     background: #fafafa;
 }
-/* nav tab link:hover */
+/* tab states */
 .tab-block .tabs-left > li > a:hover { }
-/* nav tab active link:focus:hover */
 .tab-block .tabs-left > li.active > a,
 .tab-block .tabs-left > li.active > a:hover,
 .tab-block .tabs-left > li.active > a:focus {
@@ -94,17 +82,12 @@
     background: #FFF;
 }
 
-/*===============================================
-  Tab Navigation - Tabs Right
-================================================= */
+/* Tabs - Right */
 .tabs-right { float: right }
-
-/* nav tab item */
 .tabs-right > li {
     float: none;
     margin: 0 0 -1px -1px;
 }
-/* nav tab item link */
 .tabs-right > li > a {
     padding: 12px 16px;
     color: #777;
@@ -113,9 +96,8 @@
     border-color: #DDD;
     background: #fafafa;
 }
-/* nav tab link:hover */
+/* tab states */
 .tab-block .tabs-right > li > a:hover { }
-/* nav tab active link:focus:hover */
 .tab-block .tabs-right > li.active > a,
 .tab-block .tabs-right > li.active > a:hover,
 .tab-block .tabs-right > li.active > a:focus {
@@ -127,18 +109,14 @@
     background: #FFF;
 }
 
-/*===============================================
-  Tab Navigation - Tabs Right
-================================================= */
+/* Tabs - Below */
 .tabs-below {
     position: relative;
 }
-/* nav tab item */
 .tabs-below > li {
     float: left;
     margin-top: -1px;
 }
-/* nav tab item link */
 .tabs-below > li > a {
     position: relative;
     z-index: 9;
@@ -149,9 +127,8 @@
     border: 1px solid #DDD;
       background: #fafafa;
 }
-/* nav tab link:hover */
+/* tab states */
 .tab-block .tabs-below > li > a:hover { }
-/* nav tab active link:focus:hover */
 .tab-block .tabs-below > li.active > a,
 .tab-block .tabs-below > li.active > a:hover,
 .tab-block .tabs-below > li.active > a:focus {
@@ -164,72 +141,12 @@
     border-top: 1px solid #FFF;
 }
 
-
-/*===============================================
-  Tab Navigation Option - Panel Based Tabs
-  -----------------------------------------------
-  Panel Tab Navigation must be placed inside
-  ".panel-heading" see Docs for example 
-================================================= */
-.panel-tabs {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-/* nav tab item */
-.panel-tabs > li {
-    position: relative;
-    float: left;
-    margin-bottom: -1px;
-}
-/* nav tab item link */
-.panel-tabs > li > a {
-    line-height: 18px;
-    border-radius: 0;
-      padding: 10px 18px;
-    border-left: 1px solid #DDD;
-    font-size: 12px;
-    color: #777;
-}
-
-/* nav tab item link:hover */
-.panel-tabs > li > a:hover {
-    background-color: transparent;
-}
-/* nav tab item active link:focus:hover */
-.panel-tabs > li.active > a,
-.panel-tabs > li.active > a:hover,
-.panel-tabs > li.active > a:focus {
-    color: #555555;
-    cursor: default;
-    background: #ffffff;
-}
-
-/* Unlike normal tabs, panel tabs alignment 
- * to the rightside. This option aligns them left */
-.panel-tabs-left {
-    left: 0; 
-}
-.panel-tabs-left > li > a {
-    border-right: 1px solid #DDD;
-    border-left: 1px solid transparent;
-}
-
-
-
-/*===============================================
-  Tab Navigation - Justified
-================================================= */
+/* TABS JUSTIFIED */
 .tab-block .nav-tabs.nav-justified {
     top: 1px;
     margin-top: -1px;
 }
-
-/* nav tab link */
 .tab-block .nav-tabs.nav-justified > li { float: none; }
-
-/* nav tab item link */
 .tab-block .nav-tabs.nav-justified > li > a { padding: 11px; }
 
 /* tabs justified - bottom */
@@ -237,63 +154,46 @@
     top: -1px;
     margin-top: 0;
 }
-/* nav tab active link */
 .tab-block .tab-content + .nav-tabs.nav-justified > li.active > a {
     border-top-color: #fff;
     border-bottom-color: #DDD;
 }
+.tab-block .tab-content + .tabs-border.nav-justified > li.active > a {
+    border-bottom: 2px solid #666;
+}
 
-
-/*===============================================
-  Tab Navigation Option - Right Floating Tabs
-  ------
-  This settings refers to tabs that float from
-  left to right, not tabs that are to the right 
-  of tab content
-================================================= */
+/* TAB ALTERNATE ALIGNMENT - RIGHT */
 .nav-tabs.nav-tabs-right > li { float: right; }
 .nav-tabs.nav-tabs-right > li:first-child > a { margin-right: 0; }
 
 
-
-/*===============================================
-  Tab Navigation Option - Active Item Border
-================================================= */
+/* 
+ * Alternate Tab Styles - Active Border
+*/
 /* tabs default */
 .tab-block .tabs-border.nav-tabs > li.active > a {
     margin-top: -1px;
-    border-top: 2px solid @tab-block-active-item;
+    border-top: 2px solid #666;
 }
 /* tabs left */
 .tab-block .tabs-border.tabs-left > li.active > a {
     margin-left: -1px;
-    border-left: 2px solid @tab-block-active-item;
+    border-left: 2px solid #666;
 }
 /* tabs right */
 .tab-block .tabs-border.tabs-right > li.active > a {
     margin-right: -1px;
-    border-right: 2px solid @tab-block-active-item;
+    border-right: 2px solid #666;
 }
 /* tabs bottom */
 .tab-block .tabs-border.tabs-below > li.active > a {
     margin-bottom: -1px;
-    border-bottom: 2px solid @tab-block-active-item;
+    border-bottom: 2px solid #666;
 }
 
-/* panel tabs */
-.panel-tabs.panel-tabs-border > li.active > a {
-    margin-top: -1px;
-    border-top: 2px solid @tab-block-active-item;
-}
-
-/* tabs justified */
-.tab-block .tab-content + .tabs-border.nav-justified > li.active > a {
-    border-bottom: 2px solid @tab-block-active-item;
-}
-
-/*====================================================
-  Tab Navigation Option - Active Item Inverse Border
-====================================================== */
+/* 
+ * Alternate Tab Styles - Active Inverse Border
+*/
 .tab-block .tabs-border-bottom.nav-tabs > li.active > a,
 .tab-block .tabs-border-bottom .nav-tabs > li.active > a {
     color: #555;
@@ -301,13 +201,13 @@
     margin-bottom: -1px;
     background: #f7f7f7;
     border-color: #DDD;
-    border-bottom: 2px solid @tab-block-active-item;
+    border-bottom: 2px solid #666;
 }
 
+/* 
+ * Alternate Tab Styles - Nav BG
+*/
 
-/*====================================================
-  Tab Navigation Option - Nav Background
-====================================================== */
 /* tabs default */
 .tabs-bg.nav-tabs {
     background: #f5f5f5;
@@ -325,8 +225,8 @@
 
 
 /*===============================================
-  Tab Navigation Option - Unstyled Tab Block
-  ---------
+  E. Unstyled BLOCK TABS
+  -----------------------------------------------
   Removes container and active borders
   Used primarily in sidebars
 ================================================= */
@@ -344,16 +244,76 @@
    background: transparent;
 }
 
+
 /*===============================================
-  Tab Navigation Option - Tab Merge 
-  Color to Match
-  ---------
-  Change Active Tab BG Color so that it merges
-  into a sibling panel-menu
+  E. PANEL TABS
+  -----------------------------------------------
+  Panel Tab Navigation must be placed inside
+  ".panel-heading" see Docs for example 
 ================================================= */
-/* bg-light colored panel-tabs styling */
-.panel-tabs.panel-tabs-merge > li.active > a,
-.panel-tabs.panel-tabs-merge > li.active > a:hover,
-.panel-tabs.panel-tabs-merge > li.active > a:focus {
-    background: #FAFAFA;
+.panel-tabs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
+
+/* tabs */
+.panel-tabs > li {
+    position: relative;
+    float: left;
+    margin-bottom: -1px;
+}
+.panel-tabs > li > a {
+    line-height: 18px;
+    border-radius: 0;
+      padding: 10px 18px;
+    border-left: 1px solid #DDD;
+    font-size: 12px;
+    color: #777;
+}
+
+/* hover and active states */
+.panel-tabs > li > a:hover {
+    background-color: transparent;
+}
+.panel-tabs > li.active > a,
+.panel-tabs > li.active > a:hover,
+.panel-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    background: #ffffff;
+}
+
+/* Panel Tab Alignments */
+.panel-tabs-left {
+    left: 0; 
+}
+.panel-tabs-left > li > a {
+    border-right: 1px solid #DDD;
+    border-left: 1px solid transparent;
+}
+
+
+// Contextual Skin Variations
+//
+.panel-tabs.panel-tabs-border > li.active:after {
+  background: @brand-primary;
+}
+
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.nav-tabs > li.active > a, .tabs-border-bottom .nav-tabs > li.active > a {
+    border-top-color: @brand-primary;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.tabs-left > li.active > a, .tabs-border .tabs-left > li.active > a {
+    border-left-color: @brand-primary;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border.tabs-right > li.active > a, .tabs-border .tabs-right > li.active > a {
+    border-right-color: @brand-primary;
+}
+/* TAB NAVIGATION - ALT STYLE: BORDER */
+.tabs-border-bottom.nav-tabs > li.active > a, .tabs-border-bottom .nav-tabs > li.active > a {
+    border-bottom-color: @brand-primary;
+}
+

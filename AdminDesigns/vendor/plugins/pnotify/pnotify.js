@@ -1,4 +1,20 @@
-;
+/*
+PNotify 2.0.1 sciactive.com/pnotify/
+(C) 2014 Hunter Perrin
+license GPL/LGPL/MPL
+*/
+/*
+ * ====== PNotify ======
+ *
+ * http://sciactive.com/pnotify/
+ *
+ * Copyright 2009-2014 Hunter Perrin
+ *
+ * Triple licensed under the GPL, LGPL, and MPL.
+ * 	http://gnu.org/licenses/gpl.html
+ * 	http://gnu.org/licenses/lgpl.html
+ * 	http://mozilla.org/MPL/MPL-1.1.html
+ */
 
 // Uses AMD or browser globals for jQuery.
 (function (factory) {

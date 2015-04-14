@@ -1,7 +1,7 @@
 'use strict';
 /*! main.js - v0.1.1
  * http://admindesigns.com/
- * Copyright (c) 2015 Admin Designs;*/
+ * Copyright (c) 2013 Admin Designs;*/
 
 /* Core theme functions required for
  * most of the themes vital functionality */
@@ -10,239 +10,16 @@ var Core = function(options) {
    // Variables
    var Body = $('body');
 
- 
-   // SideMenu Functions
-   var runSideMenu = function(options) {
-
-
-      // If Nano scrollbar exist and element is fixed, init plugin
-      if ($('.nano.affix').length) {
-          $(".nano.affix").nanoScroller({
-             preventPageScrolling: true
-          });
-      }
-
-      // Sidebar state naming conventions:
-      // "sb-l-o" - SideBar Left Open
-      // "sb-l-c" - SideBar Left Closed
-      // "sb-l-m" - SideBar Left Minified
-      // Same naming convention applies to right sidebar
-
-      // SideBar Left Toggle Function
-      var sidebarLeftToggle = function() {
-
-         // We check to see if the the user has closed the entire
-         // leftside menu. If true we reopen it, this will result
-         // in the menu resetting itself back to a minified state.
-         // A second click will fully expand the menu.
-         if (Body.hasClass('sb-l-c') && options.collapse === "sb-l-m") {
-            Body.removeClass('sb-l-c');
-         }
-
-         // Toggle sidebar state(open/close)
-         Body.toggleClass(options.collapse).removeClass('sb-r-o').addClass('sb-r-c');
-         
-         triggerResize();
-      };
-
-      // SideBar Right Toggle Function
-      var sidebarRightToggle = function() {
-
-         // toggle sidebar state(open/close)
-         if (options.siblingRope === true && !Body.hasClass('mobile-view') && Body.hasClass('sb-r-o')) {
-            Body.toggleClass('sb-r-o sb-r-c').toggleClass(options.collapse);
-         }
-         else {
-            Body.toggleClass('sb-r-o sb-r-c').addClass(options.collapse);
-         }
-
-         triggerResize();
-      };
-
-      // Sidebar Left Collapse Entire Menu event
-      $('.sidebar-toggle-mini').on('click', function(e) {
-         e.preventDefault();
-
-         // Close Menu
-         Body.addClass('sb-l-c');
-         triggerResize();
-
-         // After animation has occured we toggle the menu.
-         // Upon the menu reopening the classes will be toggled
-         // again, effectively restoring the menus state prior
-         // to being hidden 
-         if (!Body.hasClass('mobile-view')) {
-            setTimeout(function() {
-               Body.toggleClass('sb-l-m sb-l-o');
-            }, 250);
-         }
-      });
-
-      // Check window size on load
-      // Adds or removes "mobile-view" class based on window size
-      var sbOnLoadCheck = function() {
-         // Check Body for classes indicating the state of Left and Right Sidebar.
-         // If not found add default sidebar settings(sidebar left open, sidebar right closed).
-         if (!$('body.sb-l-o').length && !$('body.sb-l-m').length && !$('body.sb-l-c').length) {
-            $('body').addClass(options.sbl);
-         }
-         if (!$('body.sb-r-o').length && !$('body.sb-r-c').length) {
-            $('body').addClass(options.sbr);
-         }
-
-         if(Body.hasClass('sb-l-m')) {
-            Body.addClass('sb-l-disable-animation');
-         }
-         else {
-            Body.removeClass('sb-l-disable-animation');
-         }
-
-         // If window is < 1080px wide collapse both sidebars and add ".mobile-view" class
-         if ($(window).width() < 1080) {
-            Body.removeClass('sb-r-o').addClass('mobile-view sb-l-m sb-r-c');
-         }
-      };
-
-      // Check window size on resize
-      // Adds or removes "mobile-view" class based on window size
-      var sbOnResize = function() {
-
-         // scrollbarResize();
-
-         // If window is < 1080px wide collapse both sidebars and add ".mobile-view" class
-         if ($(window).width() < 1080 && !Body.hasClass('mobile-view')) {
-            Body.removeClass('sb-r-o').addClass('mobile-view sb-l-m sb-r-c');
-         } else if ($(window).width() > 1080) {
-            Body.removeClass('mobile-view');
-         } else {
-            return;
-         }
-
-      };
-
-
-      // Most CSS menu animations are set to 300ms. After this time
-      // we trigger a single global window resize to help catch any 3rd 
-      // party plugins which need the event to resize their given elements
-      var triggerResize = function() {
-         setTimeout(function() {
-            $(window).trigger('resize');
-
-            if(Body.hasClass('sb-l-m')) {
-               Body.addClass('sb-l-disable-animation');
-            }
-            else {
-               Body.removeClass('sb-l-disable-animation');
-            }
-
-         }, 300)
-      };
-
-      // Functions Calls
-      sbOnLoadCheck();
-      $("#toggle_sidemenu_l").click(sidebarLeftToggle);
-      $("#toggle_sidemenu_r").click(sidebarRightToggle);
-
-      // Attach debounced resize handler
-      var rescale = function() {
-         sbOnResize();
-      }
-      var lazyLayout = _.debounce(rescale, 300);
-      $(window).resize(lazyLayout);
-
-
-      //
-      // 2. LEFT USER MENU TOGGLE
-      //
-
-      // Minified menu - Expand submenu on Hover
-      $('#sidebar_left .sidebar-menu').hover(
-         function() { // In
-           if (!$('body.sb-l-m').length) {return;}
-           Body.addClass('sb-subitem-open'); console.log('hover over');
-         }, 
-         function() { // Out
-           if (!$('body.sb-l-m').length) {return;}
-           Body.removeClass('sb-subitem-open'); console.log('hover out');
-         }
-      );
-
-      // Find user menu item length 
-      var usermenuItems = $('.user-menu').find('a');
-
-      // Toggle open the user menu
-      $('.sidebar-menu-toggle').click(function(e) {
-         e.preventDefault();
-
-         // Toggle Class to signal state change
-         $('.user-menu').toggleClass('usermenu-open').slideToggle('fast');
-
-         // If menu is closed apply animation    
-         if ($('.user-menu').hasClass('usermenu-open')) {
-            usermenuItems.addClass('animated fadeIn');
-         }
-
-      });
-
-      // 3. LEFT MENU LINKS TOGGLE
-      $('.sidebar-menu li a.accordion-toggle').click(function(e) {
-
-         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
-         e.preventDefault();
-
-         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
-         if ($('body').hasClass('sb-l-m') && !$(this).parents('ul.sub-nav').length) {
-            return;
-         }
-
-         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
-         if (!$(this).parents('ul.sub-nav').length) {
-            $('a.accordion-toggle.menu-open').next('ul').slideUp('fast', 'swing', function() {
-               $(this).attr('style', '').prev().removeClass('menu-open');
-            });
-         }
-         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
-         else {
-            var activeMenu = $(this).next('ul.sub-nav');
-            var siblingMenu = $(this).parent().siblings('li').children('a.accordion-toggle.menu-open').next('ul.sub-nav')
-
-            activeMenu.slideUp('fast', 'swing', function() {
-               $(this).attr('style', '').prev().removeClass('menu-open');
-            });
-            siblingMenu.slideUp('fast', 'swing', function() {
-               $(this).attr('style', '').prev().removeClass('menu-open');
-            });
-         }
-
-         // Now we expand targeted menu item, add the ".open-menu" class
-         // and remove any left over inline jQuery animation styles
-         if (!$(this).hasClass('menu-open')) {
-            $(this).next('ul').slideToggle('fast', 'swing', function() {
-               $(this).attr('style', '').prev().toggleClass('menu-open');
-            });
-         }
-
-
-
-      });
-   }
-
-
-  // jQuery Helper Functions
+   // jQuery Helper Functions
    var runHelpers = function() {
 
-      // Disable element selection
+      // Disable selection
       $.fn.disableSelection = function() {
          return this
             .attr('unselectable', 'on')
             .css('user-select', 'none')
             .on('selectstart', false);
       };
-
-      // Find element scrollbar visibility
-      $.fn.hasScrollBar = function() {
-         return this.get(0).scrollHeight > this.height();
-      }
 
       // Test for IE, Add body class if version 9
       function msieversion() {
@@ -262,7 +39,7 @@ var Core = function(options) {
       // If left it can cause z-index and visibility problems
       setTimeout(function() {
          $('#content').removeClass('animated fadeIn');
-      },800);
+      },500);
 
    }
 
@@ -453,21 +230,196 @@ var Core = function(options) {
       });
    }
 
+   // SideMenu Functions
+   var runSideMenu = function(options) {
+
+      // If Nano scrollbar exist and sidebar is fixed init plugin
+      if ($('.nano.affix').length) {
+          $(".nano").nanoScroller({
+             preventPageScrolling: true
+          });
+      }
+
+      // Sidebar state naming conventions:
+      // "sb-l-o" - SideBar Left Open
+      // "sb-l-c" - SideBar Left Closed
+      // "sb-l-m" - SideBar Left Minified
+      // Same naming convention applies to right sidebar
+
+      // SideBar Left Toggle Function
+      var sidebarLeftToggle = function() {
+
+         // We check to see if the the user has closed the entire
+         // leftside menu. If true we reopen it, this will result
+         // in the menu resetting itself back to a minified state.
+         // A second click will fully expand the menu.
+         if (Body.hasClass('sb-l-c') && options.collapse === "sb-l-m") {
+            Body.removeClass('sb-l-c');
+         }
+
+         // Toggle sidebar state(open/close)
+         Body.toggleClass(options.collapse).removeClass('sb-r-o').addClass('sb-r-c');
+         
+         triggerResize();
+      };
+
+      // SideBar Right Toggle Function
+      var sidebarRightToggle = function() {
+
+         // toggle sidebar state(open/close)
+         if (options.siblingRope === true && !Body.hasClass('mobile-view') && Body.hasClass('sb-r-o')) {
+            Body.toggleClass('sb-r-o sb-r-c').toggleClass(options.collapse);
+         }
+         else {
+            Body.toggleClass('sb-r-o sb-r-c').addClass(options.collapse);
+         }
+
+         triggerResize();
+      };
+
+      // Sidebar Left Collapse Entire Menu event
+      $('.sidebar-toggle-mini').on('click', function(e) {
+         e.preventDefault();
+
+         // Close Menu
+         Body.addClass('sb-l-c');
+         triggerResize();
+
+         // After animation has occured we toggle the menu.
+         // Upon the menu reopening the classes will be toggled
+         // again, effectively restoring the menus state prior
+         // to being hidden 
+         if (!Body.hasClass('mobile-view')) {
+            setTimeout(function() {
+               Body.toggleClass('sb-l-m sb-l-o');
+            }, 250);
+         }
+      });
+
+      // Check window size on load
+      // Adds or removes "mobile-view" class based on window size
+      var sbOnLoadCheck = function() {
+         // Check Body for classes indicating the state of Left and Right Sidebar.
+         // If not found add default sidebar settings(sidebar left open, sidebar right closed).
+         if (!$('body.sb-l-o').length && !$('body.sb-l-m').length && !$('body.sb-l-c').length) {
+            $('body').addClass(options.sbl);
+         }
+         if (!$('body.sb-r-o').length && !$('body.sb-r-c').length) {
+            $('body').addClass(options.sbr);
+         }
+
+         // If window is < 1080px wide collapse both sidebars and add ".mobile-view" class
+         if ($(window).width() < 1080) {
+            Body.removeClass('sb-r-o').addClass('mobile-view sb-l-m sb-r-c');
+         }
+      };
+
+      // Check window size on resize
+      // Adds or removes "mobile-view" class based on window size
+      var sbOnResize = function() {
+         // If window is < 1080px wide collapse both sidebars and add ".mobile-view" class
+         if ($(window).width() < 1080 && !Body.hasClass('mobile-view')) {
+            Body.removeClass('sb-r-o').addClass('mobile-view sb-l-m sb-r-c');
+         } else if ($(window).width() > 1080) {
+            Body.removeClass('mobile-view');
+         } else {
+            return;
+         }
+      };
+
+      // Most CSS menu animations are set to 300ms. After this time
+      // we trigger a single global window resize to help catch any 3rd 
+      // party plugins which need the event to resize their given elements
+      var triggerResize = function() {
+         setTimeout(function() {
+            $(window).trigger('resize');
+         }, 300)
+      };
+
+      // Functions Calls
+      sbOnLoadCheck();
+      $("#toggle_sidemenu_l").click(sidebarLeftToggle);
+      $("#toggle_sidemenu_r").click(sidebarRightToggle);
+
+      // Attach debounced resize handler
+      var rescale = function() {
+         sbOnResize();
+      }
+      var lazyLayout = _.debounce(rescale, 300);
+      $(window).resize(lazyLayout);
+
+
+      // 2. LEFT USER MENU TOGGLE
+
+      // Find user menu item length 
+      var usermenuItems = $('.user-menu').find('a');
+
+      // Toggle open the user menu
+      $('.sidebar-menu-toggle').click(function(e) {
+         e.preventDefault();
+
+         // Toggle Class to signal state change
+         $('.user-menu').toggleClass('usermenu-open').slideToggle('fast');
+
+         // If menu is closed apply animation    
+         if ($('.user-menu').hasClass('usermenu-open')) {
+            usermenuItems.addClass('animated fadeIn');
+         }
+
+      });
+
+      // 3. LEFT MENU LINKS TOGGLE
+      $('.sidebar-menu li a.accordion-toggle').click(function(e) {
+
+         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
+         e.preventDefault();
+
+         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
+         if ($('body').hasClass('sb-l-m') && !$(this).parents('ul.sub-nav').length) {
+            return;
+         }
+
+         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
+         if (!$(this).parents('ul.sub-nav').length) {
+            $('a.accordion-toggle.menu-open').next('ul').slideUp('fast', 'swing', function() {
+               $(this).attr('style', '').prev().removeClass('menu-open');
+            });
+         }
+         // Any menu item with the accordion class is a dropdown submenu. Thus we prevent default actions
+         else {
+            var activeMenu = $(this).next('ul.sub-nav');
+            var siblingMenu = $(this).parent().siblings('li').children('a.accordion-toggle.menu-open').next('ul.sub-nav')
+
+            activeMenu.slideUp('fast', 'swing', function() {
+               $(this).attr('style', '').prev().removeClass('menu-open');
+            });
+            siblingMenu.slideUp('fast', 'swing', function() {
+               $(this).attr('style', '').prev().removeClass('menu-open');
+            });
+         }
+
+         // Now we expand targeted menu item, add the ".open-menu" class
+         // and remove any left over inline jQuery animation styles
+         if (!$(this).hasClass('menu-open')) {
+            $(this).next('ul').slideToggle('fast', 'swing', function() {
+               $(this).attr('style', '').prev().toggleClass('menu-open');
+            });
+         }
+
+      });
+   }
 
    // Tray related Functions
    var runTrays = function() {
-   
+
       // Match height of tray with the height of body
       var trayMatch = $('.tray[data-tray-height="match"]');
       if (trayMatch.length) {
 
          // Loop each tray and set height to match body
          trayMatch.each(function() {
-            var bodyH = $('body').height();
-            var TopbarH = $('#topbar').height();
-            var NavbarH = $('.navbar').height();
-            var Height = bodyH - (TopbarH + NavbarH);
-            $(this).height(Height - 60);
+            var Height = $('body').height();
+            $(this).height(Height);
          });
 
       };
@@ -489,49 +441,6 @@ var Core = function(options) {
          rescale();
       }
 
-      // Perform a custom animation if tray-nav has data attribute
-      var navAnimate = $('.tray-nav[data-nav-animate]');
-      if (navAnimate.length) {
-          var Animation = navAnimate.data('nav-animate');
-
-          // Set default "fadeIn" animation if one has not been previously set
-          if (Animation == null || Animation == true || Animation == "") { Animation = "fadeIn"; }
-
-          // Loop through each li item and add animation after set timeout
-          setTimeout(function() {
-            navAnimate.find('li').each(function(i, e) {
-              var This = $(this);
-              var Timer = setTimeout(function() {
-                This.addClass('animated animated-short ' + Animation);        
-              }, 50 * i);
-            });
-          }, 500);
-      }
-
-       // Responsive Tray Javascript Data Helper. If browser window
-       // is <575px wide (extreme mobile) we relocate the tray left/right
-       // content into the element appointed by the user/data attr
-       var dataTray = $('.tray[data-tray-mobile]');
-       var dataAppend = dataTray.children();
-       function fcRefresh() {
-         if ($('body').width() < 585) {
-           dataAppend.appendTo($(dataTray.data('tray-mobile')));
-         }
-         else {
-           dataAppend.appendTo(dataTray);
-         }
-       };
-       fcRefresh();
-
-       // Attach debounced resize handler
-       var fcResize = function() {
-          fcRefresh();
-       }
-       var fcLayout = _.debounce(fcResize, 300);
-       $(window).resize(fcLayout);
-
-
-
    }
 
    // Form related Functions
@@ -550,7 +459,7 @@ var Core = function(options) {
          if (Tooltips.parents('#sidebar_left')) {
             Tooltips.tooltip({
                container: $('body'),
-               template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+               template: '<div class="tooltip tooltip-white" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
             });
          } else {
             Tooltips.tooltip();
@@ -584,57 +493,6 @@ var Core = function(options) {
             $(this).addClass('active').siblings().removeClass('active');
          });
       }
-
-
-      // If a panel element has the ".panel-scroller" class we init
-      // custom fixed height content scroller. An optional delay data attr
-      // may be set. This is useful when you expect the panels height to 
-      // change due to a plugin or other dynamic modification.
-      var panelScroller = $('.panel-scroller');
-      if (panelScroller.length) {
-          panelScroller.each(function(i, e) {
-           var This = $(e);
-           var Delay = This.data('scroller-delay');
-           var Margin = 5;
-
-           // Check if scroller bar margin if required
-           if (This.hasClass('scroller-thick')) { Margin = 0; }
-
-           if (Delay) {
-             var Timer = setTimeout(function() {
-               This.scroller({
-                 trackMargin: Margin,
-               });
-               $('#content').scrollLock('on', 'div');
-             }, Delay);
-           } else {
-             This.scroller({
-               trackMargin: Margin,
-             });
-             $('#content').scrollLock('on', 'div');
-           }
-         });
-      }
-
-
-    // Init smoothscroll on elements with set data attr
-    // data value determines smoothscroll offset
-    var SmoothScroll = $('[data-smoothscroll]');
-    if (SmoothScroll.length) {
-        SmoothScroll.each(function(i,e) {
-          var This = $(e);
-          var Offset = This.data('smoothscroll');
-          var Links = This.find('a');
-
-          // Init Smoothscroll with data stored offset
-          Links.smoothScroll({
-            offset: Offset
-          });
-
-        }); 
-    }
-
-
    }
    return {
       init: function(options) {
