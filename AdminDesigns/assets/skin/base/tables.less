@@ -2,12 +2,14 @@
   Tables
 ================================================= */
 
+
 table {
   background-color: @table-bg;
 }
 th {
   text-align: left;
 }
+
 
 // Baseline styles
 
@@ -31,7 +33,7 @@ th {
   }
   // Bottom align for column headings
   > thead > tr > th {
-    font-weight: 600;
+    font-weight: 500;
     vertical-align: bottom;
     border-bottom: 1px solid @table-border-color;
   }
@@ -158,6 +160,42 @@ table {
 }
 
 
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Contextual Skin Variants
+//
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(default; @state-default-bg);
+
+& when (@skin-primary) {  
+  .table-row-variant(primary; @state-primary-bg);
+}
+& when (@skin-success) {  
+  .table-row-variant(success; @state-success-bg);
+}
+& when (@skin-info) {  
+  .table-row-variant(info; @state-info-bg);
+}
+& when (@skin-warning) {  
+  .table-row-variant(warning; @state-warning-bg);
+}
+& when (@skin-danger) {  
+  .table-row-variant(danger; @state-danger-bg);
+}
+& when (@skin-alert) {  
+  .table-row-variant(alert; @state-alert-bg);
+}
+& when (@skin-system) {  
+  .table-row-variant(system; @state-system-bg);
+}
+& when (@skin-dark) {  
+  .table-row-variant(dark; @state-dark-bg);
+}
+
+
 // Manual "default" table styling
 .table > thead > tr,
 .table > tbody > tr,
@@ -182,6 +220,8 @@ table {
     background-color: #fcfcfc;
   }
 }
+
+
 
 
 // Responsive tables

@@ -148,3 +148,34 @@
 // Extra Large
 .progress.vertical.progress-bar-xl { width: 40px }
 
+
+// Color Variations
+// -------------------------
+.progress-bar-default {
+  .progress-bar-variant(@progress-bar-default-bg);
+}
+.progress-bar-primary when (@skin-primary) {
+  .progress-bar-variant(@progress-bar-primary-bg);
+}
+.progress-bar-success when (@skin-success) {
+  .progress-bar-variant(@progress-bar-success-bg);
+}
+.progress-bar-info when (@skin-info) {
+  .progress-bar-variant(@progress-bar-info-bg);
+}
+.progress-bar-warning when (@skin-warning) {
+  .progress-bar-variant(@progress-bar-warning-bg);
+}
+.progress-bar-danger when (@skin-danger) {
+  .progress-bar-variant(@progress-bar-danger-bg);
+}
+.progress-bar-alert when (@skin-alert) {
+  .progress-bar-variant(@progress-bar-alert-bg);
+}
+.progress-bar-system when (@skin-system) {
+  .progress-bar-variant(@progress-bar-system-bg);
+}
+.progress-bar-dark when (@skin-dark) {
+  .progress-bar-variant(@progress-bar-dark-bg);
+}
+

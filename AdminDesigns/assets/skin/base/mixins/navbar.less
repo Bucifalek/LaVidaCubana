@@ -27,11 +27,6 @@
     border-bottom-color: @color;
   }
 
-  // Navbar user menu multiselect dropdown - active item bg
-  &.navbar .nav > li .dropdown-toggle {
-    .dropdown-variant(@color); 
-  }
-
 }
 
 // Special settings for bg-light
@@ -79,24 +74,14 @@
 
   // Top border color on dropdown menus
   &.navbar .nav > li.dropdown.open .dropdown-menu {
-    border-top-color: @navbar-dropdown-active-border;
+    border-top-color: #999; 
     &:after {
-       border-bottom-color: @navbar-dropdown-active-border;
+       border-bottom-color: #999; 
     }
+
   }
   &.navbar .nav > li.dropdown.open .dropdown-menu:after {
-    border-bottom-color: @navbar-dropdown-active-border;
+    border-bottom-color: #999; 
   }
-
-  // Navbar user menu multiselect dropdown - active item bg
-  &.navbar .nav > li .dropdown-toggle + .dropdown-menu > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-component-active-text;
-      background-color: @navbar-component-active-bg;
-    }
-  }
-
 
 }

@@ -52,3 +52,33 @@
     margin-left: 3px;
   }
 }
+
+
+// Contextual Skin Variations (linked labels get darker on :hover)
+.badge-default {
+  .label-variant(@label-default-bg);
+}
+.badge-primary when (@skin-primary) {
+  .label-variant(@label-primary-bg);
+}
+.badge-success when (@skin-success) {
+  .label-variant(@label-success-bg);
+}
+.badge-info when (@skin-info) {
+  .label-variant(@label-info-bg);
+}
+.badge-warning when (@skin-warning) {
+  .label-variant(@label-warning-bg);
+}
+.badge-danger when (@skin-danger) {
+  .label-variant(@label-danger-bg);
+}
+.badge-alert when (@skin-alert) {
+  .label-variant(@label-alert-bg);
+}
+.badge-system when (@skin-system) {
+  .label-variant(@label-system-bg);
+}
+.badge-dark when (@skin-dark) {
+  .label-variant(@label-dark-bg);
+}

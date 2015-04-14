@@ -88,3 +88,68 @@
       }
   }
 }
+
+
+// Contextual Skin Styles
+// Generate contextual modifier classes for colorizing the alert.
+//
+.alert-primary when (@skin-primary) {
+  .alert-variant(@alert-primary-bg); 
+}
+.alert-success when (@skin-success) {
+  .alert-variant(@alert-success-bg);
+}
+.alert-info when (@skin-info) {
+  .alert-variant(@alert-info-bg);
+}
+.alert-warning when (@skin-warning) {
+  .alert-variant(@alert-warning-bg);
+}
+.alert-danger when (@skin-danger) {
+  .alert-variant(@alert-danger-bg);
+}
+.alert-alert when (@skin-alert) {
+  .alert-variant(@alert-alert-bg);
+}
+.alert-system when (@skin-system) {
+  .alert-variant(@alert-system-bg);
+}
+
+
+// Default & Dark colors are commonly styled manually as graytones and neutral 
+// can be incredibly difficult to automate via opacity/hue/saturation etc
+//
+// Default
+.alert-default { 
+  color: #888;
+  background-color: @alert-default-bg;
+
+  .alert-link { color: #777; }
+
+  &.alert-border-right { border-right-color: darken(@alert-default-bg, 13%); }
+  &.alert-border-top { border-top-color: darken(@alert-default-bg, 13%); }
+  &.alert-border-bottom { border-bottom-color: darken(@alert-default-bg, 13%); }
+  &.alert-border-left { border-left-color: darken(@alert-default-bg, 13%); }
+
+  // Color shade variants
+  &.pastel,
+  &.light { background-color: lighten(@alert-default-bg, 5%); border-color: rgba(0,0,0,0.15) }
+  &.dark { background-color: darken(@alert-default-bg, 4%); }
+}
+// Dark
+.alert-dark when (@skin-dark) {
+  background-color: lighten(@alert-dark-bg, 18%);
+
+  &.alert-border-right { border-right-color: darken(@alert-dark-bg, 13%); }
+  &.alert-border-top { border-top-color: darken(@alert-dark-bg, 13%); }
+  &.alert-border-bottom { border-bottom-color: darken(@alert-dark-bg, 13%); }
+  &.alert-border-left { border-left-color: darken(@alert-dark-bg, 13%); }
+
+  &.pastel,
+  &.light { 
+    color: lighten(@alert-dark-bg, 20%);
+    background-color: lighten(@alert-dark-bg, 57%);
+    .alert-link { color: lighten(@alert-dark-bg, 10%); }
+  } 
+  &.dark { background-color: lighten(@alert-dark-bg, 7%); }
+}

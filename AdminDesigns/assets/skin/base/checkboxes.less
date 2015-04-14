@@ -93,7 +93,7 @@
   font-family: "FontAwesome";
   content: "\f00c";
     font-size: 12px;
-    top: 4px;
+    top: 3px;
     left: 4px;
     width: 0;
     height: 0;
@@ -132,4 +132,38 @@
     transform: rotate(-13deg);
 }
 
+// Checkbox/Radio Skin Contextuals 
+//
+& when (@skin-primary) {
+    .checkbox-variant(@brand: primary; @brand-primary);    
+}
+& when (@skin-success) {
+    .checkbox-variant(@brand: success; @brand-success);    
+}
+& when (@skin-info) {
+    .checkbox-variant(@brand: info; @brand-info);    
+}
+& when (@skin-warning) {
+    .checkbox-variant(@brand: warning; @brand-warning);    
+}
+& when (@skin-danger) {
+    .checkbox-variant(@brand: danger; @brand-danger);    
+}
+& when (@skin-alert) {
+    .checkbox-variant(@brand: alert; @brand-alert);    
+}
+& when (@skin-system) {
+    .checkbox-variant(@brand: system; @brand-system);    
+}
+& when (@skin-dark) {
+    .checkbox-variant(@brand: dark; @brand-dark);    
+}
+
+// Light Contextual
+.checkbox-light-variant(@brand: light; @brand-light);    
+
+// Disabled state
+& when (true) {
+    .checkbox-variant(@brand: disabled; #AAA);    
+}
 
