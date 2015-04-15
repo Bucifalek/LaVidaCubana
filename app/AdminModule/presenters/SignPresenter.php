@@ -10,6 +10,7 @@ namespace App\AdminModule\Presenters;
 use Nette,
 	App\AdminModule\Model,
 	Nette\Application\UI;
+use Tracy\Debugger;
 
 /**
  * Class SignPresenter
@@ -28,9 +29,20 @@ final class SignPresenter extends BasePresenter
 		}
 	}
 
-	public function renderForgot()
-	{
-		//$this->flashMessage('Email s žádostí o nové heslo odeslán.', FLASH_SUCCESS);
+	/** Not working */
+	public function createComponentForgotDetailsForm() {
+		$form = new UI\Form();
+		$form->addText('email');
+		$form->addSubmit('restore');
+		$form->onSubmit[] = [$this, 'startRestore'];
+
+		return $form;
+	}
+
+	/** Not working */
+	public function startRestore(UI\Form $form) {
+		$values = $form->getValues();
+		Debugger::barDump($values);
 	}
 
 	/**
