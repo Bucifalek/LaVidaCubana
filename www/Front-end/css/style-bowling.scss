@@ -360,6 +360,10 @@ p.created {
   font-size: 12px;
   line-height: 40px;
   text-align: center;
+
+  a{
+    color: white;
+  }
 }
 
 /*  LOS RESPONSIVOS  */
@@ -452,7 +456,7 @@ p.created {
     .cenik_info {
       width: 100%;
       float: left;
-      margin-left: 13px;
+      margin-left: 20px;
     }
   }
 }
