@@ -118,7 +118,7 @@
                 </ol>
             </div>
         </header>
-        <section id="content" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
+        <section id="{$sId}" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
         {* Flashes *}
         <div class="special-alerts" n:inner-foreach="$flashes as $flash">
             <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
