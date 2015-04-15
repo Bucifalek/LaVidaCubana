@@ -21,7 +21,10 @@ final class IndividualManager extends Nette\Object
 	 */
 	private $database;
 
-	private $where;
+	/**
+	 * @var
+	 */
+	private $find;
 
 	/**
 	 * @param Nette\Database\Context $database
@@ -36,16 +39,21 @@ final class IndividualManager extends Nette\Object
 	 */
 	public function total()
 	{
-		if (is_array($this->where)) {
-			return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->where[0] . ' LIKE ?', '%' . $this->where[1] . '%')->count();
-		} else {
-			return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->count();
+		if (is_array($this->find)) {
+			return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->count();
 		}
+
+		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->count();
 	}
 
+	/**
+	 * @param $coll
+	 * @param $value
+	 * @return array|bool
+	 */
 	public function search($coll, $value)
 	{
-		return $this->where = (!empty($coll) AND !empty($value)) ? [$coll, $value] : false;
+		return $this->find = (!empty($coll) AND !empty($value)) ? [$coll, $value] : false;
 	}
 
 	/**
@@ -62,8 +70,8 @@ final class IndividualManager extends Nette\Object
 		}
 
 		$individualsFinal = [];
-		if ($this->where) {
-			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->where[0] . ' LIKE ?', '%' . $this->where[1] . '%')->limit($limit, $offset)->fetchAll();
+		if ($this->find) {
+			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->limit($limit, $offset)->fetchAll();
 		} else {
 			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
 		}
