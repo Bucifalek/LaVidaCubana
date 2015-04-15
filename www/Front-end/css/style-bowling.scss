@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 $red: #d14334;
 $darkGrey: #343333;
 $grey: #dddddd;
-$font-color:#fff;
+$font-color: #fff;
 
-@font-face{
+@font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
@@ -22,7 +22,7 @@ $font-color:#fff;
   background: $darkGrey;
 }
 
-html,body{
+html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
   margin: 0;
@@ -30,31 +30,48 @@ html,body{
   outline: none !important;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.page_title{
+.page_title {
   width: 100%;
   background: $darkGrey;
   border-bottom: 1px solid #303030;
+  color: $red;
 
-  .page_title_h{
+  .page_title_h {
     padding-top: 15px;
     padding-bottom: 15px;
-    color: $red;
     font-size: 18px;
+  }
+  a {
+    position: relative;
+    text-align: right;
+    float: right;
+    margin-top: -39px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+  }
+  a:hover {
+    color: $red;
   }
 }
 
-#page{
+#page {
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
 }
-.mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created{
+
+.mainmenu a, .category_title, .seznam h3, .seznam li, #bowling_info, p.created {
   font-family: "Open Sans";
 }
 
@@ -63,60 +80,125 @@ html,body{
   height: auto;
   margin: 0px auto;
 }
-.greybox{
-  background:url('../img/bowling/texturka3.png');
+
+.greybox {
+  background: url('../img/bowling/texturka3.png');
   width: 100%;
-  height: 540px;
+  height: 500px;
 }
-.greybox_2{
-  background:url('../img/bowling/texturka3.png');
+
+.greybox_2 {
+  background: url('../img/bowling/texturka3.png');
   width: 100%;
   height: auto;
 }
 
 /*  MENU  */
 
-nav{
+nav {
   width: 100%;
   height: 100px;
-  background-color: $red;
+  background: $red;
 }
 
-.logo{
+.logo {
   font-family: bittersweet;
   font-size: 4.688em;
   padding-top: 10px;
   letter-spacing: 3px;
   float: left;
   color: white;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .word_l {
+    font-size: 65px;
+  }
+  .word_a {
+    font-size: 48px;
+  }
+  .vida {
+    font-size: 65px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .cubana {
+    font-size: 45px;
+    letter-spacing: 2px;
+  }
 }
 
-.mainmenu{
+.mainmenu {
   float: right;
   height: auto;
-}
+  position: relative;
 
-.mainmenu li{
-  display: inline;
-  list-style: none;
-}
+  .dropdown:hover {
+    ul {
+      display: inline-block;
+    }
+  }
 
-.mainmenu a{
-  color: $font-color;
-  text-decoration: none;
-  line-height: 100px;
-  font-size: 14px;
-  padding: 15px;
+  ul {
+    position: absolute;
+    z-index: +111;
+    top: 100%;
+    width: 132px;
+    display: none;
+    right: 0;
+    background: black;
+    padding: 0;
 
-  border-bottom: 2px solid #d14335;
+    li {
+      display: block;
+      padding: 0px;
+      line-height: 0px;
+      text-align: center;
 
-  transition-property: border-bottom-color;
-  transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
-}
+      a {
+        line-height: 60px;
+      }
+      a:hover {
+        color: $red;
+      }
+    }
+  }
 
-.mainmenu a:hover{
-  border-color: $grey;
+  li {
+    display: inline;
+    list-style: none;
+  }
+
+  a {
+    color: $font-color;
+    text-decoration: none;
+    line-height: 100px;
+    font-size: 14px;
+    padding: 15px;
+    padding-bottom: 41px;
+
+    transition-property: color;
+    transition-duration: 0.6s;
+    transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+  }
+
+  a:hover {
+    color: $darkGrey;
+  }
+
+  li.active a {
+    color: $darkGrey;
+  }
+
+  .white a{
+    color: white !important;
+  }
+  .white a:hover{
+    color: $red !important;
+  }
 }
 
 /*  BLOK S TEXTEM A IKONOU BOWLINGOVE KOULE  */
@@ -130,7 +212,7 @@ nav{
   font-size: 20px;
   text-align: center;
 
-  .bowling_icon{
+  .bowling_icon {
     margin-top: 50px;
     height: 100px;
   }
@@ -149,20 +231,20 @@ nav{
 
 /*  INSTAGRAM GALERIE  */
 
-.category_title{
-  font-size: 1.9em;
+.category_title {
+  font-size: 1.5em;
   text-align: center;
   line-height: 60px;
   color: $red;
 }
 
-#instagram_box{
+#instagram_box {
   width: 100%;
-  background:url('../img/bowling/texturka.jpg');
+  background: url('../img/bowling/texturka.jpg');
   padding-bottom: 70px;
   padding-top: 30px;
 
-  .four_sections{
+  .four_sections {
     background: #dcdcdc;
     width: 100%;
     height: 260px;
@@ -170,48 +252,44 @@ nav{
     display: block;
   }
 
-  article{
+  article {
     width: 256px;
     height: 100%;
     display: inline-table;
   }
 
-  .insta_img_1{
+  .insta_img_1 {
     background: url("../img/bowling/bowling_insta_2.jpg") no-repeat top center;
     background-size: cover;
     float: left;
   }
-  .insta_img_2{
+  .insta_img_2 {
     background: url("../img/bowling/bowling_insta.jpg") no-repeat top center;
     background-size: cover;
     float: left;
   }
-  .insta_img_3{
+  .insta_img_3 {
     background: url("../img/bowling/bowling_insta_4.jpg") no-repeat top center;
     float: left;
     background-size: cover;
   }
-  .insta_img_4{
+  .insta_img_4 {
     background: url("../img/bowling/bowling_insta_3.jpg") no-repeat top center;
     float: left;
     background-size: cover;
   }
 
-  .insta_img_1, .insta_img_2, .insta_img_3, .insta_img_4{
+  .insta_img_1, .insta_img_2, .insta_img_3, .insta_img_4 {
 
-    .insta_hover{
+    .insta_hover {
       color: white;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0, 0, 0, 0.2);
 
       transition-property: background;
       transition-duration: 0.6s;
-      transition-delay: 0s,0.25s,0.45s,0.7s;
+      transition-delay: 0s, 0.25s, 0.45s, 0.7s;
 
-      -moz-transition-property: background;
-      -moz-transition-duration: 0.6s;
-      -moz-transition-delay: 0s,0.25s,0.45s,0.7s;
-
-      .on_hover{
+      .on_hover {
         visibility: hidden;
         text-align: center;
         line-height: 260px;
@@ -219,13 +297,13 @@ nav{
       }
     }
 
-    .insta_hover:hover{
+    .insta_hover:hover {
       background: rgba(209, 67, 52, 0.90);
       cursor: pointer;
       content: View;
     }
 
-    .insta_hover:hover .on_hover{
+    .insta_hover:hover .on_hover {
       visibility: visible;
     }
   }
@@ -233,14 +311,14 @@ nav{
 
 /*  MAPA + ADRESA  */
 
-.adress{
+.adress {
   background: rgba(0, 0, 0, 0.30);
   width: 100%;
   height: 460px;
   position: absolute;
-  z-index: +111;
+  z-index: 111;
 
-  .seznam{
+  .seznam {
     background: rgba(255, 255, 255, 1);
     float: left;
     text-align: left;
@@ -248,22 +326,14 @@ nav{
     height: 260px;
     color: $darkGrey;
 
-    ul{
-      margin-top: 50px;
-      margin-left: 40px;
+    ul {
+      margin-top: 60px;
+      margin-left: 30px;
     }
-    li{
+    li {
       list-style: none;
       padding-bottom: 15px;
       font-size: 14px;
-    }
-    .facebook{
-      margin-left: 40px;
-      margin-top: 10px;
-      width: 7%;
-    }
-    .instagram{
-      width: 7%;
     }
   }
 }
@@ -280,10 +350,11 @@ nav{
 footer {
   width: 100%;
   float: left;
-  height: 40px;
+  height: auto;
   bottom: 0;
   background: #000000;
 }
+
 p.created {
   color: #DCDCDC;
   font-size: 12px;
@@ -298,11 +369,11 @@ p.created {
   .flexible_content {
     width: 95%;
   }
-  .category_title{
+  .category_title {
     padding-bottom: 20px;
   }
   #instagram_box {
-    .four_sections{
+    .four_sections {
       width: 600px;
       height: 600px !important;
       margin: 0 auto !important;
@@ -310,20 +381,20 @@ p.created {
     article {
       width: 25%;
     }
-    .insta_img_1, .insta_img_2{
+    .insta_img_1, .insta_img_2 {
       float: left;
       height: 300px;
       width: 300px;
     }
-    .insta_img_3, .insta_img_4{
+    .insta_img_3, .insta_img_4 {
       float: left;
       height: 300px;
       width: 300px;
     }
     .insta_img_1, .insta_img_2,
-    .insta_img_3, .insta_img_4{
-      .insta_hover{
-        .on_hover{
+    .insta_img_3, .insta_img_4 {
+      .insta_hover {
+        .on_hover {
           line-height: 300px;
         }
       }
@@ -331,8 +402,8 @@ p.created {
   }
 }
 
-@media screen and (max-width: 950px){
-  .adress{
+@media screen and (max-width: 950px) {
+  .adress {
     .seznam {
       width: 70%;
       background: rgba(255, 255, 255, 0.75);
@@ -341,49 +412,108 @@ p.created {
 }
 
 @media screen and (max-width: 850px) {
-  .greybox, .greybox_2{
-    .bowling_text_default{
+  .greybox, .greybox_2, .greybox_table {
+    .bowling_text_default {
       font-size: 1em !important;
-      .play_info{
+      .play_info {
         font-size: 1em !important;
       }
     }
   }
 
-  .instagram_box_2{
-    .half_blok{
-      .half_one, .half_two{
+  .instagram_box_2 {
+    .half_blok {
+      .half_one, .half_two {
         font-size: 1em !important;
-        .variant_1{
+        .variant_1 {
           font-size: 1em !important;
         }
       }
     }
   }
 
-  .logo{
+  .logo {
     font-family: bittersweet;
     font-size: 2.5em;
     padding-top: 25px;
     letter-spacing: 1.5px;
   }
 
-  .category_title{
+  .category_title {
     padding-bottom: 20px;
   }
 
-  .time_cenik_info{
+  .time_cenik_info {
+    height: 300px !important;
 
-    .time_info{
+    .time_info {
       width: 100%;
     }
-    .cenik_info{
+    .cenik_info {
       width: 100%;
+      float: left;
+      margin-left: 13px;
     }
   }
 }
-@media screen and (max-width: 680px){
-  .adress{
+
+@media screen and (max-width: 710px) {
+  nav {
+    width: 100%;
+    height: 230px;
+    background: $red;
+  }
+  .logo {
+    margin: 0 auto !important;
+    text-align: center;
+    width: 100%;
+  }
+  .mainmenu {
+    width: 100%;
+
+    ul {
+      width: 100%;
+      li {
+        a {
+          line-height: 40px;
+        }
+      }
+    }
+
+    li {
+      float: left;
+      width: 100%;
+      text-align: center;
+      height: 40px;
+      background: none;
+
+      transition-property: background;
+      transition-duration: 0.1s;
+      transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+    }
+
+    li:hover {
+      background: $darkGrey;
+      color: white;
+
+      transition-property: background;
+      transition-duration: 0.6s;
+      transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+    }
+
+    a {
+      padding: 0;
+      line-height: 40px;
+    }
+
+    a:hover {
+      color: $red;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .adress {
     .seznam {
       width: 100%;
       background: rgba(255, 255, 255, 0.75);
@@ -391,7 +521,7 @@ p.created {
   }
 
   #instagram_box {
-    .four_sections{
+    .four_sections {
       width: 300px;
       height: 1200px !important;
       margin: 0 auto;
@@ -399,26 +529,26 @@ p.created {
     article {
       width: 25%;
     }
-    .insta_img_1, .insta_img_2{
+    .insta_img_1, .insta_img_2 {
       float: left;
       height: 300px;
       width: 300px;
       margin: 0 auto;
       margin-bottom: 15px;
     }
-    .insta_img_3, .insta_img_4{
+    .insta_img_3, .insta_img_4 {
       float: left;
       height: 300px;
       width: 300px;
       margin: 0 auto;
     }
-    .insta_img_3{
+    .insta_img_3 {
       margin-bottom: 15px;
     }
     .insta_img_1, .insta_img_2,
-    .insta_img_3, .insta_img_4{
-      .insta_hover{
-        .on_hover{
+    .insta_img_3, .insta_img_4 {
+      .insta_hover {
+        .on_hover {
           line-height: 300px;
         }
       }

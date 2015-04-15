@@ -1,7 +1,7 @@
 parameters:
 
 database:
-	dsn: 'mysql:host=localhost;dbname=lavidacubana'
+	dsn: 'mysql:host=127.0.0.1;dbname=lavidacubana'
 	user: root
 	password:
 	options:

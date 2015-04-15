@@ -22,23 +22,31 @@
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
     <div id="page">
-           <nav>
-               <div class="flexible_content">
-                   <h1 class="logo">La VIDA Cubana</h1>
-                   <ul class="mainmenu">
-                       <li><a n:href="Bowling:default">Všeobecné informace</a></li>
-                       <li><a n:href="Bowling:play">Chci si zahrát</a></li>
-                       <li><a n:href="Bowling:league">Bowlingová liga</a></li>
-                   </ul>
-               </div>
-           </nav>
-           <div class="page_title">
-                <div class="flexible_content">
-                    <h2 class="page_title_h">{include title}</h2>
-                </div>
-           </div>
+        <nav>
+            <div class="flexible_content">
+                <h1 class="logo"><a n:href="Bowling:default"><span class="word_l">L</span><span class="word_a">a</span><span class="vida">VIDA</span><span class="cubana">Cubana</span></a></h1>
+                <ul class="mainmenu">
+                    <li{ifCurrent Bowling:default} class='active'{/ifCurrent}><a n:href="Bowling:default">Všeobecné informace</a></li>
+                    <li{ifCurrent Bowling:play} class='active'{/ifCurrent}><a n:href="Bowling:play">Chci si zahrát</a></li>
+                    <li{ifCurrent Bowling:league} class='active dropdown'{/ifCurrent} class="dropdown"><a n:href="Bowling:league">Bowlingová liga</a>
+                        <ul>
+                            <li class="white"><a n:href="Bowling:rules" class="white">Pravidla</a></li>
+                            <li class="white"><a n:href="Bowling:draft" class="white">Rozpis</a></li>
+                            <li class="white"><a n:href="Bowling:news" class="white">Aktuálně</a></li>
+                            <li class="white"><a n:href="Bowling:top" class="white">Top 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page_title">
+             <div class="flexible_content">
+                 <h2 class="page_title_h">{include title}</h2>
+                 <a n:href="Homepage:default">Zpět do výběru kaváren!</a>
+             </div>
+        </div>
 
-	{include content}
+	    {include content}
 
 	    <footer>
              <div class="flexible_content">
@@ -54,8 +62,6 @@
 	<script src="{$basePath}/Front-End/js/main.js"></script>
 	<script>
         $(function() {
-            $( "#tabs" ).tabs();
-            $( "#tabs_2" ).tabs();
             $( "#tabs_3" ).tabs();
             $( "#tabs_4" ).tabs();
             $( "#tabs_5" ).tabs();

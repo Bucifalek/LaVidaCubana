@@ -1,0 +1,51 @@
+{*
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
+- @date 15:45, 25. 3. 2015
+*}
+{block nav_presenter}Informace{/block}
+{block nav_action}Ceník bowlingu{/block}
+{block content}
+<div class="tab-content mw800 center-block">
+    <div class="admin-form tab-pane active" id="register2" role="tabpanel">
+        <div class="panel panel-danger heading-border">
+            <div class="panel-heading">
+             <span class="panel-title" n:block="title"><i class="glyphicon glyphicon-list"></i>C
+             eník bowlingu</span>
+            </div>
+            <div class="panel-body">
+                <div class="section-divider mt10 mb10">
+                    <span>Pondělí</span>
+                </div>
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center no-border">10:00 - 17:00</th>
+                            <th class="text-center no-border">17:00 - 23:00</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="section row">
+                    <div class="col-md-6">
+                        <label for="firstname" class="field prepend-icon">
+                            <input name="name" id="firstname" class="gui-input" type="text" value="180,-">
+                            <label for="firstname" class="field-icon"><i class="fa fa-money"></i></label>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="firstname" class="field prepend-icon">
+                            <input name="name" id="firstname" class="gui-input" type="text" value="200,-">
+                            <label for="firstname" class="field-icon"><i class="fa fa-money"></i></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <input name="save" type="submit" class="button btn-primary" value="Uložit změny">
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 @font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
@@ -19,6 +19,7 @@
 
 /*  CENIK + PROVOZNI DOBA  */
 .time_cenik_info {
+  background: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -33,7 +34,8 @@
   top: 30px; }
 
 .time_info {
-  float: left; }
+  float: left;
+  margin-left: 13px; }
 
 .time_info td {
   width: 50%;

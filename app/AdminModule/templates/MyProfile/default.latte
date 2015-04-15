@@ -1,5 +1,6 @@
 {*
-- @author Jan Kotrba <jan.kotrbaa@gmail.com>
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
 - @date 0:12, 11. 2. 2015
 - @copyright 2015 Jan Kotrba
 *}
@@ -10,97 +11,33 @@
 {/block}
 {block pageClass}profile-page{/block}
 {block sectionClass}pn animated fadeIn {/block}
+{block nav_module}Systém{/block}
 {block nav_presenter}Můj účet{/block}
 {block content}
 
 <div class="pv20 ph40 bg-light dark br-b br-grey posr">
-	<div class="table-layout">
-		<div class="w200 text-center pr30 hidden-xs">
-			<img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" class="responsive">
-		</div>
-		<div class="va-t m30">
-			<h2 class=""> Jan.Kotrbaa
-				<small> Profil</small>
-			</h2>
-			<p class="fs15 mb20">{$email}</p>
-			<ul class="list-inline list-unstyled">
-				<li>
-					<a href="#" title="facebook link">
-						<span class="fa fa-facebook-square fs35 text-primary"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="twitter link">
-						<span class="fa fa-twitter-square fs35 text-info"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="google plus link">
-						<span class="fa fa-google-plus-square fs35 text-danger"></span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#" title="behance link">
-						<span class="fa fa-behance-square fs35 text-primary"></span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#" title="pinterest link">
-						<span class="fa fa-pinterest-square fs35 text-danger-light"></span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#" title="linkedin link">
-						<span class="fa fa-linkedin-square fs35 text-info"></span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#" title="github link">
-						<span class="fa fa-github-square fs35 text-dark"></span>
-					</a>
-				</li>
-				<li class="">
-					<a href="#" title="phone link">
-						<span class="fa fa-phone-square fs35 text-system"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="email link">
-						<span class="fa fa-envelope-square fs35 text-muted"></span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#" title="external link">
-						<span class="fa fa-external-link-square fs35 text-muted"></span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+    <div class="table-layout">
+        <div class="w200 text-center pr30 hidden-xs">
+            <img src="{$basePath}/Back-end/assets/img/avatars/{$avatar}.png" class="responsive">
+        </div>
+        <div class="va-t m30">
+            <h2 n:block="title"> {$firstName}.{$lastName}
+                <small> Profil</small>
+            </h2>
+            <p class="fs15 mb20">{$email}</p>
+        </div>
+    </div>
 </div>
 <div class="panel panel-success panel-border top mt20 mb35 mr20 ml20">
-	<div class="panel-heading">
-		<span class="panel-title">Vyberte si svého avatara</span>
-	</div>
-	<div class="panel-body bg-light dark text-center">
-		{for $i = 1; $i <= 9; $i++}
-		<a href="{link changeUserPhoto!, $user->id, $i}"><img
-				class="m3 p2 img-avatar{if $i == $avatar} img-avatar-current{/if}"
-				src="{$basePath}/Back-end/assets/img/avatars/{$i}.png"></a>
-		{/for}
-	</div>
+    <div class="panel-heading">
+        <span class="panel-title">Vyberte si svého avatara</span>
+    </div>
+    <div class="panel-body bg-light dark text-center">
+        {for $i = 1; $i <= 9; $i++}
+        <a href="{link changeUserPhoto!, $user->id, $i}"><img
+                class="m3 p2 img-avatar{if $i == $avatar} img-avatar-current{/if}"
+                src="{$basePath}/Back-end/assets/img/avatars/{$i}.png"></a>
+        {/for}
+    </div>
 </div>
-
-
-{*}
-<img src="{$basePath}/Back-end/assets/img/avatars/1.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/2.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/3.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/4.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/5.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/6.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/7.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/8.jpg">
-<img src="{$basePath}/Back-end/assets/img/avatars/9.jpg">
-{*}
 {/block}

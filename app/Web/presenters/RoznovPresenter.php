@@ -11,10 +11,7 @@ namespace App\WebModule\Presenters;
 use Nette;
 use Nette\Application\UI\Form;
 
-class RoznovPresenter extends BasePresenter {
-
-    public function renderDefault() {
-
-    }
+final class RoznovPresenter extends BasePresenter
+{
 
 }

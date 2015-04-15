@@ -1,46 +1,50 @@
 {block content}
 
 <div class="container">
-    <div class="logo-block">
-        <h1>La VIDA Cubana</h1>
-        <h2>Cafe Bar & Coctails & Bowling</h2>
+    <div class="part_one">
+        <div class="logo_block">
+            <h1><span class="word_l">L</span><span class="word_a">a</span><span class="vida">VIDA</span><span class="cubana">Cubana</span></h1>
+            <p>~ Cafe Bar & Coctails ~</p>
+        </div>
     </div>
-    <div class="section-connection">
-        <a n:href="Roznov:default" class="explorer">
-            <div class="roznov-block">
-                <div class="roznov-transparent">
-                   <div id="current-action-roznov">
-                   <h3>{$akceRoznov}</h3>
-                   </div>
-                   <h2>Cafe bar & Coctails</h2>
-                   <p>Rožnov pod Radhoštěm <img src="{$basePath}/Front-End/img/arrow/arrow3.png" alt="" class="arrow"></p>
-                </div>
+    <div class="part_two">
+        <div class="roznov_block">
+            <div class="news_roznov">
+            {control mainNewsRoznov}
             </div>
-         </a>
-         <a n:href="Valmez:default" class="explorer">
-            <div class="valmez-block">
-                <div class="valmez-transparent">
-                    <div id="current-action-valmez">
-                    <h3>{$akceValmez}</h3>
-                    </div>
-                    <h2>Cafe bar & Coctails</h2>
-                    <p>Valašské Meziříčí <img src="{$basePath}/Front-End/img/arrow/arrow2.png" alt="" class="arrow"></p>
+            <a n:href="Roznov:default" class="explorer">
+                <div class="heading_text">
+                    <h3>Cafe bar & Coctails</h3>
+                    <p>Rožnov pod Radhoštěm</p>
+                    <img src="{$basePath}/Front-End/img/arrow/arrow3.png" alt="" class="arrow">
                 </div>
+            </a>
+        </div>
+        <div class="valmez_block">
+            <div class="news_valmez">
+            {control mainNewsValmez}
             </div>
-         </a>
-         <a n:href="Bowling:default" class="explorer">
-            <div class="bowling-block">
-                <div class="bowling-transparent">
-                   <div id="current-action-bowling">
-                   <h3>{$akceBowling}</h3>
-                   </div>
-                   <h2>Bowling</h2>
-                   <p>Valašské Meziříčí <img src="{$basePath}/Front-End/img/arrow/arrow.png" alt="" class="arrow"></p>
+            <a n:href="Valmez:default" class="explorer">
+                <div class="heading_text">
+                    <h3>Cafe bar & Coctails</h3>
+                    <p>Valašské Meziříčí</p>
+                    <img src="{$basePath}/Front-End/img/arrow/arrow2.png" alt="" class="arrow">
                 </div>
+            </a>
+        </div>
+        <div class="bowling_block">
+            <div class="news_bowling">
+            {control mainNewsBowling}
             </div>
-         </a>
+            <a n:href="Bowling:default" class="explorer">
+                <div class="heading_text">
+                    <h3>Bowling</h3>
+                    <p>Valašské Meziříčí</p>
+                    <img src="{$basePath}/Front-End/img/arrow/arrow.png" alt="" class="arrow">
+                </div>
+            </a>
+        </div>
     </div>
 </div>
-
 
 {/block}

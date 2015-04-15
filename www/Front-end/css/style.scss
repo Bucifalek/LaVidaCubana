@@ -1,10 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 $red: #d14334;
 $darkGrey: #343333;
-$grey: #c9c9c9;
+$white: #ffffff;
 
-@font-face{
+@font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
@@ -21,427 +21,420 @@ $grey: #c9c9c9;
   background: $darkGrey;
 }
 
-html,body{
-  height: 100%;
+html, body {
   margin: 0;
   padding: 0;
-  outline: none !important;
+  outline: none;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
-  background: url("../img/background/6.jpg") no-repeat top;
+body {
+  background: url("../img/background/2.jpg") no-repeat top center;
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
 }
 
-.section-connection{
-  height: 40%;
-  min-height: 40%;
-}
-
-.arrow{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 10px;
-  outline: none !important;
-  border:none;
-}
-.arrow:hover{
-  opacity: 0.4;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
-  outline: none !important;
-  border:none;
-}
-
-.roznov-block:hover{
-  background: rgba(52, 51, 51, 1);
-}
-.valmez-block:hover{
-  background: rgba(209, 67, 52, 1);
-}
-.bowling-block:hover{
-  background: rgba(221, 221, 221, 1);
-}
 /*  CONTAINER  */
 
-.container{
+.container {
   width: 100%;
   height: 100%;
-}
-
-.explorer{
-  outline: none !important;
-  border:none;
-}
-
-/*  SECTION 1 - LOGO  */
-
-.logo-block{
-  width: 33.333%;
-  height: 60%;
-  min-height: 60%;
-  background: url("../img/textures/pattern.png") rgba(52, 51, 51, 0.41);
   margin: 0 auto;
-
-  h1{
-    color: white;
-    font-family: bittersweet;
-    font-size: 5vw;
-    letter-spacing: 2px;
-    text-align: center;
-    text-shadow: 1px 2px rgba(0, 0, 0, 1);
-
-    margin: 0;
-    padding-top: 210px;
-  }
-
-  h2{
-    color: white;
-    font-family: bittersweet;
-    font-size: 2vw;
-    letter-spacing: 2px;
-    text-align: center;
-    text-shadow: 1px 2px rgba(0, 0, 0, 1);
-
-    margin: 0;
-    padding-top: 20px;
-  }
 }
 
-/*  SEKCE 2 - ROZNOV */
+/*  PART 1 */
 
-.roznov-block{
-  background: rgba(52, 51, 51, 0.88);
-  width: 33.333%;
-  height: 100%;
-  min-height: 100%;
-  float: left;
+.part_one {
+  width: 100%;
+  height: 60%;
 
-  transition-property: background;
-  transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
+  .logo_block {
+    background: url("../img/textures/pattern.png") rgba(52, 51, 51, 0.41);
+    margin: 0 auto;
+    width: 33.333%;
+    height: 100%;
 
-
-  h2{
     font-family: bittersweet;
-    font-size: 3.4vw;
     text-align: center;
-    color: white;
-    margin: 0;
-    padding-top: 60px;
-    text-shadow: 1px 2px rgba(0, 0, 0, 1);
-  }
+    color: #ffffff;
 
-  p{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25px;
-    text-align: center;
-    color: $red;
-    margin: 0;
-  }
+    h1 {
+      padding-top: 150px;
+      text-shadow: 1px 2px rgba(0, 0, 0, 1);
 
-  .roznov-transparent{
-    height: auto;
-
-    #current-action-roznov{
-      width: 100%;
-      height: auto;
-      min-height: 100%;
-      margin-top: 60px;
-
-      background: #282828;
-
-      h3{
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
-        padding: 15px;
-        color: $red;
-        text-shadow: none;
-        letter-spacing: inherit;
-        text-align: center;
+      .word_l {
+        font-size: 6vw;
       }
+      .word_a {
+        font-size: 4.7vw;
+      }
+      .vida {
+        font-size: 5.4vw;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .cubana {
+        font-size: 3.5vw;
+        letter-spacing: 2px;
+      }
+    }
+    p {
+      font-size: 2.2vw;
+      text-shadow: 1px 2px rgba(0, 0, 0, 1);
     }
   }
 }
 
-/*  SEKCE 3 - VALMEZ */
+/*  PART 2  */
 
-.valmez-block{
-  background: rgba(209, 67, 52, 0.88);
-  width: 33.333%;
-  height: 100%;
-  min-height: 100%;
-  float: left;
+.part_two {
+  width: 100%;
+  height: 40%;
 
-  transition-property: background;
-  transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
+  .roznov_block {
+    width: 33.333%;
+    height: 100%;
+    background: rgba(52, 51, 51, 0.95);
+    float: left;
 
-  h2{
-    font-family: bittersweet;
-    font-size: 3.4vw;
-    text-align: center;
-    color: white;
-    margin: 0;
-    padding-top: 60px;
-    text-shadow: 1px 2px rgba(0, 0, 0, 1);
-  }
-
-  p{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25px;
-    text-align: center;
-    color: white;
-    margin: 0;
-  }
-
-  .valmez-transparent{
-    height: auto;
-
-    #current-action-valmez{
+    .news_roznov {
       width: 100%;
       height: auto;
-      min-height: 100%;
-      margin-top: 60px;
+      background: rgba(42, 41, 41, 0.95);
+      margin-top: 30px;
+      position: relative;
+      z-index: +111;
 
-      background: #b0382d;
+      font-size: 0.6vw;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: rgba(209, 67, 52, 0.60);
+      text-align: center;
 
-      h3{
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
-        padding: 15px;
-        color: white;
-        text-shadow: none;
-        letter-spacing: inherit;
-        text-align: center;
+      a {
+        text-decoration: none;
+        color: rgba(209, 67, 52, 0.60);
+
+        transition-property: color;
+        transition-duration: 0.6s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
       }
+      a:hover {
+        color: rgba(209, 67, 52, 0.90);
+      }
+    }
+
+    h3 {
+      text-align: center;
+      color: white;
+      font-family: bittersweet;
+      font-size: 3vw;
+      padding-top: 40px;
+    }
+    p {
+      text-align: center;
+      color: $red;
+    }
+
+    .arrow {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 1.5%;
+    }
+  }
+  .valmez_block {
+    width: 33.333%;
+    height: 100%;
+    background: rgba(209, 67, 52, 0.95);
+    float: left;
+
+    .news_valmez {
+      width: 100%;
+      height: auto;
+      background: rgba(170, 52, 40, 0.95);
+      margin-top: 30px;
+      position: relative;
+      z-index: +111;
+
+      font-size: 0.6vw;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: rgba(255, 255, 255, 0.60);
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.60);
+
+        transition-property: color;
+        transition-duration: 0.6s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+      }
+      a:hover {
+        color: rgba(255, 255, 255, 0.90);
+      }
+    }
+
+    h3 {
+      text-align: center;
+      color: #e5e5e5;
+      font-family: bittersweet;
+      font-size: 3vw;
+      padding-top: 40px;
+    }
+    p {
+      text-align: center;
+      color: #e5e5e5;
+    }
+
+    .arrow {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 1.5%;
+    }
+  }
+  .bowling_block {
+    width: 33.333%;
+    height: 100%;
+    background: rgba(190, 190, 190, 0.95);
+    float: left;
+
+    .news_bowling {
+      width: 100%;
+      height: auto;
+      background: rgba(175, 175, 175, 0.95);
+      margin-top: 30px;
+      position: relative;
+      z-index: +111;
+
+      font-size: 0.6vw;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: rgba(52, 51, 51, 0.60);
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        color: rgba(52, 51, 51, 0.60);
+
+        transition-property: color;
+        transition-duration: 0.6s;
+        transition-delay: 0s, 0.25s, 0.45s, 0.7s;
+      }
+      a:hover {
+        color: rgba(52, 51, 51, 0.90);
+      }
+    }
+
+    h3 {
+      text-align: center;
+      color: white;
+      font-family: bittersweet;
+      font-size: 3vw;
+      letter-spacing: 5px;
+      padding-top: 40px;
+    }
+    p {
+      text-align: center;
+      color: $darkGrey;
+    }
+
+    .arrow {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 1.5%;
     }
   }
 }
 
-/*  SEKCE 4 - BOWLING */
+/*  ODKAZ  */
 
-.bowling-block{
-  background: rgba(191, 191, 191, 0.88);
-  width: 33.333%;
-  height: 100%;
-  min-height: 100%;
-  float: left;
+.roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text {
+  width: 100%;
+  height: auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding-bottom: 20px;
 
   transition-property: background;
   transition-duration: 0.6s;
-  transition-delay: 0s,0.25s,0.45s,0.7s;
-
-  h2{
-    font-family: bittersweet;
-    font-size: 3.4vw;
-    text-align: center;
-    color: white;
-    margin: 0;
-    padding-top: 60px;
-    letter-spacing: 3px;
-    text-shadow: 1px 2px rgba(0, 0, 0, 1);
-  }
-
-  p{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25px;
-    text-align: center;
-    color: $darkGrey;
-    margin: 0;
-  }
-
-  .bowling-transparent{
-    height: auto;
-
-    #current-action-bowling{
-      width: 100%;
-      height: auto;
-      min-height: 100%;
-      margin-top: 60px;
-
-      background: #cdcdcd;
-
-      h3{
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1vw;
-        padding: 15px;
-        color: $darkGrey;
-        text-shadow: none;
-        letter-spacing: inherit;
-        text-align: center;
-      }
-    }
-  }
+  transition-delay: 0s, 0.25s, 0.45s, 0.7s;
 }
 
-/*  MEDIA QUERIES - TY RESPONSIVY  */
+.roznov_block > .explorer > .heading_text:hover, .valmez_block > .explorer > .heading_text:hover, .bowling_block > .explorer > .heading_text:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.30);
+}
+
+.roznov_block > .explorer, .valmez_block > .explorer, .bowling_block > .explorer {
+  text-decoration: none;
+}
+
+/*  RESPONSIVE  */
 
 @media screen and (max-width: 980px) {
-  body{
-    font-size: 1em;
-  }
-  .logo-block{
-    width: 100%;
-    height: 400px;
 
-    h1{
-      font-size: 9vw;
-    }
+  body {
+    background: none;
+  }
 
-    h2{
-      font-size: 7vw;
-    }
-  }
-  .roznov-block{
-    width: 50%;
-    .roznov-transparent{
-      #current-action-roznov{
-        h3{
-          font-size: 2vw;
+  .part_one {
+    .logo_block {
+      width: 100%;
+      background: url("../img/background/2-blur.jpg") no-repeat top center;
+      background-size: cover;
+
+      h1 {
+        padding-top: 50px;
+
+        .word_l {
+          font-size: 12vw;
         }
+        .word_a {
+          font-size: 10.7vw;
+        }
+        .vida {
+          font-size: 11.4vw;
+        }
+        .cubana {
+          font-size: 9.5vw;
+        }
+      }
+      p {
+        font-size: 6.2vw;
       }
     }
   }
-  .valmez-block{
-    width: 50%;
-    .valmez-transparent{
-      #current-action-valmez{
-        h3{
-          font-size: 2vw;
-        }
+
+  .part_two {
+    .roznov_block {
+      width: 50%;
+
+      .news_roznov {
+        font-size: 1.4vw;
+      }
+      h3 {
+        font-size: 4vw;
+        padding-top: 5%;
+      }
+    }
+    .valmez_block {
+      width: 50%;
+
+      .news_valmez {
+        font-size: 1.4vw;
+      }
+      h3 {
+        font-size: 4vw;
+        padding-top: 5%;
+      }
+    }
+    .bowling_block {
+      width: 100%;
+
+      .news_bowling {
+        font-size: 1.4vw;
+      }
+      h3 {
+        font-size: 4vw;
+        padding-top: 2%;
       }
     }
   }
-  .bowling-block{
-    width: 100%;
-    float: left;
-    .bowling-transparent{
-      #current-action-bowling{
-        h3{
-          font-size: 2vw;
-        }
-      }
-    }
-  }
-  .roznov-transparent{
-    h2{font-size: 3em;}
-  }
-  .valmez-transparent{
-    h2{font-size: 3em;}
-  }
-  .bowling-transparent{
-    h2{font-size: 3em;}
-  }
+
 }
 
 @media screen and (max-width: 600px) {
-  .logo-block{
-    width: 100%;
 
-    h1{
-      font-size: 13vw;
-    }
-
-    h2{
-      font-size: 8vw;
-    }
+  body {
+    background: none;
   }
-  .roznov-block{
-    width: 100%;
 
-    h2{
-      font-size: 10vw;
-    }
+  .part_one {
+    .logo_block {
 
-    .roznov-transparent{
-      #current-action-roznov{
-        h3{
-          font-size: 3vw;
+      h1 {
+        .word_l {
+          font-size: 16vw;
         }
+        .word_a {
+          font-size: 14.7vw;
+        }
+        .vida {
+          font-size: 15.4vw;
+        }
+        .cubana {
+          font-size: 13.5vw;
+        }
+      }
+      p {
+        font-size: 8.2vw;
       }
     }
   }
-  .valmez-block{
-    width: 100%;
 
-    h2{
-      font-size: 10vw;
-    }
+  .part_two {
+    .roznov_block {
+      width: 100%;
 
-    .valmez-transparent{
-      #current-action-valmez{
-        h3{
-          font-size: 3vw;
-        }
+      .news_roznov {
+        font-size: 2.5vw;
+      }
+      h3 {
+        font-size: 6.4vw;
       }
     }
-  }
-  .bowling-block{
-    width: 100%;
-    float: left;
+    .valmez_block {
+      width: 100%;
 
-    h2{
-      font-size: 10vw;
+      .news_valmez {
+        font-size: 2.5vw;
+      }
+      h3 {
+        font-size: 6.4vw;
+      }
     }
+    .bowling_block {
+      width: 100%;
 
-    .bowling-transparent{
-      #current-action-bowling{
-        h3{
-          font-size: 3vw;
-        }
+      .news_bowling {
+        font-size: 2.5vw;
+      }
+      h3 {
+        font-size: 6.4vw;
       }
     }
   }
 }
 
-@media screen and (max-height: 768px) {
-  .logo-block{
+@media screen and (max-height: 700px) {
 
-    h1{
-      padding-top: 130px;
-    }
-  }
-  .roznov-block{
+  .part_one {
+    .logo_block {
 
-    h2{
-      padding-top: 20px;
-      font-size: 2.7vw;
-      letter-spacing: 5px;
-    }
-    p{
-       font-size: 1.3vw;
-    }
-  }
-  .valmez-block{
-
-    h2{
-      padding-top: 20px;
-      font-size: 2.7vw;
-      letter-spacing: 5px;
-    }
-    p{
-      font-size: 1.3vw;
-    }
-  }
-  .bowling-block{
-
-    h2{
-      padding-top: 20px;
-      font-size: 2.7vw;
-      letter-spacing: 5px;
-    }
-    p{
-      font-size: 1.3vw;
+      h1 {
+        .word_l {
+          font-size: 8vw;
+        }
+        .word_a {
+          font-size: 6.7vw;
+        }
+        .vida {
+          font-size: 7.4vw;
+        }
+        .cubana {
+          font-size: 5.5vw;
+        }
+      }
+      p {
+        font-size: 4.2vw;
+      }
     }
   }
 }

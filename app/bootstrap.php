@@ -3,6 +3,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 
+
+\Tracy\Debugger::$maxDepth = 10;
+\Tracy\Debugger::$maxLen = 500;
+
+
 $configurator->setDebugMode(['79.127.207.199', '79.127.207.200']); // enable for your remote IP
 $configurator->enableDebugger(__DIR__ . '/../log');
 
@@ -17,6 +22,7 @@ $configurator->addConfig(__DIR__ . '/config/config.local.neon');
 $container = $configurator->createContainer();
 
 
+/** Flashes */
 define("FLASH_SUCCESS", "success|check");
 define("FLASH_WARNING", "warning|warning");
 define("FLASH_FAILED", "danger|remove");

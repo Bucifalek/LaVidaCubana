@@ -1,0 +1,132 @@
+{*
+- @author Jan Kotrba
+<jan.kotrbaa@gmail.com>
+- @date 15:37, 25. 3. 2015
+*}
+{block head}{/block}
+
+{block nav_presenter}Týmy{/block}
+{block nav_action}Upravit{/block}
+{block content}
+
+<div class="tab-content mw800 center-block">
+    <div class="admin-form tab-pane active" id="register2" role="tabpanel">
+        <div class="panel panel-danger heading-border">
+            <div class="panel-heading">
+                  <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Tým {$team['name']}
+                  </span>
+            </div>
+            <form n:name="renameTeamForm" id="form-register2" autocomplete="off">
+                <div class="panel-body">
+                    <div class="section-divider mt10 mb40">
+                        <span>Název týmu</span>
+                    </div>
+                    <div class="section row">
+                        <div class="col-md-12">
+                            <label for="firstname" class="field prepend-icon">
+                                <input n:name="name" id="firstname" class="gui-input" placeholder="Jméno týmu..."
+                                       type="text" value="{$team['name']}">
+                                <label for="firstname" class="field-icon"><i class="fa fa-user"></i>
+                                </label>
+                            </label>
+                        </div>
+                    </div>
+                    <div n:if="$noteam" class="section-divider mt40 mb40">
+                        <span>Členové týmu</span>
+                    </div>
+                    <div n:if="$noteam" class="panel-body pn mb10 cursor-pointer">
+                        <table class="table table-hover" n:if="$teamMembers">
+                            <thead>
+                            <tr>
+                                <th>Jméno</th>
+                                <th>Celkové skóre</th>
+                                <th>Průměr</th>
+                                <th>Index výkonu</th>
+                                <th>Zápasy</th>
+                                <th>Hry</th>
+                                <th class="text-right">Akce</th>
+                            </tr>
+                            </thead>
+                            <tbody n:inner-foreach="$teamMembers as $member">
+                            <tr>
+                                <td>{$member['name']}</td>
+                                <td>{$member['score']}</td>
+                                <td>{$member['score_avg']}</td>
+                                <td class="text-center">
+                                    {if $member['index'] == 1}
+                                    <i class='glyphicons glyphicons-up_arrow'></i>
+                                    {elseif $member['index'] -1}
+                                    <i class='glyphicons glyphicons-down_arrow'></i>
+                                    {/if}
+                                </td>
+                                <td>{$member['matches']}</td>
+                                <td>{$member['games']}</td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button aria-expanded="true" type="button"
+                                                class="btn btn-danger btn-sm  dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Akce
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li>
+                                                <a n:href="Individual:edit, $member->id">Upravit hráče</a>
+                                            </li>
+                                            <li>
+                                                <a href="{link DeleteTeamMember!, $member->id, $member->team}">Odebrat
+                                                    hráče</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div n:if="!$teamMembers">
+                            V tomto týmu zatím nejsou žádní hráči.
+                        </div>
+                        <div class="section-divider mt40 mb40">
+                            <span>Jednotlivci bez týmu</span>
+                        </div>
+                        <div class="panel-body pn mb10 cursor-pointer">
+
+
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Jméno</th>
+                                    <th class="text-right">Akce</th>
+                                </tr>
+                                </thead>
+                                <tbody n:inner-foreach="$noteam as $person">
+                                <tr>
+                                    <td>{$person['name']}</td>
+                                    <td class="text-right">
+                                        <div class="btn-group">
+                                            <a n:href="AssignPlayer!, $person->id, $teamId" aria-expanded="true"
+                                               type="button"
+                                               class="btn btn-danger ">
+                                                Přidat do týmu
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <input n:name="save" type="submit" class="button btn-primary" value="Uložit změny">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{/block}
+
+{block script}{/block}

@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 $red: #d14334;
 $darkGrey: #343333;
 $grey: #dddddd;
-$font-color:#fff;
+$font-color: #fff;
 
-@font-face{
+@font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
@@ -18,71 +18,89 @@ $font-color:#fff;
   height: auto;
 }
 
-.posun{
+.greybox_actual {
+  background: url('../img/bowling/texturka3.png');
+  width: 100%;
+  height: auto;
+}
+
+.greybox_rules {
+  background: url('../img/bowling/texturka3.png');
+  width: 100%;
+  height: 1024px;
+}
+
+.greybox_top {
+  background: url('../img/bowling/texturka3.png');
+  width: 100%;
+  height: 1024px;
+}
+
+.posun {
   margin-top: 60px;
 }
 
-.row_tables{
+.row_tables {
   background: white;
   width: 100%;
   height: auto;
   padding-bottom: 40px;
 
-  .heading_1{
+  .heading_1 {
     width: 100%;
 
-    .table_title{
+    .table_title {
       padding-top: 20px;
       padding-bottom: 20px;
       text-align: center;
       color: $red;
     }
 
-    .table_title_time{
+    .table_title_time {
       text-align: center;
       padding-bottom: 20px;
     }
   }
 
-  .heading_2{
+  .heading_2 {
     width: 100%;
 
-    .table_title_2{
+    .table_title_2 {
       padding-top: 20px;
       padding-bottom: 20px;
       text-align: center;
       color: $red;
     }
 
-    .table_title_time_2{
+    .table_title_time_2 {
       text-align: center;
       padding-bottom: 20px;
     }
   }
 
-  #tabs, #tabs_2, #tabs_3, #tabs_4, #tabs_5{
-    #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9{
+  #tabs, #tabs_2, #tabs_3, #tabs_4, #tabs_5 {
+    #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5, #tabs-6, #tabs-7, #tabs-8, #tabs-9 {
 
-      .rozpis_podzim{
+      .rozpis_podzim {
         width: 100%;
         color: #696969;
 
-        tr{
+        tr {
           text-align: center;
         }
-        td{
+        td {
           border: 1px dotted rgba(220, 220, 220, 0.35);
           padding: 5px;
         }
       }
-      .rozpis_zima{
+      .rozpis_zima {
         width: 100%;
         color: #696969;
 
-        tr{
+        tr {
           text-align: center;
         }
-        td{
+        td {
           border: 1px dotted rgba(220, 220, 220, 0.35);
           padding: 5px;
         }
@@ -90,7 +108,7 @@ $font-color:#fff;
     }
   }
 
-  #tabs{
+  #tabs {
     background: white;
     width: 90%;
     height: auto;
@@ -99,7 +117,7 @@ $font-color:#fff;
 
     border: 1px solid rgba(52, 51, 51, 0.64);
 
-    ul{
+    ul {
       text-decoration: none;
       list-style-type: none;
       display: block;
@@ -108,29 +126,29 @@ $font-color:#fff;
 
       background: #6D6A6A;
 
-      li{
+      li {
         display: inline-table;
         padding: 10px;
         outline: none;
 
-        a{
+        a {
           text-decoration: none;
           color: white;
           outline: none;
 
           transition-property: color;
           transition-duration: 0.6s;
-          transition-delay: 0s,0.25s,0.45s,0.7s;
+          transition-delay: 0s, 0.25s, 0.45s, 0.7s;
         }
 
-        a:hover{
+        a:hover {
           color: #b4b4b4;
         }
       }
     }
   }
 
-  #tabs_2{
+  #tabs_2 {
     background: white;
     width: 90%;
     height: auto;
@@ -139,7 +157,7 @@ $font-color:#fff;
 
     border: 1px solid rgba(52, 51, 51, 0.64);
 
-    ul{
+    ul {
       text-decoration: none;
       list-style-type: none;
       display: block;
@@ -148,29 +166,29 @@ $font-color:#fff;
 
       background: #6D6A6A;
 
-      li{
+      li {
         display: inline-table;
         padding: 10px;
         outline: none;
 
-        a{
+        a {
           text-decoration: none;
           color: white;
           outline: none;
 
           transition-property: color;
           transition-duration: 0.6s;
-          transition-delay: 0s,0.25s,0.45s,0.7s;
+          transition-delay: 0s, 0.25s, 0.45s, 0.7s;
         }
 
-        a:hover{
+        a:hover {
           color: #b4b4b4;
         }
       }
     }
   }
 
-  #tabs_3{
+  #tabs_3 {
     background: white;
     width: 90%;
     height: auto;
@@ -179,7 +197,7 @@ $font-color:#fff;
 
     border: 1px solid rgba(52, 51, 51, 0.64);
 
-    ul{
+    ul {
       text-decoration: none;
       list-style-type: none;
       display: block;
@@ -188,29 +206,29 @@ $font-color:#fff;
 
       background: #6D6A6A;
 
-      li{
+      li {
         display: inline-table;
         padding: 10px;
         outline: none;
 
-        a{
+        a {
           text-decoration: none;
           color: white;
           outline: none;
 
           transition-property: color;
           transition-duration: 0.6s;
-          transition-delay: 0s,0.25s,0.45s,0.7s;
+          transition-delay: 0s, 0.25s, 0.45s, 0.7s;
         }
 
-        a:hover{
+        a:hover {
           color: #b4b4b4;
         }
       }
     }
   }
 
-  #tabs_4{
+  #tabs_4 {
     background: white;
     width: 90%;
     height: auto;
@@ -219,7 +237,7 @@ $font-color:#fff;
 
     border: 1px solid rgba(52, 51, 51, 0.64);
 
-    ul{
+    ul {
       text-decoration: none;
       list-style-type: none;
       display: block;
@@ -228,29 +246,29 @@ $font-color:#fff;
 
       background: #6D6A6A;
 
-      li{
+      li {
         display: inline-table;
         padding: 10px;
         outline: none;
 
-        a{
+        a {
           text-decoration: none;
           color: white;
           outline: none;
 
           transition-property: color;
           transition-duration: 0.6s;
-          transition-delay: 0s,0.25s,0.45s,0.7s;
+          transition-delay: 0s, 0.25s, 0.45s, 0.7s;
         }
 
-        a:hover{
+        a:hover {
           color: #b4b4b4;
         }
       }
     }
   }
 
-  #tabs_5{
+  #tabs_5 {
     background: white;
     width: 90%;
     height: auto;
@@ -259,7 +277,7 @@ $font-color:#fff;
 
     border: 1px solid rgba(52, 51, 51, 0.64);
 
-    ul{
+    ul {
       text-decoration: none;
       list-style-type: none;
       display: block;
@@ -268,25 +286,141 @@ $font-color:#fff;
 
       background: #6D6A6A;
 
-      li{
+      li {
         display: inline-table;
         padding: 10px;
         outline: none;
 
-        a{
+        a {
           text-decoration: none;
           color: white;
           outline: none;
 
           transition-property: color;
           transition-duration: 0.6s;
-          transition-delay: 0s,0.25s,0.45s,0.7s;
+          transition-delay: 0s, 0.25s, 0.45s, 0.7s;
         }
 
-        a:hover{
+        a:hover {
           color: #b4b4b4;
         }
       }
     }
+  }
+}
+
+/*  AKTUALITY  */
+
+.actualRow{
+  width: 100%;
+  height: 1024px;
+
+  #actual{
+    background: white;
+    width: 68%;
+    height: auto;
+    float: left;
+    margin-top: 40px;
+
+    h2{
+      color: rgba(209, 67, 52, 0.80);
+      padding: 15px 0 0 15px;
+      font-size: 23px;
+    }
+    #actualDate{
+      color: #000000;
+      padding-bottom: 10px;
+    }
+    p{
+      width: 94%;
+      color: #6d6d6d;
+      text-align: justify;
+      font-size: 15px;
+      padding-left: 15px;
+    }
+
+    #actualBlog{
+      hr{
+        margin-top: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+  #actual-2{
+    background: $darkGrey;
+    width: 30%;
+    height: auto;
+    float: right;
+    margin-top: 40px;
+
+    p{
+      text-align: center;
+      color: #cdcdcd;
+      padding-bottom: 25px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    p.lastActual{
+      padding: 30px 0 30px 0;
+
+    }
+  }
+}
+
+/*  PRAVIDLA  */
+
+.rulesRow{
+  width: 100%;
+  height: 1024px;
+
+  #rule{
+    background: white;
+    width: 58%;
+    height: 450px;
+    float: left;
+    margin-top: 40px;
+  }
+  #rule-2{
+    background: $darkGrey;
+    width: 40%;
+    height: 450px;
+    float: right;
+    margin-top: 40px;
+  }
+  #rule-3{
+    background: #1e1d1d;
+    width: 100%;
+    height: 450px;
+    float: right;
+    margin-top: 40px;
+  }
+}
+
+/*  TOPKA  */
+
+.topRow{
+  width: 100%;
+  height: 1024px;
+
+  #top{
+    background: white;
+    width: 58%;
+    height: 450px;
+    float: left;
+    margin-top: 40px;
+  }
+  #top-2{
+    background: $darkGrey;
+    width: 40%;
+    height: 450px;
+    float: right;
+    margin-top: 40px;
+  }
+  #top-3{
+    background: #1e1d1d;
+    width: 100%;
+    height: 450px;
+    float: right;
+    margin-top: 40px;
   }
 }

@@ -8,6 +8,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette\Application\UI;
+use Nette\Utils\Strings;
 use Tracy\Debugger;
 
 class MenuControl extends UI\Control
@@ -27,19 +28,35 @@ class MenuControl extends UI\Control
 
 	public function render()
 	{
-		$template = $this->template;
-		$template->setFile(__DIR__ . '/MenuControl.latte');
-		$template->sections = $this->sections;
+		$this->template->setFile(__DIR__ . '/MenuControl.latte');
+		$this->template->sections = $this->sections;
 
-		$template->wrapRoute = function ($arg) {
+		$this->template->currentLink = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
+		$this->template->currentWithParams = str_replace('Admin:', null, $this->presenter->getName()) . ':' . $this->presenter->getAction();
+
+		$params = [$this->presenter->getParameter('season')];
+		if (count($params) > 0) {
+			$imp = implode(', ', $params);
+			if (strlen($imp) > 0) {
+				$this->template->currentWithParams .= ', ' . $imp;
+			}
+		}
+
+		$this->template->wrapRouteWithParams = function ($arg) {
+			foreach ($arg as $route) {
+				if (Strings::contains($route, $this->presenter->getAction())) {
+					return $route;
+				}
+			}
+
+			return $route;
+		};
+
+
+		$this->template->wrapRoute = function ($arg) {
 			if (is_array($arg)) {
 				$value = reset($arg);
-				if (is_array($value)) {
-					$route = explode(":", reset($value));
-				} else {
-					$route = explode(":", $value);
-				}
-
+				$route = (is_array($value)) ? explode(":", reset($value)) : explode(":", $value);
 				unset($route[count($route) - 1]);
 				$result = implode(":", $route) . ":*";
 
@@ -51,46 +68,40 @@ class MenuControl extends UI\Control
 
 			return $result;
 		};
-
-		$template->glyph = function ($arg) {
+		$this->template->glyph = function ($arg) {
 			$parts = explode("|", $arg);
 			if (count($parts) > 1) {
 				return "glyphicons-" . $parts[count($parts) - 1];
 			} else {
-				$report = "For action '".$arg."' there's no icon!";
+				$report = "For action '" . $arg . "' there's no icon!";
 				Debugger::barDump($report);
+
 				return "glyphicons-book_open";
 			}
 		};
-
-		$template->name = function ($arg) {
+		$this->template->name = function ($arg) {
 			$parts = explode("|", $arg);
 
 			return $parts[0];
 		};
-
-		$template->anyData = function ($arg) {
+		$this->template->anyData = function ($arg) {
 			$exploded = explode(",", $arg);
-			if(count($exploded)>1) {
+			if (count($exploded) > 1) {
 				return true;
 			}
 
 			return false;
 		};
+		$this->template->parseLink = function ($arg) {
+			$exploded = explode(", ", $arg);
 
-		$template->parseLink = function($arg) {
+			return $exploded[0];
+		};
+		$this->template->parseData = function ($arg) {
 			$exploded = explode(",", $arg);
 
-			return trim($exploded[0]);
+			return str_replace(' ', '', $exploded[1]);
 		};
-		$template->parseData = function($arg) {
-			$exploded = explode(",", $arg);
-
-			return $exploded[1];
-		};
-
-
-
-		$template->render();
+		$this->template->render();
 	}
 }

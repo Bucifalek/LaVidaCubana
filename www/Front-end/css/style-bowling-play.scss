@@ -1,11 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
 
 $red: #d14334;
 $darkGrey: #343333;
 $grey: #dddddd;
-$font-color:#fff;
+$font-color: #fff;
 
-@font-face{
+@font-face {
   font-family: 'bittersweet';
   src: url("../fonts/Bittersweet%20NF.ttf");
   font-weight: normal;
@@ -14,7 +14,7 @@ $font-color:#fff;
 
 /*  BLOK S TEXTEM A IKONOU TELEFONU  */
 
-.play_info{
+.play_info {
   color: $darkGrey;
   width: 80%;
   margin: 0 auto;
@@ -24,21 +24,22 @@ $font-color:#fff;
   word-spacing: 3px;
   font-size: 19px;
 
-  li{
+  li {
     list-style: none;
   }
 }
 
 /*  CENIK + PROVOZNI DOBA  */
 
-.time_cenik_info{
+.time_cenik_info {
+  background: rgba(255, 255, 255, 0.50);
   width: 100%;
   height: auto;
   min-height: 100%;
   padding-bottom: 80px;
 }
 
-.time_info, .cenik_info{
+.time_info, .cenik_info {
   width: 50%;
   height: auto;
   table-layout: fixed;
@@ -47,19 +48,21 @@ $font-color:#fff;
   top: 30px;
 }
 
-.time_info{
+.time_info {
   float: left;
+  margin-left: 13px;
 }
 
-.time_info td{
+.time_info td {
   width: 50%;
   height: 30px;
 }
 
-.cenik_info td{
+.cenik_info td {
   width: 33%;
   height: 30px;
 }
+
 .tab_title {
   font-size: 25px;
   color: $red;
@@ -67,16 +70,16 @@ $font-color:#fff;
 
 /*  HALF BLOKY  */
 
-.half_blok{
+.half_blok {
   width: 100%;
   height: auto;
 
-  .half_one{
+  .half_one {
     background: white;
     width: 100%;
     height: auto;
 
-    .variant_1{
+    .variant_1 {
       width: 80%;
       margin: 0 auto;
       padding-top: 70px;
@@ -85,13 +88,13 @@ $font-color:#fff;
       font-size: 1.1em;
     }
   }
-  .half_two{
+  .half_two {
     background: #f7f7f7;
     width: 100%;
     height: auto;
     padding-bottom: 30px;
 
-    .variant_2{
+    .variant_2 {
       padding-bottom: 10px;
       padding-top: 10px;
       text-align: center;
@@ -108,7 +111,7 @@ $font-color:#fff;
   }
 }
 
-#instagram_box_2{
+#instagram_box_2 {
   width: 100%;
   height: auto;
   background: url("../img/bowling/texturka.jpg");

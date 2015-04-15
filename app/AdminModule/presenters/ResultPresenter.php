@@ -7,9 +7,53 @@
 
 namespace App\AdminModule\Presenters;
 
-use Nette, 
+use Nette,
 	App\AdminModule\Model;
 
-class ResultPresenter extends BasePresenter {
-	
+/**
+ * Class ResultPresenter
+ * @package App\AdminModule\Presenters
+ */
+class ResultPresenter extends BasePresenter
+{
+
+	/**
+	 * @var Model\BranchManager
+	 */
+	private $branchManager;
+
+	/**
+	 * @param Model\UserManager $userManager
+	 * @param Nette\Database\Context $database
+	 * @param Model\BranchManager $branchManager
+	 */
+	function __construct(Model\UserManager $userManager, Nette\Database\Context $database, Model\BranchManager $branchManager)
+	{
+		parent::__construct($userManager, $database, $branchManager);
+		$this->branchManager = $branchManager;
+	}
+
+	/**
+	 *
+	 */
+	public function beforeRender()
+	{
+		parent::beforeRender();
+		$this->requireBranch(4);
+	}
+
+	/**
+	 * @param $season
+	 */
+	public function renderDefault($season)
+	{
+	}
+
+	/**
+	 * @param $year
+	 */
+	public function renderTop($year)
+	{
+
+	}
 }
