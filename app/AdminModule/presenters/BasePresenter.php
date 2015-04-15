@@ -95,23 +95,22 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 			return @$e[1];
 		};
-		/*
-				if ($this->branchManager->getCurrent() == null) {
-					$this->branchManager->selectDefault();
-				}
+		/** @deprecated
+			if ($this->branchManager->getCurrent() == null) {
+				$this->branchManager->selectDefault();
+			}
 		*/
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
 
-		//$this->template->currentBranchLink = $this->branchManager->getCurrentLink();
 
-		// This is way, how can neon params can be get
-		//$config = new \SystemContainer();
-		//$config = $config->parameters;
-		//Debugger::barDump($config);
 
-		$this->template->sId = ($this->getAction() == "default" AND ($this->getName() == "Admin:Team" OR $this->getName() == "Admin:Individual")) ? "content_wrapper" : "content";
+
+		$allowedRoutes = [
+			'Admin:Individual',
+		];
+		$this->template->sId = ($this->getAction() == "default" AND (in_array($this->getName(), $allowedRoutes))) ? "content_wrapper" : "content";
 	}
 
 	/**

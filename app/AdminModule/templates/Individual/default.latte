@@ -21,7 +21,7 @@
                      </span>
                     </div>
                     <div class="panel-body pn  ml10 mr10 mb10">
-                        <table class="table table-hover">
+                        <table class="table table-hover" n:if="$individuals">
                             <thead>
                             <tr>
                                 <th>Jméno</th>
@@ -75,6 +75,9 @@
                             </tr>
                             </tbody>
                         </table>
+                        <div n:if="!$individuals" class="pt10">
+                            Žádní hráči nenalezeni!
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="row" n:if="$individuals">
@@ -97,41 +100,31 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- end: .tray-center -->
 
-    <!-- begin: .tray-right -->
     <aside class="tray tray-right tray290 va-t pn" data-tray-height="match">
-
-        <!-- menu quick links -->
         <div class="p20 admin-form">
-
-            <h4 class="mt5 text-muted fw500"> Vyhledávání</h4>
-
-            <hr class="short">
-
-            <div class="section mb15">
-                <label for="order-id" class="field prepend-icon">
-                    <input type="text" name="order-id" id="order-id" class="gui-input" placeholder="Jméno...">
-                    <label for="order-id" class="field-icon"><i class="fa fa-tag"></i>
+            <form n:name="searchForm">
+                <h4 class="mt5 text-muted fw500"> Vyhledávání</h4>
+                <hr class="short">
+                <div class="section">
+                    <label for="order-id" class="field prepend-icon">
+                        <input n:name="query" type="text" class="gui-input" placeholder="Jméno..." autocomplete="off">
+                        <label for="order-id" class="field-icon"><i class="glyphicons glyphicons-search"></i>
+                        </label>
                     </label>
-                </label>
-            </div>
-
-            <hr class="short">
-
-            <div class="section row">
-                <div class="col-sm-12">
-                    <button class="btn btn-default btn-sm ph25" type="button">Vyhledat</button>
+                    <div class='section pt20' n:if="$isFiltered">
+                        <a class="mt25" n:href="Individual:default"><i class="glyphicon glyphicon-remove pr5"></i>Žádný filtr</a>
+                    </div>
                 </div>
-            </div>
-
+                <hr class="short">
+                <div class="section row">
+                    <div class="col-sm-12">
+                        <input class="btn btn-default btn-sm ph25" n:name="find" type="submit" value="Vyhledat">
+                    </div>
+                </div>
+            </form>
         </div>
-
     </aside>
-    <!-- end: .tray-right -->
-
 </section>
-
 {/block}
