@@ -7,6 +7,7 @@
 namespace App\AdminModule\Model;
 
 use Nette;
+use Tracy\Debugger;
 
 /**
  * Class OpenTimeManager
@@ -44,5 +45,19 @@ class OpenTimeManager extends Nette\Object
 	public function updateDay($id, $data)
 	{
 		return $this->database->table(DatabaseStructure::BOWLING_OPENTIME)->where('id', $id)->update($data);
+	}
+
+	public function getPairs()
+	{
+		$openTime = [];
+		foreach ($this->all() as $day) {
+			if (isset($openTime[$day->open . ' - ' . $day->close])) {
+				$openTime[$day->open . ' - ' . $day->close]['to'] = $day->day;
+			} else {
+				$openTime[$day->open . ' - ' . $day->close]['from'] = $day->day;
+			}
+		}
+
+		return $openTime;
 	}
 }

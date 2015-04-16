@@ -1,20 +1,17 @@
 {*
  - @author Jan Kotrba <jan.kotrbaa@gmail.com>
- - @date 15:43, 25. 3. 2015
+ - @date 10:21, 15. 4. 2015
 *}
-{block head}{/block}
-
 {block nav_presenter}Aktuálně{/block}
-{block nav_action}Přidat aktualitu{/block}
+{block nav_action}Upravit{/block}
 {block content}
-
 <div class="tab-content mw800 center-block">
     <div class="admin-form tab-pane active" id="register2" role="tabpanel">
         <div class="panel panel-danger heading-border">
             <div class="panel-heading">
-                <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Přidat aktualitu</span>
+                <span class="panel-title" n:block="title"><i class="fa fa-pencil-square"></i>Upravit aktualitu</span>
             </div>
-            <form n:name="addNewsForm" autocomplete="off">
+            <form n:name="editNewsForm" autocomplete="off">
                 <div class="panel-body p25">
                     <div class="section">
                         <label for="firstname" class="field prepend-icon">
@@ -25,14 +22,18 @@
                     <div class="section">
                         <textarea n:name="text" class="form-control" id="textArea2" rows="5" placeholder="Text..."></textarea>
                     </div>
+                    <div class="bs-component">
+                                                <div class="checkbox-custom mb5">
+                                                  <input n:name="saveNewDate" id="checkboxDefault3" type="checkbox">
+                                                  <label for="checkboxDefault3" class="pt2">Aktualizovat datum <b>{$post->timestamp|date:'j.n.Y'}</b> na dnešní</label>
+                                                </div>
+                                              </div>
                 </div>
                 <div class="panel-footer text-right">
-                    <input n:name="save" type="submit" value="Přidat" class="button btn-primary">
+                    <input n:name="save" type="submit" value="Uložit" class="button btn-primary">
                 </div>
             </form>
         </div>
     </div>
 </div>
 {/block}
-
-{block script}{/block}
