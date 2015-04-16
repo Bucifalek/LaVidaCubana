@@ -7,10 +7,9 @@
 
 namespace App\AdminModule\Presenters;
 
-use Latte\Parser;
-use Latte\Runtime\Filters;
 use Nette,
 	App\AdminModule\Model;
+use Nette\Application\UI\Form;
 use Tracy\Debugger;
 
 /**
@@ -72,13 +71,15 @@ final class InfoPresenter extends BasePresenter
 	 */
 	public function renderBowlingPrice()
 	{
-		Debugger::barDump(preg_replace("/[^0-9:]/", "", '11:3fqwf0'));
 		$this->template->days = $this->bowlingPriceManager->all();
 	}
 
+	/**
+	 * @return Form
+	 */
 	public function createComponentBowlingPriceForm()
 	{
-		$form = new Nette\Application\UI\Form();
+		$form = new Form();
 		$form->addProtection();
 
 		$days = $this->openTimeManager->all();
@@ -92,6 +93,9 @@ final class InfoPresenter extends BasePresenter
 		return $form;
 	}
 
+	/**
+	 * @param Form $form
+	 */
 	public function bowlingPriceSave(Nette\Application\UI\Form $form)
 	{
 		$values = $form->getValues();
@@ -121,7 +125,7 @@ final class InfoPresenter extends BasePresenter
 	 */
 	public function createComponentOpenTimeForm()
 	{
-		$form = new Nette\Application\UI\Form();
+		$form = new Form();
 		$form->addProtection();
 
 		$days = $this->openTimeManager->all();
@@ -134,6 +138,7 @@ final class InfoPresenter extends BasePresenter
 
 		return $form;
 	}
+
 
 	/**
 	 * @param Nette\Application\UI\Form $form

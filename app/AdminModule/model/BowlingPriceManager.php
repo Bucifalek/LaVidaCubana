@@ -40,4 +40,27 @@ class BowlingPriceManager extends Nette\Object
 	{
 		return $this->database->table(DatabaseStructure::BOWLING_PRICE)->where('id', $id)->update($data);
 	}
+
+	public function getPairs()
+	{
+		$bowlingPrice = [];
+
+		foreach ($this->all() as $day) {
+			$key = $day->timezone_1_price . ';' . $day->timezone_2_price;
+			if (!isset($bowlingPrice[$key])) {
+				$bowlingPrice[$key]['from'] = $day->key;
+			} else {
+				$bowlingPrice[$key]['to'] = $day->key;
+			}
+			$bowlingPrice[$key]['price_1'] = $day->timezone_1_price;
+			$bowlingPrice[$key]['price_2'] = $day->timezone_2_price;
+		}
+
+		return $bowlingPrice;
+	}
+
+	public function getTimeRanges()
+	{
+		return $this->database->table(DatabaseStructure::BOWLING_PRICE)->select('timezone_1_range, timezone_2_range')->fetch();
+	}
 }
