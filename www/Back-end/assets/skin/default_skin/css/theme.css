@@ -21820,7 +21820,9 @@ ol.timeline-list li.timeline-item .timeline-date {
 .ptn {
     padding-top: 0 !important;
 }
-
+.pt2 {
+    padding-top: 2px !important;
+}
 .pt5 {
     padding-top: 5px !important;
 }
