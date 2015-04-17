@@ -42,8 +42,9 @@ class RouterFactory
 		$router[] = new Route('admin/jednotlivci/upravit[/<id>]', 'Admin:Individual:edit');
 
 		// News
-		$router[] = new Route('admin/aktualne', 'Admin:News:history');
 		$router[] = new Route('admin/aktualne/pridat', 'Admin:News:add');
+		$router[] = new Route('admin/aktualne/upravit/<id=0>', 'Admin:News:edit');
+		$router[] = new Route('admin/aktualne[/<page=1>]', 'Admin:News:default');
 
 		// Dalsi informace
 		$router[] = new Route('admin/informace/oteviraci-doba', 'Admin:Info:openTime');
@@ -59,7 +60,7 @@ class RouterFactory
 
 		// Vysledky
 		$router[] = new Route('admin/vysledky/top-3', 'Admin:Top:default');
-		$router[] = new Route('admin/vysledky/pridat', 'Admin:Result:add');
+		$router[] = new Route('admin/vysledky/pridat[/<step=vybrat-sezonu>]', 'Admin:Result:add');
 		$router[] = new Route('admin/vysledky/<season>', 'Admin:Result:default');
 
 		// Uvodni novinky

@@ -104,12 +104,12 @@
     border: 1px solid;
 }
 .fc-state-default.fc-corner-left {
-    border-top-left-radius: 1px;
-    border-bottom-left-radius: 1px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 }
 .fc-state-default.fc-corner-right {
-    border-top-right-radius: 1px;
-    border-bottom-right-radius: 1px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 /* icons in buttons */
@@ -144,7 +144,7 @@
 .fc-state-active {
     background-color: #cccccc;
     background-image: none;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .fc-state-disabled {
     cursor: default;
@@ -152,12 +152,6 @@
     opacity: 0.65;
     filter: alpha(opacity=65);
     box-shadow: none;
-}
-
-// Added in update v1.31 - Fixes topbar dropdown z-index problem
-.fc-toolbar .fc-state-active,
-.fc-toolbar .ui-state-active {
-    z-index: 1;
 }
 
 /* Buttons Groups
@@ -205,24 +199,4 @@ previous button's border...
 .fc-basic-view td.fc-today.fc-day-number {
     color: #444;
     font-weight: 600;
-}
-
-/* Minimal Style. Requires '.minimal-mp' parent class - Used on Calendar Page
---------------------------------------------------------------------------------------------------*/
-
-.minimal-mp .ui-datepicker {
-    background: none;
-    margin: 0;
-    border: 0;
-}
-.minimal-mp .ui-datepicker-header {
-    display: none;
-}
-.minimal-mp .ui-datepicker td {
-    padding: 8px 5px;
-}
-.minimal-mp .ui-datepicker td span,
-.minimal-mp .ui-datepicker td a {
-    background: #DDD;
-    padding: .50em .20em;
 }

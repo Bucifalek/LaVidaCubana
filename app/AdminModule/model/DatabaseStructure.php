@@ -61,7 +61,12 @@ final class DatabaseStructure extends Nette\Object
 	const BOWLING_OPENTIME = "bowling_opentime";
 
 	/**
-	 * Web visitors
+	 * Web visitors table
 	 */
 	const WEB_VISITORS = "visitors";
+
+	/**
+	 * Bowling news table
+	 */
+	const BOWLING_NEWS = "bowling_news";
 }

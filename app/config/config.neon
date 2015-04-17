@@ -24,6 +24,7 @@ services:
 	- App\AdminModule\Model\TeamsManager
 	- App\AdminModule\Model\OpenTimeManager
 	- App\AdminModule\Model\BowlingPriceManager
+	- App\AdminModule\Model\BowlingNewsManager
 
 
 	# Web

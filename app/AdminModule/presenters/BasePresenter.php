@@ -50,7 +50,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		if ($this->branchManager->getCurrentId() != $id) {
 			$this->redirect('Dashboard:changeBranch', [
-				'target'       => $id,
+				'target' => $id,
 			]);
 		}
 	}
@@ -163,7 +163,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 						],
 						'Aktuálně|warning_sign'   => [
 							'Přidat|pushpin'            => 'News:add',
-							'Historie aktualit|history' => 'News:history',
+							'Historie aktualit|history' => 'News:default',
 						],
 						'Další informace|sampler' => [
 							'Otevírací doba|clock'   => 'Info:openTime',

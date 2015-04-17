@@ -16,48 +16,23 @@
         <div class="time_cenik_info">
             <table class="time_info">
                 <tr><td class="tab_title">Provozní doba</td></tr>
-                <tr>
-                    <td><b>Po - Čt</b></td>
-                    <td>10:00 - 22:00</td>
+                <tr n:foreach="$openTime as $range => $days">
+                    <td><b>{$days['from']|truncate:2, ''}{ifset $days['to']} - {$days['to']|truncate:2, ''}{/ifset}</b></td>
+                    <td>{$range}</td>
                     <td></td>
-                </tr>
-                <tr>
-                   <td><b>Pá - So</b></td>
-                   <td>10:00 - 23:00</td>
-                   <td></td>
-                </tr>
-                <tr>
-                   <td><b>Ne</b></td>
-                   <td>13:00 - 20:00</td>
-                   <td></td>
                 </tr>
             </table>
             <table class="cenik_info">
                 <tr><td class="tab_title">Ceník</td></tr>
                 <tr>
                     <td><b>Časové pásma</b></td>
-                    <td><b>10:00 - 17:00</b></td>
-                    <td><b>17:00 - 23:00</b></td>
+                    <td><b>{$times['timezone_1_range']}</b></td>
+                    <td><b>{$times['timezone_2_range']}</b></td>
                 </tr>
-                <tr>
-                    <td><b>Po - Čt</b></td>
-                    <td>180,-</td>
-                    <td>200,-</td>
-                </tr>
-                <tr>
-                    <td><b>Pá</b></td>
-                    <td>180,-</td>
-                    <td>200,-</td>
-                </tr>
-                <tr>
-                     <td><b>So</b></td>
-                     <td>200,-</td>
-                     <td>220,-</td>
-                </tr>
-                <tr>
-                     <td><b>Ne</b></td>
-                     <td>200,-</td>
-                     <td>220,-</td>
+                <tr n:foreach="$bowlingPrice as $price">
+                    <td><b>{$price['from']|truncate:2, ''}{ifset $price['to']} - {$price['to']|truncate:2, ''}{/ifset}</b></td>
+                    <td>{$price['price_1']},-</td>
+                    <td>{$price['price_2']},-</td>
                 </tr>
             </table>
         </div>

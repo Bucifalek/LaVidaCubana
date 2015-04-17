@@ -45,7 +45,7 @@
 // Panel Menu
 .panel-menu {
   background-color: #fafafa;
-  padding: 12px;
+  padding: 8px;
   border: 1px solid @panel-border-color;
 
   &.dark {
@@ -174,21 +174,21 @@
     margin-bottom: 0;
 
     .list-group-item {
-      // border-width: 1px 0;
+      border-width: 1px 0;
       border-radius: 0;
     }
 
     // Add border top radius for first one
     &:first-child {
       .list-group-item:first-child {
-        // border-top: 0;
+        border-top: 0;
         .border-top-radius((@panel-border-radius - 1));
       }
     }
     // Add border bottom radius for last one
     &:last-child {
       .list-group-item:last-child {
-        // border-bottom: 0;
+        border-bottom: 0;
         .border-bottom-radius((@panel-border-radius - 1));
       }
     }
@@ -196,11 +196,6 @@
 }
 // Collapse space between when there's no additional content.
 .panel-heading + .list-group {
-  .list-group-item:first-child {
-    border-top-width: 0;
-  }
-}
-.panel-body + .list-group {
   .list-group-item:first-child {
     border-top-width: 0;
   }
@@ -316,19 +311,12 @@
 .panel-group {
   margin-bottom: @line-height-computed;
 
-  // panel title
-  .panel-title {
-    padding-left: 0;
+
+  // Accordion title/toggle 
+  .accordion-toggle {
+    padding-left: 5px;
   }
 
-  .panel-heading,
-  .panel-heading a {
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-
-  // Accordion Option - LG Size
   &.accordion-lg {
     .panel + .panel {
       margin-top: 12px;
@@ -342,7 +330,7 @@
 
   // Adds optional toggle icon to accordion title
   .accordion-icon {
-    padding-left: 35px;
+    padding-left: 28px;
 
     &:after {
       position: absolute;
@@ -353,22 +341,12 @@
       font-weight: normal;
       -webkit-font-smoothing: antialiased;
       color: #555;
-      left: 10px;
-      top: 0;
+      left: 15px;
+      top: 1px;
     }
 
     &.collapsed:after {
       content: "\f067";
-    }
-
-    // Right side positioned icon
-    &.icon-right {
-      padding-left: 10px;
-      padding-right: 30px;
-      &:after {
-        left: auto;
-        right: 5px;
-      }
     }
 
   }
@@ -398,3 +376,34 @@
 
 }
 
+
+// Contextual Skin variations
+.panel-primary when (@skin-primary) {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel-success when (@skin-success) {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel-info when (@skin-info) {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel-warning when (@skin-warning) {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.panel-danger when (@skin-danger) {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+.panel-alert when (@skin-alert) {
+  .panel-variant(@panel-alert-border; @panel-alert-text; @panel-alert-heading-bg; @panel-alert-border);
+}
+.panel-system when (@skin-system) {
+  .panel-variant(@panel-system-border; @panel-system-text; @panel-system-heading-bg; @panel-system-border);
+}
+.panel-dark when (@skin-dark) {
+  .panel-variant(@panel-dark-border; @panel-dark-text; @panel-dark-heading-bg; @panel-dark-border);
+}
+
+// disabled as this is a copy of the actual panel defaults
+// .panel-default {
+//   .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+// }

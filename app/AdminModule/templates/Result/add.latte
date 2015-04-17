@@ -3,11 +3,120 @@
  - @date 18:35, 7. 4. 2015
 *}
 {block head}{/block}
-
+{block pageClass}form-input-page{/block}
 {block nav_presenter}Výsledky{/block}
 {block nav_action}Přidat{/block}
 {block content}
-	Lorem ipsum
+<div class="tab-block mw800 center-block">
+
+  <ul class="nav nav-tabs tabs-border nav-justified">
+    <li{if $step == 'vybrat-sezonu'} class="active"{/if}>
+        <a n:href="Result:add, 'vybrat-sezonu'" data-toggle="tab"><i class="glyphicon glyphicon-tag text-user mr5"></i>Vybrat sezónu</a>
+      </li>
+    <li{if $step == 'vybrat-tym'} class="active"{/if}>
+      <a n:href="Result:add, 'vybrat-tym'" data-toggle="tab"><i class="glyphicons glyphicons-nameplate text-user mr5"></i>Vybrat tým</a>
+    </li>
+    <li {if $step == 'vybrat-hrace'} class="active"{/if}>
+          <a n:href="Result:add, 'vybrat-hrace'" data-toggle="tab"><i class="glyphicons glyphicons-nameplate text-user mr5"></i>Vybrat hráče</a>
+        </li>
+    <li {if $step == 'pridat-vysledky'} class="active"{/if}>
+      <a n:href="Result:add, 'pridat-vysledky'"><i class="glyphicons glyphicons-charts text-purple mr5"></i>Přidat výsledky</a>
+    </li>
+    <li {if $step == 'dokonceno'} class="active"{/if}>
+      <a n:href="Result:add, 'dokonceno'" data-toggle="tab"><i class="glyphicon glyphicon-flag text-purple mr5"></i>Dokončeno</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+  <div n:if="$step == 'vybrat-sezonu'" class="active">
+  <form>
+            <div class="form-group">
+            <div class="col-sm-12">
+                <div class="bs-component">
+                   <div class="radio-custom mb5">
+                     <input id="spring" name="season" value="spring" type="radio">
+                     <label for="spring">Jarní část</label>
+                   </div>
+                 </div>
+                 <div class="bs-component">
+                  <div class="radio-custom mb5">
+                    <input id="fall" name="season" value="fall" type="radio">
+                    <label for="fall">Podzimní část</label>
+                  </div>
+                </div>
+
+            <div class="bs-component">
+               <div class="radio-custom mb5">
+                 <input id="winter" name="season" value="winter" type="radio">
+                 <label for="winter">Zimní část</label>
+               </div>
+             </div>
+            <div class="bs-component">
+              <div class="radio-custom mb5">
+                <input id="playoff" name="season" value="play-off" type="radio">
+                <label for="playoff">Play-off</label>
+              </div>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-danger pull-right">Pokračovat</button>
+         </div>
+         </form>
+      </div>
+
+
+   <div n:if="$step == 'vybrat-tym'" class="active">
+
+   <table class="table table-hover cursor">
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th class="text-right">Akce</th>
+        </tr>
+        </thead>
+        <tbody n:inner-foreach="$teams as $team">
+        <tr>
+            <td>{$team['name']}</td>
+            <td class="text-right">
+                <div class="btn-group">
+                    <a n:href="SelectTeam!, $team['id'], $season" aria-expanded="true" type="button" class="btn btn-danger ">Zvolit</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div n:if="$step == 'vybrat-hrace'" class="tab-pane active">
+        <table class="table table-hover cursor">
+                <thead>
+                <tr>
+                    <th>Jméno</th>
+                    <th class="text-right">Akce</th>
+                </tr>
+                </thead>
+                <tbody n:inner-foreach="$members as $member">
+                <tr>
+                    <td>{$member['name']}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <a n:href="SelectPlayer!, $team, $member['id'], $season" aria-expanded="true" type="button" class="btn btn-danger ">Zvolit</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+    <div n:if="$step == 'krok-3'" class="tab-pane">
+      <p><b>TAB THREE - </b>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+    </div>
+    <div n:if="$step == 'krok-4'" class="tab-pane">
+      <p><b>TAB FOUR - </b>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+    </div>
+  </div>
+</div>
+
 {/block}
 
-{block script}{/block}
+{block script}
+<script type='text/javascript'>
+    $('#multiselect1').multiselect();
+</script>{/block}

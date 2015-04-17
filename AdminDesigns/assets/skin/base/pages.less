@@ -14,7 +14,6 @@
 	  K. Profile.html
 	  L. Error Pages
 	  M. Ecommerce Pages // Added update v1.3
-	  N. Search Result Page // Added update v1.4
 
  * This file is reserved for changes done on
  * a per-page basis. To create independent
@@ -85,6 +84,34 @@ body.ui-animations-page {
 
 }
 
+/*===============================================
+  B. FAQ Page
+================================================= */ 
+body.faq-page {
+
+	// input group merge addon
+	.input-group-merge {
+	    display: block;
+	}
+	.input-group-merge .input-group-addon {
+	    position: absolute;
+	    top: 10px;
+	    left: 13px;
+	    border: 0;
+	    background: transparent;
+	    z-index: 3;
+	    font-size: 18px;
+	}
+	.input-group-merge .input-group-addon + input.form-control {
+	    display: block;
+	    float: none;
+	    padding-left: 60px;
+	}
+	#icon-filter {
+	    border-left: 3px solid #4a89dc;
+	}
+
+}
 
 /*===============================================
   C. Gallery Page
@@ -183,7 +210,7 @@ body.calendar-page {
 	.tray-left .ui-datepicker td span,
 	.tray-left .ui-datepicker td a {
 	    background: #DDD;
-	    padding: .50em .20em;
+	    padding: .30em .20em;
 	}
 
 	.tray-left #compose-event-btn {
@@ -202,54 +229,14 @@ body.calendar-page {
 		font-weight: 400;
 	}
 
-	// responsive styles - <900px
+	// responsive styles - title
 	@media (max-width: 900px) {
-
-		// Fullcalendar title
 		.fc-toolbar .fc-center {
 			margin-top: 20px;
 			margin-bottom: 10px;
 		}
 	}
 
-	// Responsive styles - <600px
-	@media (max-width: 600px) {
-
-	  // fullcalendar container
-	  .fc-view-container {
-	  	margin-bottom: 30px;
-	  }
-
-	  // fullcalendar toolbar
-	  .fc-toolbar .fc-button {
-	    padding: 4px 8px;
-	  }
-
-	  // fullcalendar toolbar buttons
-	  .fc-toolbar .fc-left {}
-	  .fc-toolbar .fc-right { float: left; margin-left: 10px;}
-	  .fc-toolbar .fc-center {
-	   float: left; 
-	   width: 100%;
-	  }
-	  .fc-toolbar .fc-center h2 {
-	   float: none;
-	   text-align: center;
-	  }
-
-	  // hide cloned fullcalendar title 
-	  .fc-title-clone {
-	 	display: none;
-	  }
-
-	  // external events container mod 
-	  #external-events {
-	    padding: 15px 10px 10px;
-	    background: #e8e8e8;
-	    border: 1px solid #ccc;
-	  }
-
-	}
 
 }
 
@@ -257,13 +244,6 @@ body.calendar-page {
   E. Messages Page
 ================================================= */ 
 body.messages-page {
-
-	// message toolbar/menu
-	.message-menu {
-	  padding: 10px 15px;
-	  background-color: #FFF;
-	  border-bottom: 1px solid #EEE;
-	}
 
 	// message compose btn
 	.compose-btn {
@@ -463,56 +443,7 @@ body.external-page {
 		color: #FFF;
 		text-decoration: none;
 	}
-
-	.coming-soon-title {
-	  text-align: center;
-	  color: #FFF;
-	  font-size: 40px;
-	  font-weight: 400;
-	  margin-top: 70px;
-	  margin-bottom: 20px;
-	}
 }
-
-/*===============================================
-  G. External Pages (ALT) - login, register,
-  screenlock, coming-soon, forgotpw
-// ================================================= */ 
-body.external-page.external-alt {
-
-	#main {
-		background: #f4f4f4;
-		// Dark Version
-	    // background: url("@{img-path}/patterns/backgrounds/2.jpg") no-repeat top center #2d494d; 
-	}
-	#content .admin-form {
-	    margin-top: 5%;
-	    // max-width: 500px;
-	}
-	#content .panel {
-	    box-shadow: none;
-	}
-	#content .panel .section-divider span {
-	    color: #AAA;
-	}
-
-	.login-links,
-	.login-links a {
-		color: #999;
-		font-size: 13px;
-		text-align: center;
-	}
-	.login-links a {
-		color: #555;
-		font-weight: 600;
-	}
-	.login-links a.active {
-		color: @brand-primary;
-	}
-
-}
-
-
 
 /*===============================================
   H. Invoice.html
@@ -799,13 +730,6 @@ body.timeline-page #content {
 		min-width: 250px;
 	}
 
-	/*responsive expanding header styles*/
-	@media(max-width: 800px) {
-		.expanding-header {
-		  display: none;
-		}
-	}
-
 }
 
 .maps-full-page	.expanding-header {
@@ -814,20 +738,31 @@ body.timeline-page #content {
 }
 
 
-
 /*===============================================
   K. Profile.html
 ================================================= */ 
 body.profile-page {
+	.profile-settings-btn {
+	    position: absolute;
+	    right: 20px;
+	    top: 20px;
+	}
+	.profile-settings-icon {
+	    z-index: 1;
+	    position: absolute;
+	    right: 13px;
+	    top: 7px;
+	}
 	#content .tab-block .nav-tabs > li > a {
 	    padding: 9px 35px;
 	}
 }
-
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */ 
 body.error-page {
+	min-height: 0;
+	overflow: hidden;
 
 	#main:before {
 		background: #F5F5F5;
@@ -902,7 +837,7 @@ body.error-page {
 
 
 /*===============================================
-  M. Ecommerce Page - Added update v1.3
+  L. Ecommerce Page - Added via update v1.3
 ================================================= */ 
 .ecommerce-page {
 
@@ -946,86 +881,11 @@ body.error-page {
 	    background-color: #FAFAFA;
 	}
 
-}
-
-
-/*===============================================
-  N. Search Results Page - Added update v1.4
-================================================= */ 
-.search-results-page {
-
-	 // Search Result Item - Sibling Border 
-	.search-result + .search-result {
-		margin-top: 31px;
-		padding-top: 20px;
-		border-top: 1px dashed #DDD;
+	/* bg-light colored panel-tabs styling */
+	.panel-tabs.panel-tabs-light > li.active > a,
+	.panel-tabs.panel-tabs-light > li.active > a:hover,
+	.panel-tabs.panel-tabs-light > li.active > a:focus {
+	    background: #FAFAFA;
 	}
 
-	 // Search Result Item - Typography 
-	.search-result h3,
-	.search-result > a  {
-	  display: block;
-	  margin-bottom: 5px;
-	}
-
-	 // Search Result Item - Meta Information (inline-list) 
-	ul.result-meta {
-	  list-style: none;
-	  padding-left: 0;
-	  margin-left: -5px;
-	  margin-bottom: 5px;
-	}
-	ul.result-meta > li {
-	  position: relative;
-	  display: inline-block;
-	  padding-left: 5px;
-	  padding-right: 5px;
-	}
-	ul.result-meta > li + li {
-	  padding-left: 12px;
-	}
-	ul.result-meta > li + li:after {
-	  content: "-";
-	  position: absolute;
-	  top:0;
-	  left: 0;
-	}
-	ul.result-meta > li > a {
-	  font-size: 13px;
-	  color: #999;
-	}
-
-}
-
-/*===============================================
-  O. Bootstrap Timeout Page - Added update v1.4
-================================================= */ 
-#session-timeout-dialog .modal-dialog {
-	width: 102%;
-	height: 100%;
-	background: rgba(255,255,255,0.93);
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 15%;
-	text-align: center;
-	border-radius: 1px;
-}
-#session-timeout-dialog .modal-content {
-	background: none;
-	box-shadow: none;
-	border: 1px solid #DDD;
-	width: 600px;
-	margin: 0 auto;
-}
-#session-timeout-dialog .modal-header {
-	background-color: #f6f6f6;
-}
-#session-timeout-dialog .modal-body {
-	padding: 30px 20px;
-	font-size: 16px;
-	background-color: #fff;
-}
-#session-timeout-dialog .modal-footer {
-	text-align: center;
-	background-color: #f6f6f6;
 }

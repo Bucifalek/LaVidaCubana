@@ -6,8 +6,7 @@
  *
  * Date: Tue Jul 22 11:54:54 CDT 2014
  **/
-;
-(function($) {
+;(function($) {
 
 function defined(a) {
 	return typeof a !== 'undefined';
