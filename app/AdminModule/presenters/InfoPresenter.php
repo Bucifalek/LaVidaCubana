@@ -153,14 +153,14 @@ final class InfoPresenter extends BasePresenter
 				'close' => preg_replace("/[^0-9:]/", "", $values->offsetGet('day' . $dayID . '_to')),
 			];
 
-			foreach(['open', 'close'] as $key) {
-				if($data[$key][2] != ":") {
+			foreach (['open', 'close'] as $key) {
+				if ($data[$key][2] != ":") {
 					$data[$key][3] = $data[$key][2];
 					$data[$key][4] = $data[$key][3];
 					$data[$key][2] = ':';
 				}
 			}
-			
+
 			$value = str_replace(':', '', $data['open']);
 			if ($value > 2400) {
 				$data['open'] = '24:00';

@@ -56,9 +56,11 @@ class ResultPresenter extends BasePresenter
 		parent::beforeRender();
 		$this->requireBranch(4);
 
-		if ($this->getParameter('season') AND !$this->getParameter('step')) {
+
+		if ($this->getParameter('season') AND $this->getParameter('step', false) == "vybrat-sezonu") {
 			$this->redirect('Result:add', ['step' => 'vybrat-tym', 'season' => $this->getParameter('season')]);
 		}
+
 	}
 
 	/**
@@ -89,6 +91,10 @@ class ResultPresenter extends BasePresenter
 			$this->template->season = $this->getParameter('season');
 			$this->template->team = $this->getParameter('team');
 			$this->template->members = $this->individualManager->fromTeam($this->getParameter('team'));
+		} else if ($step == 'pridat-vysledky') {
+			$this->template->team = $this->teamsManager->get($this->getParameter('team'));
+			$this->template->player = $this->individualManager->get($this->getParameter('player'));
+			$this->template->season = $this->getParameter('season');
 		}
 	}
 
@@ -99,7 +105,7 @@ class ResultPresenter extends BasePresenter
 	 */
 	public function handleSelectTeam($id, $season)
 	{
-		$this->redirect('Result:add', ['step' => 'vybrat-hrace', 'team' => $id, 'season' => $season]);
+		$this->redirect('Result:add', ['step' => 'vybrat-hrace', 'season' => $season, 'team' => $id]);
 	}
 
 
@@ -110,7 +116,7 @@ class ResultPresenter extends BasePresenter
 	 */
 	public function handleSelectPlayer($team, $player, $season)
 	{
-		$this->redirect('Result:add', ['step' => 'pridat-vysledky', 'team' => $team, 'player' => $player, 'season' => $season]);
+		$this->redirect('Result:add', ['step' => 'pridat-vysledky', 'season' => $season, 'team' => $team, 'player' => $player]);
 	}
 
 	/**
@@ -118,6 +124,6 @@ class ResultPresenter extends BasePresenter
 	 */
 	public function handleSelectSeason($season)
 	{
-		$this->redirect('Result:add', ['season' => $season]);
+		$this->redirect('Result:add', ['step' => 'vybrat-tym', 'season' => $season]);
 	}
 }
