@@ -78,10 +78,9 @@ class RouterFactory
 		$router[] = new Route('admin/odhlasit-se', 'Admin:Sign:out');
 
 		// Spravci
-		$router[] = new Route('admin/spravci/', 'Admin:Users:list');
+		$router[] = new Route('admin/spravci/', 'Admin:Users:default');
 		$router[] = new Route('admin/spravci/pridat/', 'Admin:Users:add');
 		$router[] = new Route('admin/spravci/upravit/[<userID>]', 'Admin:Users:edit');
-		$router[] = new Route('admin/spravci/seznam/', 'Admin:Users:list');
 
 		// Dashboard
 		$router[] = new Route('admin/', 'Admin:Dashboard:default');

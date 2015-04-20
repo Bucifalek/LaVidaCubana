@@ -216,7 +216,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			'Správci|group'           =>
 				[
 					'Přidat|user_add'            => 'Users:add',
-					'Seznam správců|adress_book' => 'Users:list'
+					'Seznam správců|adress_book' => 'Users:default'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
 			'Export databáze|magic'   => "Helper:databaseExport",
