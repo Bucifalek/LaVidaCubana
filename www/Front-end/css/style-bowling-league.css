@@ -22,7 +22,7 @@
 .greybox_top {
   background: url("../img/bowling/texturka3.png");
   width: 100%;
-  height: 960px; }
+  height: 1024px; }
 
 .posun {
   margin-top: 60px; }
@@ -52,20 +52,20 @@
     .row_tables .heading_2 .table_title_time_2 {
       text-align: center;
       padding-bottom: 20px; }
-  .row_tables #tabs #tabs-1 .rozpis_podzim, .row_tables #tabs #tabs-2 .rozpis_podzim, .row_tables #tabs #tabs-3 .rozpis_podzim, .row_tables #tabs #tabs-4 .rozpis_podzim, .row_tables #tabs #tabs-5 .rozpis_podzim, .row_tables #tabs #tabs-6 .rozpis_podzim, .row_tables #tabs #tabs-7 .rozpis_podzim, .row_tables #tabs #tabs-8 .rozpis_podzim, .row_tables #tabs #tabs-9 .rozpis_podzim, .row_tables #tabs_2 #tabs-1 .rozpis_podzim, .row_tables #tabs_2 #tabs-2 .rozpis_podzim, .row_tables #tabs_2 #tabs-3 .rozpis_podzim, .row_tables #tabs_2 #tabs-4 .rozpis_podzim, .row_tables #tabs_2 #tabs-5 .rozpis_podzim, .row_tables #tabs_2 #tabs-6 .rozpis_podzim, .row_tables #tabs_2 #tabs-7 .rozpis_podzim, .row_tables #tabs_2 #tabs-8 .rozpis_podzim, .row_tables #tabs_2 #tabs-9 .rozpis_podzim, .row_tables #tabs_3 #tabs-1 .rozpis_podzim, .row_tables #tabs_3 #tabs-2 .rozpis_podzim, .row_tables #tabs_3 #tabs-3 .rozpis_podzim, .row_tables #tabs_3 #tabs-4 .rozpis_podzim, .row_tables #tabs_3 #tabs-5 .rozpis_podzim, .row_tables #tabs_3 #tabs-6 .rozpis_podzim, .row_tables #tabs_3 #tabs-7 .rozpis_podzim, .row_tables #tabs_3 #tabs-8 .rozpis_podzim, .row_tables #tabs_3 #tabs-9 .rozpis_podzim, .row_tables #tabs_4 #tabs-1 .rozpis_podzim, .row_tables #tabs_4 #tabs-2 .rozpis_podzim, .row_tables #tabs_4 #tabs-3 .rozpis_podzim, .row_tables #tabs_4 #tabs-4 .rozpis_podzim, .row_tables #tabs_4 #tabs-5 .rozpis_podzim, .row_tables #tabs_4 #tabs-6 .rozpis_podzim, .row_tables #tabs_4 #tabs-7 .rozpis_podzim, .row_tables #tabs_4 #tabs-8 .rozpis_podzim, .row_tables #tabs_4 #tabs-9 .rozpis_podzim, .row_tables #tabs_5 #tabs-1 .rozpis_podzim, .row_tables #tabs_5 #tabs-2 .rozpis_podzim, .row_tables #tabs_5 #tabs-3 .rozpis_podzim, .row_tables #tabs_5 #tabs-4 .rozpis_podzim, .row_tables #tabs_5 #tabs-5 .rozpis_podzim, .row_tables #tabs_5 #tabs-6 .rozpis_podzim, .row_tables #tabs_5 #tabs-7 .rozpis_podzim, .row_tables #tabs_5 #tabs-8 .rozpis_podzim, .row_tables #tabs_5 #tabs-9 .rozpis_podzim {
+  .row_tables #tabs #tabs-1 .rozpis_podzim, .row_tables #tabs #tabs-2 .rozpis_podzim, .row_tables #tabs #tabs-3 .rozpis_podzim, .row_tables #tabs #tabs-4 .rozpis_podzim, .row_tables #tabs #tabs-5 .rozpis_podzim, .row_tables #tabs #tabs-6 .rozpis_podzim, .row_tables #tabs #tabs-7 .rozpis_podzim, .row_tables #tabs #tabs-8 .rozpis_podzim, .row_tables #tabs #tabs-9 .rozpis_podzim {
     width: 100%;
     color: #696969; }
-    .row_tables #tabs #tabs-1 .rozpis_podzim tr, .row_tables #tabs #tabs-2 .rozpis_podzim tr, .row_tables #tabs #tabs-3 .rozpis_podzim tr, .row_tables #tabs #tabs-4 .rozpis_podzim tr, .row_tables #tabs #tabs-5 .rozpis_podzim tr, .row_tables #tabs #tabs-6 .rozpis_podzim tr, .row_tables #tabs #tabs-7 .rozpis_podzim tr, .row_tables #tabs #tabs-8 .rozpis_podzim tr, .row_tables #tabs #tabs-9 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-9 .rozpis_podzim tr {
+    .row_tables #tabs #tabs-1 .rozpis_podzim tr, .row_tables #tabs #tabs-2 .rozpis_podzim tr, .row_tables #tabs #tabs-3 .rozpis_podzim tr, .row_tables #tabs #tabs-4 .rozpis_podzim tr, .row_tables #tabs #tabs-5 .rozpis_podzim tr, .row_tables #tabs #tabs-6 .rozpis_podzim tr, .row_tables #tabs #tabs-7 .rozpis_podzim tr, .row_tables #tabs #tabs-8 .rozpis_podzim tr, .row_tables #tabs #tabs-9 .rozpis_podzim tr {
       text-align: center; }
-    .row_tables #tabs #tabs-1 .rozpis_podzim td, .row_tables #tabs #tabs-2 .rozpis_podzim td, .row_tables #tabs #tabs-3 .rozpis_podzim td, .row_tables #tabs #tabs-4 .rozpis_podzim td, .row_tables #tabs #tabs-5 .rozpis_podzim td, .row_tables #tabs #tabs-6 .rozpis_podzim td, .row_tables #tabs #tabs-7 .rozpis_podzim td, .row_tables #tabs #tabs-8 .rozpis_podzim td, .row_tables #tabs #tabs-9 .rozpis_podzim td, .row_tables #tabs_2 #tabs-1 .rozpis_podzim td, .row_tables #tabs_2 #tabs-2 .rozpis_podzim td, .row_tables #tabs_2 #tabs-3 .rozpis_podzim td, .row_tables #tabs_2 #tabs-4 .rozpis_podzim td, .row_tables #tabs_2 #tabs-5 .rozpis_podzim td, .row_tables #tabs_2 #tabs-6 .rozpis_podzim td, .row_tables #tabs_2 #tabs-7 .rozpis_podzim td, .row_tables #tabs_2 #tabs-8 .rozpis_podzim td, .row_tables #tabs_2 #tabs-9 .rozpis_podzim td, .row_tables #tabs_3 #tabs-1 .rozpis_podzim td, .row_tables #tabs_3 #tabs-2 .rozpis_podzim td, .row_tables #tabs_3 #tabs-3 .rozpis_podzim td, .row_tables #tabs_3 #tabs-4 .rozpis_podzim td, .row_tables #tabs_3 #tabs-5 .rozpis_podzim td, .row_tables #tabs_3 #tabs-6 .rozpis_podzim td, .row_tables #tabs_3 #tabs-7 .rozpis_podzim td, .row_tables #tabs_3 #tabs-8 .rozpis_podzim td, .row_tables #tabs_3 #tabs-9 .rozpis_podzim td, .row_tables #tabs_4 #tabs-1 .rozpis_podzim td, .row_tables #tabs_4 #tabs-2 .rozpis_podzim td, .row_tables #tabs_4 #tabs-3 .rozpis_podzim td, .row_tables #tabs_4 #tabs-4 .rozpis_podzim td, .row_tables #tabs_4 #tabs-5 .rozpis_podzim td, .row_tables #tabs_4 #tabs-6 .rozpis_podzim td, .row_tables #tabs_4 #tabs-7 .rozpis_podzim td, .row_tables #tabs_4 #tabs-8 .rozpis_podzim td, .row_tables #tabs_4 #tabs-9 .rozpis_podzim td, .row_tables #tabs_5 #tabs-1 .rozpis_podzim td, .row_tables #tabs_5 #tabs-2 .rozpis_podzim td, .row_tables #tabs_5 #tabs-3 .rozpis_podzim td, .row_tables #tabs_5 #tabs-4 .rozpis_podzim td, .row_tables #tabs_5 #tabs-5 .rozpis_podzim td, .row_tables #tabs_5 #tabs-6 .rozpis_podzim td, .row_tables #tabs_5 #tabs-7 .rozpis_podzim td, .row_tables #tabs_5 #tabs-8 .rozpis_podzim td, .row_tables #tabs_5 #tabs-9 .rozpis_podzim td {
+    .row_tables #tabs #tabs-1 .rozpis_podzim td, .row_tables #tabs #tabs-2 .rozpis_podzim td, .row_tables #tabs #tabs-3 .rozpis_podzim td, .row_tables #tabs #tabs-4 .rozpis_podzim td, .row_tables #tabs #tabs-5 .rozpis_podzim td, .row_tables #tabs #tabs-6 .rozpis_podzim td, .row_tables #tabs #tabs-7 .rozpis_podzim td, .row_tables #tabs #tabs-8 .rozpis_podzim td, .row_tables #tabs #tabs-9 .rozpis_podzim td {
       border: 1px dotted rgba(220, 220, 220, 0.35);
       padding: 5px; }
-  .row_tables #tabs #tabs-1 .rozpis_zima, .row_tables #tabs #tabs-2 .rozpis_zima, .row_tables #tabs #tabs-3 .rozpis_zima, .row_tables #tabs #tabs-4 .rozpis_zima, .row_tables #tabs #tabs-5 .rozpis_zima, .row_tables #tabs #tabs-6 .rozpis_zima, .row_tables #tabs #tabs-7 .rozpis_zima, .row_tables #tabs #tabs-8 .rozpis_zima, .row_tables #tabs #tabs-9 .rozpis_zima, .row_tables #tabs_2 #tabs-1 .rozpis_zima, .row_tables #tabs_2 #tabs-2 .rozpis_zima, .row_tables #tabs_2 #tabs-3 .rozpis_zima, .row_tables #tabs_2 #tabs-4 .rozpis_zima, .row_tables #tabs_2 #tabs-5 .rozpis_zima, .row_tables #tabs_2 #tabs-6 .rozpis_zima, .row_tables #tabs_2 #tabs-7 .rozpis_zima, .row_tables #tabs_2 #tabs-8 .rozpis_zima, .row_tables #tabs_2 #tabs-9 .rozpis_zima, .row_tables #tabs_3 #tabs-1 .rozpis_zima, .row_tables #tabs_3 #tabs-2 .rozpis_zima, .row_tables #tabs_3 #tabs-3 .rozpis_zima, .row_tables #tabs_3 #tabs-4 .rozpis_zima, .row_tables #tabs_3 #tabs-5 .rozpis_zima, .row_tables #tabs_3 #tabs-6 .rozpis_zima, .row_tables #tabs_3 #tabs-7 .rozpis_zima, .row_tables #tabs_3 #tabs-8 .rozpis_zima, .row_tables #tabs_3 #tabs-9 .rozpis_zima, .row_tables #tabs_4 #tabs-1 .rozpis_zima, .row_tables #tabs_4 #tabs-2 .rozpis_zima, .row_tables #tabs_4 #tabs-3 .rozpis_zima, .row_tables #tabs_4 #tabs-4 .rozpis_zima, .row_tables #tabs_4 #tabs-5 .rozpis_zima, .row_tables #tabs_4 #tabs-6 .rozpis_zima, .row_tables #tabs_4 #tabs-7 .rozpis_zima, .row_tables #tabs_4 #tabs-8 .rozpis_zima, .row_tables #tabs_4 #tabs-9 .rozpis_zima, .row_tables #tabs_5 #tabs-1 .rozpis_zima, .row_tables #tabs_5 #tabs-2 .rozpis_zima, .row_tables #tabs_5 #tabs-3 .rozpis_zima, .row_tables #tabs_5 #tabs-4 .rozpis_zima, .row_tables #tabs_5 #tabs-5 .rozpis_zima, .row_tables #tabs_5 #tabs-6 .rozpis_zima, .row_tables #tabs_5 #tabs-7 .rozpis_zima, .row_tables #tabs_5 #tabs-8 .rozpis_zima, .row_tables #tabs_5 #tabs-9 .rozpis_zima {
+  .row_tables #tabs #tabs-1 .rozpis_zima, .row_tables #tabs #tabs-2 .rozpis_zima, .row_tables #tabs #tabs-3 .rozpis_zima, .row_tables #tabs #tabs-4 .rozpis_zima, .row_tables #tabs #tabs-5 .rozpis_zima, .row_tables #tabs #tabs-6 .rozpis_zima, .row_tables #tabs #tabs-7 .rozpis_zima, .row_tables #tabs #tabs-8 .rozpis_zima, .row_tables #tabs #tabs-9 .rozpis_zima {
     width: 100%;
     color: #696969; }
-    .row_tables #tabs #tabs-1 .rozpis_zima tr, .row_tables #tabs #tabs-2 .rozpis_zima tr, .row_tables #tabs #tabs-3 .rozpis_zima tr, .row_tables #tabs #tabs-4 .rozpis_zima tr, .row_tables #tabs #tabs-5 .rozpis_zima tr, .row_tables #tabs #tabs-6 .rozpis_zima tr, .row_tables #tabs #tabs-7 .rozpis_zima tr, .row_tables #tabs #tabs-8 .rozpis_zima tr, .row_tables #tabs #tabs-9 .rozpis_zima tr, .row_tables #tabs_2 #tabs-1 .rozpis_zima tr, .row_tables #tabs_2 #tabs-2 .rozpis_zima tr, .row_tables #tabs_2 #tabs-3 .rozpis_zima tr, .row_tables #tabs_2 #tabs-4 .rozpis_zima tr, .row_tables #tabs_2 #tabs-5 .rozpis_zima tr, .row_tables #tabs_2 #tabs-6 .rozpis_zima tr, .row_tables #tabs_2 #tabs-7 .rozpis_zima tr, .row_tables #tabs_2 #tabs-8 .rozpis_zima tr, .row_tables #tabs_2 #tabs-9 .rozpis_zima tr, .row_tables #tabs_3 #tabs-1 .rozpis_zima tr, .row_tables #tabs_3 #tabs-2 .rozpis_zima tr, .row_tables #tabs_3 #tabs-3 .rozpis_zima tr, .row_tables #tabs_3 #tabs-4 .rozpis_zima tr, .row_tables #tabs_3 #tabs-5 .rozpis_zima tr, .row_tables #tabs_3 #tabs-6 .rozpis_zima tr, .row_tables #tabs_3 #tabs-7 .rozpis_zima tr, .row_tables #tabs_3 #tabs-8 .rozpis_zima tr, .row_tables #tabs_3 #tabs-9 .rozpis_zima tr, .row_tables #tabs_4 #tabs-1 .rozpis_zima tr, .row_tables #tabs_4 #tabs-2 .rozpis_zima tr, .row_tables #tabs_4 #tabs-3 .rozpis_zima tr, .row_tables #tabs_4 #tabs-4 .rozpis_zima tr, .row_tables #tabs_4 #tabs-5 .rozpis_zima tr, .row_tables #tabs_4 #tabs-6 .rozpis_zima tr, .row_tables #tabs_4 #tabs-7 .rozpis_zima tr, .row_tables #tabs_4 #tabs-8 .rozpis_zima tr, .row_tables #tabs_4 #tabs-9 .rozpis_zima tr, .row_tables #tabs_5 #tabs-1 .rozpis_zima tr, .row_tables #tabs_5 #tabs-2 .rozpis_zima tr, .row_tables #tabs_5 #tabs-3 .rozpis_zima tr, .row_tables #tabs_5 #tabs-4 .rozpis_zima tr, .row_tables #tabs_5 #tabs-5 .rozpis_zima tr, .row_tables #tabs_5 #tabs-6 .rozpis_zima tr, .row_tables #tabs_5 #tabs-7 .rozpis_zima tr, .row_tables #tabs_5 #tabs-8 .rozpis_zima tr, .row_tables #tabs_5 #tabs-9 .rozpis_zima tr {
+    .row_tables #tabs #tabs-1 .rozpis_zima tr, .row_tables #tabs #tabs-2 .rozpis_zima tr, .row_tables #tabs #tabs-3 .rozpis_zima tr, .row_tables #tabs #tabs-4 .rozpis_zima tr, .row_tables #tabs #tabs-5 .rozpis_zima tr, .row_tables #tabs #tabs-6 .rozpis_zima tr, .row_tables #tabs #tabs-7 .rozpis_zima tr, .row_tables #tabs #tabs-8 .rozpis_zima tr, .row_tables #tabs #tabs-9 .rozpis_zima tr {
       text-align: center; }
-    .row_tables #tabs #tabs-1 .rozpis_zima td, .row_tables #tabs #tabs-2 .rozpis_zima td, .row_tables #tabs #tabs-3 .rozpis_zima td, .row_tables #tabs #tabs-4 .rozpis_zima td, .row_tables #tabs #tabs-5 .rozpis_zima td, .row_tables #tabs #tabs-6 .rozpis_zima td, .row_tables #tabs #tabs-7 .rozpis_zima td, .row_tables #tabs #tabs-8 .rozpis_zima td, .row_tables #tabs #tabs-9 .rozpis_zima td, .row_tables #tabs_2 #tabs-1 .rozpis_zima td, .row_tables #tabs_2 #tabs-2 .rozpis_zima td, .row_tables #tabs_2 #tabs-3 .rozpis_zima td, .row_tables #tabs_2 #tabs-4 .rozpis_zima td, .row_tables #tabs_2 #tabs-5 .rozpis_zima td, .row_tables #tabs_2 #tabs-6 .rozpis_zima td, .row_tables #tabs_2 #tabs-7 .rozpis_zima td, .row_tables #tabs_2 #tabs-8 .rozpis_zima td, .row_tables #tabs_2 #tabs-9 .rozpis_zima td, .row_tables #tabs_3 #tabs-1 .rozpis_zima td, .row_tables #tabs_3 #tabs-2 .rozpis_zima td, .row_tables #tabs_3 #tabs-3 .rozpis_zima td, .row_tables #tabs_3 #tabs-4 .rozpis_zima td, .row_tables #tabs_3 #tabs-5 .rozpis_zima td, .row_tables #tabs_3 #tabs-6 .rozpis_zima td, .row_tables #tabs_3 #tabs-7 .rozpis_zima td, .row_tables #tabs_3 #tabs-8 .rozpis_zima td, .row_tables #tabs_3 #tabs-9 .rozpis_zima td, .row_tables #tabs_4 #tabs-1 .rozpis_zima td, .row_tables #tabs_4 #tabs-2 .rozpis_zima td, .row_tables #tabs_4 #tabs-3 .rozpis_zima td, .row_tables #tabs_4 #tabs-4 .rozpis_zima td, .row_tables #tabs_4 #tabs-5 .rozpis_zima td, .row_tables #tabs_4 #tabs-6 .rozpis_zima td, .row_tables #tabs_4 #tabs-7 .rozpis_zima td, .row_tables #tabs_4 #tabs-8 .rozpis_zima td, .row_tables #tabs_4 #tabs-9 .rozpis_zima td, .row_tables #tabs_5 #tabs-1 .rozpis_zima td, .row_tables #tabs_5 #tabs-2 .rozpis_zima td, .row_tables #tabs_5 #tabs-3 .rozpis_zima td, .row_tables #tabs_5 #tabs-4 .rozpis_zima td, .row_tables #tabs_5 #tabs-5 .rozpis_zima td, .row_tables #tabs_5 #tabs-6 .rozpis_zima td, .row_tables #tabs_5 #tabs-7 .rozpis_zima td, .row_tables #tabs_5 #tabs-8 .rozpis_zima td, .row_tables #tabs_5 #tabs-9 .rozpis_zima td {
+    .row_tables #tabs #tabs-1 .rozpis_zima td, .row_tables #tabs #tabs-2 .rozpis_zima td, .row_tables #tabs #tabs-3 .rozpis_zima td, .row_tables #tabs #tabs-4 .rozpis_zima td, .row_tables #tabs #tabs-5 .rozpis_zima td, .row_tables #tabs #tabs-6 .rozpis_zima td, .row_tables #tabs #tabs-7 .rozpis_zima td, .row_tables #tabs #tabs-8 .rozpis_zima td, .row_tables #tabs #tabs-9 .rozpis_zima td {
       border: 1px dotted rgba(220, 220, 220, 0.35);
       padding: 5px; }
   .row_tables #tabs {
@@ -94,114 +94,6 @@
           transition-duration: 0.6s;
           transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
         .row_tables #tabs ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_2 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_2 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_2 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_2 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_2 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_3 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_3 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_3 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_3 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_3 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_4 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_4 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_4 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_4 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_4 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_5 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_5 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_5 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_5 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_5 ul li a:hover {
           color: #b4b4b4; }
 
 /*  AKTUALITY  */

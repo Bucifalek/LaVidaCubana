@@ -110,6 +110,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		//$config = new \SystemContainer();
 		//$config = $config->parameters;
 		//Debugger::barDump($config);
+
+		$this->template->sId = ($this->getAction() == "default" AND ($this->getName() == "Admin:Team" OR $this->getName() == "Admin:Individual")) ? "content_wrapper" : "content";
 	}
 
 	/**
