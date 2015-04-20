@@ -21820,9 +21820,11 @@ ol.timeline-list li.timeline-item .timeline-date {
 .ptn {
     padding-top: 0 !important;
 }
+
 .pt2 {
     padding-top: 2px !important;
 }
+
 .pt5 {
     padding-top: 5px !important;
 }
@@ -30949,6 +30951,16 @@ to occupy 100% width at low resolutions */
 .cursor-pointer {
     cursor: pointer;
 }
-.no-border{
+
+.no-border {
     border-bottom: 0px !important;
+}
+
+.no-results {
+    border: 1px solid #e9573f !important;
+    color: #e9573f !important;
+}
+
+i.no-results {
+    border: none !important;
 }

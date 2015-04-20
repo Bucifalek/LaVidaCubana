@@ -7,6 +7,7 @@
 namespace App\AdminModule\Model;
 
 use Nette;
+use Tracy\Debugger;
 
 /**
  * Class IndividualManager
@@ -21,6 +22,11 @@ final class IndividualManager extends Nette\Object
 	private $database;
 
 	/**
+	 * @var
+	 */
+	private $find;
+
+	/**
 	 * @param Nette\Database\Context $database
 	 */
 	function __construct(Nette\Database\Context $database)
@@ -33,7 +39,21 @@ final class IndividualManager extends Nette\Object
 	 */
 	public function total()
 	{
+		if (is_array($this->find)) {
+			return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->count();
+		}
+
 		return $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->count();
+	}
+
+	/**
+	 * @param $coll
+	 * @param $value
+	 * @return array|bool
+	 */
+	public function search($coll, $value)
+	{
+		return $this->find = (!empty($coll) AND !empty($value)) ? [$coll, $value] : false;
 	}
 
 	/**
@@ -44,12 +64,17 @@ final class IndividualManager extends Nette\Object
 	public function getPage($limit, $offset)
 	{
 		$teams = [];
+
 		foreach ($this->database->table(DatabaseStructure::BOWLING_TEAMS)->select('id, name')->fetchAll() as $team) {
 			$teams[$team->id] = $team->name;
 		}
 
 		$individualsFinal = [];
-		$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
+		if ($this->find) {
+			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->limit($limit, $offset)->fetchAll();
+		} else {
+			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
+		}
 		foreach ($individuals as $person) {
 			$individualsFinal[] = [
 				'id'        => $person->id,
