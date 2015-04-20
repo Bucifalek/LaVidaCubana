@@ -9,6 +9,7 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
+use Tracy\Debugger;
 
 /**
  * Class IndividualPresenter
@@ -59,6 +60,11 @@ class IndividualPresenter extends BasePresenter
 	 */
 	public function renderDefault($page)
 	{
+		if ($this->getParameter('find', false)) {
+			$this->individualManager->search('name', $this->getParameter('find'));
+		}
+		$this->template->isFiltered = ($this->getParameter('find', false)) ? true : false;
+
 		$paginator = new Nette\Utils\Paginator;
 		$paginator->setItemCount($this->individualManager->total());
 		$paginator->setPage($page);
@@ -191,5 +197,29 @@ class IndividualPresenter extends BasePresenter
 	public function handleChangePage($pageNum)
 	{
 		$this->redirect('Individual:default', $pageNum);
+	}
+
+	public function createComponentSearchForm()
+	{
+		$form = new Nette\Application\UI\Form();
+		$form->addText('query')->setValue($this->getParameter('find'));
+		$form->addSubmit('find');
+		$form->onSuccess[] = [$this, 'searchTerm'];
+
+		return $form;
+	}
+
+	public function searchTerm(Nette\Application\UI\Form $form)
+	{
+		$values = $form->getValues();
+		$this->redirect('Individual:default', [
+			'page' => $this->getParameter('page'),
+			'find' => $values['query']
+			//'find' => Nette\Utils\Strings::webalize($values['query'])
+		]);
+	}
+
+	public function handleWithOutFilter() {
+		$this->redirect('Individual:default');
 	}
 }
