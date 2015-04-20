@@ -7,7 +7,7 @@
 .greybox_table {
   background: url("../img/bowling/texturka3.png");
   width: 100%;
-  height: auto; }
+  height: 2000px; }
 
 .greybox_actual {
   background: url("../img/bowling/texturka3.png");
@@ -22,187 +22,58 @@
 .greybox_top {
   background: url("../img/bowling/texturka3.png");
   width: 100%;
-  height: 960px; }
+  height: 1024px; }
 
-.posun {
-  margin-top: 60px; }
-
-.row_tables {
+/*  LIGA TABULKA  */
+.individualContent, .teamsContent {
   background: white;
   width: 100%;
   height: auto;
-  padding-bottom: 40px; }
-  .row_tables .heading_1 {
-    width: 100%; }
-    .row_tables .heading_1 .table_title {
-      padding-top: 20px;
-      padding-bottom: 20px;
-      text-align: center;
-      color: #d14334; }
-    .row_tables .heading_1 .table_title_time {
-      text-align: center;
-      padding-bottom: 20px; }
-  .row_tables .heading_2 {
-    width: 100%; }
-    .row_tables .heading_2 .table_title_2 {
-      padding-top: 20px;
-      padding-bottom: 20px;
-      text-align: center;
-      color: #d14334; }
-    .row_tables .heading_2 .table_title_time_2 {
-      text-align: center;
-      padding-bottom: 20px; }
-  .row_tables #tabs #tabs-1 .rozpis_podzim, .row_tables #tabs #tabs-2 .rozpis_podzim, .row_tables #tabs #tabs-3 .rozpis_podzim, .row_tables #tabs #tabs-4 .rozpis_podzim, .row_tables #tabs #tabs-5 .rozpis_podzim, .row_tables #tabs #tabs-6 .rozpis_podzim, .row_tables #tabs #tabs-7 .rozpis_podzim, .row_tables #tabs #tabs-8 .rozpis_podzim, .row_tables #tabs #tabs-9 .rozpis_podzim, .row_tables #tabs_2 #tabs-1 .rozpis_podzim, .row_tables #tabs_2 #tabs-2 .rozpis_podzim, .row_tables #tabs_2 #tabs-3 .rozpis_podzim, .row_tables #tabs_2 #tabs-4 .rozpis_podzim, .row_tables #tabs_2 #tabs-5 .rozpis_podzim, .row_tables #tabs_2 #tabs-6 .rozpis_podzim, .row_tables #tabs_2 #tabs-7 .rozpis_podzim, .row_tables #tabs_2 #tabs-8 .rozpis_podzim, .row_tables #tabs_2 #tabs-9 .rozpis_podzim, .row_tables #tabs_3 #tabs-1 .rozpis_podzim, .row_tables #tabs_3 #tabs-2 .rozpis_podzim, .row_tables #tabs_3 #tabs-3 .rozpis_podzim, .row_tables #tabs_3 #tabs-4 .rozpis_podzim, .row_tables #tabs_3 #tabs-5 .rozpis_podzim, .row_tables #tabs_3 #tabs-6 .rozpis_podzim, .row_tables #tabs_3 #tabs-7 .rozpis_podzim, .row_tables #tabs_3 #tabs-8 .rozpis_podzim, .row_tables #tabs_3 #tabs-9 .rozpis_podzim, .row_tables #tabs_4 #tabs-1 .rozpis_podzim, .row_tables #tabs_4 #tabs-2 .rozpis_podzim, .row_tables #tabs_4 #tabs-3 .rozpis_podzim, .row_tables #tabs_4 #tabs-4 .rozpis_podzim, .row_tables #tabs_4 #tabs-5 .rozpis_podzim, .row_tables #tabs_4 #tabs-6 .rozpis_podzim, .row_tables #tabs_4 #tabs-7 .rozpis_podzim, .row_tables #tabs_4 #tabs-8 .rozpis_podzim, .row_tables #tabs_4 #tabs-9 .rozpis_podzim, .row_tables #tabs_5 #tabs-1 .rozpis_podzim, .row_tables #tabs_5 #tabs-2 .rozpis_podzim, .row_tables #tabs_5 #tabs-3 .rozpis_podzim, .row_tables #tabs_5 #tabs-4 .rozpis_podzim, .row_tables #tabs_5 #tabs-5 .rozpis_podzim, .row_tables #tabs_5 #tabs-6 .rozpis_podzim, .row_tables #tabs_5 #tabs-7 .rozpis_podzim, .row_tables #tabs_5 #tabs-8 .rozpis_podzim, .row_tables #tabs_5 #tabs-9 .rozpis_podzim {
+  margin-top: 40px; }
+  .individualContent #tabs, .individualContent #tabs_2, .teamsContent #tabs, .teamsContent #tabs_2 {
     width: 100%;
-    color: #696969; }
-    .row_tables #tabs #tabs-1 .rozpis_podzim tr, .row_tables #tabs #tabs-2 .rozpis_podzim tr, .row_tables #tabs #tabs-3 .rozpis_podzim tr, .row_tables #tabs #tabs-4 .rozpis_podzim tr, .row_tables #tabs #tabs-5 .rozpis_podzim tr, .row_tables #tabs #tabs-6 .rozpis_podzim tr, .row_tables #tabs #tabs-7 .rozpis_podzim tr, .row_tables #tabs #tabs-8 .rozpis_podzim tr, .row_tables #tabs #tabs-9 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_2 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_3 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_4 #tabs-9 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-1 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-2 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-3 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-4 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-5 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-6 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-7 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-8 .rozpis_podzim tr, .row_tables #tabs_5 #tabs-9 .rozpis_podzim tr {
-      text-align: center; }
-    .row_tables #tabs #tabs-1 .rozpis_podzim td, .row_tables #tabs #tabs-2 .rozpis_podzim td, .row_tables #tabs #tabs-3 .rozpis_podzim td, .row_tables #tabs #tabs-4 .rozpis_podzim td, .row_tables #tabs #tabs-5 .rozpis_podzim td, .row_tables #tabs #tabs-6 .rozpis_podzim td, .row_tables #tabs #tabs-7 .rozpis_podzim td, .row_tables #tabs #tabs-8 .rozpis_podzim td, .row_tables #tabs #tabs-9 .rozpis_podzim td, .row_tables #tabs_2 #tabs-1 .rozpis_podzim td, .row_tables #tabs_2 #tabs-2 .rozpis_podzim td, .row_tables #tabs_2 #tabs-3 .rozpis_podzim td, .row_tables #tabs_2 #tabs-4 .rozpis_podzim td, .row_tables #tabs_2 #tabs-5 .rozpis_podzim td, .row_tables #tabs_2 #tabs-6 .rozpis_podzim td, .row_tables #tabs_2 #tabs-7 .rozpis_podzim td, .row_tables #tabs_2 #tabs-8 .rozpis_podzim td, .row_tables #tabs_2 #tabs-9 .rozpis_podzim td, .row_tables #tabs_3 #tabs-1 .rozpis_podzim td, .row_tables #tabs_3 #tabs-2 .rozpis_podzim td, .row_tables #tabs_3 #tabs-3 .rozpis_podzim td, .row_tables #tabs_3 #tabs-4 .rozpis_podzim td, .row_tables #tabs_3 #tabs-5 .rozpis_podzim td, .row_tables #tabs_3 #tabs-6 .rozpis_podzim td, .row_tables #tabs_3 #tabs-7 .rozpis_podzim td, .row_tables #tabs_3 #tabs-8 .rozpis_podzim td, .row_tables #tabs_3 #tabs-9 .rozpis_podzim td, .row_tables #tabs_4 #tabs-1 .rozpis_podzim td, .row_tables #tabs_4 #tabs-2 .rozpis_podzim td, .row_tables #tabs_4 #tabs-3 .rozpis_podzim td, .row_tables #tabs_4 #tabs-4 .rozpis_podzim td, .row_tables #tabs_4 #tabs-5 .rozpis_podzim td, .row_tables #tabs_4 #tabs-6 .rozpis_podzim td, .row_tables #tabs_4 #tabs-7 .rozpis_podzim td, .row_tables #tabs_4 #tabs-8 .rozpis_podzim td, .row_tables #tabs_4 #tabs-9 .rozpis_podzim td, .row_tables #tabs_5 #tabs-1 .rozpis_podzim td, .row_tables #tabs_5 #tabs-2 .rozpis_podzim td, .row_tables #tabs_5 #tabs-3 .rozpis_podzim td, .row_tables #tabs_5 #tabs-4 .rozpis_podzim td, .row_tables #tabs_5 #tabs-5 .rozpis_podzim td, .row_tables #tabs_5 #tabs-6 .rozpis_podzim td, .row_tables #tabs_5 #tabs-7 .rozpis_podzim td, .row_tables #tabs_5 #tabs-8 .rozpis_podzim td, .row_tables #tabs_5 #tabs-9 .rozpis_podzim td {
-      border: 1px dotted rgba(220, 220, 220, 0.35);
-      padding: 5px; }
-  .row_tables #tabs #tabs-1 .rozpis_zima, .row_tables #tabs #tabs-2 .rozpis_zima, .row_tables #tabs #tabs-3 .rozpis_zima, .row_tables #tabs #tabs-4 .rozpis_zima, .row_tables #tabs #tabs-5 .rozpis_zima, .row_tables #tabs #tabs-6 .rozpis_zima, .row_tables #tabs #tabs-7 .rozpis_zima, .row_tables #tabs #tabs-8 .rozpis_zima, .row_tables #tabs #tabs-9 .rozpis_zima, .row_tables #tabs_2 #tabs-1 .rozpis_zima, .row_tables #tabs_2 #tabs-2 .rozpis_zima, .row_tables #tabs_2 #tabs-3 .rozpis_zima, .row_tables #tabs_2 #tabs-4 .rozpis_zima, .row_tables #tabs_2 #tabs-5 .rozpis_zima, .row_tables #tabs_2 #tabs-6 .rozpis_zima, .row_tables #tabs_2 #tabs-7 .rozpis_zima, .row_tables #tabs_2 #tabs-8 .rozpis_zima, .row_tables #tabs_2 #tabs-9 .rozpis_zima, .row_tables #tabs_3 #tabs-1 .rozpis_zima, .row_tables #tabs_3 #tabs-2 .rozpis_zima, .row_tables #tabs_3 #tabs-3 .rozpis_zima, .row_tables #tabs_3 #tabs-4 .rozpis_zima, .row_tables #tabs_3 #tabs-5 .rozpis_zima, .row_tables #tabs_3 #tabs-6 .rozpis_zima, .row_tables #tabs_3 #tabs-7 .rozpis_zima, .row_tables #tabs_3 #tabs-8 .rozpis_zima, .row_tables #tabs_3 #tabs-9 .rozpis_zima, .row_tables #tabs_4 #tabs-1 .rozpis_zima, .row_tables #tabs_4 #tabs-2 .rozpis_zima, .row_tables #tabs_4 #tabs-3 .rozpis_zima, .row_tables #tabs_4 #tabs-4 .rozpis_zima, .row_tables #tabs_4 #tabs-5 .rozpis_zima, .row_tables #tabs_4 #tabs-6 .rozpis_zima, .row_tables #tabs_4 #tabs-7 .rozpis_zima, .row_tables #tabs_4 #tabs-8 .rozpis_zima, .row_tables #tabs_4 #tabs-9 .rozpis_zima, .row_tables #tabs_5 #tabs-1 .rozpis_zima, .row_tables #tabs_5 #tabs-2 .rozpis_zima, .row_tables #tabs_5 #tabs-3 .rozpis_zima, .row_tables #tabs_5 #tabs-4 .rozpis_zima, .row_tables #tabs_5 #tabs-5 .rozpis_zima, .row_tables #tabs_5 #tabs-6 .rozpis_zima, .row_tables #tabs_5 #tabs-7 .rozpis_zima, .row_tables #tabs_5 #tabs-8 .rozpis_zima, .row_tables #tabs_5 #tabs-9 .rozpis_zima {
-    width: 100%;
-    color: #696969; }
-    .row_tables #tabs #tabs-1 .rozpis_zima tr, .row_tables #tabs #tabs-2 .rozpis_zima tr, .row_tables #tabs #tabs-3 .rozpis_zima tr, .row_tables #tabs #tabs-4 .rozpis_zima tr, .row_tables #tabs #tabs-5 .rozpis_zima tr, .row_tables #tabs #tabs-6 .rozpis_zima tr, .row_tables #tabs #tabs-7 .rozpis_zima tr, .row_tables #tabs #tabs-8 .rozpis_zima tr, .row_tables #tabs #tabs-9 .rozpis_zima tr, .row_tables #tabs_2 #tabs-1 .rozpis_zima tr, .row_tables #tabs_2 #tabs-2 .rozpis_zima tr, .row_tables #tabs_2 #tabs-3 .rozpis_zima tr, .row_tables #tabs_2 #tabs-4 .rozpis_zima tr, .row_tables #tabs_2 #tabs-5 .rozpis_zima tr, .row_tables #tabs_2 #tabs-6 .rozpis_zima tr, .row_tables #tabs_2 #tabs-7 .rozpis_zima tr, .row_tables #tabs_2 #tabs-8 .rozpis_zima tr, .row_tables #tabs_2 #tabs-9 .rozpis_zima tr, .row_tables #tabs_3 #tabs-1 .rozpis_zima tr, .row_tables #tabs_3 #tabs-2 .rozpis_zima tr, .row_tables #tabs_3 #tabs-3 .rozpis_zima tr, .row_tables #tabs_3 #tabs-4 .rozpis_zima tr, .row_tables #tabs_3 #tabs-5 .rozpis_zima tr, .row_tables #tabs_3 #tabs-6 .rozpis_zima tr, .row_tables #tabs_3 #tabs-7 .rozpis_zima tr, .row_tables #tabs_3 #tabs-8 .rozpis_zima tr, .row_tables #tabs_3 #tabs-9 .rozpis_zima tr, .row_tables #tabs_4 #tabs-1 .rozpis_zima tr, .row_tables #tabs_4 #tabs-2 .rozpis_zima tr, .row_tables #tabs_4 #tabs-3 .rozpis_zima tr, .row_tables #tabs_4 #tabs-4 .rozpis_zima tr, .row_tables #tabs_4 #tabs-5 .rozpis_zima tr, .row_tables #tabs_4 #tabs-6 .rozpis_zima tr, .row_tables #tabs_4 #tabs-7 .rozpis_zima tr, .row_tables #tabs_4 #tabs-8 .rozpis_zima tr, .row_tables #tabs_4 #tabs-9 .rozpis_zima tr, .row_tables #tabs_5 #tabs-1 .rozpis_zima tr, .row_tables #tabs_5 #tabs-2 .rozpis_zima tr, .row_tables #tabs_5 #tabs-3 .rozpis_zima tr, .row_tables #tabs_5 #tabs-4 .rozpis_zima tr, .row_tables #tabs_5 #tabs-5 .rozpis_zima tr, .row_tables #tabs_5 #tabs-6 .rozpis_zima tr, .row_tables #tabs_5 #tabs-7 .rozpis_zima tr, .row_tables #tabs_5 #tabs-8 .rozpis_zima tr, .row_tables #tabs_5 #tabs-9 .rozpis_zima tr {
-      text-align: center; }
-    .row_tables #tabs #tabs-1 .rozpis_zima td, .row_tables #tabs #tabs-2 .rozpis_zima td, .row_tables #tabs #tabs-3 .rozpis_zima td, .row_tables #tabs #tabs-4 .rozpis_zima td, .row_tables #tabs #tabs-5 .rozpis_zima td, .row_tables #tabs #tabs-6 .rozpis_zima td, .row_tables #tabs #tabs-7 .rozpis_zima td, .row_tables #tabs #tabs-8 .rozpis_zima td, .row_tables #tabs #tabs-9 .rozpis_zima td, .row_tables #tabs_2 #tabs-1 .rozpis_zima td, .row_tables #tabs_2 #tabs-2 .rozpis_zima td, .row_tables #tabs_2 #tabs-3 .rozpis_zima td, .row_tables #tabs_2 #tabs-4 .rozpis_zima td, .row_tables #tabs_2 #tabs-5 .rozpis_zima td, .row_tables #tabs_2 #tabs-6 .rozpis_zima td, .row_tables #tabs_2 #tabs-7 .rozpis_zima td, .row_tables #tabs_2 #tabs-8 .rozpis_zima td, .row_tables #tabs_2 #tabs-9 .rozpis_zima td, .row_tables #tabs_3 #tabs-1 .rozpis_zima td, .row_tables #tabs_3 #tabs-2 .rozpis_zima td, .row_tables #tabs_3 #tabs-3 .rozpis_zima td, .row_tables #tabs_3 #tabs-4 .rozpis_zima td, .row_tables #tabs_3 #tabs-5 .rozpis_zima td, .row_tables #tabs_3 #tabs-6 .rozpis_zima td, .row_tables #tabs_3 #tabs-7 .rozpis_zima td, .row_tables #tabs_3 #tabs-8 .rozpis_zima td, .row_tables #tabs_3 #tabs-9 .rozpis_zima td, .row_tables #tabs_4 #tabs-1 .rozpis_zima td, .row_tables #tabs_4 #tabs-2 .rozpis_zima td, .row_tables #tabs_4 #tabs-3 .rozpis_zima td, .row_tables #tabs_4 #tabs-4 .rozpis_zima td, .row_tables #tabs_4 #tabs-5 .rozpis_zima td, .row_tables #tabs_4 #tabs-6 .rozpis_zima td, .row_tables #tabs_4 #tabs-7 .rozpis_zima td, .row_tables #tabs_4 #tabs-8 .rozpis_zima td, .row_tables #tabs_4 #tabs-9 .rozpis_zima td, .row_tables #tabs_5 #tabs-1 .rozpis_zima td, .row_tables #tabs_5 #tabs-2 .rozpis_zima td, .row_tables #tabs_5 #tabs-3 .rozpis_zima td, .row_tables #tabs_5 #tabs-4 .rozpis_zima td, .row_tables #tabs_5 #tabs-5 .rozpis_zima td, .row_tables #tabs_5 #tabs-6 .rozpis_zima td, .row_tables #tabs_5 #tabs-7 .rozpis_zima td, .row_tables #tabs_5 #tabs-8 .rozpis_zima td, .row_tables #tabs_5 #tabs-9 .rozpis_zima td {
-      border: 1px dotted rgba(220, 220, 220, 0.35);
-      padding: 5px; }
-  .row_tables #tabs {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs ul {
-      text-decoration: none;
-      list-style-type: none;
+    height: auto; }
+    .individualContent #tabs ul, .individualContent #tabs_2 ul, .teamsContent #tabs ul, .teamsContent #tabs_2 ul {
+      background: #343333;
+      width: 100%;
       display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs ul li {
+      text-align: right;
+      outline: none !important; }
+      .individualContent #tabs ul p, .individualContent #tabs_2 ul p, .teamsContent #tabs ul p, .teamsContent #tabs_2 ul p {
+        text-align: left;
+        color: #d14334;
+        position: absolute;
+        line-height: 40px;
+        padding-left: 20px; }
+      .individualContent #tabs ul li, .individualContent #tabs_2 ul li, .teamsContent #tabs ul li, .teamsContent #tabs_2 ul li {
         display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs ul li a {
+        outline: none !important; }
+        .individualContent #tabs ul li a, .individualContent #tabs_2 ul li a, .teamsContent #tabs ul li a, .teamsContent #tabs_2 ul li a {
+          line-height: 40px;
+          color: #ffffff;
           text-decoration: none;
-          color: white;
-          outline: none;
+          outline: none !important;
+          padding: 0 21px 0 0;
           transition-property: color;
           transition-duration: 0.6s;
           transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_2 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_2 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_2 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_2 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_2 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_3 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_3 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_3 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_3 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_3 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_4 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_4 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_4 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_4 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_4 ul li a:hover {
-          color: #b4b4b4; }
-  .row_tables #tabs_5 {
-    background: white;
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgba(52, 51, 51, 0.64); }
-    .row_tables #tabs_5 ul {
-      text-decoration: none;
-      list-style-type: none;
-      display: block;
-      outline: none;
-      text-align: center;
-      background: #6D6A6A; }
-      .row_tables #tabs_5 ul li {
-        display: inline-table;
-        padding: 10px;
-        outline: none; }
-        .row_tables #tabs_5 ul li a {
-          text-decoration: none;
-          color: white;
-          outline: none;
-          transition-property: color;
-          transition-duration: 0.6s;
-          transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
-        .row_tables #tabs_5 ul li a:hover {
-          color: #b4b4b4; }
+        .individualContent #tabs ul li a:hover, .individualContent #tabs_2 ul li a:hover, .teamsContent #tabs ul li a:hover, .teamsContent #tabs_2 ul li a:hover {
+          color: #d14334; }
+        .individualContent #tabs ul li a.active, .individualContent #tabs_2 ul li a.active, .teamsContent #tabs ul li a.active, .teamsContent #tabs_2 ul li a.active {
+          color: #d14334; }
+    .individualContent #tabs #tabs-1 table, .individualContent #tabs #tabs-2 table, .individualContent #tabs #tabs-3 table, .individualContent #tabs #tabs-4 table, .individualContent #tabs #tabs-5 table, .individualContent #tabs #tabs-6 table, .individualContent #tabs #tabs-7 table, .individualContent #tabs_2 #tabs-1 table, .individualContent #tabs_2 #tabs-2 table, .individualContent #tabs_2 #tabs-3 table, .individualContent #tabs_2 #tabs-4 table, .individualContent #tabs_2 #tabs-5 table, .individualContent #tabs_2 #tabs-6 table, .individualContent #tabs_2 #tabs-7 table, .teamsContent #tabs #tabs-1 table, .teamsContent #tabs #tabs-2 table, .teamsContent #tabs #tabs-3 table, .teamsContent #tabs #tabs-4 table, .teamsContent #tabs #tabs-5 table, .teamsContent #tabs #tabs-6 table, .teamsContent #tabs #tabs-7 table, .teamsContent #tabs_2 #tabs-1 table, .teamsContent #tabs_2 #tabs-2 table, .teamsContent #tabs_2 #tabs-3 table, .teamsContent #tabs_2 #tabs-4 table, .teamsContent #tabs_2 #tabs-5 table, .teamsContent #tabs_2 #tabs-6 table, .teamsContent #tabs_2 #tabs-7 table {
+      width: 100%;
+      height: auto;
+      border-spacing: 0; }
+      .individualContent #tabs #tabs-1 table tr.titles, .individualContent #tabs #tabs-2 table tr.titles, .individualContent #tabs #tabs-3 table tr.titles, .individualContent #tabs #tabs-4 table tr.titles, .individualContent #tabs #tabs-5 table tr.titles, .individualContent #tabs #tabs-6 table tr.titles, .individualContent #tabs #tabs-7 table tr.titles, .individualContent #tabs_2 #tabs-1 table tr.titles, .individualContent #tabs_2 #tabs-2 table tr.titles, .individualContent #tabs_2 #tabs-3 table tr.titles, .individualContent #tabs_2 #tabs-4 table tr.titles, .individualContent #tabs_2 #tabs-5 table tr.titles, .individualContent #tabs_2 #tabs-6 table tr.titles, .individualContent #tabs_2 #tabs-7 table tr.titles, .teamsContent #tabs #tabs-1 table tr.titles, .teamsContent #tabs #tabs-2 table tr.titles, .teamsContent #tabs #tabs-3 table tr.titles, .teamsContent #tabs #tabs-4 table tr.titles, .teamsContent #tabs #tabs-5 table tr.titles, .teamsContent #tabs #tabs-6 table tr.titles, .teamsContent #tabs #tabs-7 table tr.titles, .teamsContent #tabs_2 #tabs-1 table tr.titles, .teamsContent #tabs_2 #tabs-2 table tr.titles, .teamsContent #tabs_2 #tabs-3 table tr.titles, .teamsContent #tabs_2 #tabs-4 table tr.titles, .teamsContent #tabs_2 #tabs-5 table tr.titles, .teamsContent #tabs_2 #tabs-6 table tr.titles, .teamsContent #tabs_2 #tabs-7 table tr.titles {
+        background: #343333;
+        color: #ffffff; }
+        .individualContent #tabs #tabs-1 table tr.titles td, .individualContent #tabs #tabs-2 table tr.titles td, .individualContent #tabs #tabs-3 table tr.titles td, .individualContent #tabs #tabs-4 table tr.titles td, .individualContent #tabs #tabs-5 table tr.titles td, .individualContent #tabs #tabs-6 table tr.titles td, .individualContent #tabs #tabs-7 table tr.titles td, .individualContent #tabs_2 #tabs-1 table tr.titles td, .individualContent #tabs_2 #tabs-2 table tr.titles td, .individualContent #tabs_2 #tabs-3 table tr.titles td, .individualContent #tabs_2 #tabs-4 table tr.titles td, .individualContent #tabs_2 #tabs-5 table tr.titles td, .individualContent #tabs_2 #tabs-6 table tr.titles td, .individualContent #tabs_2 #tabs-7 table tr.titles td, .teamsContent #tabs #tabs-1 table tr.titles td, .teamsContent #tabs #tabs-2 table tr.titles td, .teamsContent #tabs #tabs-3 table tr.titles td, .teamsContent #tabs #tabs-4 table tr.titles td, .teamsContent #tabs #tabs-5 table tr.titles td, .teamsContent #tabs #tabs-6 table tr.titles td, .teamsContent #tabs #tabs-7 table tr.titles td, .teamsContent #tabs_2 #tabs-1 table tr.titles td, .teamsContent #tabs_2 #tabs-2 table tr.titles td, .teamsContent #tabs_2 #tabs-3 table tr.titles td, .teamsContent #tabs_2 #tabs-4 table tr.titles td, .teamsContent #tabs_2 #tabs-5 table tr.titles td, .teamsContent #tabs_2 #tabs-6 table tr.titles td, .teamsContent #tabs_2 #tabs-7 table tr.titles td {
+          line-height: 40px; }
+      .individualContent #tabs #tabs-1 table tr, .individualContent #tabs #tabs-2 table tr, .individualContent #tabs #tabs-3 table tr, .individualContent #tabs #tabs-4 table tr, .individualContent #tabs #tabs-5 table tr, .individualContent #tabs #tabs-6 table tr, .individualContent #tabs #tabs-7 table tr, .individualContent #tabs_2 #tabs-1 table tr, .individualContent #tabs_2 #tabs-2 table tr, .individualContent #tabs_2 #tabs-3 table tr, .individualContent #tabs_2 #tabs-4 table tr, .individualContent #tabs_2 #tabs-5 table tr, .individualContent #tabs_2 #tabs-6 table tr, .individualContent #tabs_2 #tabs-7 table tr, .teamsContent #tabs #tabs-1 table tr, .teamsContent #tabs #tabs-2 table tr, .teamsContent #tabs #tabs-3 table tr, .teamsContent #tabs #tabs-4 table tr, .teamsContent #tabs #tabs-5 table tr, .teamsContent #tabs #tabs-6 table tr, .teamsContent #tabs #tabs-7 table tr, .teamsContent #tabs_2 #tabs-1 table tr, .teamsContent #tabs_2 #tabs-2 table tr, .teamsContent #tabs_2 #tabs-3 table tr, .teamsContent #tabs_2 #tabs-4 table tr, .teamsContent #tabs_2 #tabs-5 table tr, .teamsContent #tabs_2 #tabs-6 table tr, .teamsContent #tabs_2 #tabs-7 table tr {
+        text-align: center; }
+        .individualContent #tabs #tabs-1 table tr td, .individualContent #tabs #tabs-2 table tr td, .individualContent #tabs #tabs-3 table tr td, .individualContent #tabs #tabs-4 table tr td, .individualContent #tabs #tabs-5 table tr td, .individualContent #tabs #tabs-6 table tr td, .individualContent #tabs #tabs-7 table tr td, .individualContent #tabs_2 #tabs-1 table tr td, .individualContent #tabs_2 #tabs-2 table tr td, .individualContent #tabs_2 #tabs-3 table tr td, .individualContent #tabs_2 #tabs-4 table tr td, .individualContent #tabs_2 #tabs-5 table tr td, .individualContent #tabs_2 #tabs-6 table tr td, .individualContent #tabs_2 #tabs-7 table tr td, .teamsContent #tabs #tabs-1 table tr td, .teamsContent #tabs #tabs-2 table tr td, .teamsContent #tabs #tabs-3 table tr td, .teamsContent #tabs #tabs-4 table tr td, .teamsContent #tabs #tabs-5 table tr td, .teamsContent #tabs #tabs-6 table tr td, .teamsContent #tabs #tabs-7 table tr td, .teamsContent #tabs_2 #tabs-1 table tr td, .teamsContent #tabs_2 #tabs-2 table tr td, .teamsContent #tabs_2 #tabs-3 table tr td, .teamsContent #tabs_2 #tabs-4 table tr td, .teamsContent #tabs_2 #tabs-5 table tr td, .teamsContent #tabs_2 #tabs-6 table tr td, .teamsContent #tabs_2 #tabs-7 table tr td {
+          padding: 8px 0 8px 0; }
 
 /*  AKTUALITY  */
 .actualRow {

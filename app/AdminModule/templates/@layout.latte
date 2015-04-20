@@ -30,7 +30,7 @@
           href="{$basePath}/Back-end/assets/admin-tools/admin-forms/css/admin-forms.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{$basePath}/Back-end/assets/img/favicon.ico?v=2">
+    <link rel="shortcut icon" href="{$basePath}/Back-end/assets/img/favicon.ico?v=3">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -118,7 +118,7 @@
                 </ol>
             </div>
         </header>
-        <section id="content" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
+        <section id="{$sId}" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
         {* Flashes *}
         <div class="special-alerts" n:inner-foreach="$flashes as $flash">
             <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">

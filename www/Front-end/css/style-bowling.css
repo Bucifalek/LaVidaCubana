@@ -262,6 +262,8 @@ p.created {
   font-size: 12px;
   line-height: 40px;
   text-align: center; }
+  p.created a {
+    color: white; }
 
 /*  LOS RESPONSIVOS  */
 @media screen and (max-width: 1050px) {
@@ -319,7 +321,7 @@ p.created {
     .time_cenik_info .cenik_info {
       width: 100%;
       float: left;
-      margin-left: 13px; } }
+      margin-left: 20px; } }
 @media screen and (max-width: 710px) {
   nav {
     width: 100%;

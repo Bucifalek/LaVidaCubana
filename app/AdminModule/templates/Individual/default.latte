@@ -8,88 +8,123 @@
 {block nav_action}Seznam{/block}
 {block content}
 
-<div class="tab-content mw800 center-block">
-    <div class="admin-form tab-pane active" id="register2" role="tabpanel">
-        <div class="panel heading-border">
-            <div class="panel-heading">
-             <span class="panel-title" n:block="title"><i class="glyphicons glyphicons-adress_book"></i>Seznam jednotlivců
-             </span>
-            </div>
-            <div class="panel-body pn  ml10 mr10 mb10">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Jméno</th>
-                        <th>Tým</th>
-                        <th class="text-center">Celkové skóre</th>
-                        <th class="text-center">Průměr</th>
-                        <th class="text-center">Index výkonu</th>
-                        <th class="text-center">Zápasy</th>
-                        <th class="text-center">Hry</th>
-                        <th class="text-right">Akce</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr n:foreach="$individuals as $person">
-                        <td>{$person['name']}</td>
-                        <td n:if="$person['team'] == 0" class='text-danger'>{$person['team_name']}</td>
-                        <td n:if="$person['team'] != 0"><a
-                                n:href="Team:edit, $person['team']">{$person['team_name']}</a></td>
-                        <td class="text-center">{$person['score']}</td>
-                        <td class="text-center">{$person['score_avg']|number:1}</td>
-                        <td class="text-center">
-                            {if $person['index'] == 1}
-                            <i class='glyphicons glyphicons-up_arrow cursor-pointer' title="Stoupající výkon"></i>
-                            {elseif $person['index'] == -1}
-                            <i class='glyphicons glyphicons-down_arrow cursor-pointer' title="Klesající výkon"></i>
+<section id="content" class="table-layout">
+
+    <!-- begin: .tray-center -->
+    <div class="tray tray-center p25 va-t posr">
+
+        <div class="tab-content mw800 center-block">
+            <div class="admin-form tab-pane active" id="register2" role="tabpanel">
+                <div class="panel heading-border">
+                    <div class="panel-heading">
+                     <span class="panel-title" n:block="title"><i class="glyphicons glyphicons-adress_book"></i>Seznam jednotlivců
+                     </span>
+                    </div>
+                    <div class="panel-body pn  ml10 mr10 mb10">
+                        <table class="table table-hover" n:if="$individuals">
+                            <thead>
+                            <tr>
+                                <th>Jméno</th>
+                                <th>Tým</th>
+                                <th class="text-center">Celkové skóre</th>
+                                <th class="text-center">Průměr</th>
+                                <th class="text-center">Index výkonu</th>
+                                <th class="text-center">Zápasy</th>
+                                <th class="text-center">Hry</th>
+                                <th class="text-right">Akce</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr n:foreach="$individuals as $person">
+                                <td>{$person['name']}</td>
+                                <td n:if="$person['team'] == 0" class='text-danger'>{$person['team_name']}</td>
+                                <td n:if="$person['team'] != 0"><a
+                                        n:href="Team:edit, $person['team']">{$person['team_name']}</a></td>
+                                <td class="text-center">{$person['score']}</td>
+                                <td class="text-center">{$person['score_avg']|number:1}</td>
+                                <td class="text-center">
+                                    {if $person['index'] == 1}
+                                    <i class='glyphicons glyphicons-up_arrow cursor-pointer' title="Stoupající výkon"></i>
+                                    {elseif $person['index'] == -1}
+                                    <i class='glyphicons glyphicons-down_arrow cursor-pointer' title="Klesající výkon"></i>
+                                    {else}
+                                    <i class='glyphicon glyphicon-minus cursor-pointer' title="Beze změny výkonu"></i>
+                                    {/if}
+                                </td>
+                                <td class="text-center">{$person['matches']}</td>
+                                <td class="text-center">{$person['games']}</td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button aria-expanded="true" type="button"
+                                                class="btn btn-danger btn-sm  dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Akce
+                                            <span class="caret"></span>
+                                        </button>
+                                          <ul class="dropdown-menu pull-right" role="menu">
+                                            <li>
+                                                <a n:href="Individual:edit, $person['id']">Upravit údaje</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a n:href="RemoveMember!, $person['id']">Smazat hráče</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div n:if="!$individuals" class="pt10">
+                            Žádní hráči nenalezeni!
+                        </div>
+                    </div>
+                    <div class="panel-footer" n:if="$individuals">
+                        <div class="row">
+                            {if $paginator->itemCount % 2 == 0}
+                            <div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam z {$paginator->itemCount}</div>
                             {else}
-                            <i class='glyphicon glyphicon-minus cursor-pointer' title="Beze změny výkonu"></i>
+                            <div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam ze {$paginator->itemCount}</div>
                             {/if}
-                        </td>
-                        <td class="text-center">{$person['matches']}</td>
-                        <td class="text-center">{$person['games']}</td>
-                        <td class="text-right">
-                            <div class="btn-group">
-                                <button aria-expanded="true" type="button"
-                                        class="btn btn-danger btn-sm  dropdown-toggle"
-                                        data-toggle="dropdown">
-                                    Akce
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li>
-                                        <a n:href="Individual:edit, $person['id']">Upravit údaje</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a n:href="RemoveMember!, $person['id']">Smazat hráče</a>
-                                    </li>
+                            <div class="col-md-8 text-right">
+                                <ul class="pagination mn" n:inner-for="$i = 1; $i<= $totalPages; $i++">
+                                    {if $paginator->page == $i}
+                                    <li tabindex="{$i}" class="paginate_button active"><a n:href="changePage!, $i">{$i}</a></li>
+                                    {else}
+                                    <li tabindex="{$i}" class="paginate_button"><a n:href="changePage!, $i">{$i}</a></li>
+                                    {/if}
                                 </ul>
                             </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="panel-footer">
-                <div class="row" n:if="$individuals">
-                    {if $paginator->itemCount % 2 == 0}
-                    <div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam z {$paginator->itemCount}</div>
-                    {else}
-                    <div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam ze {$paginator->itemCount}</div>
-                    {/if}
-                    <div class="col-md-8 text-right">
-                        <ul class="pagination mn" n:inner-for="$i = 1; $i<= $totalPages; $i++">
-                            {if $paginator->page == $i}
-                            <li tabindex="{$i}" class="paginate_button active"><a n:href="changePage!, $i">{$i}</a></li>
-                            {else}
-                            <li tabindex="{$i}" class="paginate_button"><a n:href="changePage!, $i">{$i}</a></li>
-                            {/if}
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <aside class="tray tray-right tray290 va-t pn" data-tray-height="match">
+        <div class="p20 admin-form">
+            <form n:name="searchForm">
+                <h4 class="mt5 text-muted fw500"> Vyhledávání</h4>
+                <hr class="short">
+                <div class="section">
+                    <label for="order-id" class="field prepend-icon">
+                        <input n:name="query" type="text" class="gui-input{if !$individuals} no-results{/if}" placeholder="Jméno..." autocomplete="off">
+                        <label for="order-id" class="field-icon"><i class="glyphicons glyphicons-search{if !$individuals} no-results{/if}"></i>
+                        </label>
+                    </label>
+                    <div class='section pt20' n:if="$isFiltered">
+                        <a class="mt25" n:href="Individual:default"><i class="glyphicon glyphicon-remove pr5"></i>Žádný filtr</a>
+                    </div>
+                </div>
+                <hr class="short">
+                <div class="section row">
+                    <div class="col-sm-12">
+                        <input class="btn btn-default btn-sm ph25" n:name="find" type="submit" value="Vyhledat">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </aside>
+</section>
 {/block}
