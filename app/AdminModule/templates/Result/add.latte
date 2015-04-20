@@ -105,10 +105,16 @@
                 </tbody>
             </table>
     </div>
-    <div n:if="$step == 'krok-3'" class="tab-pane">
-      <p><b>TAB THREE - </b>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+    <div n:if="$step == 'pridat-vysledky'" class="tab-pane active">
+        Sezona: <b>{$season}</b>
+        <br>
+        Hrac: <b>{$player['name']}</b> z tymu <b>{$team['name']}</b>
+
+
+        <br><br><br>
+        // TODO Zbytek pridavani vysledku
     </div>
-    <div n:if="$step == 'krok-4'" class="tab-pane">
+    <div n:if="$step == 'krok-4'" class="tab-pane active">
       <p><b>TAB FOUR - </b>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
     </div>
   </div>
