@@ -79,8 +79,8 @@
                             Žádní hráči nenalezeni!
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        <div class="row" n:if="$individuals">
+                    <div class="panel-footer" n:if="$individuals">
+                        <div class="row">
                             {if $paginator->itemCount % 2 == 0}
                             <div class="col-md-4 pt10">{$currentFrom} až {$currentTo} záznam z {$paginator->itemCount}</div>
                             {else}
@@ -109,8 +109,8 @@
                 <hr class="short">
                 <div class="section">
                     <label for="order-id" class="field prepend-icon">
-                        <input n:name="query" type="text" class="gui-input" placeholder="Jméno..." autocomplete="off">
-                        <label for="order-id" class="field-icon"><i class="glyphicons glyphicons-search"></i>
+                        <input n:name="query" type="text" class="gui-input{if !$individuals} no-results{/if}" placeholder="Jméno..." autocomplete="off">
+                        <label for="order-id" class="field-icon"><i class="glyphicons glyphicons-search{if !$individuals} no-results{/if}"></i>
                         </label>
                     </label>
                     <div class='section pt20' n:if="$isFiltered">
