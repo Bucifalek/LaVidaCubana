@@ -9,6 +9,7 @@ namespace App\AdminModule\Presenters;
 
 use Nette,
 	App\AdminModule\Model;
+use Tracy\Debugger;
 
 /**
  * Class TeamPresenter
@@ -53,7 +54,6 @@ final class TeamPresenter extends BasePresenter
 		parent::beforeRender();
 		$this->requireBranch(4);
 	}
-
 
 	/**
 	 * @param $page
@@ -201,4 +201,5 @@ final class TeamPresenter extends BasePresenter
 		$this->flashMessage('Tým byl přídán.', FLASH_SUCCESS);
 		$this->redirect('Team:default');
 	}
+
 }
