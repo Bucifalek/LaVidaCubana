@@ -96,7 +96,7 @@ class RouterFactory
 		// Bowling Router
 		$router[] = new Route('bowling/', 'Web:Bowling:default');
 		$router[] = new Route('bowling/chci-si-zahrat', 'Web:Bowling:play');
-		$router[] = new Route('bowling/bowlingova-liga', 'Web:Bowling:league');
+		$router[] = new Route('bowling/bowlingova-liga[/strana/<page=1>]', 'Web:Bowling:league');
 		$router[] = new Route('bowling/pravidla', 'Web:Bowling:rules');
 		$router[] = new Route('bowling/rozpis', 'Web:Bowling:draft');
 		$router[] = new Route('bowling/aktualne', 'Web:Bowling:news');

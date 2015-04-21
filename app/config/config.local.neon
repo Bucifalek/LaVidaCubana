@@ -6,3 +6,12 @@ database:
 	password:
 	options:
 		lazy: yes
+
+
+
+#database:
+#	dsn: 'mysql:host=wm80.wedos.net;dbname=d93282_lavida'
+#	user: w93282_lavida
+#	password: 6DkP4c4K
+#	options:
+#		lazy: yes

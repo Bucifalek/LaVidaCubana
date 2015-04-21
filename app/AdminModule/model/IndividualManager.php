@@ -71,12 +71,13 @@ final class IndividualManager extends Nette\Object
 
 		$individualsFinal = [];
 		if ($this->find) {
-			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->limit($limit, $offset)->fetchAll();
+			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->where($this->find[0] . ' LIKE ?', '%' . $this->find[1] . '%')->order('score DESC')->limit($limit, $offset)->fetchAll();
 		} else {
-			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->fetchAll();
+			$individuals = $this->database->table(DatabaseStructure::BOWLING_PLAYERS)->limit($limit, $offset)->order('score DESC')->fetchAll();
 		}
+		$key = (!$offset) ? 1 : $offset + 1;
 		foreach ($individuals as $person) {
-			$individualsFinal[] = [
+			$individualsFinal[$key] = [
 				'id'        => $person->id,
 				'name'      => $person->name,
 				'team'      => $person->team,
@@ -87,6 +88,7 @@ final class IndividualManager extends Nette\Object
 				'matches'   => $person->matches,
 				'games'     => $person->games
 			];
+			$key++;
 		}
 
 		return $individualsFinal;
