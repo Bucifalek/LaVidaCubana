@@ -84,7 +84,7 @@ html, body {
 .greybox {
   background: url('../img/bowling/texturka3.png');
   width: 100%;
-  height: 500px;
+  height: auto;
 }
 
 .greybox_2 {
@@ -448,7 +448,7 @@ p.created {
   }
 
   .time_cenik_info {
-    height: 300px !important;
+    height: 320px !important;
 
     .time_info {
       width: 100%;
