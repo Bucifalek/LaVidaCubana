@@ -30964,3 +30964,6 @@ to occupy 100% width at low resolutions */
 i.no-results {
     border: none !important;
 }
+.leftFixed{
+    margin-left: -224px !important;
+}

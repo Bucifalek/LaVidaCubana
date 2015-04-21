@@ -46,7 +46,7 @@ final class UsersPresenter extends BasePresenter
 	/**
 	 *
 	 */
-	public function renderList()
+	public function renderDefault()
 	{
 		$this->template->currentUsers = $this->userManager->allUsers();
 	}
@@ -59,7 +59,7 @@ final class UsersPresenter extends BasePresenter
 	{
 		if (!isset($userID)) {
 			$this->flashMessage('Neplatna URL', FLASH_INFO);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 		$this->template->userData = $this->userManager->getDetails($userID);
 	}
@@ -75,7 +75,7 @@ final class UsersPresenter extends BasePresenter
 			$this->userManager->ban($id);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 
 		if (isset($userDetails)) {
@@ -97,11 +97,11 @@ final class UsersPresenter extends BasePresenter
 				$myMailer->sendEmail();
 			} catch (\Exception $e) {
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
-				$this->redirect('Users:list');
+				$this->redirect('Users:default');
 			}
 			$this->flashMessage("Uživatel " . $userDetails->user . " byl zablokován a na jeho email " . $userDetails->email . " bylo odesláno oznámení.", FLASH_SUCCESS);
 		}
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 
 	/**
@@ -115,7 +115,7 @@ final class UsersPresenter extends BasePresenter
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
 		}
 		$this->flashMessage("Správce odblokován.", FLASH_SUCCESS);
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 
 
@@ -130,7 +130,7 @@ final class UsersPresenter extends BasePresenter
 			$this->userManager->newPassword($id, $strongPassword, Passwords::hash($strongPassword));
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 
 		if (isset($userDetails)) {
@@ -151,11 +151,11 @@ final class UsersPresenter extends BasePresenter
 				$myMailer->sendEmail();
 			} catch (\Exception $e) {
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
-				$this->redirect('Users:list');
+				$this->redirect('Users:default');
 			}
 			$this->flashMessage("Nové heslo bylo vygenerováno a na příslušný email bylo odesláno oznámení o změně.", FLASH_SUCCESS);
 		}
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 
 
@@ -168,11 +168,11 @@ final class UsersPresenter extends BasePresenter
 			$this->userManager->delete($id);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 
 		$this->flashMessage("Účet byl úspěšně smazán, správce již nemá přístup do systému.", FLASH_SUCCESS);
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 
 
@@ -209,10 +209,10 @@ final class UsersPresenter extends BasePresenter
 			]);
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 		$this->flashMessage('Změny účtu uloženy.', FLASH_INFO);
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 
 
@@ -274,10 +274,10 @@ final class UsersPresenter extends BasePresenter
 			$myMailer->sendEmail();
 		} catch (\Exception $e) {
 			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-			$this->redirect('Users:list');
+			$this->redirect('Users:default');
 		}
 
 		$this->flashMessage("Správce přidán do systému, nyní se může snadno přihlásit, heslo je $strongPassword", FLASH_SUCCESS);
-		$this->redirect('Users:list');
+		$this->redirect('Users:default');
 	}
 }
