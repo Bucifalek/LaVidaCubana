@@ -7,7 +7,12 @@
 .greybox_table {
   background: url("../img/bowling/texturka3.png");
   width: 100%;
-  height: 2000px; }
+  height: auto; }
+
+.greybox_table_2 {
+  background: url("../img/bowling/texturka3.png");
+  width: 100%;
+  height: 1450px; }
 
 .greybox_actual {
   background: url("../img/bowling/texturka3.png");
@@ -45,6 +50,8 @@
         position: absolute;
         line-height: 40px;
         padding-left: 20px; }
+      .individualContent #tabs ul p.noTabs, .individualContent #tabs_2 ul p.noTabs, .teamsContent #tabs ul p.noTabs, .teamsContent #tabs_2 ul p.noTabs {
+        position: inherit; }
       .individualContent #tabs ul li, .individualContent #tabs_2 ul li, .teamsContent #tabs ul li, .teamsContent #tabs_2 ul li {
         display: inline-table;
         outline: none !important; }
@@ -70,6 +77,8 @@
         color: #ffffff; }
         .individualContent #tabs #tabs-1 table tr.titles td, .individualContent #tabs #tabs-2 table tr.titles td, .individualContent #tabs #tabs-3 table tr.titles td, .individualContent #tabs #tabs-4 table tr.titles td, .individualContent #tabs #tabs-5 table tr.titles td, .individualContent #tabs #tabs-6 table tr.titles td, .individualContent #tabs #tabs-7 table tr.titles td, .individualContent #tabs_2 #tabs-1 table tr.titles td, .individualContent #tabs_2 #tabs-2 table tr.titles td, .individualContent #tabs_2 #tabs-3 table tr.titles td, .individualContent #tabs_2 #tabs-4 table tr.titles td, .individualContent #tabs_2 #tabs-5 table tr.titles td, .individualContent #tabs_2 #tabs-6 table tr.titles td, .individualContent #tabs_2 #tabs-7 table tr.titles td, .teamsContent #tabs #tabs-1 table tr.titles td, .teamsContent #tabs #tabs-2 table tr.titles td, .teamsContent #tabs #tabs-3 table tr.titles td, .teamsContent #tabs #tabs-4 table tr.titles td, .teamsContent #tabs #tabs-5 table tr.titles td, .teamsContent #tabs #tabs-6 table tr.titles td, .teamsContent #tabs #tabs-7 table tr.titles td, .teamsContent #tabs_2 #tabs-1 table tr.titles td, .teamsContent #tabs_2 #tabs-2 table tr.titles td, .teamsContent #tabs_2 #tabs-3 table tr.titles td, .teamsContent #tabs_2 #tabs-4 table tr.titles td, .teamsContent #tabs_2 #tabs-5 table tr.titles td, .teamsContent #tabs_2 #tabs-6 table tr.titles td, .teamsContent #tabs_2 #tabs-7 table tr.titles td {
           line-height: 40px; }
+      .individualContent #tabs #tabs-1 table tr.greyCell, .individualContent #tabs #tabs-2 table tr.greyCell, .individualContent #tabs #tabs-3 table tr.greyCell, .individualContent #tabs #tabs-4 table tr.greyCell, .individualContent #tabs #tabs-5 table tr.greyCell, .individualContent #tabs #tabs-6 table tr.greyCell, .individualContent #tabs #tabs-7 table tr.greyCell, .individualContent #tabs_2 #tabs-1 table tr.greyCell, .individualContent #tabs_2 #tabs-2 table tr.greyCell, .individualContent #tabs_2 #tabs-3 table tr.greyCell, .individualContent #tabs_2 #tabs-4 table tr.greyCell, .individualContent #tabs_2 #tabs-5 table tr.greyCell, .individualContent #tabs_2 #tabs-6 table tr.greyCell, .individualContent #tabs_2 #tabs-7 table tr.greyCell, .teamsContent #tabs #tabs-1 table tr.greyCell, .teamsContent #tabs #tabs-2 table tr.greyCell, .teamsContent #tabs #tabs-3 table tr.greyCell, .teamsContent #tabs #tabs-4 table tr.greyCell, .teamsContent #tabs #tabs-5 table tr.greyCell, .teamsContent #tabs #tabs-6 table tr.greyCell, .teamsContent #tabs #tabs-7 table tr.greyCell, .teamsContent #tabs_2 #tabs-1 table tr.greyCell, .teamsContent #tabs_2 #tabs-2 table tr.greyCell, .teamsContent #tabs_2 #tabs-3 table tr.greyCell, .teamsContent #tabs_2 #tabs-4 table tr.greyCell, .teamsContent #tabs_2 #tabs-5 table tr.greyCell, .teamsContent #tabs_2 #tabs-6 table tr.greyCell, .teamsContent #tabs_2 #tabs-7 table tr.greyCell {
+        background: #f3f3f3; }
       .individualContent #tabs #tabs-1 table tr, .individualContent #tabs #tabs-2 table tr, .individualContent #tabs #tabs-3 table tr, .individualContent #tabs #tabs-4 table tr, .individualContent #tabs #tabs-5 table tr, .individualContent #tabs #tabs-6 table tr, .individualContent #tabs #tabs-7 table tr, .individualContent #tabs_2 #tabs-1 table tr, .individualContent #tabs_2 #tabs-2 table tr, .individualContent #tabs_2 #tabs-3 table tr, .individualContent #tabs_2 #tabs-4 table tr, .individualContent #tabs_2 #tabs-5 table tr, .individualContent #tabs_2 #tabs-6 table tr, .individualContent #tabs_2 #tabs-7 table tr, .teamsContent #tabs #tabs-1 table tr, .teamsContent #tabs #tabs-2 table tr, .teamsContent #tabs #tabs-3 table tr, .teamsContent #tabs #tabs-4 table tr, .teamsContent #tabs #tabs-5 table tr, .teamsContent #tabs #tabs-6 table tr, .teamsContent #tabs #tabs-7 table tr, .teamsContent #tabs_2 #tabs-1 table tr, .teamsContent #tabs_2 #tabs-2 table tr, .teamsContent #tabs_2 #tabs-3 table tr, .teamsContent #tabs_2 #tabs-4 table tr, .teamsContent #tabs_2 #tabs-5 table tr, .teamsContent #tabs_2 #tabs-6 table tr, .teamsContent #tabs_2 #tabs-7 table tr {
         text-align: center; }
         .individualContent #tabs #tabs-1 table tr td, .individualContent #tabs #tabs-2 table tr td, .individualContent #tabs #tabs-3 table tr td, .individualContent #tabs #tabs-4 table tr td, .individualContent #tabs #tabs-5 table tr td, .individualContent #tabs #tabs-6 table tr td, .individualContent #tabs #tabs-7 table tr td, .individualContent #tabs_2 #tabs-1 table tr td, .individualContent #tabs_2 #tabs-2 table tr td, .individualContent #tabs_2 #tabs-3 table tr td, .individualContent #tabs_2 #tabs-4 table tr td, .individualContent #tabs_2 #tabs-5 table tr td, .individualContent #tabs_2 #tabs-6 table tr td, .individualContent #tabs_2 #tabs-7 table tr td, .teamsContent #tabs #tabs-1 table tr td, .teamsContent #tabs #tabs-2 table tr td, .teamsContent #tabs #tabs-3 table tr td, .teamsContent #tabs #tabs-4 table tr td, .teamsContent #tabs #tabs-5 table tr td, .teamsContent #tabs #tabs-6 table tr td, .teamsContent #tabs #tabs-7 table tr td, .teamsContent #tabs_2 #tabs-1 table tr td, .teamsContent #tabs_2 #tabs-2 table tr td, .teamsContent #tabs_2 #tabs-3 table tr td, .teamsContent #tabs_2 #tabs-4 table tr td, .teamsContent #tabs_2 #tabs-5 table tr td, .teamsContent #tabs_2 #tabs-6 table tr td, .teamsContent #tabs_2 #tabs-7 table tr td {
@@ -138,6 +147,35 @@
     height: 450px;
     float: right;
     margin-top: 40px; }
+
+/*  ROZPIS  */
+.draftHeading {
+  text-align: center;
+  color: #343333;
+  width: 100%;
+  padding: 35px 0 35px 0; }
+  .draftHeading .seasonColor {
+    color: #d14334; }
+
+#draftJaro {
+  background: white;
+  width: 100%;
+  height: auto; }
+  #draftJaro table {
+    width: 100%;
+    height: auto;
+    border-spacing: 0; }
+    #draftJaro table tr.titles {
+      background: #343333;
+      color: #ffffff; }
+      #draftJaro table tr.titles td {
+        line-height: 40px; }
+    #draftJaro table tr.greyCell {
+      background: #f3f3f3; }
+    #draftJaro table tr {
+      text-align: center; }
+      #draftJaro table tr td {
+        padding: 5px 0 5px 0; }
 
 /*  TOPKA  */
 .topRow {
