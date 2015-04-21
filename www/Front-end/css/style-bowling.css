@@ -295,9 +295,9 @@ p.created {
     width: 70%;
     background: rgba(255, 255, 255, 0.75); } }
 @media screen and (max-width: 850px) {
-  .greybox .bowling_text_default, .greybox_2 .bowling_text_default, .greybox_table .bowling_text_default {
+  .greybox .bowling_text_default, .greybox_2 .bowling_text_default, .greybox_table .bowling_text_default, .greybox_table_2 .bowling_text_default {
     font-size: 1em !important; }
-    .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info, .greybox_table .bowling_text_default .play_info {
+    .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info, .greybox_table .bowling_text_default .play_info, .greybox_table_2 .bowling_text_default .play_info {
       font-size: 1em !important; }
 
   .instagram_box_2 .half_blok .half_one, .instagram_box_2 .half_blok .half_two {
