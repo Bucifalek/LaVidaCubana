@@ -74,8 +74,8 @@ final class ContentManager extends Nette\Object
 	{
 		return $this->database->table('content')->insert([
 			'branch_id' => $this->branchManager->getCurrentId(),
-			'title' => $values['name'],
-			'module' => $values['module']
+			'title'     => $values['name'],
+			'module'    => $values['module']
 		]);
 	}
 

@@ -83,7 +83,8 @@ final class TeamPresenter extends BasePresenter
 	public function handleRemoveTeam($id)
 	{
 		$this->teamManager->delete($id);
-		$this->flashMessage('Tým byl odebrán.');
+		$this->individualManager->dropMembersFromTeam($id);
+		$this->flashMessage('Tým byl odebrán, jeho bývalí členové jsou nyní bez týmu.', FLASH_SUCCESS);
 		$this->redirect('Team:default');
 	}
 
@@ -160,15 +161,6 @@ final class TeamPresenter extends BasePresenter
 		$this->teamManager->removeMember($memberId);
 		$this->flashMessage('Hráč byl odebrán z týmu.', FLASH_SUCCESS);
 		$this->redirect('Team:edit', $teamId);
-	}
-
-
-	/**
-	 * @param $season
-	 */
-	public function renderAdd($season)
-	{
-
 	}
 
 
