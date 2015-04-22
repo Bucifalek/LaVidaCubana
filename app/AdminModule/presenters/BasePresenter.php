@@ -78,7 +78,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			}
 			$this->userManager->updateActiveTime($this->getUser());
 		} else if (!$this->isLinkCurrent('Sign:in')) {
-			if(!$this->isLinkCurrent('Dashboard:default')) {
+			if (!$this->isLinkCurrent('Dashboard:default')) {
 				$this->flashMessage('Pro vstup musíte být přihlášen', FLASH_WARNING);
 			}
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
@@ -130,8 +130,8 @@ class BasePresenter extends Nette\Application\UI\Presenter
 			case 1:
 				$menu->addSection('Aktuálně',
 					[
-						'Valašské meziříčí|coffe_cup'    => 'MainNews:edit, valasske-mezirici',
 						'Rožnov pod Radhoštěm|coffe_cup' => 'MainNews:edit, roznov-pod-radhostem',
+						'Valašské meziříčí|coffe_cup'    => 'MainNews:edit, valasske-mezirici',
 						'Bowling|bowling'                => 'MainNews:edit, bowling',
 					]
 				);
