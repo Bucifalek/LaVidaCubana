@@ -85,7 +85,7 @@ abstract class Control extends PresenterComponent implements IRenderable
 	 * @param  string
 	 * @return \stdClass
 	 */
-	public function flashMessage($message, $type = 'info|info')
+	public function flashMessage($message, $type = 'info')
 	{
 		$id = $this->getParameterId('flash');
 		$messages = $this->getPresenter()->getFlashSession()->$id;
