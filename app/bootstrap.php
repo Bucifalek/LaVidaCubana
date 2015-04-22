@@ -3,12 +3,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 
-
 \Tracy\Debugger::$maxDepth = 10;
 \Tracy\Debugger::$maxLen = 500;
 
-
-$configurator->setDebugMode(['79.127.207.199', '79.127.207.200']); // enable for your remote IP
+$configurator->setDebugMode('127.0.0.1'); // enable for your remote IP
 $configurator->enableDebugger(__DIR__ . '/../log');
 
 $configurator->setTempDirectory(__DIR__ . '/../temp');
@@ -18,7 +16,7 @@ $configurator->createRobotLoader()
 	->register();
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
-$configurator->addConfig(__DIR__ . '/config/config.local.neon');
+$configurator->addConfig(__DIR__ . '/config/config.local.neon', \Nette\Configurator::AUTO);
 $container = $configurator->createContainer();
 
 
