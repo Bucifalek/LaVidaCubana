@@ -30,16 +30,13 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	private $userManager;
 
 	/**
-	 * @var Model\BranchManager @inject
+	 * @var Model\BranchManager
 	 */
 	private $branchManager;
 
 	/**
 	 * @return mixed
 	 */
-
-	/** @persistent */
-	public $redirectedToLogin = false;
 
 	public function getBranchManager()
 	{
@@ -65,7 +62,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 	public function beforeRender()
 	{
 		if ($this->getUser()->isLoggedIn()) {
-			$this->redirectedToLogin = false;
 			$userData = $this->getUser()->getIdentity()->getData();
 
 			$this->template->firstName = $userData['firstname'];
@@ -81,8 +77,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->redirect('Sign:in');
 			}
 			$this->userManager->updateActiveTime($this->getUser());
-		} else if ($this->redirectedToLogin === false) {
-			$this->redirectedToLogin = true;
+		} else if (!$this->isLinkCurrent('Sign:in')) {
+			if(!$this->isLinkCurrent('Dashboard:default')) {
+				$this->flashMessage('Pro vstup musíte být přihlášen', FLASH_WARNING);
+			}
 			$this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
 		}
 		$this->template->getFlashType = function ($arg) {
@@ -95,16 +93,10 @@ class BasePresenter extends Nette\Application\UI\Presenter
 
 			return @$e[1];
 		};
-		/** @deprecated
-			if ($this->branchManager->getCurrent() == null) {
-				$this->branchManager->selectDefault();
-			}
-		*/
+
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
-
-
 
 
 		$allowedRoutes = [
