@@ -147,6 +147,7 @@ final class InfoPresenter extends BasePresenter
 	{
 		$values = $form->getValues();
 
+		$days = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'];
 		for ($dayID = 1; $dayID <= 7; $dayID++) {
 			$data = [
 				'open'  => preg_replace("/[^0-9:]/", "", $values->offsetGet('day' . $dayID . '_from')),
@@ -154,6 +155,11 @@ final class InfoPresenter extends BasePresenter
 			];
 
 			foreach (['open', 'close'] as $key) {
+				if (strlen($data[$key]) < 4) {
+					$this->flashMessage('Zadán Neplatný čas!', FLASH_FAILED);
+
+					return;
+				}
 				if ($data[$key][2] != ":") {
 					$data[$key][3] = $data[$key][2];
 					$data[$key][4] = $data[$key][3];

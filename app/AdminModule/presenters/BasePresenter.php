@@ -186,7 +186,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 							'Rozpis|edit'           => 'League:draft, playoff',
 							'Jednotlivá kola|inbox' => 'League:rounds, playoff',
 							'Přidat kolo|pushpin'   => 'League:addRound, playoff',
-							'Přidat tým|pushpin'    => 'Team:add, playoff',
+							'Přidat tým|pushpin'    => 'League:addTeam, playoff',
 						],
 					]);
 
