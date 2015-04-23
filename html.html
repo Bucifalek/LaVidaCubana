@@ -1,0 +1,58 @@
+{block content}
+<div id="main" class="animated fadeIn">
+    <section id="content_wrapper">
+        <div id="canvas-wrapper">
+            <canvas id="demo-canvas"></canvas>
+        </div>
+        <section id="content">
+            <div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login1">
+                <div class="row mb15 table-layout">
+                    <div class="col-xs-12 text-right va-b pr5">
+                        <div class="login-links">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <a n:href="Sign:in" class="" title="False Credentials">Zpět na přihlášení</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info mv10 heading-border br-n">
+                    <form n:name="forgotDetailsForm">
+                        <div class="panel-body bg-white p15 pt25">
+                            <div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
+                                <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable"
+                                     id="alert-demo-1">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                                    </button>
+                                    <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>
+                                    {$flash->message}
+                                </div>
+                            </div>
+                            <blockquote class="blockquote-info">
+                                <p><i class="fa fa-info pr10"></i> Zadejte Email se kterým máte spojen účet.</p>
+                                <small><a href="#kontaskt">Kontaktovat správce</a></small>
+                            </blockquote>
+                            <div class="smart-widget sm-right smr-150">
+                                <label for="email" class="field prepend-icon">
+                                    <input type="text" n:name="email" id="email" class="gui-input"
+                                           placeholder="Zadejte váš email">
+                                    <label for="email" class="field-icon"><i class="fa fa-envelope-o"></i>
+                                    </label>
+                                </label>
+                                <button class="button" type="submit" n:name="restore">Obnovit heslo</button>
+                            </div>
+                        </div>
+                        <div class="panel-footer p15 pv15">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section mn">
+                                        Na obnovení hesla máte 30 minut od odeslání žádosti.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+{/block}
