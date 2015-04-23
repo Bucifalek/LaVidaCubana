@@ -190,7 +190,11 @@ nav {
   }
 
   li.active a {
-    color: $darkGrey;
+    color: black;
+  }
+
+  li.activeRed a {
+    color: $red;
   }
 
   .white a{
@@ -326,8 +330,14 @@ nav {
     height: 260px;
     color: $darkGrey;
 
+    h2{
+      color: $red;
+      padding-bottom: 15px;
+
+    }
+
     ul {
-      margin-top: 60px;
+      margin-top: 30px;
       margin-left: 30px;
     }
     li {
@@ -425,14 +435,16 @@ p.created {
     }
   }
 
-  .instagram_box_2 {
-    .half_blok {
-      .half_one, .half_two {
-        font-size: 1em !important;
-        .variant_1 {
+  .half_blok{
+    .half_one{
+        p{
           font-size: 1em !important;
         }
-      }
+    }
+    .half_two{
+        p{
+          font-size: 1em !important;
+        }
     }
   }
 
@@ -456,7 +468,7 @@ p.created {
     .cenik_info {
       width: 100%;
       float: left;
-      margin-left: 20px;
+      margin-left: 10px;
     }
   }
 }
@@ -505,6 +517,10 @@ p.created {
       transition-delay: 0s, 0.25s, 0.45s, 0.7s;
     }
 
+    li.dropdownResp{
+      color: white;
+    }
+
     a {
       padding: 0;
       line-height: 40px;
@@ -512,6 +528,15 @@ p.created {
 
     a:hover {
       color: $red;
+    }
+  }
+  .page_title{
+    text-align: center;
+    height: 100px;
+    font-size: 1em;
+
+    a{
+      float: none;
     }
   }
 }
