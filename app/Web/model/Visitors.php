@@ -8,6 +8,7 @@ namespace App\WebModule\Model;
 
 use App\AdminModule\Model\DatabaseStructure;
 use Nette;
+use Tracy\Debugger;
 
 /**
  * Class Visitors
@@ -137,6 +138,23 @@ class Visitors extends Nette\Object
 	public function getFilter()
 	{
 		return $this->filter;
+	}
+
+	public function getList($filter = "http://localhost/LaVidaCubana/www") {
+		$list = [];
+
+		$visits = $this->database->table(DatabaseStructure::WEB_VISITORS)->order('url ASC')->fetchAll();
+
+		foreach($visits as $visitor) {
+			$url = str_replace($filter, null, $visitor->url);
+
+			if(isset($list[$url]['visits'])) {
+				$list[$url]['visits']++;
+			} else {
+				$list[$url]['visits'] = 1;
+			}
+		}
+		return $list;
 	}
 
 }
