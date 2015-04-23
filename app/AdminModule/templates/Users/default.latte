@@ -22,7 +22,6 @@
                     <tr>
                         <th>Jméno</th>
                         <th>Příjmení</th>
-                        <th>Přihlášovací jméno</th>
                         <th>Status</th>
                         <th>Email</th>
                         <th class="text-right">Akce</th>
@@ -32,7 +31,6 @@
                     <tr>
                         <td>{$user->real_firstname}</td>
                         <td>{$user->real_lastname}</td>
-                        <td>{$user->user}</td>
                         <td>
                             {if $user->banned}
                             <span class="label label-danger cursor"
@@ -56,12 +54,6 @@
                                 <ul class="dropdown-menu pull-right" role="menu">
                                     <li>
                                         <a href="{link Users:edit, $user->id}">Upravit údaje</a>
-                                    </li>
-                                    <li>
-                                        <a href="#TODO info o uctu">Informace o účtu</a>
-                                    </li>
-                                    <li>
-                                        <a href="{link RegenPass!, $user->id}">Vygenerovat nové heslo</a>
                                     </li>
                                     <li n:if="!$user->banned">
                                         <a href="{link BanUser!, $user->id}">Zablokovat účet</a>
