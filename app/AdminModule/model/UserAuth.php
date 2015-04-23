@@ -37,8 +37,8 @@ final class UserAuth extends Nette\Object implements NS\IAuthenticator
 	 */
 	public function authenticate(array $credentials)
 	{
-		list($username, $password) = $credentials;
-		$row = $this->database->table(DatabaseStructure::USERS)->where('user', $username)->fetch();
+		list($email, $password) = $credentials;
+		$row = $this->database->table(DatabaseStructure::USERS)->where('email', $email)->fetch();
 
 		if (!$row || !NS\Passwords::verify($password, $row->password)) {
 			throw new NS\AuthenticationException('Nesprávné jméno nebo heslo.');
@@ -50,7 +50,6 @@ final class UserAuth extends Nette\Object implements NS\IAuthenticator
 		$this->database->table(DatabaseStructure::USERS)->where('id', $row->id)->update(['activetime' => time()]);
 
 		return new NS\Identity($row->id, $row->role, [
-			'user'      => $row->user,
 			'firstname' => $row->real_firstname,
 			'lastname'  => $row->real_lastname,
 			'avatar'    => $row->avatar,

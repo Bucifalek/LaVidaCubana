@@ -7,7 +7,6 @@
 namespace App\AdminModule\Model;
 
 use Nette;
-use Tracy\Debugger;
 
 /**
  * Class PasswordRecoveryTokens
@@ -25,6 +24,11 @@ class PasswordRecoveryTokens extends Nette\Object
 	 * @var
 	 */
 	private $token;
+
+	/**
+	 * @var
+	 */
+	private $forUser;
 
 	/**
 	 * @param Nette\Database\Context $database
@@ -56,10 +60,13 @@ class PasswordRecoveryTokens extends Nette\Object
 
 
 	/**
+	 * @param $user
 	 * @return string
 	 */
-	public function generate()
+	public function generate($user)
 	{
+		$this->forUser = $user;
+
 		return $this->token = Nette\Utils\Random::generate(50, '0-9a-zA-Z');
 	}
 
@@ -71,6 +78,18 @@ class PasswordRecoveryTokens extends Nette\Object
 		if (!$this->token) {
 			throw new Nette\Application\AbortException('Zadny token, nejdriv musis generovat');
 		}
-		$this->database->table(DatabaseStructure::USERS_RECOVERY_TOKENS)->insert(['token' => $this->token, 'timestamp' => time()]);
+		if (!$this->forUser) {
+			throw new Nette\Application\AbortException('Zadny uzivatelsky id, nejdriv musis generovat');
+		}
+		$this->database->table(DatabaseStructure::USERS_RECOVERY_TOKENS)->insert(['user' => $this->forUser, 'token' => $this->token, 'timestamp' => time()]);
+	}
+
+	/**
+	 * @param $token
+	 * @return bool|mixed|Nette\Database\Table\IRow
+	 */
+	public function details($token)
+	{
+		return $this->database->table(DatabaseStructure::USERS_RECOVERY_TOKENS)->where('token', $token)->fetch();
 	}
 }
