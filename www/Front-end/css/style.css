@@ -224,58 +224,74 @@ body {
     .part_one .logo_block p {
       font-size: 6.2vw; }
 
-  .part_two .roznov_block {
-    width: 50%; }
-    .part_two .roznov_block .news_roznov {
-      font-size: 1.4vw; }
-    .part_two .roznov_block h3 {
-      font-size: 4vw;
-      padding-top: 5%; }
-  .part_two .valmez_block {
-    width: 50%; }
-    .part_two .valmez_block .news_valmez {
-      font-size: 1.4vw; }
-    .part_two .valmez_block h3 {
-      font-size: 4vw;
-      padding-top: 5%; }
-  .part_two .bowling_block {
-    width: 100%; }
-    .part_two .bowling_block .news_bowling {
-      font-size: 1.4vw; }
-    .part_two .bowling_block h3 {
-      font-size: 4vw;
-      padding-top: 2%; } }
+  .part_two {
+    height: 50%; }
+    .part_two .roznov_block {
+      width: 50%;
+      height: auto; }
+      .part_two .roznov_block .news_roznov {
+        font-size: 1.4vw;
+        padding: 5px;
+        width: 98%; }
+      .part_two .roznov_block h3 {
+        font-size: 4vw;
+        padding-top: 5%; }
+    .part_two .valmez_block {
+      width: 50%;
+      height: auto; }
+      .part_two .valmez_block .news_valmez {
+        font-size: 1.4vw;
+        padding: 5px;
+        width: 98%; }
+      .part_two .valmez_block h3 {
+        font-size: 4vw;
+        padding-top: 5%; }
+    .part_two .bowling_block {
+      width: 100%;
+      height: auto; }
+      .part_two .bowling_block .news_bowling {
+        font-size: 1.4vw;
+        padding: 5px;
+        width: 99%; }
+      .part_two .bowling_block h3 {
+        font-size: 4vw;
+        padding-top: 2%; } }
 @media screen and (max-width: 600px) {
   body {
     background: none; }
 
-  .part_one .logo_block h1 .word_l {
-    font-size: 16vw; }
-  .part_one .logo_block h1 .word_a {
-    font-size: 14.7vw; }
-  .part_one .logo_block h1 .vida {
-    font-size: 15.4vw; }
-  .part_one .logo_block h1 .cubana {
-    font-size: 13.5vw; }
-  .part_one .logo_block p {
-    font-size: 8.2vw; }
+  .part_one {
+    height: 40%; }
+    .part_one .logo_block h1 .word_l {
+      font-size: 16vw; }
+    .part_one .logo_block h1 .word_a {
+      font-size: 14.7vw; }
+    .part_one .logo_block h1 .vida {
+      font-size: 15.4vw; }
+    .part_one .logo_block h1 .cubana {
+      font-size: 13.5vw; }
+    .part_one .logo_block p {
+      font-size: 8.2vw; }
 
   .part_two .roznov_block {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
     .part_two .roznov_block .news_roznov {
-      font-size: 2.5vw; }
+      display: none; }
     .part_two .roznov_block h3 {
       font-size: 6.4vw; }
   .part_two .valmez_block {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
     .part_two .valmez_block .news_valmez {
-      font-size: 2.5vw; }
+      display: none; }
     .part_two .valmez_block h3 {
       font-size: 6.4vw; }
   .part_two .bowling_block {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
     .part_two .bowling_block .news_bowling {
-      font-size: 2.5vw; }
+      display: none; }
     .part_two .bowling_block h3 {
       font-size: 6.4vw; } }
 @media screen and (max-height: 700px) {
