@@ -3,6 +3,7 @@
 $red: #d14334;
 $darkGrey: #343333;
 $white: #ffffff;
+$actuality-padding: 5px;
 
 @font-face {
   font-family: 'bittersweet';
@@ -313,11 +314,15 @@ body {
   }
 
   .part_two {
+    height: 50%;
     .roznov_block {
       width: 50%;
+      height: auto;
 
       .news_roznov {
         font-size: 1.4vw;
+        padding: $actuality-padding;
+        width: 98%;
       }
       h3 {
         font-size: 4vw;
@@ -326,9 +331,12 @@ body {
     }
     .valmez_block {
       width: 50%;
+      height: auto;
 
       .news_valmez {
         font-size: 1.4vw;
+        padding: $actuality-padding;
+        width: 98%;
       }
       h3 {
         font-size: 4vw;
@@ -337,9 +345,12 @@ body {
     }
     .bowling_block {
       width: 100%;
+      height: auto;
 
       .news_bowling {
         font-size: 1.4vw;
+        padding: $actuality-padding;
+        width: 99%;
       }
       h3 {
         font-size: 4vw;
@@ -357,7 +368,9 @@ body {
   }
 
   .part_one {
+    height: 40%;
     .logo_block {
+
 
       h1 {
         .word_l {
@@ -382,19 +395,22 @@ body {
   .part_two {
     .roznov_block {
       width: 100%;
+      height: auto;
 
       .news_roznov {
-        font-size: 2.5vw;
+        display: none;
       }
       h3 {
         font-size: 6.4vw;
       }
+
     }
     .valmez_block {
       width: 100%;
+      height: auto;
 
       .news_valmez {
-        font-size: 2.5vw;
+        display: none;
       }
       h3 {
         font-size: 6.4vw;
@@ -402,9 +418,10 @@ body {
     }
     .bowling_block {
       width: 100%;
-
+      height: auto;
       .news_bowling {
-        font-size: 2.5vw;
+        display: none;
+
       }
       h3 {
         font-size: 6.4vw;
