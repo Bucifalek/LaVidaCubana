@@ -138,7 +138,9 @@ nav {
   .mainmenu a:hover {
     color: #343333; }
   .mainmenu li.active a {
-    color: #343333; }
+    color: black; }
+  .mainmenu li.activeRed a {
+    color: #d14334; }
   .mainmenu .white a {
     color: white !important; }
   .mainmenu .white a:hover {
@@ -235,8 +237,11 @@ nav {
     width: 50%;
     height: 260px;
     color: #343333; }
+    .adress .seznam h2 {
+      color: #d14334;
+      padding-bottom: 15px; }
     .adress .seznam ul {
-      margin-top: 60px;
+      margin-top: 30px;
       margin-left: 30px; }
     .adress .seznam li {
       list-style: none;
@@ -300,10 +305,10 @@ p.created {
     .greybox .bowling_text_default .play_info, .greybox_2 .bowling_text_default .play_info, .greybox_table .bowling_text_default .play_info, .greybox_table_2 .bowling_text_default .play_info {
       font-size: 1em !important; }
 
-  .instagram_box_2 .half_blok .half_one, .instagram_box_2 .half_blok .half_two {
+  .half_blok .half_one p {
     font-size: 1em !important; }
-    .instagram_box_2 .half_blok .half_one .variant_1, .instagram_box_2 .half_blok .half_two .variant_1 {
-      font-size: 1em !important; }
+  .half_blok .half_two p {
+    font-size: 1em !important; }
 
   .logo {
     font-family: bittersweet;
@@ -321,7 +326,7 @@ p.created {
     .time_cenik_info .cenik_info {
       width: 100%;
       float: left;
-      margin-left: 20px; } }
+      margin-left: 10px; } }
 @media screen and (max-width: 710px) {
   nav {
     width: 100%;
@@ -354,11 +359,20 @@ p.created {
       transition-property: background;
       transition-duration: 0.6s;
       transition-delay: 0s, 0.25s, 0.45s, 0.7s; }
+    .mainmenu li.dropdownResp {
+      color: white; }
     .mainmenu a {
       padding: 0;
       line-height: 40px; }
     .mainmenu a:hover {
-      color: #d14334; } }
+      color: #d14334; }
+
+  .page_title {
+    text-align: center;
+    height: 100px;
+    font-size: 1em; }
+    .page_title a {
+      float: none; } }
 @media screen and (max-width: 680px) {
   .adress .seznam {
     width: 100%;

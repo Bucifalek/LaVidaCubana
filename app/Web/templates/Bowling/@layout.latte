@@ -34,10 +34,10 @@
                     <li{ifCurrent Bowling:play} class='active'{/ifCurrent}><a n:href="Bowling:play">Chci si zahrát</a></li>
                     <li{ifCurrent Bowling:league} class='active dropdown'{/ifCurrent} class="dropdown"><a n:href="Bowling:league">Bowlingová liga</a>
                         <ul>
-                            <li class="white"><a n:href="Bowling:rules" class="white">Pravidla</a></li>
-                            <li class="white"><a n:href="Bowling:draft" class="white">Rozpis</a></li>
-                            <li class="white"><a n:href="Bowling:news" class="white">Aktuálně</a></li>
-                            <li class="white"><a n:href="Bowling:top" class="white">Top 3</a></li>
+                            <li {ifCurrent Bowling:rules} class='activeRed dropdown'{/ifCurrent} class="white"><a n:href="Bowling:rules">Pravidla</a></li>
+                            <li {ifCurrent Bowling:draft} class='activeRed dropdown'{/ifCurrent} class="white"><a n:href="Bowling:draft">Rozpis</a></li>
+                            <li {ifCurrent Bowling:news} class='activeRed dropdown'{/ifCurrent} class="white"><a n:href="Bowling:news">Aktuálně</a></li>
+                            <li {ifCurrent Bowling:top} class='activeRed dropdown'{/ifCurrent} class="white"><a n:href="Bowling:top">Top 3</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -45,8 +45,8 @@
         </nav>
         <div class="page_title">
              <div class="flexible_content">
-                 <h2 class="page_title_h">{include title}</h2>
-                 <a n:href="Homepage:default">Úvodní rozcestník!</a>
+                 <p class="page_title_h">{include title}</p>
+                 <a n:href="Homepage:default">Zpět na výběr kaváren!</a>
              </div>
         </div>
 
