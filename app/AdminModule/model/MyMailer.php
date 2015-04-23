@@ -47,7 +47,7 @@ final class MyMailer extends Nette\Mail\SmtpMailer implements Mail\IMailer
 			'port'     => '465',
 			'secure'   => 'ssl',
 			'username' => 'upozorneni@kotyslab.cz',
-			'password' => 'cust168255332210'
+			'password' => '45tteEnginerenderdas97657'
 		];
 		$this->mailer = new Nette\Mail\SmtpMailer($config);
 	}

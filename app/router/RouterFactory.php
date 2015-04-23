@@ -71,6 +71,7 @@ class RouterFactory
 		$router[] = new Route('admin/muj-ucet/', 'Admin:MyProfile:default');
 
 		// Login
+		$router[] = new Route('admin/obnoveni-hesla[/<token>]', 'Admin:Sign:recovery');
 		$router[] = new Route('admin/zapomenute-heslo', 'Admin:Sign:forgot');
 		$router[] = new Route('admin/prihlasit-se', 'Admin:Sign:in');
 

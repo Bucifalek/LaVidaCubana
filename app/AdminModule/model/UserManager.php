@@ -157,9 +157,20 @@ final class UserManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
 	}
 
+	/**
+	 * @param $user
+	 */
 	public function updateActiveTime($user)
 	{
-		$this->database->table('users')->where('id', $user->getId())->update(['activetime' => time()]);
+		$this->database->table(DatabaseStructure::USERS)->where('id', $user->getId())->update(['activetime' => time()]);
+	}
+
+	/**
+	 * @param $email
+	 * @return int
+	 */
+	public function isAsociated($email) {
+		return $this->database->table(DatabaseStructure::USERS)->where('email', $email)->count();
 	}
 
 }

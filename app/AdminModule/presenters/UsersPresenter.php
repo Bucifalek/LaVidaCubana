@@ -43,7 +43,7 @@ final class UsersPresenter extends BasePresenter
 	}
 
 
-	/**
+	/*
 	 *
 	 */
 	public function renderDefault()
