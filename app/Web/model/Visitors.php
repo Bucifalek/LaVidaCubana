@@ -140,20 +140,25 @@ class Visitors extends Nette\Object
 		return $this->filter;
 	}
 
-	public function getList($filter = "http://localhost/LaVidaCubana/www") {
+	/**
+	 * @return array
+	 */
+	public function getList()
+	{
 		$list = [];
 
 		$visits = $this->database->table(DatabaseStructure::WEB_VISITORS)->order('url ASC')->fetchAll();
 
-		foreach($visits as $visitor) {
-			$url = str_replace($filter, null, $visitor->url);
+		foreach ($visits as $visitor) {
+			$url = $visitor->url;
 
-			if(isset($list[$url]['visits'])) {
+			if (isset($list[$url]['visits'])) {
 				$list[$url]['visits']++;
 			} else {
 				$list[$url]['visits'] = 1;
 			}
 		}
+
 		return $list;
 	}
 
