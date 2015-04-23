@@ -27,6 +27,9 @@ final class SignPresenter extends BasePresenter
 	 */
 	private $recoveryTokens;
 
+	/**
+	 * @var Model\UserManager
+	 */
 	private $userManager;
 
 	/**
@@ -60,7 +63,7 @@ final class SignPresenter extends BasePresenter
 	{
 		if (!$token) {
 			$this->flashMessage('Neplatný pokus o obnovení hesla!', FLASH_FAILED);
-			$this->redirect('Sign:in');
+			$this->redirect('Sign:forgot');
 		}
 		try {
 			$this->recoveryTokens->isValid($token);
@@ -69,8 +72,12 @@ final class SignPresenter extends BasePresenter
 			$this->redirect('Sign:forgot');
 		}
 
+		$newPass = Nette\Utils\Random::generate(30, '0-9a-zA-Z');
 
-		$this->template->newPassowrd = Nette\Utils\Random::generate(30, '0-9a-zA-Z');
+		$tokenObj = $this->recoveryTokens->details($token);
+
+		$this->userManager->newPassword($tokenObj['user'], Nette\Security\Passwords::hash($newPass));
+		$this->template->newPassowrd = $newPass;
 	}
 
 
@@ -89,42 +96,59 @@ final class SignPresenter extends BasePresenter
 	}
 
 
-	public function startRestore(UI\Form $form)
+	/**
+	 * @param $target
+	 * @param $token
+	 * @return bool
+	 */
+	private function sendRecoveryEmail($target, $token)
 	{
-		$values = $form->getValues();
-		if(!Nette\Utils\Validators::isEmail($values['email'])) {
-			$this->flashMessage('Neplatná emailová adresa.', FLASH_FAILED);
-			$this->redirect('Sign:forgot');
-		}
-		if(!$this->userManager->isAsociated($values['email'])) {
-			$this->flashMessage('Tento email nepatří k žádnému účtu.', FLASH_FAILED);
-			$this->redirect('Sign:forgot');
-		}
-
-		$token = $this->recoveryTokens->generate();
-
-		$this->recoveryTokens->save();
-		$this->flashMessage('Email s odkazem pro obnovení hesla odeslán.', FLASH_SUCCESS);
-
-
-		//try {
+		try {
 			$myMailer = new Model\MyMailer;
 			$myMailer->setHtmlBody(
 				__DIR__ . '/../templates/EmailTemplates/restorePassword.latte',
 				[
-					'link' => $this->link('Sign:recovery', ['token' => $token]),
+					'link' => 'http://dev.lavidacubana.cz/admin/obnoveni-hesla/' . $token,
 				]
 			)
-				->addTo($values['email'])
+				->addTo($target)
 				->setFrom("upozorneni@kotyslab.cz")
 				->setSubject("Obnovení hesla");
 			$myMailer->sendEmail();
-		/*} catch (\Exception $e) {
-			Debugger::barDump($e);
-			$this->flashMessage($e->getMessage(), FLASH_WARNING);
-		}*/
+		} catch (\Exception $e) {
+			$this->flashMessage("Odesílání emailu selhalo, zkuste to prosím později.", FLASH_FAILED);
 
-		$this->redirect('Sign:in');
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * @param UI\Form $form
+	 * @throws Nette\Application\AbortException
+	 */
+	public function startRestore(UI\Form $form)
+	{
+		$values = $form->getValues();
+		if (!Nette\Utils\Validators::isEmail($values['email'])) {
+			$this->flashMessage('Neplatná emailová adresa.', FLASH_FAILED);
+			$this->redirect('Sign:forgot');
+		}
+		$user = $this->userManager->isAssociated($values['email']);
+		if (!$user) {
+			$this->flashMessage('Tento email nepatří k žádnému účtu.', FLASH_FAILED);
+			$this->redirect('Sign:forgot');
+		}
+
+
+		$token = $this->recoveryTokens->generate($user['id']);
+
+		if ($this->sendRecoveryEmail($values['email'], $token)) {
+			$this->recoveryTokens->save();
+			$this->flashMessage('Email s odkazem pro obnovení hesla odeslán.', FLASH_SUCCESS);
+			$this->redirect('Sign:in');
+		}
 	}
 
 	/**
@@ -134,8 +158,8 @@ final class SignPresenter extends BasePresenter
 	{
 		$form = new UI\Form;
 		$form->addProtection();
-		$form->addText('username', 'Name:')
-			->setRequired('Nezadali jste jméno.');
+		$form->addText('email', 'Name:')
+			->setRequired('Nezadali jste email.');
 
 		$form->addPassword('password', 'Password:')
 			->setRequired('Nezadali jste heslo.');
@@ -152,7 +176,7 @@ final class SignPresenter extends BasePresenter
 	{
 		$values = $form->values;
 		try {
-			$this->getUser()->login($values->username, $values->password);
+			$this->getUser()->login($values->email, $values->password);
 			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
 			$this->restoreRequest($this->backlink);
 		} catch (Nette\Security\AuthenticationException $e) {
