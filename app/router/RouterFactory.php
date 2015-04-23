@@ -30,6 +30,7 @@ class RouterFactory
 		// System
 		$router[] = new Route('admin/export-databaze', 'Admin:Helper:databaseExport');
 		$router[] = new Route('admin/zmenit-sekci[/<target>]', 'Admin:Dashboard:changeBranch');
+		$router[] = new Route('admin/navstevnost', 'Admin:Visitors:default');
 
 		// Teams
 		$router[] = new Route('admin/tymy', 'Admin:Team:default');

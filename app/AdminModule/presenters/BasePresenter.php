@@ -214,6 +214,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
 			'Export databáze|magic'   => "Helper:databaseExport",
+			'Návštěvnost|charts' => 'Visitors:default',
 		]);
 
 		return $menu;
