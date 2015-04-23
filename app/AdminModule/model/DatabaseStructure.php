@@ -69,4 +69,9 @@ final class DatabaseStructure extends Nette\Object
 	 * Bowling news table
 	 */
 	const BOWLING_NEWS = "bowling_news";
+
+	/**
+	 * Users recovery tokens
+	 */
+	const USERS_RECOVERY_TOKENS = "users_recovery_tokens";
 }
