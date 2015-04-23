@@ -169,22 +169,22 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					[
 						'Jarní část|flower'    => [
 							'Rozpis|edit'           => 'League:draft, leto',
-							'Jednotlivá kola|inbox' => 'League:rounds, leto',
+							//'Jednotlivá kola|inbox' => 'League:rounds, leto',
 							'Přidat kolo|pushpin'   => 'League:addRound, leto',
 						],
 						'Podzimní část|leaf'   => [
 							'Rozpis|edit'           => 'League:draft, podzim',
-							'Jednotlivá kola|inbox' => 'League:rounds, podzim',
+							//'Jednotlivá kola|inbox' => 'League:rounds, podzim',
 							'Přidat kolo|pushpin'   => 'League:addRound, podzim',
 						],
 						'Zimní část|snowflake' => [
 							'Rozpis|edit'           => 'League:draft, zima',
-							'Jednotlivá kola|inbox' => 'League:rounds, zima',
+							//'Jednotlivá kola|inbox' => 'League:rounds, zima',
 							'Přidat kolo|pushpin'   => 'League:addRound, zima',
 						],
 						'Play-off|charts'      => [
 							'Rozpis|edit'           => 'League:draft, playoff',
-							'Jednotlivá kola|inbox' => 'League:rounds, playoff',
+							//'Jednotlivá kola|inbox' => 'League:rounds, playoff',
 							'Přidat kolo|pushpin'   => 'League:addRound, playoff',
 							'Přidat tým|pushpin'    => 'League:addTeam, playoff',
 						],

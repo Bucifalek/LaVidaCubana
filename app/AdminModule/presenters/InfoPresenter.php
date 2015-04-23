@@ -148,6 +148,8 @@ final class InfoPresenter extends BasePresenter
 		$values = $form->getValues();
 
 		$days = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'];
+		// TODO Lepsi chybova ahlaska se spatnym dnem
+
 		for ($dayID = 1; $dayID <= 7; $dayID++) {
 			$data = [
 				'open'  => preg_replace("/[^0-9:]/", "", $values->offsetGet('day' . $dayID . '_from')),

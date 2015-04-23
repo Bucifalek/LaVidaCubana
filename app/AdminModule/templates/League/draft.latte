@@ -2,12 +2,174 @@
  - @author Jan Kotrba <jan.kotrbaa@gmail.com>
  - @date 21:40, 25. 3. 2015
 *}
-{block head}{/block}
 
 {block nav_presenter}Liga{/block}
 {block nav_action}Rozpis{/block}
 {block content}
-	Lorem ipsum
-{/block}
+<div class="tab-content mw500">
+    <div class="admin-form tab-pane active" id="register2" role="tabpanel">
+        <div class="panel heading-border">
+            <div class="panel-heading">
+             <span class="panel-title"><i class="glyphicons glyphicons-adress_book"></i>Parametry
+             </span>
+            </div>
+            <div class="panel-body pn ml10 mr10 mb10 cursor-pointer">
+                <div class="section-divider mt30 mb20">
+                    <span>Začátky jednotlivých kol</span>
+                </div>
+            <div class="section row">
+                <div class="col-md-6">
+                    <label for="first_round" class="field prepend-icon">
+                        <input id="first_round" class="gui-input" placeholder="První zápas..."
+                               type="text"  name="first_round">
+                        <label for="first_round" class="field-icon"><i class="glyphicon glyphicon-time"></i>
+                        </label>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label for="second_round" class="field prepend-icon">
+                        <input id="second_round" class="gui-input" placeholder="Druhý zápas..."
+                        type="text" name="second_round">
+                        <label for="second_round" class="field-icon"><i class="glyphicon glyphicon-time"></i>
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <div class="section-divider mt50 mb20">
+                <span>Kdy začíná tato sezóna</span>
+            </div>
+            <div class="section">
+                <label for="date" class="field prepend-icon">
+                    <input id="date" class="gui-input" placeholder="Datum..." type="date" name="date">
+                    <label for="date" class="field-icon"><i class="glyphicon glyphicon-calendar"></i>
+                    </label>
+                </label>
+            </div>
+            </div>
+            <div class="panel-footer text-right">
+                <input type="submit" class="btn btn-primary" value="Uložit změny">
+            </div>
+        </div>
+    </div>
+</div>
 
-{block script}{/block}
+
+
+
+
+
+	<div class="tab-content mw1000">
+        <div class="admin-form tab-pane active" id="register2" role="tabpanel">
+            <div class="panel heading-border">
+                <div class="panel-heading">
+                 <span class="panel-title" n:block="title"><i class="glyphicons glyphicons-adress_book"></i>Rozpis jarní části
+                 </span>
+                </div>
+                <div class="panel-body pn ml10 mr10 mb10 cursor-pointer">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Číslo kola</th>
+                            <th>Datum</th>
+                            <th>Den</th>
+
+                            <th>První zápas</th>
+                            <th>Utkají se</th>
+                            <th>Odehráno</th>
+
+                            <th>Druhý zápas</th>
+                            <th>Utkají se</th>
+                            <th>Odehráno</th>
+                            {*}<th class="text-right">Akce</th>{*}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>23.4.2015</td>
+                            <td>Úterý</td>
+
+                            <td>15:00</td>
+                            <td>Acok : Bcko</td>
+                            <td>
+                            <div class="btn-group text-right">
+                              <button type="button" class="btn btn-success br2 btn-xs  dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> Odehráno
+                                <span class="caret ml5"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li class="active">
+                                  <a href="#">Odehráno</a>
+                                </li>
+                                <li>
+                                  <a href="#">Neodehráno</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                  <a href="#">Odehráno jindy</a>
+                                </li>
+                              </ul>
+                            </div>
+
+                            </td>
+
+                            <td>17:00</td>
+                            <td>Ccko : Dcko</td>
+                            <td>
+                                <div class="btn-group text-right">
+                                  <button type="button" class="btn btn-danger br2 btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> Neodehráno
+                                    <span class="caret ml5"></span>
+                                  </button>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                      <a href="#">Odehráno</a>
+                                    </li>
+                                    <li class="active">
+                                      <a href="#">Neodehráno</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                      <a href="#">Odehráno jindy</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                            </td>
+                            {*}<td>{$user->date}</td>
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <button aria-expanded="true" type="button"
+                                            class="btn btn-danger btn-sm  dropdown-toggle"
+                                            data-toggle="dropdown">
+                                        Akce
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href="{link Users:edit, $user->id}">Upravit údaje</a>
+                                        </li>
+                                        <li>
+                                            <a href="#TODO info o uctu">Informace o účtu</a>
+                                        </li>
+                                        <li>
+                                            <a href="{link RegenPass!, $user->id}">Vygenerovat nové heslo</a>
+                                        </li>
+                                        <li n:if="!$user->banned">
+                                            <a href="{link BanUser!, $user->id}">Zablokovat účet</a>
+                                        </li>
+                                        <li n:if="$user->banned">
+                                            <a href="{link UnBanUser!, $user->id}">Odblokovat účet</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="{link DeleteUser!, $user->id}">Smazat účet</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>{*}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}
