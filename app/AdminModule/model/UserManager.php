@@ -94,7 +94,7 @@ final class UserManager extends Nette\Object
 	 * @throws \Exception
 	 */
 	public function add($details)
-	{	
+	{
 		/*
 		$sameEmail = $this->database->table(DatabaseStructure::USERS)->where('email', $details['email'])->count();
 		$sameNickName = $this->database->table(DatabaseStructure::USERS)->where('nickname', $details['nickname'])->count();

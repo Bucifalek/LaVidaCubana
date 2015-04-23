@@ -120,6 +120,10 @@ $font-color: #fff;
           td{
             padding: 8px 0 8px 0;
           }
+
+          td.cellBold{
+            font-weight: bold;
+          }
         }
       }
     }

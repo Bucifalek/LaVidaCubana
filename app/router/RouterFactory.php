@@ -55,7 +55,7 @@ class RouterFactory
 		$router[] = new Route('admin/liga/<season>/rozpis', 'Admin:League:draft');
 		$router[] = new Route('admin/liga/<season>/jednotliva-kola', 'Admin:League:rounds');
 		$router[] = new Route('admin/liga/<season>/pridat-kolo', 'Admin:League:addRound');
-		$router[] = new Route('admin/liga/<season>/pridat-team', 'Admin:Team:add');
+		$router[] = new Route('admin/liga/<season>/pridat-team', 'Admin:League:addTeam');
 		$router[] = new Route('admin/liga/pridat-dalsi-rok', 'Admin:League:addYear');
 
 		// Vysledky
@@ -96,15 +96,15 @@ class RouterFactory
 		// Bowling Router
 		$router[] = new Route('bowling/', 'Web:Bowling:default');
 		$router[] = new Route('bowling/chci-si-zahrat', 'Web:Bowling:play');
-		$router[] = new Route('bowling/bowlingova-liga', 'Web:Bowling:league');
+		$router[] = new Route('bowling/bowlingova-liga[/strana/<page=1>]', 'Web:Bowling:league');
 		$router[] = new Route('bowling/pravidla', 'Web:Bowling:rules');
 		$router[] = new Route('bowling/rozpis', 'Web:Bowling:draft');
 		$router[] = new Route('bowling/aktualne', 'Web:Bowling:news');
 		$router[] = new Route('bowling/top-3', 'Web:Bowling:top');
 
 		$router[] = new Route('', 'Web:Homepage:default');
+		$router[] = new Route('www', 'Web:Homepage:default');
 		$router[] = new Route('<not-found>', 'Web:Homepage:notFound');
-
 
 		return $router;
 	}

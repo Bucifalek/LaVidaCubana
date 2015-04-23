@@ -1,8 +1,15 @@
-parameters:
+production:
+	database:
+		dsn: 'mysql:host=wm80.wedos.net;dbname=d93282_lavida'
+		user: w93282_lavida
+		password: 6DkP4c4K
+		options:
+			lazy: yes
 
-database:
-	dsn: 'mysql:host=127.0.0.1;dbname=lavidacubana'
-	user: root
-	password:
-	options:
-		lazy: yes
+development:
+	database:
+		dsn: 'mysql:host=127.0.0.1;dbname=lavidacubana'
+		user: root
+		password:
+		options:
+			lazy: yes

@@ -4,14 +4,18 @@
 	<meta charset="utf-8">
 	<meta name="theme-color" content="#30363e">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="{ifset #description}{include description}{else}Kavárna La VIDA Cubana ve Valašském Meziříčí disponuje také Bowlingovou drahou.{/ifset}"/>
+    <meta name="keywords" content="{ifset #keywords}{include keywords}{else}kavarna, la vida cubana, roznov pod radhostem, valasske mezirici, bowling{/ifset}"/>
+    <meta name="author" content="Jan Kotrba, David Janík, Jan Bartoň"/>
 
 	<title>{ifset #title}{include title|striptags} | {/ifset}La VIDA Cubana</title>
 
-    <link rel="stylesheet" media="" href="{$basePath}/Front-End/css/style-bowling.css">
-    <link rel="stylesheet" media="" href="{$basePath}/Front-End/css/style-bowling-play.css">
-    <link rel="stylesheet" media="" href="{$basePath}/Front-End/css/style-bowling-league.css">
+    <link rel="stylesheet" media="" href="{$basePath}/Front-end/css/style-bowling.css">
+    <link rel="stylesheet" media="" href="{$basePath}/Front-end/css/style-bowling-play.css">
+    <link rel="stylesheet" media="" href="{$basePath}/Front-end/css/style-bowling-league.css">
+	<link rel="shortcut icon" href="{$basePath}/Front-end/img/favicon.ico">
 
-	<link rel="shortcut icon" href="{$basePath}/Front-End/img/favicon.ico">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	{block head}{/block}
 </head>
@@ -42,7 +46,7 @@
         <div class="page_title">
              <div class="flexible_content">
                  <h2 class="page_title_h">{include title}</h2>
-                 <a n:href="Homepage:default">Zpět do výběru kaváren!</a>
+                 <a n:href="Homepage:default">Úvodní rozcestník!</a>
              </div>
         </div>
 
@@ -50,21 +54,14 @@
 
 	    <footer>
              <div class="flexible_content">
-                 <p class="created"> © La VIDA Cubana 2015 | Created by: <a href="#">Koty's lab</a> | Powered by <a href="http://nette.org/">Nette Framework</a></p>
+                 <p class="created"> © La VIDA Cubana 2015 | Created by: <a href="#">Koty's lab</a> | Powered by <a href="http://nette.org/" target="_blank">Nette Framework</a></p>
              </div>
         </footer>
     </div>
-
 	{block scripts}
-	<script src="{$basePath}/Front-End/js/jquery.min.js"></script>
-	<script src="{$basePath}/Front-End/js/jquery-ui.js"></script>
-	<script src="{$basePath}/Front-End/js/netteForms.js"></script>
-	<script src="{$basePath}/Front-End/js/main.js"></script>
-	<script>
-        $(function() {
-            $( "#tabs" ).tabs();
-        });
-    </script>
+	<script src="{$basePath}/Front-end/js/jquery.min.js"></script>
+	<script src="{$basePath}/Front-end/js/netteForms.js"></script>
+	<script src="{$basePath}/Front-end/js/main.js"></script>
 	{/block}
 </body>
 </html>

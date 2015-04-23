@@ -1,5 +1,5 @@
-#RewriteEngine On
-#RewriteCond %{HTTP_HOST} zakaznik.kotyslab.cz$
-#RewriteRule ^$ /la-vida-cubana/www/$1 [L]
-#RewriteCond %{HTTP_HOST} zakaznik.kotyslab.cz$
-#RewriteRule (.*) /la-vida-cubana/www/$1 [L]
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?lavidacubana\.cz$
+RewriteRule ^$ www/ [L]
+RewriteCond %{HTTP_HOST} ^(www\.)?lavidacubana\.cz$
+RewriteRule (.*) www/$1 [L]
