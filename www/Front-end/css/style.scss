@@ -259,7 +259,7 @@ body {
 
 .roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text {
   width: 100%;
-  height: auto;
+  height: 289px;
   background: rgba(255, 255, 255, 0.15);
   padding-bottom: 20px;
 
@@ -328,6 +328,15 @@ body {
         font-size: 4vw;
         padding-top: 5%;
       }
+      .heading_text{
+        h3{
+          font-size: 2.8em;
+          padding-top: 80px;
+        }
+        p{
+          font-size: 1.4em;
+        }
+      }
     }
     .valmez_block {
       width: 50%;
@@ -342,6 +351,15 @@ body {
         font-size: 4vw;
         padding-top: 5%;
       }
+      .heading_text{
+        h3{
+          font-size: 2.8em;
+          padding-top: 80px;
+        }
+        p{
+          font-size: 1.4em;
+        }
+      }
     }
     .bowling_block {
       width: 100%;
@@ -355,6 +373,15 @@ body {
       h3 {
         font-size: 4vw;
         padding-top: 2%;
+      }
+      .heading_text{
+        h3{
+          font-size: 2.8em;
+          padding-top: 80px;
+        }
+        p{
+          font-size: 1.4em;
+        }
       }
     }
   }
@@ -403,7 +430,11 @@ body {
       h3 {
         font-size: 6.4vw;
       }
-
+      .heading_text{
+        h3{
+          padding-top: 80px;
+        }
+      }
     }
     .valmez_block {
       width: 100%;
@@ -415,6 +446,11 @@ body {
       h3 {
         font-size: 6.4vw;
       }
+      .heading_text{
+        h3{
+          padding-top: 80px;
+        }
+      }
     }
     .bowling_block {
       width: 100%;
@@ -425,6 +461,11 @@ body {
       }
       h3 {
         font-size: 6.4vw;
+      }
+      .heading_text{
+        h3{
+          padding-top: 80px;
+        }
       }
     }
   }
