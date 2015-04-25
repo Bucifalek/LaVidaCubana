@@ -188,7 +188,7 @@ body {
 /*  ODKAZ  */
 .roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text {
   width: 100%;
-  height: auto;
+  height: 289px;
   background: rgba(255, 255, 255, 0.15);
   padding-bottom: 20px;
   transition-property: background;
@@ -236,6 +236,11 @@ body {
       .part_two .roznov_block h3 {
         font-size: 4vw;
         padding-top: 5%; }
+      .part_two .roznov_block .heading_text h3 {
+        font-size: 2.8em;
+        padding-top: 80px; }
+      .part_two .roznov_block .heading_text p {
+        font-size: 1.4em; }
     .part_two .valmez_block {
       width: 50%;
       height: auto; }
@@ -246,6 +251,11 @@ body {
       .part_two .valmez_block h3 {
         font-size: 4vw;
         padding-top: 5%; }
+      .part_two .valmez_block .heading_text h3 {
+        font-size: 2.8em;
+        padding-top: 80px; }
+      .part_two .valmez_block .heading_text p {
+        font-size: 1.4em; }
     .part_two .bowling_block {
       width: 100%;
       height: auto; }
@@ -255,7 +265,12 @@ body {
         width: 99%; }
       .part_two .bowling_block h3 {
         font-size: 4vw;
-        padding-top: 2%; } }
+        padding-top: 2%; }
+      .part_two .bowling_block .heading_text h3 {
+        font-size: 2.8em;
+        padding-top: 80px; }
+      .part_two .bowling_block .heading_text p {
+        font-size: 1.4em; } }
 @media screen and (max-width: 600px) {
   body {
     background: none; }
@@ -280,6 +295,8 @@ body {
       display: none; }
     .part_two .roznov_block h3 {
       font-size: 6.4vw; }
+    .part_two .roznov_block .heading_text h3 {
+      padding-top: 80px; }
   .part_two .valmez_block {
     width: 100%;
     height: auto; }
@@ -287,13 +304,17 @@ body {
       display: none; }
     .part_two .valmez_block h3 {
       font-size: 6.4vw; }
+    .part_two .valmez_block .heading_text h3 {
+      padding-top: 80px; }
   .part_two .bowling_block {
     width: 100%;
     height: auto; }
     .part_two .bowling_block .news_bowling {
       display: none; }
     .part_two .bowling_block h3 {
-      font-size: 6.4vw; } }
+      font-size: 6.4vw; }
+    .part_two .bowling_block .heading_text h3 {
+      padding-top: 80px; } }
 @media screen and (max-height: 700px) {
   .part_one .logo_block h1 .word_l {
     font-size: 8vw; }

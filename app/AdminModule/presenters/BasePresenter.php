@@ -13,6 +13,8 @@ use Nette,
 	Nette\Security;
 use Tracy\Debugger;
 
+use Nette\Mail\Message;
+
 /**
  * Class BasePresenter
  * @package App\AdminModule\Presenters
@@ -168,25 +170,25 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$menu->addSection('Rozpis ligy',
 					[
 						'Jarní část|flower'    => [
-							'Rozpis|edit'           => 'League:draft, leto',
-							'Jednotlivá kola|inbox' => 'League:rounds, leto',
-							'Přidat kolo|pushpin'   => 'League:addRound, leto',
+							'Rozpis|edit'         => 'League:draft, leto',
+							//'Jednotlivá kola|inbox' => 'League:rounds, leto',
+							'Přidat kolo|pushpin' => 'League:addRound, leto',
 						],
 						'Podzimní část|leaf'   => [
-							'Rozpis|edit'           => 'League:draft, podzim',
-							'Jednotlivá kola|inbox' => 'League:rounds, podzim',
-							'Přidat kolo|pushpin'   => 'League:addRound, podzim',
+							'Rozpis|edit'         => 'League:draft, podzim',
+							//'Jednotlivá kola|inbox' => 'League:rounds, podzim',
+							'Přidat kolo|pushpin' => 'League:addRound, podzim',
 						],
 						'Zimní část|snowflake' => [
-							'Rozpis|edit'           => 'League:draft, zima',
-							'Jednotlivá kola|inbox' => 'League:rounds, zima',
-							'Přidat kolo|pushpin'   => 'League:addRound, zima',
+							'Rozpis|edit'         => 'League:draft, zima',
+							//'Jednotlivá kola|inbox' => 'League:rounds, zima',
+							'Přidat kolo|pushpin' => 'League:addRound, zima',
 						],
 						'Play-off|charts'      => [
-							'Rozpis|edit'           => 'League:draft, playoff',
-							'Jednotlivá kola|inbox' => 'League:rounds, playoff',
-							'Přidat kolo|pushpin'   => 'League:addRound, playoff',
-							'Přidat tým|pushpin'    => 'League:addTeam, playoff',
+							'Rozpis|edit'         => 'League:draft, playoff',
+							//'Jednotlivá kola|inbox' => 'League:rounds, playoff',
+							'Přidat kolo|pushpin' => 'League:addRound, playoff',
+							'Přidat tým|pushpin'  => 'League:addTeam, playoff',
 						],
 					]);
 
@@ -212,6 +214,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
 			'Export databáze|magic'   => "Helper:databaseExport",
+			'Návštěvnost|charts' => 'Visitors:default',
 		]);
 
 		return $menu;

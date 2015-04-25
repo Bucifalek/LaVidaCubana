@@ -1,0 +1,42 @@
+{*
+- @author Jan Kotrba <jan.kotrbaa@gmail.com>
+- @date 17:16, 23. 4. 2015
+*}
+{block title}Obnovit heslo{/block}
+{block content}
+<div id="main" class="animated fadeIn">
+    <section id="content_wrapper">
+        <section id="content">
+            <div class="admin-form theme-info" id="login1">
+                <div class="panel panel-info mt10 br-n">
+                    <div class="panel-body bg-light p30">
+                        <div class="row">
+                            <div class="col-sm-12 pr30">
+                                <div class="section">
+                                    <label for="password" class="field-label text-muted fs18 mb10">Nové heslo</label>
+                                    <label for="password" class="field prepend-icon">
+                                        <input type="password" name="password" id="password" class="gui-input" type="password" value="{$newPassowrd}">
+                                        <label for="password" class="field-icon"><i class="fa fa-lock"></i>
+                                        </label>
+                                    </label>
+                                    <button class="button btn-primary mt10 pull-right" id="showPassword">Zobrazit heslo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+{/block}
+{block scripts}
+<script>
+    $(document).ready(function() {
+       $("#showPassword").click(function() {
+           $('#password').attr('type', 'text');
+           $("#showPassword").hide();
+       });
+    });
+</script>
+{/block}

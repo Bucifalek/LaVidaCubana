@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="panel panel-info mv10 heading-border br-n">
-                    <form method="post" action="/" id="contact">
+                    <form n:name="forgotDetailsForm">
                         <div class="panel-body bg-white p15 pt25">
                             <div class="special-alerts pr20" n:inner-foreach="$flashes as $flash">
                                 <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable"
@@ -30,22 +30,21 @@
                                 <p><i class="fa fa-info pr10"></i> Zadejte Email se kterým máte spojen účet.</p>
                                 <small><a href="#kontaskt">Kontaktovat správce</a></small>
                             </blockquote>
+                            <div class="smart-widget sm-right smr-150">
+                                <label for="email" class="field prepend-icon">
+                                    <input type="text" n:name="email" id="email" class="gui-input"
+                                           placeholder="Zadejte váš email">
+                                    <label for="email" class="field-icon"><i class="fa fa-envelope-o"></i>
+                                    </label>
+                                </label>
+                                <button class="button" type="submit" n:name="restore">Obnovit heslo</button>
+                            </div>
                         </div>
-                        <div class="panel-footer p25 pv15">
+                        <div class="panel-footer p15 pv15">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="section mn">
-                                        <label for="email" class="field-label text-muted fs18 mb10 hidden">Password
-                                            Reset</label>
-                                        <div class="smart-widget sm-right smr-150">
-                                            <label for="email" class="field prepend-icon">
-                                                <input type="text" name="email" id="email" class="gui-input"
-                                                       placeholder="Zadejte váš email">
-                                                <label for="email" class="field-icon"><i class="fa fa-envelope-o"></i>
-                                                </label>
-                                            </label>
-                                            <label for="email" class="button">Resetovat heslo</label>
-                                        </div>
+                                        Na obnovení hesla máte 30 minut od odeslání žádosti.
                                     </div>
                                 </div>
                             </div>

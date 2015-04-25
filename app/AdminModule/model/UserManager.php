@@ -60,15 +60,12 @@ final class UserManager extends Nette\Object
 
 	/**
 	 * @param $userID
-	 * @param $plain
 	 * @param $pass
 	 * @throws \Exception
 	 */
-	public function newPassword($userID, $plain, $pass)
+	public function newPassword($userID, $pass)
 	{
-		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $userID)->update(
-			['password' => $pass, 'password_pure' => $plain])
-		) {
+		if (!$this->database->table(DatabaseStructure::USERS)->where('id', $userID)->update(['password' => $pass])) {
 			throw new \Exception('Nepodařilo se změnit heslo.');
 		}
 	}
@@ -157,9 +154,21 @@ final class UserManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
 	}
 
+	/**
+	 * @param $user
+	 */
 	public function updateActiveTime($user)
 	{
-		$this->database->table('users')->where('id', $user->getId())->update(['activetime' => time()]);
+		$this->database->table(DatabaseStructure::USERS)->where('id', $user->getId())->update(['activetime' => time()]);
+	}
+
+	/**
+	 * @param $email
+	 * @return int
+	 */
+	public function isAssociated($email)
+	{
+		return $this->database->table(DatabaseStructure::USERS)->where('email', $email)->fetch();
 	}
 
 }
