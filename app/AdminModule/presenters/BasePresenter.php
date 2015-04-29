@@ -78,7 +78,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
-			$this->userManager->updateActiveTime($this->getUser());
 		} else if (!$this->isLinkCurrent('Sign:*')) {
 			if (!$this->isLinkCurrent('Dashboard:default')) {
 				$this->flashMessage('Pro vstup musíte být přihlášen', FLASH_WARNING);
