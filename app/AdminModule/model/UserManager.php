@@ -137,13 +137,15 @@ final class UserManager extends Nette\Object
 		}
 	}
 
+
 	/**
 	 * @param $user
 	 * @param $id
+	 * @return int
 	 */
 	public function newAvatar($user, $id)
 	{
-		$this->database->table(DatabaseStructure::USERS)->where('id', $user)->update(['avatar' => $id]);
+		return $this->database->table(DatabaseStructure::USERS)->where('id', $user)->update(['avatar' => $id]);
 	}
 
 	/**
@@ -154,12 +156,14 @@ final class UserManager extends Nette\Object
 		return $this->database->table(DatabaseStructure::USERS)->order('banned ASC,real_firstname ASC')->fetchAll();
 	}
 
+
 	/**
 	 * @param $user
+	 * @return int
 	 */
 	public function updateActiveTime($user)
 	{
-		$this->database->table(DatabaseStructure::USERS)->where('id', $user->getId())->update(['activetime' => time()]);
+		return $this->database->table(DatabaseStructure::USERS)->where('id', $user->getId())->update(['activetime' => time()]);
 	}
 
 	/**
