@@ -212,7 +212,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Seznam správců|adress_book' => 'Users:default'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Export databáze|magic'   => "Helper:databaseExport",
 			'Návštěvnost|charts' => 'Visitors:default',
 		]);
 
