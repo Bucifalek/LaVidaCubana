@@ -102,8 +102,6 @@
                     </li>
                 </ul>
             </li>
-
-
         </ul>
     </header>
 
@@ -128,15 +126,19 @@
                 </ol>
             </div>
         </header>
-        <section id="{$sId}" {ifset #sectionClass} class='{include sectionClass}' {/ifset}>
-        {* Flashes *}
-        <div class="special-alerts" n:inner-foreach="$flashes as $flash">
-            <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>{$flash->message}
+        <section id="content" class="table-layout">
+            <div class="tray va-t posr">
+            <div class="special-alerts" n:inner-foreach="$flashes as $flash">
+                <div class="alert alert-{$getFlashType($flash->type)} alert-dismissable" id="alert-demo-1">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="fa fa-{$getFlashIcon($flash->type)} pr10"></i>{$flash->message}
+                </div>
             </div>
-        </div>
         {include content}
+            </div>
+        {block aside}{/block}
+        </section>
+
     </section>
 </div>
 <script src="{$basePath}/Back-end/assets/js/netteForms.js"></script>

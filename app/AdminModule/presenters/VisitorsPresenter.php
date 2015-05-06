@@ -10,7 +10,8 @@ use App\WebModule\Model\Visitors;
 use Nette,
 	App\AdminModule\Model;
 
-class VisitorsPresenter extends BasePresenter {
+class VisitorsPresenter extends BasePresenter
+{
 
 	private $visitors;
 
@@ -21,7 +22,8 @@ class VisitorsPresenter extends BasePresenter {
 	}
 
 
-	public function renderDefault() {
+	public function renderDefault()
+	{
 		$this->template->visitors = $this->visitors->getList();
 	}
 }
