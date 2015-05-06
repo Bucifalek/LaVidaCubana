@@ -71,7 +71,7 @@ final class MainNewsPresenter extends BasePresenter
 			$this->template->title = ucfirst($key);
 		}
 		$data = $this->mainNewsManager->get($key);
-		if(!$data) {
+		if (!$data) {
 			$this->flashMessage('Tato sekce novinek neexistuje!', FLASH_FAILED);
 			$this->redirect('Dashboard:default');
 		}

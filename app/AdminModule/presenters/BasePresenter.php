@@ -98,12 +98,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
-
-
-		$allowedRoutes = [
-			'Admin:Individual',
-		];
-		$this->template->sId = ($this->getAction() == "default" AND (in_array($this->getName(), $allowedRoutes))) ? "content_wrapper" : "content";
 	}
 
 	/**
@@ -212,7 +206,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Seznam správců|adress_book' => 'Users:default'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Návštěvnost|charts' => 'Visitors:default',
+			'Návštěvnost|charts'      => 'Visitors:default',
 		]);
 
 		return $menu;
