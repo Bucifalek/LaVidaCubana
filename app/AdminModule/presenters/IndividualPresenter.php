@@ -219,7 +219,8 @@ class IndividualPresenter extends BasePresenter
 		]);
 	}
 
-	public function handleWithOutFilter() {
+	public function handleWithOutFilter()
+	{
 		$this->redirect('Individual:default');
 	}
 }

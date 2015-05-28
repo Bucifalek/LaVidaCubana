@@ -78,7 +78,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 				$this->flashMessage($e->getMessage(), FLASH_WARNING);
 				$this->redirect('Sign:in');
 			}
-			$this->userManager->updateActiveTime($this->getUser());
 		} else if (!$this->isLinkCurrent('Sign:*')) {
 			if (!$this->isLinkCurrent('Dashboard:default')) {
 				$this->flashMessage('Pro vstup musíte být přihlášen', FLASH_WARNING);
@@ -99,12 +98,6 @@ class BasePresenter extends Nette\Application\UI\Presenter
 		$this->template->branchList = $this->branchManager->getAll();
 		$this->template->currentBranch = $this->branchManager->getCurrent();
 		$this->template->branchName = $this->branchManager->getCurrentName();
-
-
-		$allowedRoutes = [
-			'Admin:Individual',
-		];
-		$this->template->sId = ($this->getAction() == "default" AND (in_array($this->getName(), $allowedRoutes))) ? "content_wrapper" : "content";
 	}
 
 	/**
@@ -213,8 +206,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
 					'Seznam správců|adress_book' => 'Users:default'
 				],
 			'Kontaktovat podporu|bug' => 'Support:contact',
-			'Export databáze|magic'   => "Helper:databaseExport",
-			'Návštěvnost|charts' => 'Visitors:default',
+			'Návštěvnost|charts'      => 'Visitors:default',
 		]);
 
 		return $menu;

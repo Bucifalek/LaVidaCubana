@@ -177,6 +177,7 @@ final class SignPresenter extends BasePresenter
 		$values = $form->values;
 		try {
 			$this->getUser()->login($values->email, $values->password);
+			$this->userManager->updateActiveTime($this->getUser());
 			$this->flashMessage('Nyní jste úspěšně přihlášen.', FLASH_SUCCESS);
 			$this->restoreRequest($this->backlink);
 		} catch (Nette\Security\AuthenticationException $e) {
