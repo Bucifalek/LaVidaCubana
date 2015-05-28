@@ -188,7 +188,7 @@ body {
 /*  ODKAZ  */
 .roznov_block > .explorer > .heading_text, .valmez_block > .explorer > .heading_text, .bowling_block > .explorer > .heading_text {
   width: 100%;
-  height: 289px;
+  height: auto;
   background: rgba(255, 255, 255, 0.15);
   padding-bottom: 20px;
   transition-property: background;
